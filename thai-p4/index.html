@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ภาษาพาที ป.๔ เทอม ๑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#2B1B3D; --muted:#6E5F7E; --line:#EADFCF;
+  --plum:#7B3F9E; --plum-soft:#F1E6F7; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#C8402F; --red-soft:#FBE3DF;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(75,40,110,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#C48BE6; --plum-soft:#382550; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FF8A73; --red-soft:#4A1F18;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#C48BE6; --plum-soft:#382550; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FF8A73; --red-soft:#4A1F18;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">ภาษาไทย · ชั้นประถมศึกษาปีที่ ๔ · ภาคเรียนที่ ๑</div>
+  <h1>ภาษา<span>พาที</span> ป.๔ เทอม ๑ — วิดีโอสอน + แบบทดสอบ</h1>
+  <div class="books">
+    <span class="book b1"><i></i>หนังสือเรียน ภาษาพาที ป.๔ (สพฐ.)</span>
+    <span class="book b2"><i></i>แบบฝึกหัด ภาษาไทย ป.๔ (พว.)</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📺 บทเรียน ๑–๘</a>
+    <a href="#workbook">✏️ แบบฝึกหัด พว.</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2><span style="white-space:nowrap">บทเรียน ภาษาพาที</span> เทอม ๑ (บทที่ ๑–๘)</h2>
+    <p>กดชื่อบทเพื่อเปิดวิดีโอสอน · แต่ละบทมีคลิปเสริมและเฉลยแบบฝึกหัด</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+  <div class="links" style="margin-top:12px">
+    <a href="https://www.youtube.com/playlist?list=PLiSQIKYQ253rjf8F-c7sWBSX3Dp4wJBTq" target="_blank" rel="noopener"><span class="tag">เพลย์ลิสต์</span> รวมวิดีโอ ภาษาพาที ป.๔ ทุกบท (YouTube)</a>
+    <a href="https://www.youtube.com/playlist?list=PLNv7Lb5FkYzW97cO3f3UePBsrfzhsBLHx" target="_blank" rel="noopener"><span class="tag k">เฉลย</span> เฉลยแบบฝึกหัดทักษะภาษา ป.๔ ทุกบท (YouTube)</a>
+    <a href="https://dltv.ac.th/teachplan/lists/4/1000/MjU2OCAvIDE=" target="_blank" rel="noopener"><span class="tag d">DLTV</span> แผนการสอน + วิดีโอ ภาษาไทย ป.๔ เทอม ๑ (มูลนิธิการศึกษาทางไกลผ่านดาวเทียม)</a>
+    <a href="https://online.anyflip.com/plnyc/nweh/mobile/index.html" target="_blank" rel="noopener"><span class="tag d">e-Book</span> เปิดอ่านหนังสือ ภาษาพาที ป.๔ ออนไลน์</a>
+  </div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>แบบฝึกหัด ภาษาไทย ป.๔ (พว.)</h2>
+    <p>เล่มปกส้ม-ฟ้า รูปม้ามังกร · ใช้ทบทวนหลักภาษาคู่กับภาษาพาที</p>
+  </div>
+  <div class="wb">
+    <div class="card">
+      <h3>เฉลยแบบฝึกหัด ป.๔ (พว.) ทั้งเล่ม</h3>
+      <p>เพลย์ลิสต์เฉลยทีละหน้า เหมาะใช้ตรวจการบ้าน</p>
+      <a class="btn btn-gold" href="https://www.youtube.com/playlist?list=PLSDRml9gqIdq41mVUv0OWPy0jwignql2s" target="_blank" rel="noopener">▶ เปิดเพลย์ลิสต์</a>
+    </div>
+    <div class="card">
+      <h3>ชนิดของคำ (คำนาม สรรพนาม กริยา)</h3>
+      <p>หลักภาษาไทย ป.๔ หน่วยที่ ๔ — เนื้อหาหลักเทอม ๑</p>
+      <a class="btn btn-teal" href="https://www.youtube.com/watch?v=9qI9y7n6egY" target="_blank" rel="noopener">▶ ดูวิดีโอ</a>
+    </div>
+    <div class="card">
+      <h3>เฉลย หน้า ๕๓–๕๔ (พว.)</h3>
+      <p>ตัวอย่างการเฉลยแบบฝึกหัดทีละข้อ</p>
+      <a class="btn btn-teal" href="https://www.youtube.com/watch?v=-9xMR2XFJY0" target="_blank" rel="noopener">▶ ดูวิดีโอ</a>
+    </div>
+    <div class="card">
+      <h3>ช่องทางการ พว. (IAD Learning)</h3>
+      <p>ช่อง YouTube ของสถาบันพัฒนาคุณภาพวิชาการ ผู้จัดทำแบบฝึกหัดเล่มนี้</p>
+      <a class="btn btn-ghost" href="https://www.youtube.com/@IAD_LEARNING" target="_blank" rel="noopener">เปิดช่อง</a>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>เลือกบทที่จะสอบ ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดจะถูกบันทึกไว้ในเครื่อง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามหัวข้อของแต่ละบทเพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,title:'ขนมไทยไร้เทียมทาน',focus:'การอ่านออกเสียง · คำควบกล้ำ · ขนมไทย',video:'V8y1IOc0dxc',
+   links:[['uRsAQkOMkZo','สรุปใจความสำคัญของเรื่อง','v'],['sutZVd2tEN4','อ่านบทเรียน ฉบับเต็ม','v'],['jgurRRTFl_o','เฉลยทักษะภาษา หน้า ๔','k']]},
+  {n:2,title:'ออมไว้กำไรชีวิต',focus:'การออม · สำนวนเกี่ยวกับเงิน · เงินตรา',video:'b0f-UYAd7d4',
+   links:[['Z3wmKtDK41I','อ่านบทเรียน ฉบับเต็ม','v'],['HKED12QOizo','สำนวน และเงินตรา','v'],['BBG2pHA5_1w','ห้องเรียนครูอาร์ม ตอน พากันอ่าน','v'],['2mqzhb9tOBY','เฉลยทักษะภาษา หน้า ๑๐','k'],['89rPZ8HbCTk','เฉลยทักษะภาษา หน้า ๑๑','k']]},
+  {n:3,title:'ผักสมุนไพรใบหญ้ามีคุณค่าทั้งนั้น',focus:'สมุนไพรไทย · การอ่านในใจ · คำศัพท์',video:'zlaw9VfEO1U',
+   links:[['2oimvhH1J7A','อ่านบทเรียน ตอนที่ ๑','v'],['ohJbpNUIytI','สื่อการสอน ฝึกอ่านในใจ','v'],['lPXpW6eMm9w','ภาษาไทย ป.๔ ผักสมุนไพร','v'],['dltv:81499','DLTV ผักสมุนไพรใบหญ้าฯ (มีใบงาน)','d']]},
+  {n:4,title:'ภูมิใจมรดกโลก',focus:'มรดกโลกในไทย · การเขียนย่อความ',video:'9iOD2lNDRkM',
+   links:[['9MW0-YDxStA','อ่านบทเรียน ฉบับเต็ม','v'],['uGS8qJYaFMI','บทเรียนออนไลน์ ภูมิใจมรดกโลก','v'],['02Xc9GGJ2EA','ภาษาพาที บทที่ ๔ (สรุป)','v'],['OnElRFqzjA8','เฉลยทักษะภาษา หน้า ๓๗','k']]},
+  {n:5,title:'ชีวิตที่ถูกเมิน',focus:'ความเมตตาต่อสัตว์ · การจับใจความ',video:'P-NWuCizky8',
+   links:[['wMM3DVtiNmY','ภาษาพาที บทที่ ๕ (อีกช่อง)','v']]},
+  {n:6,title:'โอม! พินิจมหาพิจารณา',focus:'ข้อเท็จจริง–ความคิดเห็น · การอ่านโฆษณา',video:'o-bKofoje4w',
+   links:[['dltv:81519','DLTV โอม! พินิจมหาพิจารณา (มีใบงาน)','d'],['pl:PLP1Mm4trw_zKqCjLDv6-X26AEzqP35c2A','เพลย์ลิสต์ ภาษาพาที ป.๔ (ครูทักษะภาษา)','v']]},
+  {n:7,title:'แรงพิโรธจากฟ้าดิน',focus:'ภัยธรรมชาติ · คำศัพท์ · การเขียนเรื่องจากภาพ',video:'SOVzsJeHkzA',
+   links:[['8DeMVBn3cvg','เรียนรู้คำศัพท์จากเรื่อง','v'],['EGXhPoYCMjM','เฉลยทักษะภาษา หน้า ๗๒','k']]},
+  {n:8,title:'ไวรัส วายร้าย',focus:'สุขภาพ · ไวรัส · การพูดรายงาน',video:'_SYWrdOD_4o',
+   links:[['COmujmi6Eq4','เฉลยทักษะภาษา หน้า ๘๐','k'],['fKZiwCa0Rv0','เฉลยทักษะภาษา หน้า ๘๖','k'],['dltv:81527','DLTV ไวรัส วายร้าย (มีใบงาน)','d']]},
+];
+
+// ---------- QUIZ BANK ----------
+// q: question, o: options, a: index of correct, e: explanation
+const BANK = {
+1:[
+ {q:'คำว่า “ไร้เทียมทาน” ในชื่อบท มีความหมายว่าอย่างไร',o:['ราคาถูกมาก','ไม่มีสิ่งใดเทียบได้','ทำได้ยากมาก','หาซื้อไม่ได้แล้ว'],a:1,e:'ไร้ = ไม่มี, เทียมทาน = เทียบเท่า ดังนั้น “ขนมไทยไร้เทียมทาน” คือ ขนมไทยที่ไม่มีอะไรเทียบได้'},
+ {q:'ขนมไทยข้อใดทำจาก “ไข่แดง” หยอดลงในน้ำเชื่อม',o:['ขนมชั้น','ทองหยอด','ขนมกล้วย','ข้าวเหนียวมูน'],a:1,e:'ทองหยอด ทองหยิบ ฝอยทอง เป็นขนมตระกูล “ทอง” ที่ทำจากไข่แดงและน้ำเชื่อม'},
+ {q:'ขนมชุดใดนิยมใช้ในงานมงคล เพราะชื่อมีความหมายดี',o:['ขนมครก ขนมถ้วย','ทองหยิบ ทองหยอด ฝอยทอง','กล้วยบวชชี','ขนมเปียกปูน'],a:1,e:'ชื่อมีคำว่า “ทอง” สื่อถึงความมั่งคั่ง จึงใช้ในงานแต่งงานและงานมงคล'},
+ {q:'คำใดออกเสียงเป็น “คำควบกล้ำแท้”',o:['ทราย','สร้าง','กรอบ','จริง'],a:2,e:'กรอบ ออกเสียง ก และ ร พร้อมกัน = ควบกล้ำแท้ ส่วน ทราย/สร้าง/จริง เป็นควบกล้ำไม่แท้ (ไม่ออกเสียง ร)'},
+ {q:'วัตถุดิบหลักที่พบในขนมไทยส่วนใหญ่คือข้อใด',o:['แป้ง น้ำตาล มะพร้าว','เนย นม ชีส','ช็อกโกแลต','ข้าวสาลี ยีสต์'],a:0,e:'ขนมไทยใช้ของที่มีในท้องถิ่น คือ แป้ง น้ำตาล และมะพร้าว (กะทิ) เป็นหลัก'},
+ {q:'ขนมไทยที่มีลักษณะเป็นชั้น ๆ หลายสี ต้องค่อย ๆ นึ่งทีละชั้น คือข้อใด',o:['ขนมชั้น','ขนมต้ม','ลูกชุบ','ขนมเทียน'],a:0,e:'ขนมชั้น ใช้แป้งผสมกะทิ นึ่งทีละชั้นจนได้ ๙ ชั้น ถือเป็นเลขมงคล'},
+],
+2:[
+ {q:'สำนวน “เก็บหอมรอมริบ” หมายถึงข้อใด',o:['ใช้เงินฟุ่มเฟือย','ค่อย ๆ เก็บออมทีละเล็กละน้อย','ยืมเงินคนอื่น','ซื้อของแพง'],a:1,e:'หอม/รอม/ริบ ล้วนแปลว่า รวบรวม จึงหมายถึงค่อย ๆ เก็บสะสม'},
+ {q:'สำนวน “น้ำขึ้นให้รีบตัก” สอนเรื่องใด',o:['ให้ตักน้ำตอนน้ำขึ้น','เมื่อมีโอกาสดีควรรีบทำ','ให้ประหยัดน้ำ','อย่าเล่นน้ำ'],a:1,e:'เปรียบโอกาสเหมือนน้ำขึ้น ถ้าไม่รีบตักไว้ น้ำก็จะลดลง'},
+ {q:'การออมเงินให้ประโยชน์อย่างไรมากที่สุด',o:['ได้อวดเพื่อน','มีเงินสำรองใช้ยามจำเป็น','ซื้อของเล่นได้เยอะ','ไม่ต้องทำงาน'],a:1,e:'เงินออมช่วยให้มีเงินใช้ในยามฉุกเฉินหรือทำสิ่งที่ตั้งใจไว้ = “กำไรชีวิต”'},
+ {q:'ข้อใดเป็นการใช้เงินอย่างประหยัดและถูกต้อง',o:['ซื้อทุกอย่างที่อยากได้','ซื้อเฉพาะสิ่งที่จำเป็น','ซื้อของเพราะเพื่อนมี','ยืมเงินมาซื้อขนม'],a:1,e:'ก่อนซื้อควรถามตัวเองว่า “จำเป็น” หรือแค่ “อยากได้”'},
+ {q:'คำว่า “กำไร” ในชื่อบท “ออมไว้กำไรชีวิต” หมายถึง',o:['ขาดทุน','ประโยชน์ที่ได้เพิ่มขึ้น','เงินทอน','ราคาสินค้า'],a:1,e:'กำไร คือ ส่วนที่ได้มากกว่าต้นทุน ในที่นี้คือชีวิตที่ดีขึ้นจากการออม'},
+ {q:'เหรียญและธนบัตรที่ใช้ซื้อของ เรียกรวมกันว่าอะไร',o:['เงินตรา','เงินเดือน','เงินทอน','เงินฝาก'],a:0,e:'เงินตรา คือ เงินที่รัฐกำหนดให้ใช้ชำระหนี้ได้ ทั้งเหรียญกษาปณ์และธนบัตร'},
+],
+3:[
+ {q:'สมุนไพรข้อใดช่วยขับลม แก้ท้องอืด',o:['ขิง','ผักบุ้ง','แตงกวา','ถั่วงอก'],a:0,e:'ขิง มีรสเผ็ดร้อน ช่วยขับลม แก้ท้องอืด แก้คลื่นไส้'},
+ {q:'คำว่า “ใบหญ้า” ในชื่อบทต้องการสื่อว่าอย่างไร',o:['หญ้าเป็นของไร้ค่า','แม้สิ่งเล็ก ๆ อย่างหญ้าก็มีคุณค่า','ควรถอนหญ้าทิ้ง','หญ้ากินไม่ได้'],a:1,e:'ชื่อบทบอกว่า ผัก สมุนไพร แม้แต่ใบหญ้า ก็ “มีคุณค่าทั้งนั้น”'},
+ {q:'ต้มยำ ใช้สมุนไพรข้อใดเป็นเครื่องปรุงหลัก',o:['ตะไคร้ ข่า ใบมะกรูด','กระเทียม หอมใหญ่','ผักกาด กะหล่ำ','แครอท มันฝรั่ง'],a:0,e:'ตะไคร้ ข่า ใบมะกรูด ให้กลิ่นหอมและมีสรรพคุณช่วยย่อย'},
+ {q:'การกินผักมีประโยชน์ต่อร่างกายอย่างไร',o:['ทำให้ง่วงนอน','ให้วิตามินและใยอาหาร ช่วยขับถ่าย','ทำให้อ้วน','ไม่มีประโยชน์'],a:1,e:'ผักให้วิตามิน เกลือแร่ และใยอาหาร ช่วยให้ระบบขับถ่ายดี'},
+ {q:'ฟ้าทะลายโจร มีสรรพคุณเด่นในข้อใด',o:['แก้ไข้ เจ็บคอ','บำรุงผม','ทำให้ผิวขาว','แก้ปวดฟัน'],a:0,e:'ฟ้าทะลายโจร มีรสขม ใช้แก้ไข้ แก้เจ็บคอ บรรเทาหวัด'},
+ {q:'กะเพรา มักใช้ทำอาหารจานใด และมีสรรพคุณอย่างไร',o:['ผัดกะเพรา · ขับลม แก้ท้องอืด','แกงจืด · แก้ปวดหัว','ส้มตำ · บำรุงสายตา','ข้าวผัด · แก้ปวดขา'],a:0,e:'กะเพรา มีกลิ่นฉุน รสเผ็ดร้อน ช่วยขับลมและช่วยย่อยอาหาร'},
+],
+4:[
+ {q:'“มรดกโลก” หมายถึงข้อใด',o:['สมบัติที่พ่อแม่ยกให้ลูก','สถานที่หรือสิ่งที่ยูเนสโกยกย่องว่ามีคุณค่าต่อมนุษยชาติ','ของเก่าในบ้าน','สวนสาธารณะ'],a:1,e:'องค์การยูเนสโก (UNESCO) ประกาศให้แหล่งที่มีคุณค่าโดดเด่นเป็น “มรดกโลก” เพื่อร่วมกันอนุรักษ์'},
+ {q:'ข้อใดเป็นมรดกโลกทาง “วัฒนธรรม” ของไทย',o:['อุทยานประวัติศาสตร์สุโขทัย','เขาใหญ่','ทะเลอันดามัน','ดอยอินทนนท์'],a:0,e:'สุโขทัย ศรีสัชนาลัย กำแพงเพชร และพระนครศรีอยุธยา เป็นมรดกโลกทางวัฒนธรรม'},
+ {q:'ข้อใดเป็นมรดกโลกทาง “ธรรมชาติ” ของไทย',o:['วัดพระแก้ว','เขตรักษาพันธุ์สัตว์ป่าทุ่งใหญ่นเรศวร–ห้วยขาแข้ง','ตลาดน้ำดำเนินสะดวก','สะพานข้ามแม่น้ำแคว'],a:1,e:'ทุ่งใหญ่นเรศวร–ห้วยขาแข้ง และผืนป่าดงพญาเย็น–เขาใหญ่ เป็นมรดกโลกทางธรรมชาติ'},
+ {q:'แหล่งโบราณคดี “บ้านเชียง” อยู่ในจังหวัดใด',o:['เชียงใหม่','อุดรธานี','สุโขทัย','อยุธยา'],a:1,e:'บ้านเชียง จ.อุดรธานี มีชื่อเสียงจากเครื่องปั้นดินเผาลายเขียนสีอายุหลายพันปี'},
+ {q:'เราควรปฏิบัติตนอย่างไรเมื่อไปเที่ยวมรดกโลก',o:['ขีดเขียนชื่อไว้เป็นที่ระลึก','ช่วยกันดูแล ไม่ทำลาย ไม่ทิ้งขยะ','ปีนโบราณสถานถ่ายรูป','หยิบเศษอิฐกลับบ้าน'],a:1,e:'มรดกโลกเป็นของทุกคน จึงต้องช่วยกันรักษาให้คงอยู่ถึงรุ่นลูกหลาน'},
+ {q:'ทำไมชื่อบทจึงใช้คำว่า “ภูมิใจ”',o:['เพราะไทยไม่มีมรดกโลก','เพราะไทยมีแหล่งมรดกโลกที่ทั่วโลกยอมรับ','เพราะไปเที่ยวฟรี','เพราะเป็นของต่างชาติ'],a:1,e:'การที่แหล่งของไทยได้รับการยกย่องระดับโลก เป็นสิ่งที่คนไทยควรภาคภูมิใจ'},
+],
+5:[
+ {q:'คำว่า “ถูกเมิน” มีความหมายว่าอย่างไร',o:['ถูกรัก','ถูกมองข้าม ไม่มีใครสนใจ','ถูกชม','ถูกเลี้ยงดูอย่างดี'],a:1,e:'เมิน = หันหน้าหนี ไม่สนใจ “ชีวิตที่ถูกเมิน” จึงหมายถึงชีวิตที่ถูกทอดทิ้ง'},
+ {q:'บท “ชีวิตที่ถูกเมิน” ต้องการสอนเรื่องใดเป็นสำคัญ',o:['การเล่นกีฬา','ความเมตตาและความรับผิดชอบต่อสัตว์','การทำอาหาร','การออมเงิน'],a:1,e:'เรื่องชวนให้เห็นใจสัตว์ที่ถูกทอดทิ้ง และไม่ทอดทิ้งสัตว์เลี้ยง'},
+ {q:'ถ้าพบสุนัขจรจัดที่ดูหิวโซ ควรทำอย่างไร',o:['ขว้างก้อนหินไล่','บอกผู้ใหญ่หรือหน่วยงานให้ช่วยเหลือ ไม่ทำร้าย','วิ่งไล่จับเอง','ไม่สนใจแล้วเดินผ่านไป'],a:1,e:'ควรมีเมตตาแต่ต้องปลอดภัย จึงควรแจ้งผู้ใหญ่หรือหน่วยงานที่ดูแลสัตว์'},
+ {q:'ข้อใดคือการเลี้ยงสัตว์อย่าง “รับผิดชอบ”',o:['เลี้ยงตอนเป็นลูกแล้วปล่อยทิ้งเมื่อโต','ให้อาหาร ดูแลสุขภาพ และไม่ทอดทิ้ง','ให้กินแค่วันละครั้งตอนอยากให้','ผูกไว้ทั้งวันไม่ต้องดูแล'],a:1,e:'การรับสัตว์มาเลี้ยงคือการรับผิดชอบชีวิตหนึ่งไปตลอด'},
+ {q:'คำใดมีความหมาย “ตรงข้าม” กับคำว่า เมิน',o:['ใส่ใจ','เบื่อ','เกลียด','ละเลย'],a:0,e:'เมิน = ไม่สนใจ ตรงข้ามคือ ใส่ใจ/เอาใจใส่'},
+ {q:'ข้อใดเป็น “ใจความสำคัญ” ของเรื่องที่มีสัตว์ถูกทอดทิ้ง',o:['สัตว์ทุกชีวิตมีค่า ควรได้รับความเมตตา','สัตว์ควรอยู่ในป่าเท่านั้น','ไม่ควรเลี้ยงสัตว์เลย','สัตว์เป็นภาระ'],a:0,e:'ใจความสำคัญคือแนวคิดหลักที่ผู้เขียนต้องการสื่อ ได้แก่ ความเมตตาต่อทุกชีวิต'},
+],
+6:[
+ {q:'“พินิจพิจารณา” หมายถึงข้อใด',o:['รีบตัดสินใจ','คิดไตร่ตรองอย่างรอบคอบ','เชื่อทันที','ไม่สนใจ'],a:1,e:'พินิจ = พิจารณาอย่างละเอียด บทนี้สอนให้คิดก่อนเชื่อ'},
+ {q:'ข้อใดเป็น “ข้อเท็จจริง”',o:['น้ำเดือดที่ ๑๐๐ องศาเซลเซียส','ฤดูหนาวน่าเที่ยวที่สุด','สีฟ้าสวยกว่าสีแดง','ข้าวผัดอร่อยที่สุด'],a:0,e:'ข้อเท็จจริง คือ สิ่งที่พิสูจน์ได้ว่าจริง ส่วนข้ออื่นเป็นความรู้สึกของแต่ละคน'},
+ {q:'ข้อใดเป็น “ความคิดเห็น”',o:['ประเทศไทยมี ๗๗ จังหวัด','๑ สัปดาห์มี ๗ วัน','ขนมร้านนี้อร่อยที่สุดในโลก','ดวงอาทิตย์ขึ้นทางทิศตะวันออก'],a:2,e:'“อร่อยที่สุด” เป็นความรู้สึกส่วนตัว พิสูจน์ไม่ได้ จึงเป็นความคิดเห็น'},
+ {q:'เมื่ออ่านโฆษณา ควรทำอย่างไร',o:['เชื่อทุกอย่างที่โฆษณาบอก','พิจารณาว่าจริงหรือไม่ก่อนตัดสินใจ','ซื้อทันทีถ้ามีดารา','ไม่ต้องอ่านรายละเอียด'],a:1,e:'โฆษณามักพูดเกินจริงเพื่อให้ซื้อ จึงต้อง “พินิจมหาพิจารณา” ก่อนเชื่อ'},
+ {q:'คำว่า “โอม!” ในชื่อบท เลียนแบบสิ่งใด',o:['เสียงร้องเพลง','คำขึ้นต้นการร่ายคาถา','เสียงหัวเราะ','เสียงรถ'],a:1,e:'“โอม” เป็นคำขึ้นต้นคาถา ผู้เขียนเล่นคำให้เหมือนคาถาแห่งการคิดวิเคราะห์'},
+ {q:'ประโยคใดใช้คำแสดงความคิดเห็น',o:['ฉันคิดว่าหนังเรื่องนี้สนุกมาก','โรงเรียนเปิดเวลา ๘ โมง','แม่น้ำเจ้าพระยาไหลลงอ่าวไทย','วันนี้เป็นวันจันทร์'],a:0,e:'คำว่า “ฉันคิดว่า” “น่าจะ” “คงจะ” เป็นสัญญาณของความคิดเห็น'},
+],
+7:[
+ {q:'คำว่า “พิโรธ” หมายถึงข้อใด',o:['ดีใจ','โกรธ','เศร้า','กลัว'],a:1,e:'พิโรธ เป็นคำราชาศัพท์/คำสูง แปลว่า โกรธ “แรงพิโรธจากฟ้าดิน” คือภัยจากธรรมชาติ'},
+ {q:'ข้อใดเป็นภัยธรรมชาติที่มาจาก “ฟ้า”',o:['พายุ ฟ้าผ่า','แผ่นดินไหว','ภูเขาไฟระเบิด','ดินถล่ม'],a:0,e:'พายุ ฟ้าผ่า ลูกเห็บ มาจากท้องฟ้า ส่วนแผ่นดินไหว ดินถล่ม ภูเขาไฟ มาจาก “ดิน”'},
+ {q:'แผ่นดินไหวเกิดจากสาเหตุใด',o:['ฝนตกหนัก','การเคลื่อนตัวของเปลือกโลก','ลมพัดแรง','คนเดินเยอะ'],a:1,e:'เปลือกโลกเคลื่อนตัวหรือรอยเลื่อนขยับ ทำให้พื้นดินสั่นสะเทือน'},
+ {q:'เมื่อเกิดแผ่นดินไหวขณะอยู่ในอาคาร ควรทำอย่างไร',o:['วิ่งลงบันไดทันที','ใช้ลิฟต์หนี','หมอบใต้โต๊ะที่แข็งแรง ป้องกันศีรษะ','ยืนใกล้หน้าต่าง'],a:2,e:'หลัก “หมอบ–ป้อง–เกาะ” (Drop–Cover–Hold) ป้องกันของหล่นใส่'},
+ {q:'“สึนามิ” คืออะไร',o:['คลื่นยักษ์ในทะเล มักเกิดหลังแผ่นดินไหวใต้ทะเล','พายุหมุน','หิมะถล่ม','ฝนตกหนักหลายวัน'],a:0,e:'สึนามิ เป็นคำญี่ปุ่น หมายถึงคลื่นท่า ไทยเคยประสบเมื่อ พ.ศ. ๒๕๔๗'},
+ {q:'การเตรียมตัวรับมือน้ำท่วมข้อใดเหมาะสม',o:['ติดตามข่าวและเตรียมของจำเป็นไว้','ออกไปเล่นน้ำ','เก็บของไว้ชั้นล่าง','ไม่ต้องทำอะไร'],a:0,e:'ควรติดตามประกาศเตือนภัย ยกของขึ้นที่สูง และเตรียมน้ำ อาหาร ยา ไฟฉาย'},
+],
+8:[
+ {q:'คำว่า “วายร้าย” หมายถึงข้อใด',o:['ผู้ช่วยเหลือ','ผู้ร้าย หรือสิ่งที่ก่อความเดือดร้อน','เพื่อนสนิท','คุณหมอ'],a:1,e:'วายร้าย = ตัวร้าย ไวรัสจึงเป็น “วายร้าย” ที่ทำให้เราป่วย'},
+ {q:'โรคใดเกิดจาก “ไวรัส”',o:['ไข้หวัดใหญ่','ฟันผุ','กระดูกหัก','แพ้อากาศ'],a:0,e:'ไข้หวัด ไข้หวัดใหญ่ ไข้เลือดออก โควิด-๑๙ ล้วนเกิดจากไวรัส'},
+ {q:'ข้อใดเป็นวิธีป้องกันไวรัสที่ถูกต้อง',o:['ใช้แก้วน้ำร่วมกับเพื่อน','ล้างมือบ่อย ๆ และสวมหน้ากากเมื่อป่วย','ไม่ต้องล้างมือก่อนกินข้าว','ไปเล่นกับเพื่อนที่ป่วย'],a:1,e:'ไวรัสติดต่อผ่านละอองไอจามและมือ การล้างมือจึงสำคัญที่สุด'},
+ {q:'“ไวรัสคอมพิวเตอร์” ทำอันตรายอย่างไร',o:['ทำให้คนเป็นหวัด','ทำให้ข้อมูลหรือโปรแกรมในเครื่องเสียหาย','ทำให้จอสว่างขึ้น','ทำให้เครื่องเร็วขึ้น'],a:1,e:'ไวรัสคอมพิวเตอร์คือโปรแกรมร้ายที่แพร่กระจายและทำลายข้อมูล เหมือนไวรัสในร่างกาย'},
+ {q:'เมื่อเป็นหวัด ควรปฏิบัติตนอย่างไร',o:['ไปโรงเรียนตามปกติโดยไม่สวมหน้ากาก','พักผ่อน ปิดปากเวลาไอจาม และสวมหน้ากาก','กินขนมเยอะ ๆ','เล่นน้ำให้หายร้อน'],a:1,e:'พักผ่อนให้พอ ดื่มน้ำ และป้องกันไม่ให้แพร่เชื้อสู่ผู้อื่น'},
+ {q:'การ “พูดรายงาน” หน้าชั้นเรื่องไวรัส ควรเริ่มต้นอย่างไร',o:['พูดเรื่องอื่นก่อน','กล่าวทักทาย บอกชื่อเรื่อง แล้วเล่าตามลำดับ','อ่านจากกระดาษโดยไม่มองผู้ฟัง','พูดเร็ว ๆ ให้จบ'],a:1,e:'การรายงานที่ดีต้องมีคำทักทาย บอกหัวข้อ เนื้อหาเรียงลำดับ และสรุปตอนท้าย'},
+],
+9:[ // หลักภาษา (แบบฝึกหัด พว.)
+ {q:'คำว่า “เมฆ” อยู่ในมาตราตัวสะกดใด',o:['แม่กก','แม่กด','แม่กบ','แม่กน'],a:0,e:'ฆ ออกเสียงเป็น /ก/ ท้ายคำ จึงอยู่ในแม่กก เช่นเดียวกับ นาค โรค'},
+ {q:'คำใดเป็น “คำนาม”',o:['วิ่ง','สวย','โรงเรียน','เร็ว'],a:2,e:'คำนามคือชื่อคน สัตว์ สิ่งของ สถานที่ “โรงเรียน” เป็นชื่อสถานที่'},
+ {q:'คำใดเป็น “คำสรรพนาม”',o:['เธอ','กิน','หนังสือ','สูง'],a:0,e:'สรรพนามใช้แทนคำนาม เช่น ฉัน เธอ เขา มัน ท่าน'},
+ {q:'ประโยค “น้องวิ่งเล่นในสนาม” คำใดเป็น “คำกริยา”',o:['น้อง','วิ่งเล่น','ใน','สนาม'],a:1,e:'คำกริยาแสดงอาการหรือการกระทำ ในที่นี้คือ วิ่งเล่น'},
+ {q:'คำใดเป็น “คำควบกล้ำไม่แท้”',o:['กลอง','ทราบ','ขวาน','ปลา'],a:1,e:'ทราบ ออกเสียงว่า ซาบ (ทร ออกเสียงเป็น ซ) จึงเป็นควบกล้ำไม่แท้'},
+ {q:'คำใดเป็น “อักษรนำ” ที่ ห นำ',o:['หนู','หัว','หาย','หิน'],a:0,e:'หนู มี ห นำ น โดย ห ไม่ออกเสียง แต่ทำให้ น เป็นเสียงสูง ส่วน หัว หาย หิน ห เป็นพยัญชนะต้นธรรมดา'},
+ {q:'คำใดเขียนถูกต้อง',o:['บรรได','บันได','บันไดร','บรรใด'],a:1,e:'คำที่ออกเสียง “บัน” ส่วนใหญ่ใช้ บัน- เช่น บันได บันทึก บันเทิง ยกเว้นบางคำใช้ บรร- เช่น บรรจุ บรรทัด'},
+ {q:'เครื่องหมาย “ๆ” ในคำว่า “เด็ก ๆ” เรียกว่าอะไร และใช้ทำอะไร',o:['ไปยาลน้อย · ละคำ','ไม้ยมก · ซ้ำคำ','อัศเจรีย์ · แสดงอารมณ์','ปรัศนี · ถามคำถาม'],a:1,e:'ไม้ยมก (ๆ) ใช้ซ้ำคำหรือข้อความที่อยู่ข้างหน้า อ่านว่า เด็กเด็ก'},
+]};
+const SET_NAMES = {1:'บทที่ ๑ ขนมไทยไร้เทียมทาน',2:'บทที่ ๒ ออมไว้กำไรชีวิต',3:'บทที่ ๓ ผักสมุนไพรฯ',4:'บทที่ ๔ ภูมิใจมรดกโลก',5:'บทที่ ๕ ชีวิตที่ถูกเมิน',6:'บทที่ ๖ โอม! พินิจมหาพิจารณา',7:'บทที่ ๗ แรงพิโรธจากฟ้าดิน',8:'บทที่ ๘ ไวรัส วายร้าย',9:'หลักภาษา (แบบฝึกหัด พว.)',all:'รวมทุกบท'};
+
+// ---------- storage ----------
+const KEY='thai-p4-t1-best';
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'เฉลย',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">▶ ดูวิดีโอ</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      <div class="video" data-video="${c.video}"></div>
+      <div class="links">
+        <a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    t.textContent=open?'▲ ซ่อนวิดีโอ':'▶ ดูวิดีโอ';
+    const v=el.querySelector('.video');
+    if(open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  qs=shuffle(pool()).map(q=>{const order=shuffle([0,1,2,3]);return {q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>
