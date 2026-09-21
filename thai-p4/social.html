@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>สังคมศึกษา ป.๔ เทอม ๑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#1B2E22; --muted:#5E7266; --line:#EADFCF;
+  --plum:#1F7A4D; --plum-soft:#E3F3E9; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#E0640F; --red-soft:#FFE8D6;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(30,90,60,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#7DD8A6; --plum-soft:#1D3A2B; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#7DD8A6; --plum-soft:#1D3A2B; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">📘 ภาษาไทย</a>
+    <a class="on" href="social.html">🌏 สังคมศึกษา</a>
+  </nav>
+  <div class="eyebrow">สังคมศึกษา ศาสนา และวัฒนธรรม · ชั้นประถมศึกษาปีที่ ๔ · ภาคเรียนที่ ๑</div>
+  <h1>สังคม<span>ศึกษา</span> ป.๔ เทอม ๑ — วิดีโอสอน + แบบทดสอบ</h1>
+  <div class="books">
+    <span class="book b1"><i></i>หนังสือเรียน สังคมศึกษา ศาสนา และวัฒนธรรม ป.๔ (พว.)</span>
+    <span class="book b2"><i></i>ศาสนา · หน้าที่พลเมือง · เศรษฐศาสตร์ · ภูมิศาสตร์</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📺 หน่วยการเรียนรู้ ๑–๘</a>
+    <a href="#workbook">📚 แหล่งเรียนรู้เพิ่มเติม</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>หน่วยการเรียนรู้ สังคมศึกษา ป.๔ (๑–๘)</h2>
+    <p>เรียงตามสาระในหนังสือ พว. · ศาสนา → หน้าที่พลเมือง → เศรษฐศาสตร์ → ภูมิศาสตร์ · กดเปิดวิดีโอ</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+  <div class="links" style="margin-top:12px">
+    <a href="https://www.youtube.com/playlist?list=PLV2iOM_EtNMyrJWBd7DiwLIkweTmNmqPQ" target="_blank" rel="noopener"><span class="tag">เพลย์ลิสต์</span> สังคมศึกษา ศาสนา และวัฒนธรรม ป.๔ ตามหนังสือเรียน (YouTube)</a>
+    <a href="https://www.youtube.com/playlist?list=PLp9siop-Zr7wVbl-gjclHUpdcUIcr5rxc" target="_blank" rel="noopener"><span class="tag d">DLTV</span> DLTV ป.๔ สังคมศึกษา ครบทุกคาบ (YouTube)</a>
+    <a href="https://dltv.ac.th/teachplan/lists/4/4000" target="_blank" rel="noopener"><span class="tag d">DLTV</span> แผนการสอน + ใบงาน สังคมศึกษา ป.๔ (dltv.ac.th)</a>
+    <a href="https://www.youtube.com/playlist?list=PLWL0ZkbthgO7rmv3Wr0zKZumQXT0RuMoZ" target="_blank" rel="noopener"><span class="tag">เพลย์ลิสต์</span> พระพุทธศาสนา ป.๔ (YouTube)</a>
+  </div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>แหล่งเรียนรู้เพิ่มเติม</h2>
+    <p>ใบงาน ข้อสอบ และหนังสือออนไลน์ สำหรับทบทวนก่อนสอบ</p>
+  </div>
+  <div class="wb">
+    <div class="card">
+      <h3>คู่มือครู พว. สังคมศึกษา ป.๔</h3>
+      <p>โครงสร้างหน่วยการเรียนรู้ของหนังสือเล่มนี้ พร้อมแนวการสอน</p>
+      <a class="btn btn-gold" href="https://anyflip.com/mbvdi/jvrb/basic" target="_blank" rel="noopener">เปิดอ่าน</a>
+    </div>
+    <div class="card">
+      <h3>ข้อสอบ สังคมศึกษา ป.๔ รายหน่วย</h3>
+      <p>ข้อสอบพร้อมเฉลย แยกตามหน่วย ใช้ฝึกเพิ่มจากแบบทดสอบในหน้านี้</p>
+      <a class="btn btn-teal" href="http://teacher-and-student.blogspot.com/p/social-p4-test.html" target="_blank" rel="noopener">เปิดข้อสอบ</a>
+    </div>
+    <div class="card">
+      <h3>แบบฝึกหัดออนไลน์ TruePlookpanya</h3>
+      <p>พลเมืองดีตามวิถีประชาธิปไตย ทำแล้วตรวจคำตอบได้ทันที</p>
+      <a class="btn btn-teal" href="https://www.trueplookpanya.com/examination2/start-exam/5288" target="_blank" rel="noopener">ทำแบบฝึกหัด</a>
+    </div>
+    <div class="card">
+      <h3>รวมสื่อการสอน สังคม ป.๔ (PDF)</h3>
+      <p>ใบงานและสรุปเนื้อหาให้ดาวน์โหลด</p>
+      <a class="btn btn-ghost" href="https://ingaplife.com/social-studies-teaching-materials-grade4/" target="_blank" rel="noopener">ดาวน์โหลด</a>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>เลือกหน่วยที่จะสอบ ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดบันทึกไว้ในเครื่อง · ข้อสอบสุ่มใหม่ทุกครั้ง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <label for="count" class="score-live">จำนวนข้อ</label>
+          <select id="count" class="chip" style="padding:8px 12px">
+            <option value="10">10 ข้อ</option>
+            <option value="20" selected>20 ข้อ</option>
+            <option value="30">30 ข้อ</option>
+            <option value="all">ทั้งหมด</option>
+          </select>
+          <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามหัวข้อของแต่ละหน่วยเพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,title:'ความสำคัญของพระพุทธศาสนาและพุทธประวัติ',focus:'ประสูติ · ออกผนวช · ตรัสรู้ · ปรินิพพาน',video:'wseDdh4i-wY',
+   links:[['BMAhbkBTESs','ความสำคัญของศาสนา หน่วยที่ ๑','v'],['sHMeKPwCzKw','พระพุทธฯ ป.๔ หน่วยที่ ๑ พุทธประวัติ','v'],['5ERquf8jke8','ความสำคัญของพระพุทธศาสนาและพุทธประวัติ (๒)','v'],['JohKHTmn_DE','คลิปการสอน พุทธประวัติ ป.๔','v']]},
+  {n:2,title:'พุทธสาวก ชาดก และพุทธศาสนิกชนตัวอย่าง',focus:'พระอุรุเวลกัสสปะ · กุฏิทูสกชาดก · มหาอุกกุสชาดก',video:'_uYHlB4UjvI',
+   links:[['6TwYaGeow5c','นิทานชาดก กุฏิทูสกชาดก (นกขมิ้นสอนลิงพาล)','v'],['dltv:84537','DLTV มหาอุกกุสชาดก (สัตว์สี่สหาย) มีใบงาน','d']]},
+  {n:3,title:'หลักธรรมนำชีวิต',focus:'พระรัตนตรัย · ไตรสิกขา · เบญจศีล–เบญจธรรม · โอวาท ๓',video:'QYaWotSRJL4',
+   links:[['180N6GNW2Uo','ไตรสิกขา สังคม ป.๔','v'],['dltv:54780','DLTV การบริหารจิตและเจริญปัญญา (มีใบงาน)','d']]},
+  {n:4,title:'ศาสนพิธีและวันสำคัญทางพระพุทธศาสนา',focus:'วิสาขบูชา · มาฆบูชา · อาสาฬหบูชา · การเวียนเทียน · การกราบไหว้',video:null,
+   links:[['https://altv.thaipbs.or.th/content/thaipbs-news/67c16c3c4a13b5ddf72117a0','ALTV Learn Small วันสำคัญทางพุทธศาสนา','v'],['pl:PLV2iOM_EtNMyrJWBd7DiwLIkweTmNmqPQ','เพลย์ลิสต์ สังคมศึกษา ศาสนา และวัฒนธรรม ป.๔ (ตามหนังสือเรียน)','v'],['https://www.trueplookpanya.com/examination2/start-exam/1265','แบบฝึกหัด วันสำคัญทางพระพุทธศาสนาและศาสนพิธี (TruePlookpanya)','k']]},
+  {n:5,title:'พลเมืองดีตามวิถีประชาธิปไตย',focus:'ประชาธิปไตย · เสียงข้างมาก · สถาบันหลักของชาติ',video:'6Sk9OE7QGA4',
+   links:[['zy5RT0vanFc','คุณธรรมในการเป็นพลเมืองที่ดี','v'],['pl:PLjrZnN4v4CibG0VUVF1q0HnJ0PtHhaD27','เพลย์ลิสต์ วิชาหน้าที่พลเมือง ป.๔','v'],['dltv:80265','DLTV พลเมืองดีตามวิถีประชาธิปไตย','d']]},
+  {n:6,title:'สิทธิเด็กและวัฒนธรรมไทย',focus:'สิทธิเด็ก ๔ ด้าน · สายด่วน ๑๓๐๐ · วัฒนธรรมท้องถิ่น',video:'zy5RT0vanFc',
+   links:[['dltv:59456','DLTV การปกป้องคุ้มครองสิทธิเด็กไทย','d'],['pl:PLjrZnN4v4CibG0VUVF1q0HnJ0PtHhaD27','เพลย์ลิสต์ วิชาหน้าที่พลเมือง ป.๔','v']]},
+  {n:7,title:'สินค้าและบริการ และเศรษฐกิจพอเพียง',focus:'ผู้บริโภค · เครื่องหมาย อย. · ๓ ห่วง ๒ เงื่อนไข',video:'GX740_xajzo',
+   links:[['IkeQXlkA2qo','การบริโภคสินค้าและบริการ สังคม ป.๔','v'],['LXdkVNq6XFs','เศรษฐศาสตร์เบื้องต้น','v'],['2RtOlBX8koo','เศรษฐกิจพอเพียง สังคมฯ ป.๔','v'],['dltv:61834','DLTV ความหมายสินค้าและบริการ (มีใบงาน)','d'],['dltv:80243','DLTV หลักปรัชญาของเศรษฐกิจพอเพียง','d']]},
+  {n:8,title:'แผนที่ และจังหวัดของเรา',focus:'องค์ประกอบแผนที่ · มาตราส่วน · ลักษณะทางกายภาพของจังหวัด',video:'HEl4-mL-8wo',
+   links:[['swQTTpst9HM','ลักษณะทางกายภาพของจังหวัด (๒)','v'],['VIXhlWqvcfs','ลักษณะทางกายภาพของจังหวัด (๔) IAD Learning','v'],['43L5cQXAaJE','บทแผนที่และเครื่องมือทางภูมิศาสตร์','v'],['https://altv.thaipbs.or.th/content/altv-news/65efd618b0cb646d2d33deae','ALTV Learn Small เครื่องมือทางภูมิศาสตร์','v']]},
+];
+const BANK = {
+1:[
+ {q:'พระพุทธเจ้าประสูติที่ใด',o:['สวนลุมพินีวัน','เมืองพาราณสี','เมืองกุสินารา','พุทธคยา'],a:0,e:'เจ้าชายสิทธัตถะประสูติที่สวนลุมพินีวัน ระหว่างกรุงกบิลพัสดุ์กับกรุงเทวทหะ ในวันเพ็ญเดือน ๖'},
+ {q:'พระนามเดิมของพระพุทธเจ้าคือข้อใด',o:['เจ้าชายราหุล','เจ้าชายสิทธัตถะ','เจ้าชายอานนท์','เจ้าชายเทวทัต'],a:1,e:'สิทธัตถะ แปลว่า ผู้สำเร็จความประสงค์'},
+ {q:'พระราชบิดาและพระราชมารดาของเจ้าชายสิทธัตถะคือใคร',o:['พระเจ้าพิมพิสาร และพระนางเวเทหิ','พระเจ้าสุทโธทนะ และพระนางสิริมหามายา','พระเจ้าปเสนทิโกศล และพระนางมัลลิกา','พระเจ้าอโศก และพระนางเทวี'],a:1,e:'พระเจ้าสุทโธทนะเป็นกษัตริย์แห่งกรุงกบิลพัสดุ์ พระนางสิริมหามายาสิ้นพระชนม์หลังประสูติได้ ๗ วัน'},
+ {q:'เทวทูต ๔ ที่เจ้าชายสิทธัตถะทอดพระเนตรเห็น คือข้อใด',o:['คนรวย คนจน คนดี คนชั่ว','คนแก่ คนเจ็บ คนตาย นักบวช','เทวดา พรหม ยักษ์ นาค','ช้าง ม้า วัว ควาย'],a:1,e:'การเห็นคนแก่ คนเจ็บ คนตาย ทำให้ทรงเห็นทุกข์ และการเห็นนักบวชทำให้ทรงคิดออกผนวช'},
+ {q:'เจ้าชายสิทธัตถะเสด็จออกผนวชเมื่อพระชนมายุเท่าไร',o:['๑๖ พรรษา','๒๙ พรรษา','๓๕ พรรษา','๘๐ พรรษา'],a:1,e:'ออกผนวชเมื่อ ๒๙ พรรษา ตรัสรู้เมื่อ ๓๕ พรรษา และปรินิพพานเมื่อ ๘๐ พรรษา'},
+ {q:'พระพุทธเจ้าตรัสรู้ใต้ต้นไม้ชนิดใด',o:['ต้นสาละ','ต้นไทร','ต้นพระศรีมหาโพธิ์','ต้นมะม่วง'],a:2,e:'ตรัสรู้ใต้ต้นพระศรีมหาโพธิ์ ริมฝั่งแม่น้ำเนรัญชรา ตำบลอุรุเวลาเสนานิคม (พุทธคยา)'},
+ {q:'พระพุทธเจ้าตรัสรู้เมื่อพระชนมายุเท่าไร',o:['๒๙ พรรษา','๓๕ พรรษา','๔๕ พรรษา','๘๐ พรรษา'],a:1,e:'ทรงบำเพ็ญเพียร ๖ ปี จึงตรัสรู้เมื่อ ๓๕ พรรษา ในวันเพ็ญเดือน ๖'},
+ {q:'พระพุทธเจ้าทรงแสดงปฐมเทศนาแก่ใคร',o:['ปัญจวัคคีย์','พระเจ้าพิมพิสาร','พระอานนท์','ยสกุลบุตร'],a:0,e:'ทรงแสดงธัมมจักกัปปวัตนสูตรแก่ปัญจวัคคีย์ที่ป่าอิสิปตนมฤคทายวัน เมืองพาราณสี'},
+ {q:'พระพุทธเจ้าเสด็จดับขันธปรินิพพานที่เมืองใด',o:['กบิลพัสดุ์','พาราณสี','กุสินารา','ราชคฤห์'],a:2,e:'ปรินิพพานใต้ต้นสาละคู่ ณ สาลวโนทยาน เมืองกุสินารา ในวันเพ็ญเดือน ๖'},
+ {q:'พระพุทธศาสนามีความสำคัญต่อสังคมไทยอย่างไร',o:['ทำให้คนไทยรวยขึ้น','เป็นรากฐานของวัฒนธรรมไทยและสอนให้คนเป็นคนดี','ใช้เฉพาะในวัดเท่านั้น','ไม่เกี่ยวกับชีวิตประจำวัน'],a:1,e:'ประเพณี ภาษา ศิลปะ และศีลธรรมของไทยล้วนได้รับอิทธิพลจากพระพุทธศาสนา'},
+],
+2:[
+ {q:'ก่อนบวชเป็นพระภิกษุ พระอุรุเวลกัสสปะนับถือลัทธิใด',o:['บูชาไฟ','บูชาพระอาทิตย์','บูชาต้นไม้','บูชาแม่น้ำ'],a:0,e:'ท่านเป็นหัวหน้าชฎิลบูชาไฟ มีบริวาร ๕๐๐ คน ต่อมาเลื่อมใสในพระพุทธเจ้าจึงขอบวช'},
+ {q:'หลังจากบวชแล้ว พระอุรุเวลกัสสปะช่วยพระพุทธเจ้าในเรื่องใด',o:['สร้างวัด','เผยแผ่พระพุทธศาสนาให้ชาวเมืองราชคฤห์เลื่อมใส','ปรุงอาหาร','ปกครองบ้านเมือง'],a:1,e:'ท่านประกาศตนต่อหน้าพระเจ้าพิมพิสารและชาวเมืองว่าเป็นสาวกของพระพุทธเจ้า ทำให้คนเลื่อมใสมาก'},
+ {q:'“ชาดก” หมายถึงข้อใด',o:['เรื่องเล่าเกี่ยวกับผี','เรื่องราวในอดีตชาติของพระพุทธเจ้า','ประวัติของพระสงฆ์','นิทานพื้นบ้านไทย'],a:1,e:'ชาดก เป็นเรื่องที่พระพุทธเจ้าทรงเล่าถึงอดีตชาติของพระองค์ เพื่อสอนคุณธรรม'},
+ {q:'กุฏิทูสกชาดก เป็นเรื่องของสัตว์ชนิดใด',o:['นกขมิ้นกับลิง','ช้างกับหนู','กระต่ายกับเต่า','เหยี่ยวกับปลา'],a:0,e:'นกขมิ้นสร้างรังอย่างดี ลิงพาลอิจฉาจึงทำลายรัง'},
+ {q:'กุฏิทูสกชาดก ให้ข้อคิดเรื่องใด',o:['ควรอิจฉาผู้อื่น','ไม่ควรทำลายสิ่งของหรือความสุขของผู้อื่นเพราะความอิจฉา','ควรทำลายรังนก','ลิงฉลาดกว่านก'],a:1,e:'ลิงพาลอิจฉานกที่มีรังดี จึงทำลายรัง ชาดกสอนว่าความริษยาและการทำลายเป็นสิ่งไม่ดี'},
+ {q:'มหาอุกกุสชาดก (สัตว์สี่สหาย) ให้ข้อคิดเรื่องใด',o:['สัตว์ควรอยู่คนเดียว','มิตรที่ดีย่อมช่วยเหลือกันในยามยาก','ไม่ควรมีเพื่อน','ควรทะเลาะกัน'],a:1,e:'เหยี่ยว นกออก เต่า และราชสีห์ ช่วยกันปกป้องลูกเหยี่ยวจากอันตราย แสดงถึงคุณค่าของมิตรภาพ'},
+ {q:'สมเด็จพระมหิตลาธิเบศร อดุลยเดชวิกรม พระบรมราชชนก ทรงได้รับการยกย่องว่าเป็นอะไร',o:['พระบิดาแห่งการแพทย์แผนปัจจุบันของไทย','พระบิดาแห่งการเกษตร','พระบิดาแห่งกฎหมายไทย','พระบิดาแห่งวิทยาศาสตร์ไทย'],a:0,e:'ทรงศึกษาแพทย์และวางรากฐานการแพทย์และสาธารณสุขไทย ทรงเสียสละเพื่อประชาชน'},
+ {q:'สมเด็จพระศรีนครินทราบรมราชชนนี (สมเด็จย่า) ทรงมีคุณธรรมเด่นในข้อใด',o:['ความเมตตาและเสียสละ ช่วยเหลือประชาชนในถิ่นทุรกันดาร','ความร่ำรวย','ความเก่งกีฬา','ความชอบท่องเที่ยว'],a:0,e:'ทรงก่อตั้งหน่วยแพทย์อาสา (พอ.สว.) และโครงการดอยตุง ช่วยชาวบ้านบนดอย'},
+ {q:'ผู้ที่ปฏิบัติตามหลักธรรมทางศาสนาจนเป็นแบบอย่างที่ดี เรียกว่าอะไร',o:['พุทธสาวก','พุทธศาสนิกชนตัวอย่าง','พระโพธิสัตว์','ชาดก'],a:1,e:'พุทธศาสนิกชนตัวอย่าง คือ ชาวพุทธที่ทำความดีจนควรยึดเป็นแบบอย่าง'},
+ {q:'เราควรนำข้อคิดจากชาดกไปใช้อย่างไร',o:['เล่าให้เพื่อนฟังอย่างเดียว','นำคุณธรรมในเรื่องมาปฏิบัติในชีวิตประจำวัน','ท่องจำชื่อสัตว์','วาดรูปสัตว์'],a:1,e:'ชาดกมีไว้เพื่อสอนคุณธรรม เช่น ความไม่ริษยา มิตรภาพ จึงควรนำไปปฏิบัติจริง'},
+],
+3:[
+ {q:'พระรัตนตรัย ประกอบด้วยอะไรบ้าง',o:['พระพุทธ พระธรรม พระสงฆ์','ศีล สมาธิ ปัญญา','ทาน ศีล ภาวนา','พ่อ แม่ ครู'],a:0,e:'รัตนตรัย แปลว่า แก้ว ๓ ประการ คือ พระพุทธ พระธรรม พระสงฆ์'},
+ {q:'ไตรสิกขา ประกอบด้วยอะไรบ้าง',o:['ทาน ศีล ภาวนา','ศีล สมาธิ ปัญญา','เมตตา กรุณา มุทิตา','กาย วาจา ใจ'],a:1,e:'ไตรสิกขา คือ ข้อปฏิบัติ ๓ อย่าง ได้แก่ ศีล (ฝึกกายวาจา) สมาธิ (ฝึกจิต) ปัญญา (ฝึกความรู้)'},
+ {q:'เบญจศีล ข้อที่ ๑ คือข้อใด',o:['เว้นจากการลักทรัพย์','เว้นจากการฆ่าสัตว์','เว้นจากการพูดเท็จ','เว้นจากการดื่มสุรา'],a:1,e:'ศีล ๕ ข้อ ๑ ปาณาติปาตา เวรมณี = เว้นจากการฆ่าสัตว์'},
+ {q:'เบญจศีล ข้อที่ ๒ คือข้อใด',o:['เว้นจากการลักทรัพย์','เว้นจากการฆ่าสัตว์','เว้นจากการประพฤติผิดในกาม','เว้นจากการพูดเท็จ'],a:0,e:'ข้อ ๒ อทินนาทานา เวรมณี = เว้นจากการลักขโมย'},
+ {q:'เบญจศีล ข้อที่ ๕ คือข้อใด',o:['เว้นจากการพูดเท็จ','เว้นจากการดื่มสุราและของมึนเมา','เว้นจากการลักทรัพย์','เว้นจากการฆ่าสัตว์'],a:1,e:'ข้อ ๕ สุราเมรยมัชชปมาทัฏฐานา เวรมณี = เว้นจากสุราและสิ่งเสพติดที่ทำให้ขาดสติ'},
+ {q:'เบญจธรรม ข้อที่คู่กับศีลข้อ ๑ (ไม่ฆ่าสัตว์) คือข้อใด',o:['สัมมาอาชีวะ','เมตตากรุณา','สัจจะ','สติสัมปชัญญะ'],a:1,e:'เบญจธรรม คือ ธรรมที่ควรทำคู่กับศีล เมตตากรุณาคู่กับการไม่ฆ่า'},
+ {q:'เบญจธรรม ข้อที่คู่กับศีลข้อ ๔ (ไม่พูดเท็จ) คือข้อใด',o:['สัจจะ (พูดความจริง)','เมตตากรุณา','สัมมาอาชีวะ','สติ'],a:0,e:'ไม่พูดเท็จคู่กับการมีสัจจะ พูดจริง ทำจริง'},
+ {q:'“สมาธิ” ในไตรสิกขา หมายถึงข้อใด',o:['การนอนหลับ','การฝึกจิตให้ตั้งมั่นและสงบ','การอ่านหนังสือ','การวิ่งเร็ว'],a:1,e:'สมาธิ คือ ความตั้งมั่นแห่งจิต ฝึกได้ด้วยการกำหนดลมหายใจ'},
+ {q:'โอวาท ๓ ของพระพุทธเจ้า คือข้อใด',o:['กิน นอน เล่น','ไม่ทำชั่ว ทำความดี ทำจิตให้ผ่องใส','เรียน ทำงาน พักผ่อน','ทาน ศีล ภาวนา'],a:1,e:'โอวาทปาติโมกข์ สรุปหลักคำสอนเป็น ๓ ข้อ ทรงแสดงในวันมาฆบูชา'},
+ {q:'นักเรียนควรบริหารจิตและเจริญปัญญาอย่างไร',o:['เล่นเกมนาน ๆ','นั่งสมาธิ กำหนดลมหายใจเข้า–ออก มีสติในสิ่งที่ทำ','ดูโทรทัศน์','นอนกลางวัน'],a:1,e:'การนั่งสมาธิและมีสติช่วยให้จิตใจสงบ เรียนรู้ได้ดีขึ้น'},
+],
+4:[
+ {q:'วันวิสาขบูชา สำคัญเพราะเป็นวันที่พระพุทธเจ้าทรงทำสิ่งใด',o:['แสดงปฐมเทศนา','ประสูติ ตรัสรู้ และปรินิพพาน','แสดงโอวาทปาติโมกข์','เสด็จออกผนวช'],a:1,e:'ทั้ง ๓ เหตุการณ์เกิดในวันเพ็ญเดือน ๖ ต่างปีกัน จึงถือเป็นวันสำคัญที่สุด'},
+ {q:'วันมาฆบูชา มีเหตุการณ์สำคัญใด',o:['พระสงฆ์ ๑,๒๕๐ รูปมาประชุมพร้อมกันโดยมิได้นัดหมาย','พระพุทธเจ้าประสูติ','พระพุทธเจ้าตรัสรู้','เกิดพระสงฆ์รูปแรก'],a:0,e:'เรียกว่า จาตุรงคสันนิบาต พระพุทธเจ้าทรงแสดงโอวาทปาติโมกข์ ตรงกับวันเพ็ญเดือน ๓'},
+ {q:'วันอาสาฬหบูชา มีความสำคัญอย่างไร',o:['วันประสูติ','วันแสดงปฐมเทศนา และเกิดพระสงฆ์รูปแรก ทำให้มีพระรัตนตรัยครบ','วันปรินิพพาน','วันออกพรรษา'],a:1,e:'ตรงกับวันเพ็ญเดือน ๘ พระอัญญาโกณฑัญญะบรรลุธรรมและบวชเป็นพระสงฆ์รูปแรก'},
+ {q:'วันเข้าพรรษา ตรงกับวันใด',o:['ขึ้น ๑๕ ค่ำ เดือน ๖','แรม ๑ ค่ำ เดือน ๘','ขึ้น ๑๕ ค่ำ เดือน ๓','ขึ้น ๑๕ ค่ำ เดือน ๑๑'],a:1,e:'วันถัดจากวันอาสาฬหบูชา พระสงฆ์จะอยู่ประจำวัด ๓ เดือนในฤดูฝน'},
+ {q:'การเวียนเทียน ปฏิบัติอย่างไร',o:['เดินเวียนซ้ายรอบโบสถ์ ๑ รอบ','เดินเวียนขวารอบพระอุโบสถ ๓ รอบ พร้อมดอกไม้ ธูป เทียน','วิ่งรอบวัด','นั่งจุดเทียนอยู่กับที่'],a:1,e:'เวียนขวา (ประทักษิณ) ๓ รอบ ระลึกถึงพระพุทธ พระธรรม พระสงฆ์ รอบละ ๑ อย่าง'},
+ {q:'การกราบแบบ “เบญจางคประดิษฐ์” ให้อวัยวะ ๕ ส่วนใดจรดพื้น',o:['ศีรษะ มือ ๒ เท้า ๒','หน้าผาก ฝ่ามือ ๒ เข่า ๒','คาง มือ ๒ เข่า ๒','หน้าผาก ศอก ๒ เท้า ๒'],a:1,e:'เบญจางค์ = อวัยวะ ๕ ส่วน ใช้กราบพระรัตนตรัย'},
+ {q:'การตักบาตร ควรปฏิบัติอย่างไร',o:['ใส่รองเท้าและพูดคุยกับพระ','ถอดรองเท้า ไม่พูดคุยขณะใส่บาตร ตั้งจิตเป็นกุศล','ยืนสูงกว่าพระ','ใส่ของที่หมดอายุ'],a:1,e:'การตักบาตรควรทำด้วยความเคารพ สำรวม และเตรียมอาหารที่สะอาด'},
+ {q:'การไหว้พระสงฆ์ ควรวางนิ้วหัวแม่มือไว้ที่ใด',o:['ที่คาง','ระหว่างคิ้ว','ที่อก','ที่ปลายจมูก'],a:1,e:'ไหว้พระรัตนตรัยและพระสงฆ์ ประนมมือให้หัวแม่มือจรดระหว่างคิ้ว ปลายนิ้วชี้จรดหน้าผาก'},
+ {q:'พิธีกรรมทางศาสนาที่นิยมจัดในงานมงคล เช่น ขึ้นบ้านใหม่ คือข้อใด',o:['ทำบุญเลี้ยงพระ','เผาศพ','บวชนาค','เวียนเทียน'],a:0,e:'งานมงคลนิยมนิมนต์พระมาสวดมนต์และถวายภัตตาหาร เพื่อความเป็นสิริมงคล'},
+ {q:'การอาราธนาศีล ขึ้นต้นด้วยคำใด',o:['อะระหัง สัมมา...','มะยัง ภันเต วิสุง วิสุง รักขะนัตถายะ...','นะโม ตัสสะ...','อิมานิ มะยัง ภันเต...'],a:1,e:'คำอาราธนาศีล ๕ ใช้ขอศีลจากพระสงฆ์ก่อนพิธี ส่วน “นะโม” คือบทนมัสการ'},
+],
+5:[
+ {q:'“ประชาธิปไตย” หมายถึงข้อใด',o:['การปกครองที่คนเดียวมีอำนาจ','การปกครองที่ประชาชนมีส่วนร่วมและเป็นเจ้าของอำนาจ','การปกครองโดยทหาร','การปกครองโดยคนรวย'],a:1,e:'ประชา = ประชาชน, อธิปไตย = อำนาจสูงสุด คือ ประชาชนเป็นใหญ่'},
+ {q:'ประเทศไทยมีการปกครองระบอบใด',o:['ประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข','สังคมนิยม','เผด็จการ','สาธารณรัฐ'],a:0,e:'ไทยเป็นประชาธิปไตยที่มีพระมหากษัตริย์ทรงเป็นประมุขของประเทศ'},
+ {q:'ข้อใดเป็นหลักการสำคัญของประชาธิปไตย',o:['ใครเสียงดังชนะ','เคารพเสียงข้างมาก และรับฟังเสียงข้างน้อย','ทำตามคนที่รวยที่สุด','ไม่ต้องรับฟังใคร'],a:1,e:'ตัดสินใจตามเสียงข้างมาก แต่ต้องเคารพสิทธิของเสียงข้างน้อยด้วย'},
+ {q:'การเลือกหัวหน้าห้องโดยให้ทุกคนลงคะแนน เป็นการใช้หลักใด',o:['หลักเสียงข้างมาก','หลักความรุนแรง','หลักอาวุโส','หลักบังคับ'],a:0,e:'การลงคะแนนเสียงเป็นวิธีตัดสินใจร่วมกันแบบประชาธิปไตย'},
+ {q:'สถาบันหลักของชาติไทย มีอะไรบ้าง',o:['บ้าน วัด โรงเรียน','ชาติ ศาสนา พระมหากษัตริย์','ทหาร ตำรวจ ครู','พ่อ แม่ ลูก'],a:1,e:'ธงชาติไทยแทน ๓ สถาบัน สีแดง = ชาติ สีขาว = ศาสนา สีน้ำเงิน = พระมหากษัตริย์'},
+ {q:'ข้อใดเป็นการปฏิบัติตนเป็นพลเมืองดีในโรงเรียน',o:['มาสาย','ปฏิบัติตามกฎระเบียบและช่วยเหลือเพื่อน','แกล้งเพื่อน','ขีดเขียนโต๊ะเรียน'],a:1,e:'พลเมืองดีเริ่มจากมีวินัย รับผิดชอบ และเคารพผู้อื่น'},
+ {q:'คุณธรรมของพลเมืองดี ได้แก่ข้อใด',o:['ซื่อสัตย์ มีวินัย รับผิดชอบ เสียสละ','เห็นแก่ตัว','พูดโกหก','ขี้เกียจ'],a:0,e:'คุณธรรมเหล่านี้ทำให้อยู่ร่วมกันในสังคมได้อย่างสงบสุข'},
+ {q:'เมื่อเพื่อนในกลุ่มมีความเห็นต่างจากเรา ควรทำอย่างไร',o:['ทะเลาะกัน','รับฟังเหตุผลของกันและกัน แล้วตัดสินใจร่วมกัน','ไม่คุยด้วยอีก','บังคับให้ทำตามเรา'],a:1,e:'การรับฟังความเห็นต่างอย่างมีเหตุผลเป็นวิถีประชาธิปไตย'},
+ {q:'อำนาจอธิปไตยแบ่งเป็น ๓ ฝ่าย คือข้อใด',o:['นิติบัญญัติ บริหาร ตุลาการ','ทหาร ตำรวจ ศาล','รัฐบาล ประชาชน พระมหากษัตริย์','จังหวัด อำเภอ ตำบล'],a:0,e:'นิติบัญญัติ (ออกกฎหมาย) บริหาร (รัฐบาล) ตุลาการ (ศาล)'},
+ {q:'หน้าที่ของนักเรียนต่อประเทศชาติ คือข้อใด',o:['ตั้งใจเรียน รักษาความสะอาด เคารพกฎหมาย','ไม่ต้องทำอะไรจนกว่าจะโต','ทิ้งขยะที่ไหนก็ได้','ไม่ยืนตรงเคารพธงชาติ'],a:0,e:'เด็กเป็นพลเมืองของชาติ การทำหน้าที่ของตนให้ดีคือการช่วยชาติ'},
+],
+6:[
+ {q:'สิทธิเด็กขั้นพื้นฐาน ๔ ด้าน ได้แก่ข้อใด',o:['สิทธิที่จะมีชีวิตรอด ได้รับการปกป้อง ได้รับการพัฒนา และมีส่วนร่วม','สิทธิเล่นเกม ดูทีวี กินขนม นอนดึก','สิทธิขับรถ เลือกตั้ง ทำงาน แต่งงาน','สิทธิไม่ไปโรงเรียน'],a:0,e:'ตามอนุสัญญาว่าด้วยสิทธิเด็กของสหประชาชาติ ซึ่งไทยร่วมลงนาม'},
+ {q:'ข้อใดเป็นสิทธิด้าน “การพัฒนา” ของเด็ก',o:['ได้รับการศึกษาและมีเวลาเล่น','ถูกใช้แรงงานหนัก','ถูกทำร้าย','ไม่ได้กินอาหาร'],a:0,e:'เด็กมีสิทธิได้เรียนหนังสือ พักผ่อน เล่น และพัฒนาตนเอง'},
+ {q:'หากเด็กถูกทำร้ายหรือถูกทอดทิ้ง ควรทำอย่างไร',o:['เก็บไว้คนเดียว','บอกครูหรือผู้ใหญ่ที่ไว้ใจ หรือโทรสายด่วน ๑๓๐๐','หนีออกจากบ้าน','ทำร้ายกลับ'],a:1,e:'สายด่วน ๑๓๐๐ ศูนย์ช่วยเหลือสังคม รับแจ้งเหตุเด็กถูกทำร้าย ตลอด ๒๔ ชั่วโมง'},
+ {q:'สายด่วนศูนย์ช่วยเหลือสังคม คือหมายเลขใด',o:['๑๙๑','๑๖๖๙','๑๓๐๐','๑๑๑๒'],a:2,e:'๑๓๐๐ = ศูนย์ช่วยเหลือสังคม, ๑๙๑ = ตำรวจ, ๑๖๖๙ = เจ็บป่วยฉุกเฉิน'},
+ {q:'“วัฒนธรรม” หมายถึงข้อใด',o:['สิ่งที่คนในสังคมสร้างขึ้นและปฏิบัติสืบต่อกันมา','สิ่งที่เกิดขึ้นเองตามธรรมชาติ','ของเล่นสมัยใหม่','กฎหมายของประเทศ'],a:0,e:'วัฒนธรรมรวมถึงภาษา การแต่งกาย อาหาร ประเพณี และมารยาท'},
+ {q:'ข้อใดเป็นวัฒนธรรมไทย',o:['การไหว้','การจับมือทักทาย','การโค้งคำนับ','การจูบแก้ม'],a:0,e:'การไหว้เป็นการทักทายและแสดงความเคารพแบบไทย'},
+ {q:'ประเพณีใดเป็นวัฒนธรรมท้องถิ่นของภาคเหนือ',o:['ประเพณียี่เป็ง (ลอยโคม)','บุญบั้งไฟ','ชักพระ','วิ่งควาย'],a:0,e:'ยี่เป็งเป็นประเพณีลอยกระทงและปล่อยโคมของชาวล้านนา'},
+ {q:'ประเพณีใดเป็นวัฒนธรรมท้องถิ่นของภาคตะวันออกเฉียงเหนือ (อีสาน)',o:['ประเพณีบุญบั้งไฟ','ประเพณียี่เป็ง','ประเพณีชักพระ','ประเพณีรับบัว'],a:0,e:'บุญบั้งไฟจัดเพื่อขอฝนก่อนฤดูทำนา มีชื่อเสียงที่จังหวัดยโสธร'},
+ {q:'เราจะช่วยอนุรักษ์วัฒนธรรมไทยได้อย่างไร',o:['ใช้ภาษาไทยให้ถูกต้อง เข้าร่วมประเพณีท้องถิ่น','เลิกไหว้','พูดภาษาต่างประเทศเท่านั้น','ไม่สนใจประเพณี'],a:0,e:'การเรียนรู้ ปฏิบัติ และภูมิใจในวัฒนธรรมของตนคือการอนุรักษ์'},
+ {q:'ประเพณีสงกรานต์ คือข้อใด',o:['วันขึ้นปีใหม่ไทย มีการรดน้ำดำหัวผู้ใหญ่','วันลอยกระทง','วันเข้าพรรษา','วันเด็ก'],a:0,e:'สงกรานต์ ๑๓–๑๕ เมษายน เป็นปีใหม่ไทย มีการสรงน้ำพระและรดน้ำขอพรผู้ใหญ่'},
+],
+7:[
+ {q:'“สินค้า” หมายถึงข้อใด',o:['สิ่งของที่จับต้องได้ ใช้ตอบสนองความต้องการของคน','การกระทำที่จับต้องไม่ได้','เงินตรา','ธนาคาร'],a:0,e:'สินค้า เช่น ข้าว เสื้อผ้า ดินสอ เป็นสิ่งที่มีตัวตน จับต้องได้'},
+ {q:'“บริการ” หมายถึงข้อใด',o:['สิ่งของที่ซื้อจากตลาด','การกระทำที่ตอบสนองความต้องการ จับต้องไม่ได้ เช่น ตัดผม','เงินเดือน','ของขวัญ'],a:1,e:'บริการไม่มีตัวตน แต่ให้ประโยชน์ เช่น การตัดผม การรักษาพยาบาล การขนส่ง'},
+ {q:'ข้อใดเป็น “บริการ”',o:['ข้าวสาร','การรักษาพยาบาล','สมุด','รองเท้า'],a:1,e:'การรักษาพยาบาลเป็นการกระทำของแพทย์ ไม่ใช่สิ่งของ จึงเป็นบริการ'},
+ {q:'“ผู้บริโภค” หมายถึงใคร',o:['ผู้ผลิตสินค้า','ผู้ซื้อหรือใช้สินค้าและบริการ','เจ้าของโรงงาน','คนขับรถส่งของ'],a:1,e:'ทุกคนเป็นผู้บริโภคเมื่อซื้อของหรือใช้บริการ'},
+ {q:'ก่อนซื้อสินค้า ผู้บริโภคที่ดีควรตรวจสอบสิ่งใด',o:['สีสวยหรือไม่','วันหมดอายุ ราคา คุณภาพ และเครื่องหมายรับรอง','เพื่อนซื้อหรือไม่','โฆษณาดังหรือไม่'],a:1,e:'การตรวจสอบก่อนซื้อช่วยให้ได้ของดี ปลอดภัย และคุ้มค่า'},
+ {q:'เครื่องหมาย “อย.” บนสินค้า รับรองเรื่องใด',o:['ราคาถูก','อาหารและยาผ่านการตรวจสอบว่าปลอดภัยจากสำนักงานคณะกรรมการอาหารและยา','รสชาติอร่อย','ผลิตในต่างประเทศ'],a:1,e:'อย. ย่อมาจาก สำนักงานคณะกรรมการอาหารและยา รับรองความปลอดภัยของอาหาร ยา เครื่องสำอาง'},
+ {q:'หลักปรัชญาของเศรษฐกิจพอเพียง “๓ ห่วง” คือข้อใด',o:['พอประมาณ มีเหตุผล มีภูมิคุ้มกัน','รวย เร็ว มาก','กิน เที่ยว ซื้อ','ประหยัด อดทน ขยัน'],a:0,e:'๓ ห่วง = ความพอประมาณ ความมีเหตุผล การมีภูมิคุ้มกันในตัวที่ดี'},
+ {q:'หลักปรัชญาของเศรษฐกิจพอเพียง “๒ เงื่อนไข” คือข้อใด',o:['เงินและเวลา','ความรู้และคุณธรรม','บ้านและรถ','กินและนอน'],a:1,e:'ต้องใช้ความรู้ (รอบรู้ รอบคอบ) และคุณธรรม (ซื่อสัตย์ ขยัน อดทน) ควบคู่กัน'},
+ {q:'หลักปรัชญาของเศรษฐกิจพอเพียง เป็นแนวพระราชดำริของพระมหากษัตริย์พระองค์ใด',o:['รัชกาลที่ ๕','รัชกาลที่ ๙','รัชกาลที่ ๑','รัชกาลที่ ๗'],a:1,e:'พระบาทสมเด็จพระบรมชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร (รัชกาลที่ ๙)'},
+ {q:'ข้อใดเป็นการใช้ทรัพยากรอย่างประหยัดตามแนวเศรษฐกิจพอเพียง',o:['เปิดไฟทิ้งไว้ทั้งวัน','ปิดน้ำปิดไฟเมื่อไม่ใช้ และใช้ถุงผ้าแทนถุงพลาสติก','ซื้อของใหม่ทุกครั้งที่อยากได้','ทิ้งอาหารที่กินไม่หมด'],a:1,e:'พอเพียง คือ ใช้เท่าที่จำเป็น ไม่ฟุ่มเฟือย และคิดถึงอนาคต'},
+],
+8:[
+ {q:'องค์ประกอบสำคัญของแผนที่ มีอะไรบ้าง',o:['ชื่อแผนที่ ทิศ มาตราส่วน และคำอธิบายสัญลักษณ์','สี กระดาษ ปากกา','ชื่อคนวาด วันที่','รูปภาพ การ์ตูน'],a:0,e:'ทั้ง ๔ อย่างช่วยให้อ่านแผนที่ได้ถูกต้อง'},
+ {q:'มาตราส่วน ๑ : ๑๐๐,๐๐๐ หมายความว่าอย่างไร',o:['๑ ซม. ในแผนที่ = ๑๐๐,๐๐๐ ซม. (๑ กม.) ในพื้นที่จริง','๑ กม. ในแผนที่ = ๑ ซม. จริง','แผนที่ใหญ่กว่าของจริง','๑ ซม. = ๑ เมตร'],a:0,e:'มาตราส่วนคืออัตราส่วนระหว่างระยะในแผนที่กับระยะจริง'},
+ {q:'สีน้ำเงินหรือฟ้าในแผนที่ มักใช้แทนสิ่งใด',o:['ภูเขา','แหล่งน้ำ เช่น แม่น้ำ ทะเล','ป่าไม้','ถนน'],a:1,e:'สีในแผนที่ภูมิประเทศ: น้ำเงิน = น้ำ, เขียว = ที่ราบ, เหลือง/น้ำตาล = ที่สูงและภูเขา'},
+ {q:'สีเขียวในแผนที่ภูมิประเทศ มักใช้แทนสิ่งใด',o:['ที่ราบและป่าไม้','ทะเล','ภูเขาสูง','ทะเลทราย'],a:0,e:'สีเขียวแทนพื้นที่ราบต่ำ ยิ่งสูงขึ้นสีจะเปลี่ยนเป็นเหลืองและน้ำตาล'},
+ {q:'โดยทั่วไป ทิศเหนือของแผนที่อยู่ด้านใด',o:['ด้านล่าง','ด้านบน','ด้านซ้าย','ด้านขวา'],a:1,e:'แผนที่ส่วนใหญ่วางทิศเหนือไว้ด้านบน และมีลูกศรบอกทิศกำกับ'},
+ {q:'ข้อใดเป็นเครื่องมือทางภูมิศาสตร์',o:['แผนที่ ลูกโลก เข็มทิศ ภาพถ่ายทางอากาศ','ดินสอ ยางลบ ไม้บรรทัด','กล้องถ่ายรูป โทรศัพท์','กระทะ หม้อ ตะหลิว'],a:0,e:'เครื่องมือทางภูมิศาสตร์ช่วยศึกษาลักษณะของพื้นที่และตำแหน่งต่าง ๆ'},
+ {q:'ลักษณะทางกายภาพของจังหวัด ประกอบด้วยอะไรบ้าง',o:['ภูมิประเทศ ภูมิอากาศ และทรัพยากรธรรมชาติ','ประชากร ภาษา อาหาร','โรงเรียน โรงพยาบาล ตลาด','ถนน สะพาน รถไฟ'],a:0,e:'ลักษณะทางกายภาพคือสิ่งที่เกิดขึ้นตามธรรมชาติในพื้นที่นั้น'},
+ {q:'ภูมิประเทศแบบ “ที่ราบลุ่มแม่น้ำ” เหมาะกับกิจกรรมใด',o:['เล่นสกี','การเพาะปลูก ทำนา','ปีนเขา','ดำน้ำดูปะการัง'],a:1,e:'ที่ราบลุ่มมีดินอุดมสมบูรณ์และน้ำเพียงพอ จึงเหมาะกับการทำนาและปลูกพืช'},
+ {q:'ประเทศไทยมีกี่ฤดู อะไรบ้าง',o:['๒ ฤดู ร้อนและหนาว','๓ ฤดู ร้อน ฝน หนาว','๔ ฤดู ใบไม้ผลิ ร้อน ใบไม้ร่วง หนาว','๑ ฤดู ร้อนตลอดปี'],a:1,e:'ไทยอยู่ในเขตร้อนชื้น มีฤดูร้อน ฤดูฝน และฤดูหนาว'},
+ {q:'ลูกโลกจำลอง แสดงสิ่งใด',o:['รูปร่างของโลกทรงกลม ตำแหน่งทวีปและมหาสมุทร','แผนผังห้องเรียน','เส้นทางรถเมล์','ผังบ้าน'],a:0,e:'ลูกโลกจำลองแสดงรูปร่างจริงของโลกได้ดีกว่าแผนที่แบน แต่พกพาไม่สะดวก'},
+]};
+const SET_NAMES = {1:'หน่วยที่ ๑ พุทธประวัติ',2:'หน่วยที่ ๒ พุทธสาวก ชาดก',3:'หน่วยที่ ๓ หลักธรรมนำชีวิต',4:'หน่วยที่ ๔ ศาสนพิธี วันสำคัญ',5:'หน่วยที่ ๕ พลเมืองดี ประชาธิปไตย',6:'หน่วยที่ ๖ สิทธิเด็ก วัฒนธรรมไทย',7:'หน่วยที่ ๗ สินค้า บริการ เศรษฐกิจพอเพียง',8:'หน่วยที่ ๘ แผนที่ จังหวัดของเรา',all:'รวมทุกหน่วย'};
+// ---------- storage ----------
+const KEY='social-p4-t1-best';
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'เฉลย',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    const hasV=!!el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(hasV?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  const want=$('count').value;let src=shuffle(pool());if(want!=='all')src=src.slice(0,Number(want));
+  qs=src.map(q=>{const order=shuffle([0,1,2,3]);return {q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>

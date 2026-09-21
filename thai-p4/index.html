@@ -41,6 +41,9 @@ a{color:var(--plum)}
 button{font:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
 /* header */
 .hero{padding-block:28px 12px;display:grid;gap:14px}
 .eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
@@ -147,6 +150,10 @@ footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid v
 <div class="wrap">
 
 <header class="hero">
+  <nav class="subjects">
+    <a class="on" href="index.html">📘 ภาษาไทย</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+  </nav>
   <div class="eyebrow">ภาษาไทย · ชั้นประถมศึกษาปีที่ ๔ · ภาคเรียนที่ ๑</div>
   <h1>ภาษา<span>พาที</span> ป.๔ เทอม ๑ — วิดีโอสอน + แบบทดสอบ</h1>
   <div class="books">
