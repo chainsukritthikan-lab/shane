@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คณิตศาสตร์ ป.๔ เรื่องเวลา</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#14213D; --muted:#5A6A85; --line:#EADFCF;
+  --plum:#1E5FBF; --plum-soft:#E4EDFB; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#D9480F; --red-soft:#FFE6D9;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(30,60,120,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">📘 ภาษาไทย</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a class="on" href="math.html">🔢 คณิตศาสตร์</a>
+  </nav>
+  <div class="eyebrow">คณิตศาสตร์ · ชั้นประถมศึกษาปีที่ ๔ · ภาคเรียนที่ ๑</div>
+  <h1>คณิต<span>ศาสตร์</span> ป.๔ เรื่องเวลา — วิดีโอสอน + แบบทดสอบ</h1>
+  <div class="books">
+    <span class="book b1"><i></i>คณิตศาสตร์ ป.๔ เล่ม ๑ บทที่ ๕ เวลา</span>
+    <span class="book b2"><i></i>บอกเวลา · หน่วยเวลา · ระยะเวลา · โจทย์ปัญหา · ปฏิทิน</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📺 วิดีโอสอน เรื่องเวลา</a>
+    <a href="#workbook">📚 สรุปสูตรที่ต้องจำ</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>บทที่ ๕ เวลา</h2>
+    <p>กดเปิดวิดีโอสอน · มีคลิปโจทย์ปัญหา เพลย์ลิสต์เฉลยแบบฝึกหัด และ DLTV</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+  <div class="links" style="margin-top:12px">
+    <a href="https://www.youtube.com/playlist?list=PLVpQSfPSQvZiqJGEWau1q21RIYIVg3Qvm" target="_blank" rel="noopener"><span class="tag">เพลย์ลิสต์</span> คณิตศาสตร์ ป.๔ เล่ม ๑ บทที่ ๕ เวลา (YouTube)</a>
+    <a href="https://www.youtube.com/playlist?list=PL0vIBhmc28-qQuGgLZJfMm0c4ZnPhHROy" target="_blank" rel="noopener"><span class="tag k">เฉลย</span> เฉลยใบงาน DLTV คณิตศาสตร์ ป.๔ (YouTube)</a>
+    <a href="https://dltv.ac.th/teachplan/lists/4/2000" target="_blank" rel="noopener"><span class="tag d">DLTV</span> แผนการสอน + ใบงาน คณิตศาสตร์ ป.๔ (dltv.ac.th)</a>
+  </div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>สรุปสูตรที่ต้องจำ</h2>
+    <p>ท่องให้ได้ก่อนสอบ</p>
+  </div>
+  <div class="wb">
+    <div class="card">
+      <h3>หน่วยเวลา</h3>
+      <p>๑ นาที = ๖๐ วินาที<br>๑ ชั่วโมง = ๖๐ นาที<br>๑ วัน = ๒๔ ชั่วโมง<br>๑ สัปดาห์ = ๗ วัน<br>๑ ปี = ๑๒ เดือน = ๓๖๕ วัน (อธิกสุรทิน ๓๖๖)</p>
+    </div>
+    <div class="card">
+      <h3>เดือนที่มี ๓๑ / ๓๐ วัน</h3>
+      <p>๓๑ วัน: ม.ค. มี.ค. พ.ค. ก.ค. ส.ค. ต.ค. ธ.ค. (๗ เดือน)<br>๓๐ วัน: เม.ย. มิ.ย. ก.ย. พ.ย. (๔ เดือน)<br>ก.พ. ๒๘ วัน (๒๙ ทุก ๔ ปี)</p>
+    </div>
+    <div class="card">
+      <h3>อ่านเวลาแบบ ๒๔ ชั่วโมง</h3>
+      <p>๐๑–๐๕ น. = ตี ๑–๕<br>๐๖–๑๑ น. = โมงเช้า<br>๑๒ น. = เที่ยง · ๑๓–๑๘ น. = บ่าย/เย็น (ลบ ๑๒)<br>๑๙–๒๓ น. = ๑–๕ ทุ่ม (ลบ ๑๘) · ๒๔ น. = เที่ยงคืน</p>
+    </div>
+    <div class="card">
+      <h3>หาระยะเวลา</h3>
+      <p>นับเป็นชั่วโมงเต็มก่อน แล้วค่อยนับนาทีที่เหลือ<br>ถ้านาทีเกิน ๖๐ ให้ทดเป็น ๑ ชั่วโมง<br>ถ้าลบไม่พอ ให้ยืม ๑ ชั่วโมง = ๖๐ นาที</p>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>๑๐๐ ข้อ ครอบคลุมหน่วยเวลา เดือน การอ่านนาฬิกา ระยะเวลา โจทย์ปัญหา และปฏิทิน · ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดบันทึกไว้ในเครื่อง · ข้อสอบสุ่มใหม่ทุกครั้ง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <label for="count" class="score-live">จำนวนข้อ</label>
+          <select id="count" class="chip" style="padding:8px 12px">
+            <option value="10">10 ข้อ</option>
+            <option value="20" selected>20 ข้อ</option>
+            <option value="30">30 ข้อ</option>
+            <option value="all">ทั้งหมด</option>
+          </select>
+          <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามเนื้อหาบทที่ ๕ เวลา เพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,title:'เวลา',focus:'การบอกเวลา · หน่วยเวลา · ระยะเวลา · โจทย์ปัญหา · ตารางเวลา · ปฏิทิน',video:'YS1rNUwbHro',
+   links:[['LJ-mJ6V_VZQ','โจทย์ปัญหาเกี่ยวกับเวลา (๔/๔) คณิต ป.๔','v'],['pl:PLVpQSfPSQvZiqJGEWau1q21RIYIVg3Qvm','เพลย์ลิสต์ คณิตศาสตร์ ป.๔ เล่ม ๑ บทที่ ๕ เวลา','v'],['pl:PLkBQjb2xvFVgklsOr_7wuphgoqlPbD6u6','เพลย์ลิสต์ แบบฝึกหัดคณิตศาสตร์ ป.๔ บทที่ ๕ เวลา (เฉลย)','k'],['dltv:81022','DLTV การบอกระยะเวลาเป็นวินาที นาที ชั่วโมง วัน สัปดาห์ เดือน ปี','d'],['HHk0zPS9Wcc','ติวฟรี คณิต ป.๔ จำนวนนับและเวลา (ครูชัวร์)','v']]},
+];
+const BANK = {
+1:[
+ {q:'๑ ชั่วโมง เท่ากับกี่นาที',o:['๖๐ นาที','๓๐ นาที','๑๐๐ นาที','๒๔ นาที'],a:0,e:'๑ ชั่วโมง = ๖๐ นาที'},
+ {q:'๑ นาที เท่ากับกี่วินาที',o:['๖๐ วินาที','๑๐๐ วินาที','๓๐ วินาที','๒๔ วินาที'],a:0,e:'๑ นาที = ๖๐ วินาที'},
+ {q:'๑ วัน เท่ากับกี่ชั่วโมง',o:['๒๔ ชั่วโมง','๑๒ ชั่วโมง','๖๐ ชั่วโมง','๓๐ ชั่วโมง'],a:0,e:'๑ วัน = ๒๔ ชั่วโมง'},
+ {q:'๑ สัปดาห์ เท่ากับกี่วัน',o:['๗ วัน','๕ วัน','๑๐ วัน','๓๐ วัน'],a:0,e:'จันทร์ถึงอาทิตย์ = ๗ วัน'},
+ {q:'๑ ปี เท่ากับกี่เดือน',o:['๑๒ เดือน','๑๐ เดือน','๒๔ เดือน','๕๒ เดือน'],a:0,e:'มกราคมถึงธันวาคม = ๑๒ เดือน'},
+ {q:'๑ ปีปกติ มีกี่วัน',o:['๓๖๕ วัน','๓๖๖ วัน','๓๖๐ วัน','๓๐๐ วัน'],a:0,e:'ปีอธิกสุรทินมี ๓๖๖ วัน'},
+ {q:'ปีอธิกสุรทิน มีกี่วัน และเดือนใดมีวันเพิ่ม',o:['๓๖๖ วัน เดือนกุมภาพันธ์มี ๒๙ วัน','๓๖๕ วัน เดือนมกราคมมี ๓๒ วัน','๓๖๖ วัน เดือนธันวาคมมี ๓๒ วัน','๓๖๐ วัน เดือนกุมภาพันธ์มี ๓๐ วัน'],a:0,e:'เกิดทุก ๔ ปี'},
+ {q:'๑ ชั่วโมง เท่ากับกี่วินาที',o:['๓,๖๐๐ วินาที','๖๐๐ วินาที','๖๐ วินาที','๒,๔๐๐ วินาที'],a:0,e:'๖๐ นาที × ๖๐ วินาที = ๓,๖๐๐ วินาที'},
+ {q:'๒ ชั่วโมง เท่ากับกี่นาที',o:['๑๒๐ นาที','๖๐ นาที','๒๐๐ นาที','๑๐๐ นาที'],a:0,e:'๒ × ๖๐ = ๑๒๐'},
+ {q:'๙๐ นาที เท่ากับกี่ชั่วโมง กี่นาที',o:['๑ ชั่วโมง ๓๐ นาที','๑ ชั่วโมง ๙๐ นาที','๒ ชั่วโมง','๐ ชั่วโมง ๙๐ นาที'],a:0,e:'๙๐ − ๖๐ = ๓๐ เหลือ ๑ ชั่วโมง ๓๐ นาที'},
+ {q:'๓ วัน เท่ากับกี่ชั่วโมง',o:['๗๒ ชั่วโมง','๔๘ ชั่วโมง','๓๖ ชั่วโมง','๒๔ ชั่วโมง'],a:0,e:'๓ × ๒๔ = ๗๒'},
+ {q:'๔ สัปดาห์ เท่ากับกี่วัน',o:['๒๘ วัน','๓๐ วัน','๒๔ วัน','๓๑ วัน'],a:0,e:'๔ × ๗ = ๒๘'},
+ {q:'๒ ปี เท่ากับกี่เดือน',o:['๒๔ เดือน','๑๒ เดือน','๒๐ เดือน','๓๖ เดือน'],a:0,e:'๒ × ๑๒ = ๒๔'},
+ {q:'๑๕๐ วินาที เท่ากับกี่นาที กี่วินาที',o:['๒ นาที ๓๐ วินาที','๑ นาที ๕๐ วินาที','๒ นาที ๕๐ วินาที','๓ นาที'],a:0,e:'๑๕๐ − ๑๒๐ = ๓๐ เหลือ ๒ นาที ๓๐ วินาที'},
+ {q:'ครึ่งชั่วโมง เท่ากับกี่นาที',o:['๓๐ นาที','๕๐ นาที','๑๕ นาที','๔๕ นาที'],a:0,e:'๖๐ ÷ ๒ = ๓๐'},
+ {q:'เดือนใดมี ๓๑ วัน',o:['มกราคม','กุมภาพันธ์','เมษายน','มิถุนายน'],a:0,e:'เดือนที่มี ๓๑ วัน คือ ม.ค. มี.ค. พ.ค. ก.ค. ส.ค. ต.ค. ธ.ค.'},
+ {q:'เดือนใดมี ๓๐ วัน',o:['เมษายน','มีนาคม','พฤษภาคม','สิงหาคม'],a:0,e:'เดือนที่มี ๓๐ วัน คือ เม.ย. มิ.ย. ก.ย. พ.ย.'},
+ {q:'เดือนกุมภาพันธ์ในปีปกติ มีกี่วัน',o:['๒๘ วัน','๒๙ วัน','๓๐ วัน','๓๑ วัน'],a:0,e:'ปีอธิกสุรทินจึงจะมี ๒๙ วัน'},
+ {q:'ใน ๑ ปี มีเดือนที่มี ๓๑ วัน กี่เดือน',o:['๗ เดือน','๔ เดือน','๖ เดือน','๕ เดือน'],a:0,e:'ม.ค. มี.ค. พ.ค. ก.ค. ส.ค. ต.ค. ธ.ค. = ๗ เดือน'},
+ {q:'ใน ๑ ปี มีเดือนที่มี ๓๐ วัน กี่เดือน',o:['๔ เดือน','๗ เดือน','๕ เดือน','๖ เดือน'],a:0,e:'เม.ย. มิ.ย. ก.ย. พ.ย. = ๔ เดือน'},
+ {q:'เดือนที่ ๗ ของปี คือเดือนใด',o:['กรกฎาคม','มิถุนายน','สิงหาคม','กันยายน'],a:0,e:'ม.ค. ก.พ. มี.ค. เม.ย. พ.ค. มิ.ย. ก.ค.'},
+ {q:'เดือนสุดท้ายของปี คือเดือนใด',o:['ธันวาคม','พฤศจิกายน','มกราคม','ตุลาคม'],a:0,e:'ธันวาคมเป็นเดือนที่ ๑๒'},
+ {q:'เดือนตุลาคม มีกี่วัน',o:['๓๑ วัน','๓๐ วัน','๒๘ วัน','๒๙ วัน'],a:0,e:'ตุลาคมมี ๓๑ วัน'},
+ {q:'เดือนพฤศจิกายน มีกี่วัน',o:['๓๐ วัน','๓๑ วัน','๒๘ วัน','๒๙ วัน'],a:0,e:'พฤศจิกายนมี ๓๐ วัน'},
+ {q:'ปีอธิกสุรทิน เกิดขึ้นทุกกี่ปี',o:['๔ ปี','๒ ปี','๑๐ ปี','๑๐๐ ปี'],a:0,e:'ปี ค.ศ. ที่หารด้วย ๔ ลงตัว เช่น ค.ศ. ๒๐๒๔, ๒๐๒๘'},
+ {q:'เวลา ๑๓.๐๐ น. ตรงกับข้อใด',o:['บ่ายโมง','เที่ยง','บ่ายสามโมง','๑ ทุ่ม'],a:0,e:'๑๓ − ๑๒ = ๑ จึงเป็นบ่าย ๑ โมง'},
+ {q:'เวลา ๑๕.๓๐ น. ตรงกับข้อใด',o:['บ่ายสามโมงครึ่ง','บ่ายห้าโมงครึ่ง','ตีสามครึ่ง','สามทุ่มครึ่ง'],a:0,e:'๑๕ − ๑๒ = ๓ และ ๓๐ นาที = ครึ่ง'},
+ {q:'เวลา ๑๙.๐๐ น. ตรงกับข้อใด',o:['๑ ทุ่ม','๗ โมงเช้า','บ่ายเจ็ดโมง','ตีหนึ่ง'],a:0,e:'๑๙ − ๑๘ = ๑ ทุ่ม (นับทุ่มตั้งแต่ ๑๙.๐๐ น.)'},
+ {q:'เวลา ๒๑.๐๐ น. ตรงกับข้อใด',o:['๓ ทุ่ม','๙ โมงเช้า','บ่ายสามโมง','ตีสาม'],a:0,e:'๒๑ − ๑๘ = ๓ ทุ่ม'},
+ {q:'เวลา ๒๔.๐๐ น. ตรงกับข้อใด',o:['เที่ยงคืน','เที่ยงวัน','๖ โมงเย็น','ตีหนึ่ง'],a:0,e:'๒๔.๐๐ น. หรือ ๐๐.๐๐ น. คือเที่ยงคืน'},
+ {q:'เวลา ๐๑.๐๐ น. ตรงกับข้อใด',o:['ตีหนึ่ง','บ่ายโมง','๑ ทุ่ม','๑ โมงเช้า'],a:0,e:'หลังเที่ยงคืนถึง ๐๕.๐๐ น. เรียกว่า ตี'},
+ {q:'เวลา ๐๕.๐๐ น. ตรงกับข้อใด',o:['ตีห้า','๕ โมงเย็น','บ่ายห้าโมง','๕ ทุ่ม'],a:0,e:'ตีห้า = ๐๕.๐๐ น.'},
+ {q:'เวลา ๐๖.๐๐ น. ตรงกับข้อใด',o:['๖ โมงเช้า','๖ โมงเย็น','ตีหก','๖ ทุ่ม'],a:0,e:'๐๖.๐๐ น. เป็นตอนเช้า'},
+ {q:'เวลา ๐๙.๐๐ น. ตรงกับข้อใด',o:['๙ โมงเช้า','๓ ทุ่ม','บ่ายสามโมง','ตีเก้า'],a:0,e:'๐๙.๐๐ น. = ๙ โมงเช้า (บางท้องถิ่นเรียก ๓ โมงเช้า)'},
+ {q:'เวลา ๑๒.๐๐ น. ตรงกับข้อใด',o:['เที่ยงวัน','เที่ยงคืน','บ่ายโมง','๖ โมงเย็น'],a:0,e:'๑๒.๐๐ น. = เที่ยง'},
+ {q:'บ่ายสองโมง เขียนแบบ ๒๔ ชั่วโมง ได้อย่างไร',o:['๑๔.๐๐ น.','๐๒.๐๐ น.','๑๒.๐๐ น.','๒๐.๐๐ น.'],a:0,e:'บ่าย ๒ = ๑๒ + ๒ = ๑๔'},
+ {q:'๔ ทุ่ม เขียนแบบ ๒๔ ชั่วโมง ได้อย่างไร',o:['๒๒.๐๐ น.','๑๖.๐๐ น.','๐๔.๐๐ น.','๒๐.๐๐ น.'],a:0,e:'๔ ทุ่ม = ๑๘ + ๔ = ๒๒'},
+ {q:'ตีสี่ เขียนแบบ ๒๔ ชั่วโมง ได้อย่างไร',o:['๐๔.๐๐ น.','๑๖.๐๐ น.','๒๒.๐๐ น.','๑๔.๐๐ น.'],a:0,e:'ตี = หลังเที่ยงคืน จึงเป็น ๐๔.๐๐ น.'},
+ {q:'เที่ยงคืนครึ่ง เขียนแบบ ๒๔ ชั่วโมง ได้อย่างไร',o:['๐๐.๓๐ น.','๑๒.๓๐ น.','๒๔.๓๐ น.','๐๓.๐๐ น.'],a:0,e:'หลังเที่ยงคืน ๓๐ นาที = ๐๐.๓๐ น.'},
+ {q:'เวลา ๑๗.๔๕ น. ตรงกับข้อใด',o:['๕ โมง ๔๕ นาที (เย็น)','๗ โมง ๔๕ นาที','๕ ทุ่ม ๔๕ นาที','ตีห้า ๔๕ นาที'],a:0,e:'๑๗ − ๑๒ = ๕ โมงเย็น'},
+ {q:'“๑๖.๒๐ น.” อ่านว่าอย่างไร',o:['สิบหกนาฬิกายี่สิบนาที','สิบหกโมงยี่สิบ','สี่ทุ่มยี่สิบ','สิบหกนาฬิกาสองนาที'],a:0,e:'อ่านแบบทางการ: ...นาฬิกา ...นาที'},
+ {q:'นาฬิกาเข็มสั้นชี้เลข ๓ เข็มยาวชี้เลข ๑๒ ตอนบ่าย เป็นเวลาใด',o:['๑๕.๐๐ น.','๐๓.๐๐ น.','๑๒.๑๕ น.','๑๓.๐๐ น.'],a:0,e:'บ่าย ๓ โมงตรง = ๑๕.๐๐ น.'},
+ {q:'เข็มสั้นอยู่ระหว่างเลข ๗ กับ ๘ เข็มยาวชี้เลข ๖ ตอนเช้า เป็นเวลาใด',o:['๐๗.๓๐ น.','๐๘.๓๐ น.','๐๗.๐๖ น.','๐๖.๓๕ น.'],a:0,e:'เข็มยาวชี้เลข ๖ = ๓๐ นาที ชั่วโมงยังเป็น ๗'},
+ {q:'เข็มยาวชี้เลข ๓ หมายถึงกี่นาที',o:['๑๕ นาที','๓ นาที','๓๐ นาที','๔๕ นาที'],a:0,e:'แต่ละเลขห่างกัน ๕ นาที ๓ × ๕ = ๑๕'},
+ {q:'เข็มยาวชี้เลข ๙ หมายถึงกี่นาที',o:['๔๕ นาที','๙ นาที','๓๐ นาที','๕๐ นาที'],a:0,e:'๙ × ๕ = ๔๕ นาที'},
+ {q:'จาก ๐๘.๐๐ น. ถึง ๑๐.๐๐ น. เป็นเวลานานเท่าไร',o:['๒ ชั่วโมง','๑ ชั่วโมง','๓ ชั่วโมง','๑๐ ชั่วโมง'],a:0,e:'๑๐ − ๘ = ๒'},
+ {q:'จาก ๐๙.๓๐ น. ถึง ๑๑.๐๐ น. เป็นเวลานานเท่าไร',o:['๑ ชั่วโมง ๓๐ นาที','๒ ชั่วโมง ๓๐ นาที','๑ ชั่วโมง','๒ ชั่วโมง'],a:0,e:'๐๙.๓๐ → ๑๐.๓๐ = ๑ ชม. แล้วอีก ๓๐ นาที'},
+ {q:'จาก ๑๓.๑๕ น. ถึง ๑๔.๐๐ น. เป็นเวลานานเท่าไร',o:['๔๕ นาที','๑๕ นาที','๑ ชั่วโมง ๑๕ นาที','๓๐ นาที'],a:0,e:'๖๐ − ๑๕ = ๔๕ นาที'},
+ {q:'จาก ๐๗.๔๕ น. ถึง ๐๘.๓๐ น. เป็นเวลานานเท่าไร',o:['๔๕ นาที','๑๕ นาที','๑ ชั่วโมง','๓๐ นาที'],a:0,e:'๐๗.๔๕ → ๐๘.๐๐ = ๑๕ นาที, → ๐๘.๓๐ = อีก ๓๐ นาที รวม ๔๕'},
+ {q:'จาก ๑๐.๒๐ น. ถึง ๑๒.๐๕ น. เป็นเวลานานเท่าไร',o:['๑ ชั่วโมง ๔๕ นาที','๒ ชั่วโมง ๑๕ นาที','๑ ชั่วโมง ๑๕ นาที','๒ ชั่วโมง'],a:0,e:'๑๐.๒๐ → ๑๑.๒๐ = ๑ ชม., → ๑๒.๐๕ = อีก ๔๕ นาที'},
+ {q:'นอนเวลา ๒๒.๐๐ น. ตื่นเวลา ๐๖.๐๐ น. นอนนานเท่าไร',o:['๘ ชั่วโมง','๑๖ ชั่วโมง','๖ ชั่วโมง','๔ ชั่วโมง'],a:0,e:'๒๒.๐๐ → ๒๔.๐๐ = ๒ ชม. + ๐๐.๐๐ → ๐๖.๐๐ = ๖ ชม. รวม ๘'},
+ {q:'จาก ๑๕.๐๐ น. ถึง ๑๕.๕๐ น. เป็นเวลานานเท่าไร',o:['๕๐ นาที','๑๕ นาที','๑ ชั่วโมง','๕ นาที'],a:0,e:'๕๐ − ๐ = ๕๐ นาที'},
+ {q:'จาก ๑๑.๓๐ น. ถึง ๑๓.๑๐ น. เป็นเวลานานเท่าไร',o:['๑ ชั่วโมง ๔๐ นาที','๒ ชั่วโมง ๒๐ นาที','๑ ชั่วโมง ๒๐ นาที','๒ ชั่วโมง ๔๐ นาที'],a:0,e:'๑๑.๓๐ → ๑๒.๓๐ = ๑ ชม., → ๑๓.๑๐ = อีก ๔๐ นาที'},
+ {q:'เริ่มทำงานเวลา ๐๘.๐๐ น. ใช้เวลา ๒ ชั่วโมง ๓๐ นาที จะเสร็จเวลาใด',o:['๑๐.๓๐ น.','๑๐.๐๐ น.','๑๑.๓๐ น.','๐๙.๓๐ น.'],a:0,e:'๐๘.๐๐ + ๒ ชม. ๓๐ นาที = ๑๐.๓๐'},
+ {q:'เริ่มเวลา ๑๔.๑๕ น. ใช้เวลา ๕๐ นาที จะเสร็จเวลาใด',o:['๑๕.๐๕ น.','๑๔.๖๕ น.','๑๕.๑๕ น.','๑๔.๕๕ น.'],a:0,e:'๑๕ + ๕๐ = ๖๕ นาที = ๑ ชม. ๕ นาที จึงเป็น ๑๕.๐๕'},
+ {q:'งานเสร็จเวลา ๑๒.๐๐ น. ใช้เวลาทำ ๑ ชั่วโมง ๔๕ นาที เริ่มทำเมื่อเวลาใด',o:['๑๐.๑๕ น.','๑๐.๔๕ น.','๑๑.๑๕ น.','๑๓.๔๕ น.'],a:0,e:'๑๒.๐๐ − ๑ ชม. = ๑๑.๐๐, − ๔๕ นาที = ๑๐.๑๕'},
+ {q:'ออกเดินทางเวลา ๐๖.๓๐ น. ถึงที่หมายเวลา ๐๙.๑๕ น. ใช้เวลาเดินทางเท่าไร',o:['๒ ชั่วโมง ๔๕ นาที','๓ ชั่วโมง ๑๕ นาที','๒ ชั่วโมง ๑๕ นาที','๓ ชั่วโมง'],a:0,e:'๐๖.๓๐ → ๐๘.๓๐ = ๒ ชม., → ๐๙.๑๕ = อีก ๔๕ นาที'},
+ {q:'เรียน ๓ คาบ คาบละ ๕๐ นาที รวมเรียนนานเท่าไร',o:['๒ ชั่วโมง ๓๐ นาที','๑ ชั่วโมง ๕๐ นาที','๓ ชั่วโมง','๑๕๐ ชั่วโมง'],a:0,e:'๓ × ๕๐ = ๑๕๐ นาที = ๒ ชม. ๓๐ นาที'},
+ {q:'เข้านอนเวลา ๒๑.๐๐ น. ตื่นเวลา ๐๖.๐๐ น. นอนนานกี่ชั่วโมง',o:['๙ ชั่วโมง','๑๕ ชั่วโมง','๘ ชั่วโมง','๗ ชั่วโมง'],a:0,e:'๒๑.๐๐ → ๒๔.๐๐ = ๓ ชม. + ๖ ชม. = ๙'},
+ {q:'ภาพยนตร์เริ่มฉาย ๑๘.๒๐ น. ยาว ๑ ชั่วโมง ๕๕ นาที จบเวลาใด',o:['๒๐.๑๕ น.','๑๙.๗๕ น.','๒๐.๐๕ น.','๑๙.๑๕ น.'],a:0,e:'๑๘.๒๐ + ๑ ชม. = ๑๙.๒๐, + ๕๕ นาที = ๒๐.๑๕'},
+ {q:'๑ ชั่วโมง ๒๐ นาที บวก ๔๕ นาที เท่ากับเท่าไร',o:['๒ ชั่วโมง ๕ นาที','๑ ชั่วโมง ๖๕ นาที','๒ ชั่วโมง ๑๕ นาที','๑ ชั่วโมง ๕ นาที'],a:0,e:'๒๐ + ๔๕ = ๖๕ นาที = ๑ ชม. ๕ นาที รวม ๒ ชม. ๕ นาที'},
+ {q:'๓ ชั่วโมง ๑๐ นาที ลบ ๑ ชั่วโมง ๓๐ นาที เท่ากับเท่าไร',o:['๑ ชั่วโมง ๔๐ นาที','๒ ชั่วโมง ๒๐ นาที','๑ ชั่วโมง ๒๐ นาที','๒ ชั่วโมง ๔๐ นาที'],a:0,e:'แปลง ๓ ชม. ๑๐ นาที = ๒ ชม. ๗๐ นาที แล้วลบ'},
+ {q:'วิ่งรอบแรก ๒ นาที ๑๕ วินาที รอบสอง ๑ นาที ๕๐ วินาที รวมเท่าไร',o:['๔ นาที ๕ วินาที','๓ นาที ๖๕ วินาที','๓ นาที ๕ วินาที','๔ นาที ๑๕ วินาที'],a:0,e:'๑๕ + ๕๐ = ๖๕ วินาที = ๑ นาที ๕ วินาที'},
+ {q:'๕ นาที ลบ ๒ นาที ๔๐ วินาที เท่ากับเท่าไร',o:['๒ นาที ๒๐ วินาที','๓ นาที ๔๐ วินาที','๒ นาที ๔๐ วินาที','๓ นาที ๒๐ วินาที'],a:0,e:'๕ นาที = ๔ นาที ๖๐ วินาที แล้วลบ'},
+ {q:'ครึ่งวัน เท่ากับกี่ชั่วโมง',o:['๑๒ ชั่วโมง','๒๔ ชั่วโมง','๖ ชั่วโมง','๑๐ ชั่วโมง'],a:0,e:'๒๔ ÷ ๒ = ๑๒'},
+ {q:'ถ้าวันที่ ๑ เป็นวันจันทร์ วันที่ ๘ จะเป็นวันใด',o:['วันจันทร์','วันอังคาร','วันอาทิตย์','วันพุธ'],a:0,e:'ห่างกัน ๗ วัน = ๑ สัปดาห์ จึงเป็นวันเดียวกัน'},
+ {q:'ถ้าวันที่ ๕ เป็นวันศุกร์ วันที่ ๑๐ จะเป็นวันใด',o:['วันพุธ','วันอังคาร','วันพฤหัสบดี','วันจันทร์'],a:0,e:'๖ เสาร์ ๗ อาทิตย์ ๘ จันทร์ ๙ อังคาร ๑๐ พุธ'},
+ {q:'จากวันที่ ๑๕ มีนาคม ถึงวันที่ ๒๕ มีนาคม นับเป็นเวลากี่วัน',o:['๑๐ วัน','๑๑ วัน','๙ วัน','๑๕ วัน'],a:0,e:'๒๕ − ๑๕ = ๑๐'},
+ {q:'จากวันที่ ๒๘ เมษายน ถึงวันที่ ๓ พฤษภาคม นับเป็นเวลากี่วัน',o:['๕ วัน','๖ วัน','๔ วัน','๒๕ วัน'],a:0,e:'เมษายนมี ๓๐ วัน: ๒๘ → ๓๐ = ๒ วัน, → ๓ พ.ค. = อีก ๓ วัน'},
+ {q:'๒ สัปดาห์ ๓ วัน เท่ากับกี่วัน',o:['๑๗ วัน','๒๓ วัน','๑๔ วัน','๑๐ วัน'],a:0,e:'(๒ × ๗) + ๓ = ๑๗'},
+ {q:'๓๐ วัน เท่ากับกี่สัปดาห์ กี่วัน',o:['๔ สัปดาห์ ๒ วัน','๓ สัปดาห์ ๒ วัน','๔ สัปดาห์','๕ สัปดาห์'],a:0,e:'๓๐ ÷ ๗ = ๔ เศษ ๒'},
+ {q:'ค.ศ. ๒๐๒๔ เป็นปีอธิกสุรทินหรือไม่ เพราะเหตุใด',o:['เป็น เพราะ ๒๐๒๔ หารด้วย ๔ ลงตัว','ไม่เป็น เพราะเป็นเลขคู่','เป็น เพราะลงท้ายด้วย ๔','ไม่เป็น เพราะหารด้วย ๔ ไม่ลงตัว'],a:0,e:'๒๐๒๔ ÷ ๔ = ๕๐๖ ลงตัว'},
+ {q:'ค.ศ. ๒๐๒๖ ตรงกับ พ.ศ. ใด',o:['๒๕๖๙','๒๕๖๘','๒๕๗๐','๑๔๘๓'],a:0,e:'พ.ศ. = ค.ศ. + ๕๔๓'},
+ {q:'พ.ศ. ๒๕๖๙ ตรงกับ ค.ศ. ใด',o:['๒๐๒๖','๒๐๒๕','๒๐๒๗','๓๑๑๒'],a:0,e:'ค.ศ. = พ.ศ. − ๕๔๓'},
+ {q:'ถ้าวันที่ ๑ มกราคม เป็นวันพฤหัสบดี วันเด็ก (เสาร์ที่ ๒ ของเดือน) ตรงกับวันที่เท่าไร',o:['๑๐ มกราคม','๓ มกราคม','๑๗ มกราคม','๙ มกราคม'],a:0,e:'เสาร์แรก = ๓ ม.ค. เสาร์ที่ ๒ = ๑๐ ม.ค.'},
+ {q:'๑ ไตรมาส เท่ากับกี่เดือน',o:['๓ เดือน','๔ เดือน','๖ เดือน','๒ เดือน'],a:0,e:'๑ ปีมี ๔ ไตรมาส ไตรมาสละ ๓ เดือน'},
+ {q:'ครึ่งปี เท่ากับกี่เดือน',o:['๖ เดือน','๕ เดือน','๔ เดือน','๑๒ เดือน'],a:0,e:'๑๒ ÷ ๒ = ๖'},
+ {q:'๑ ทศวรรษ เท่ากับกี่ปี',o:['๑๐ ปี','๑๐๐ ปี','๕ ปี','๑,๐๐๐ ปี'],a:0,e:'ทศ = ๑๐'},
+ {q:'เด็กเกิด พ.ศ. ๒๕๕๙ ใน พ.ศ. ๒๕๖๙ จะมีอายุกี่ปี',o:['๑๐ ปี','๙ ปี','๑๑ ปี','๑๒ ปี'],a:0,e:'๒๕๖๙ − ๒๕๕๙ = ๑๐'},
+ {q:'๑๘ เดือน เท่ากับกี่ปี กี่เดือน',o:['๑ ปี ๖ เดือน','๑ ปี ๘ เดือน','๒ ปี','๑ ปี ๒ เดือน'],a:0,e:'๑๘ − ๑๒ = ๖'},
+ {q:'ตารางเรียน: คาบ ๑ เวลา ๐๘.๓๐–๐๙.๒๐ น. แต่ละคาบยาวกี่นาที',o:['๕๐ นาที','๖๐ นาที','๔๕ นาที','๙๐ นาที'],a:0,e:'๐๘.๓๐ → ๐๙.๒๐ = ๕๐ นาที'},
+ {q:'พักกลางวันเวลา ๑๑.๕๐–๑๒.๕๐ น. พักนานเท่าไร',o:['๑ ชั่วโมง','๕๐ นาที','๑ ชั่วโมง ๑๐ นาที','๓๐ นาที'],a:0,e:'๑๑.๕๐ → ๑๒.๕๐ = ๖๐ นาที'},
+ {q:'รถไฟออกจากสถานีเวลา ๐๘.๔๕ น. ถึงปลายทางเวลา ๑๒.๓๐ น. ใช้เวลาเดินทางเท่าไร',o:['๓ ชั่วโมง ๔๕ นาที','๔ ชั่วโมง ๑๕ นาที','๓ ชั่วโมง ๑๕ นาที','๔ ชั่วโมง'],a:0,e:'๐๘.๔๕ → ๑๑.๔๕ = ๓ ชม., → ๑๒.๓๐ = อีก ๔๕ นาที'},
+ {q:'รถเมล์มาทุก ๑๕ นาที คันแรกมาเวลา ๐๗.๐๐ น. คันที่ ๔ จะมาเวลาใด',o:['๐๗.๔๕ น.','๐๘.๐๐ น.','๐๗.๓๐ น.','๐๗.๑๕ น.'],a:0,e:'คันที่ ๑ = ๐๗.๐๐, ๒ = ๐๗.๑๕, ๓ = ๐๗.๓๐, ๔ = ๐๗.๔๕'},
+ {q:'ระฆังดังทุก ๓๐ นาที ตั้งแต่ ๐๘.๐๐ น. ถึง ๑๐.๐๐ น. ระฆังดังทั้งหมดกี่ครั้ง',o:['๕ ครั้ง','๔ ครั้ง','๖ ครั้ง','๓ ครั้ง'],a:0,e:'๐๘.๐๐, ๐๘.๓๐, ๐๙.๐๐, ๐๙.๓๐, ๑๐.๐๐'},
+ {q:'อ่านหนังสือวันละ ๒๐ นาที ใน ๑ สัปดาห์ อ่านรวมนานเท่าไร',o:['๒ ชั่วโมง ๒๐ นาที','๑ ชั่วโมง ๔๐ นาที','๑๔๐ ชั่วโมง','๒ ชั่วโมง'],a:0,e:'๒๐ × ๗ = ๑๔๐ นาที = ๒ ชม. ๒๐ นาที'},
+ {q:'ทำการบ้าน ๓ วิชา ใช้เวลา ๒๕, ๓๐ และ ๓๕ นาที รวมใช้เวลาเท่าไร',o:['๑ ชั่วโมง ๓๐ นาที','๙๐ ชั่วโมง','๑ ชั่วโมง','๑ ชั่วโมง ๒๐ นาที'],a:0,e:'๒๕ + ๓๐ + ๓๕ = ๙๐ นาที'},
+ {q:'ต้องถึงโรงเรียนเวลา ๐๗.๕๐ น. เดินทางใช้เวลา ๓๕ นาที ควรออกจากบ้านเวลาใด',o:['๐๗.๑๕ น.','๐๗.๒๕ น.','๐๘.๒๕ น.','๐๗.๐๕ น.'],a:0,e:'๐๗.๕๐ − ๓๕ นาที = ๐๗.๑๕'},
+ {q:'ภาพยนตร์มีรอบฉาย ๑๓.๐๐ น. และ ๑๕.๓๐ น. รอบฉายห่างกันเท่าไร',o:['๒ ชั่วโมง ๓๐ นาที','๒ ชั่วโมง','๓ ชั่วโมง','๑ ชั่วโมง ๓๐ นาที'],a:0,e:'๑๓.๐๐ → ๑๕.๓๐ = ๒ ชม. ๓๐ นาที'},
+ {q:'ไปเข้าค่าย ๓ วัน ๒ คืน เริ่มวันศุกร์ จะกลับบ้านวันใด',o:['วันอาทิตย์','วันเสาร์','วันจันทร์','วันพฤหัสบดี'],a:0,e:'ศุกร์ (๑) เสาร์ (๒) อาทิตย์ (๓)'},
+ {q:'ปั่นจักรยาน ๑ รอบ ใช้เวลา ๔ นาที ๓๐ วินาที ปั่น ๔ รอบ ใช้เวลาเท่าไร',o:['๑๘ นาที','๑๖ นาที ๓๐ วินาที','๑๗ นาที','๑๖ นาที ๑๒๐ วินาที'],a:0,e:'๔ นาที × ๔ = ๑๖ นาที, ๓๐ วินาที × ๔ = ๑๒๐ วินาที = ๒ นาที รวม ๑๘'},
+ {q:'แข่งวิ่ง ก ใช้เวลา ๕๘ วินาที ข ใช้เวลา ๑ นาที ๕ วินาที ใครเร็วกว่าและเร็วกว่ากี่วินาที',o:['ก เร็วกว่า ๗ วินาที','ข เร็วกว่า ๗ วินาที','ก เร็วกว่า ๔๗ วินาที','เท่ากัน'],a:0,e:'๑ นาที ๕ วินาที = ๖๕ วินาที, ๖๕ − ๕๘ = ๗'},
+ {q:'ตั้งนาฬิกาปลุก ๐๖.๑๕ น. แต่ตื่นช้าไป ๒๐ นาที ตื่นเวลาใด',o:['๐๖.๓๕ น.','๐๕.๕๕ น.','๐๖.๔๕ น.','๐๖.๒๐ น.'],a:0,e:'๐๖.๑๕ + ๒๐ นาที = ๐๖.๓๕'},
+ {q:'ร้านค้าเปิดเวลา ๐๙.๐๐ น. ปิดเวลา ๒๐.๐๐ น. เปิดวันละกี่ชั่วโมง',o:['๑๑ ชั่วโมง','๙ ชั่วโมง','๑๒ ชั่วโมง','๒๙ ชั่วโมง'],a:0,e:'๒๐ − ๙ = ๑๑'},
+ {q:'ต้มน้ำให้เดือดใช้เวลา ๘ นาที เริ่มต้มเวลา ๑๗.๕๕ น. น้ำเดือดเวลาใด',o:['๑๘.๐๓ น.','๑๗.๖๓ น.','๑๘.๐๕ น.','๑๘.๑๓ น.'],a:0,e:'๕๕ + ๘ = ๖๓ นาที = ๑ ชม. ๓ นาที จึงเป็น ๑๘.๐๓'},
+ {q:'เรียนพิเศษวันเสาร์ ๑๓.๐๐–๑๕.๐๐ น. และวันอาทิตย์ ๐๙.๐๐–๑๒.๐๐ น. รวมเรียนกี่ชั่วโมง',o:['๕ ชั่วโมง','๔ ชั่วโมง','๖ ชั่วโมง','๓ ชั่วโมง'],a:0,e:'๒ + ๓ = ๕'},
+ {q:'เครื่องบินออกเวลา ๒๒.๔๐ น. ใช้เวลาบิน ๓ ชั่วโมง ๓๐ นาที ถึงเวลาใด',o:['๐๒.๑๐ น. ของวันถัดไป','๒๕.๗๐ น.','๐๑.๑๐ น.','๐๒.๔๐ น.'],a:0,e:'๒๒.๔๐ + ๓ ชม. = ๐๑.๔๐ (ข้ามวัน), + ๓๐ นาที = ๐๒.๑๐'},
+ {q:'๑ ปี มีประมาณกี่สัปดาห์',o:['๕๒ สัปดาห์','๔๘ สัปดาห์','๖๐ สัปดาห์','๓๖๕ สัปดาห์'],a:0,e:'๓๖๕ ÷ ๗ ≈ ๕๒'},
+ {q:'๑๐๐ นาที เท่ากับกี่ชั่วโมง กี่นาที',o:['๑ ชั่วโมง ๔๐ นาที','๑ ชั่วโมง','๑ ชั่วโมง ๓๐ นาที','๒ ชั่วโมง'],a:0,e:'๑๐๐ − ๖๐ = ๔๐'},
+ {q:'เวลาใดมาก่อน ระหว่าง ๐๙.๐๕ น. กับ ๐๘.๕๕ น.',o:['๐๘.๕๕ น.','๐๙.๐๕ น.','เท่ากัน','บอกไม่ได้'],a:0,e:'๐๘.๕๕ น. อยู่ก่อน ๐๙.๐๐ น. ส่วน ๐๙.๐๕ น. อยู่หลัง'},
+]};
+const SET_NAMES = {1:'🔥 สอบพรุ่งนี้ เรื่องเวลา',all:'รวมทุกข้อ'};
+// ---------- storage ----------
+const KEY='math-p4-time-best';
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'เฉลย',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    const hasV=!!el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(hasV?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  const want=$('count').value;let src=shuffle(pool());if(want!=='all')src=src.slice(0,Number(want));
+  qs=src.map(q=>{const order=shuffle([0,1,2,3]);return {q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>
