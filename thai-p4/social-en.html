@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Social Studies P4 Videos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#2B1A24; --muted:#7A5F6C; --line:#EADFCF;
+  --plum:#C2185B; --plum-soft:#FCE4EC; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#6A1B9A; --red-soft:#F3E5F5;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(120,30,70,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#F48FB1; --plum-soft:#4A1A2E; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#F48FB1; --plum-soft:#4A1A2E; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:22px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">📘 ภาษาไทย</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a href="math.html">🔢 คณิตศาสตร์</a>
+    <a class="on" href="social-en.html">🇬🇧 Social (EN)</a>
+  </nav>
+  <div class="eyebrow">Social Studies · Primary 4 · English Program · Final Review</div>
+  <h1>Social <span>Studies</span> P4 — Videos for the Final Study Guide</h1>
+  <div class="books">
+    <span class="book b1"><i></i>Primary Education Smart Plus · Social Studies 4 (Pelangi)</span>
+    <span class="book b2"><i></i>Citizenship · Children's Rights · Democracy · Culture · Jataka · Moral Principles</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📺 Videos by unit</a>
+    <a href="#workbook">📚 Key vocabulary</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>Videos by unit (from the Extended Final Study Guide)</h2>
+    <p>One card per unit in the guide · press <b>▶ Watch</b> to open the main video and more clips underneath</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+  <div class="links" style="margin-top:12px">
+    <a href="https://www.youtube.com/playlist?list=PLNmq_T1B9ljL1-Jrtv9WhK1UxBgK8LaEk" target="_blank" rel="noopener"><span class="tag">Playlist</span> Democracy for Kids: voting, elections and more</a>
+    <a href="https://www.youtube.com/playlist?list=PLzfcpxK7Y8rTpOC77sPKXfohk5WFQz5om" target="_blank" rel="noopener"><span class="tag">Playlist</span> What are Child Rights? Learn with UNICEF</a>
+    <a href="https://www.youtube.com/playlist?list=PLM9EVP3MJ1dnWF5UNY8uE5mxJzudD2w4K" target="_blank" rel="noopener"><span class="tag">Playlist</span> Jataka Tales (Buddha's Teachings) in English, MagicBox</a>
+    <a href="https://www.youtube.com/playlist?list=PL5CsztIsKtFEZrJFNVM-oMFqHFT7Jcw5y" target="_blank" rel="noopener"><span class="tag">Playlist</span> Buddhist Teaching, Animation and Cartoon for Kids</a>
+  </div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>Key vocabulary from the guide</h2>
+    <p>Say each word and its meaning out loud before the test</p>
+  </div>
+  <div class="wb">
+    <div class="card"><h3>Citizenship</h3><p><b>Coexistence</b>: living together<br><b>Co-operate</b>: work together toward a shared goal<br><b>Good leader</b>: listens, is fair, accepts responsibility<br><b>Good follower</b>: cooperates, listens, completes duties</p></div>
+    <div class="card"><h3>Children's rights</h3><p><b>Guarantee</b>: promise or assurance<br><b>Exploitation</b>: unfair use of another person for benefit<br><b>Four rights</b>: life and development, education, protection, family and care</p></div>
+    <div class="card"><h3>Democracy</h3><p><b>Sovereign power</b>: highest authority of a state<br><b>Constitution</b>: fundamental principles and rules of government<br><b>Eligible</b>: having the required qualifications<br><b>Thailand</b>: a constitutional monarchy</p></div>
+    <div class="card"><h3>Religion and morals</h3><p><b>Wisdom</b>: knowledge and good judgment<br><b>Moral</b>: about right and wrong<br><b>Principle</b>: a basic rule or belief<br><b>Ordain</b>: formally enter a religious order<br><b>Sermon</b>: a religious or moral talk<br><b>Doctrine</b>: accepted teachings<br><b>Defilement</b>: an impurity or negative mental quality</p></div>
+  </div>
+</section>
+
+
+
+<footer>
+  All videos belong to their creators on YouTube. This page only links to them, grouped by the units in your study guide.
+</footer>
+</div>
+
+<script>
+const TH = ['1','2','3','4','5','6','7','8','9'];
+const CHAPTERS = [
+  {n:1,title:'Unit 1 · Being a Good Citizen',focus:'Good citizen · good leaders and followers · peaceful coexistence · co-operate',video:'SsXt6uPxV0A',
+   links:[['jqweYnRRs1Q','Being a Good Citizen for Kids: what does it mean?','v'],['QYa_DmgBUAk','Are You a Good Citizen? Citizenship for Kids','v'],['LKCtzuvBZPc','Good Citizenship and Social Skills for Kids (Kids Academy)','v'],['v9jTbgGOnY4','How can you be a good citizen?','v'],['KOxzgWO9-PM','What Is Citizenship?','v']]},
+  {n:2,title:'Unit 2 · Children\'s Rights',focus:'Right to life and development · education · protection · family and care · guarantee · exploitation',video:'mI2dYmNCJVQ',
+   links:[['WO_yAe1RqXk','Convention on the Rights of the Child explainer','v'],['6F7ie1Z07aM','We all have rights (UNICEF)','v'],['V1BFLitBkco','What are child rights?','v'],['5KQGz-toMnk','Rights of the Child animation','v'],['OKNi0w38XX8','My Rights: child-friendly version of the UNCRC','v'],['vTO1N9NXro0','The Right to a Childhood (UNICEF Canada)','v']]},
+  {n:3,title:'Unit 3 · Democracy',focus:'Democratic system · sovereign power · constitution · elections · eligible · constitutional monarchy',video:'CmrO44KM7yk',
+   links:[['f-feDZRxJKw','Democracy: educational video for kids','v'],['_bIpFwcMGvs','Election Day for Kids: voting and democracy','v'],['uPRBUru3_0M','Election Day for Kids: the voting process (Twinkl)','v'],['pl:PL7cVA_IOnNYN699i2ya6_mt6Fr0srFXE9','The Constitution for Kids (playlist)','v'],['https://www.youtube.com/shorts/WPMWEwuq7Ps','What is Thailand\'s parliamentary democracy? (short)','v'],['https://kids.kiddle.co/Constitutional_monarchy','Constitutional monarchy facts for kids (read)','k'],['https://kids.britannica.com/kids/article/Thailand/345800','Thailand: government for kids (Britannica Kids)','k']]},
+  {n:4,title:'Chapter 2 · Civics, Culture and Living in a Community',focus:'Community · culture · respecting differences · solving problems together',video:'o32l-_U6nGY',
+   links:[['RwSYrsjTiW4','Cultures of the World: a fun overview for kids','v'],['Qaj6myNd-dw','Embracing Differences for Kids (Twinkl)','v'],['buhZPk7dnGs','Respecting Cultural Diversity','v'],['H-P3wm1Fvv4','What Is Culture, According to Kids?','v'],['DVq7DQh-2LA','5 easy ways to help kids embrace diversity','v'],['dQGmL6jYqpA','Understanding one\'s culture: role-play conversation','v']]},
+  {n:5,title:'Unit 3 · The Story of the Buddha\'s Previous Lives',focus:'Jataka stories · how to study a moral story · wisdom, honesty, patience, generosity, compassion',video:'uUtbxXLoZA8',
+   links:[['3VM9d-pJtDY','Buddha Stories for Kids: short animated stories','v'],['joaCnc_Isyk','Jataka Tales: Smart Move (elephant story)','v'],['OCMIvwCGATM','Forgotten: Dalhadhamma Jataka (animated)','v'],['OPUS5M9KZCk','Stories of the Previous Lives of the Buddha (Jataka)','v'],['pl:PL1542A1634BD868D6','Jataka Tales in English (playlist)','v']]},
+  {n:6,title:'Unit 2 · Religious Day and Moral Principle',focus:'Triple Gem · Threefold Learning · Three Admonitions · loving-kindness · mindfulness · living with different religions',video:'0ejEu5hiHjw',
+   links:[['awUX4ZPuU3I','Buddhism for Kids 04: The 5 Precepts','v'],['Td1inp7yvSQ','Four Noble Truths: Buddha\'s first teaching (child-friendly)','v'],['1lWCam9pKxI','What is Vesak? Buddhism for Kids (Twinkl)','v'],['Dcscwt5ulTI','Let\'s learn about Vesak Festival for kids','v'],['https://www.youtube.com/shorts/AF_0Kn-aKo4','Makha Bucha Day (short)','v'],['0oVqjhIw8t4','Loving-Kindness Mindfulness for Kids','v'],['HtYIQiXyrsE','Friendly Wishes: guided meditation for kids (Cosmic Kids)','v'],['8p0ztXGN9zE','Loving Kindness (Metta) guided meditation for kids','v']]},
+];
+const SET_NAMES={};
+// ---------- storage ----------
+const KEY='social-p4-t1-best';
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'Video',k:'Read',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.set||c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label||TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">▶ Watch</button>
+        
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> Open the main video in the YouTube app</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    t.textContent=open?'▲ Hide':'▶ Watch';
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='Lesson video';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+});
+
+</script>
+</body>
+</html>
