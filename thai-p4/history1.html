@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ประวัติศาสตร์1 ป.๔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#14213D; --muted:#5A6A85; --line:#EADFCF;
+  --plum:#7C3AED; --plum-soft:#EDE7FB; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#D9480F; --red-soft:#FFE6D9;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(30,60,120,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">📘 ภาษาไทย</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a href="math.html">🔢 คณิตศาสตร์</a>
+    <a href="social-en.html">📗 Social (EN book · คลิปไทย)</a>
+    <a href="work.html">🛠 การงานอาชีพ</a>
+    <a href="social1.html">📗 สังคมศึกษา1</a>
+    <a class="on" href="history1.html">🏛 ประวัติศาสตร์1</a>
+  </nav>
+  <div class="eyebrow">ประวัติศาสตร์ (สาระที่ ๔) · ชั้นประถมศึกษาปีที่ ๔ · ตามสารบัญหนังสือเรียน หน่วยที่ ๑๐–๑๒</div>
+  <h1>ประวัติ<span>ศาสตร์1</span> ป.๔ — วิดีโอสอน + แบบทดสอบ ๓ หน่วย (หน่วยละ ๒๕ ข้อ)</h1>
+  <div class="books">
+    <span class="book b1"><i></i>หน่วยที่ ๑๐ ช่วงเวลา ยุคสมัย และหลักฐานทางประวัติศาสตร์</span>
+    <span class="book b2"><i></i>หน่วยที่ ๑๑ การตั้งถิ่นฐานในดินแดนไทย · หน่วยที่ ๑๒ อาณาจักรสุโขทัย</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📺 วิดีโอสอน ๓ หน่วย</a>
+    <a href="#workbook">📚 สรุปที่ต้องจำ</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>หน่วยการเรียนรู้ที่ ๑๐–๑๒ (ตามสารบัญ)</h2>
+    <p>แต่ละการ์ดมีคลิปหลัก + คลิปของทุกหัวข้อย่อยในหน่วย (๑.๑ ๑.๒ …) + DLTV มีใบงาน · แต่ละหน่วยมีข้อสอบ ๒๕ ข้อ</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+  <div class="links" style="margin-top:12px">
+    <a href="https://www.youtube.com/playlist?list=PLIHsR1xaQUW0kVwRMz4cb2ZcPrtSpp6fD" target="_blank" rel="noopener"><span class="tag">เพลย์ลิสต์</span> ประวัติศาสตร์ ป.๔ (ทุกบท)</a>
+    <a href="https://www.youtube.com/playlist?list=PLp9siop-Zr7wVbl-gjclHUpdcUIcr5rxc" target="_blank" rel="noopener"><span class="tag">เพลย์ลิสต์</span> DLTV ป.๔ สังคมศึกษา/ประวัติศาสตร์</a>
+    <a href="https://dltv.ac.th/teachplan/lists/4/18000" target="_blank" rel="noopener"><span class="tag d">DLTV</span> แผนการสอน + ใบงาน ประวัติศาสตร์ ป.๔ (dltv.ac.th)</a>
+  </div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>สรุปที่ต้องจำ</h2>
+    <p>อ่านทวนก่อนทำข้อสอบ</p>
+  </div>
+  <div class="wb">
+    <div class="card"><h3>๑๐ ช่วงเวลา ยุคสมัย หลักฐาน</h3><p>ทศวรรษ ๑๐ ปี · ศตวรรษ ๑๐๐ ปี · สหัสวรรษ ๑,๐๐๐ ปี<br>พ.ศ. ๒๕๖๙ = พุทธศตวรรษที่ ๒๖ · ค.ศ. = พ.ศ. − ๕๔๓ · ร.ศ. ๑ = พ.ศ. ๒๓๒๕<br>ก่อนประวัติศาสตร์ (ยังไม่มีตัวอักษร): ยุคหินเก่า–กลาง–ใหม่ → ยุคโลหะ (สำริด เหล็ก)<br>ประวัติศาสตร์ (มีตัวอักษร): สุโขทัย → อยุธยา → ธนบุรี → รัตนโกสินทร์<br>หลักฐานชั้นต้น = เกิดในเหตุการณ์ (ศิลาจารึก โบราณวัตถุ) · ชั้นรอง = เขียนภายหลัง (หนังสือเรียน)</p></div>
+    <div class="card"><h3>๑๑ การตั้งถิ่นฐานในดินแดนไทย</h3><p>ก่อนประวัติศาสตร์: บ้านเก่า (กาญจนบุรี หินใหม่) · บ้านเชียง (อุดรธานี ภาชนะลายก้นหอย สำริด มรดกโลก) · ผาแต้ม (อุบลฯ ภาพเขียนสี)<br>อาณาจักรโบราณ: ทวารวดี (นครปฐม ธรรมจักร) · ละโว้ (ลพบุรี ปรางค์สามยอด) · หริภุญชัย (ลำพูน พระนางจามเทวี) · ศรีวิชัย (สุราษฎร์ฯ พระบรมธาตุไชยา) · ตามพรลิงค์ (นครศรีธรรมราช) · โคตรบูร (นครพนม พระธาตุพนม) · ล้านนา (เชียงใหม่ พญามังราย)</p></div>
+    <div class="card"><h3>๑๒ อาณาจักรสุโขทัย</h3><p>สถาปนา พ.ศ. ๑๗๙๒ พ่อขุนศรีอินทราทิตย์ + พ่อขุนผาเมือง ขับไล่ขอม · ราชวงศ์พระร่วง ๙ พระองค์<br>พ่อขุนรามคำแหง: ลายสือไทย พ.ศ. ๑๘๒๖ · ศิลาจารึกหลักที่ ๑ · พ่อปกครองลูก · กระดิ่งหน้าประตู · “ในน้ำมีปลา ในนามีข้าว” · ค้าขายเสรี · พุทธลังกาวงศ์<br>พระยาลิไทย: ไตรภูมิพระร่วง · ธรรมราชา<br>ภูมิปัญญา: ลายสือไทย เครื่องสังคโลก (เตาทุเรียง) สรีดภงส์ ตระพัง พระพุทธรูปปางลีลา เจดีย์ทรงพุ่มข้าวบิณฑ์ · มรดกโลก พ.ศ. ๒๕๓๔ · รวมกับอยุธยา พ.ศ. ๑๙๘๑</p></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>หน่วยละ ๒๕ ข้อ รวม ๗๕ ข้อ · ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดบันทึกไว้ในเครื่อง · ข้อสอบสุ่มใหม่ทุกครั้ง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <label for="count" class="score-live">จำนวนข้อ</label>
+          <select id="count" class="chip" style="padding:8px 12px">
+            <option value="10">10 ข้อ</option>
+            <option value="20" selected>20 ข้อ</option>
+            <option value="25">25 ข้อ</option>
+            <option value="all">ทั้งหมด</option>
+          </select>
+          <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามสารบัญหนังสือสังคมศึกษา ป.๔ สาระประวัติศาสตร์ หน่วยที่ ๑๐–๑๒ เพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,label:'๑๐',title:'หน่วยที่ ๑๐ ช่วงเวลา ยุคสมัย และหลักฐานทางประวัติศาสตร์',focus:'๑๐.๑ ทศวรรษ ศตวรรษ สหัสวรรษ · ๑๐.๒ ยุคสมัยทางประวัติศาสตร์ · ๑๐.๓ หลักฐานทางประวัติศาสตร์',video:'_vAXaZANB8c',
+   links:[['_Z-h-wSDXvg','๑๐.๑ การนับช่วงเวลาเป็นทศวรรษ ศตวรรษ สหัสวรรษ','v'],['98BIECpP2Co','๑๐.๑ ทศวรรษ ศตวรรษ สหัสวรรษ (๑)','v'],['dltv:79574','๑๐.๑ DLTV ทศวรรษ ศตวรรษ สหัสวรรษ (มีใบงาน)','d'],['HWyw_bcTcgQ','๑๐.๒ ยุคสมัยทางประวัติศาสตร์ ป.๔','v'],['gdQMgBNXubA','๑๐.๒ สรุป ยุคสมัยในการศึกษาประวัติศาสตร์','v'],['dltv:62418','๑๐.๒ DLTV ยุคสมัยทางประวัติศาสตร์','d'],['dltv:79612','๑๐.๓ DLTV หลักฐานทางประวัติศาสตร์ (มีใบงาน)','d'],['dltv:46248','๑๐.๓ DLTV หลักฐานทางประวัติศาสตร์ (มีแบบทดสอบ)','d'],['https://altv.thaipbs.or.th/content/altv-news/66d6e4b140f676d3268db51f','๑๐.๓ ALTV Learn Small หลักฐานทางประวัติศาสตร์','v'],['7fDyuLTbPRA','๑๐ วิธีการทางประวัติศาสตร์ ๕ ขั้นตอน (๓ นาที)','v']]},
+  {n:2,label:'๑๑',title:'หน่วยที่ ๑๑ การตั้งถิ่นฐานในดินแดนไทย',focus:'๑๑.๑ สมัยก่อนประวัติศาสตร์ (ยุคหิน ยุคโลหะ บ้านเชียง ผาแต้ม) · ๑๑.๒ สมัยประวัติศาสตร์ (อาณาจักรโบราณ)',video:'d_1yLDwXsEQ',
+   links:[['bFOgyuRTimo','๑๑.๑ “ยุคหิน” กับการใช้ชีวิตเมื่อหลายล้านปีก่อน','v'],['https://altv.thaipbs.or.th/content/altv-news/65dff22247c97b0a81eeb4e6','๑๑.๑ ALTV Learn Small ยุคก่อนประวัติศาสตร์ ยุคหิน','v'],['https://www.trueplookpanya.com/learning/detail/31285','๑๑.๑ บทเรียน สมัยก่อนประวัติศาสตร์ในดินแดนไทย บ้านเชียง ผาแต้ม (TruePlookpanya)','k'],['MT-NRxgbYAI','๑๑.๒ อาณาจักรโบราณในดินแดนไทย','v'],['dltv:76367','๑๑.๒ DLTV รัฐโบราณในดินแดนไทย','d'],['https://www.trueplookpanya.com/learning/detail/31286','๑๑.๒ บทเรียน รัฐโบราณ ทวารวดี ละโว้ ศรีวิชัย หริภุญชัย (TruePlookpanya)','k']]},
+  {n:3,label:'๑๒',title:'หน่วยที่ ๑๒ อาณาจักรสุโขทัย',focus:'๑๒.๑ พัฒนาการของอาณาจักรสุโขทัย · ๑๒.๒ บุคคลสำคัญสมัยสุโขทัย · ๑๒.๓ ภูมิปัญญาไทยสมัยสุโขทัย',video:'2suh3svnROw',
+   links:[['1JYaYoJVwPI','๑๒.๒ การ์ตูน พงศาวดารสุโขทัย ตอน พ่อขุนรามคำแหง (ครูน้ำเพ็ชร)','v'],['dltv:69795','๑๒.๑ DLTV อาณาจักรสุโขทัย','d'],['dltv:55009','๑๒.๒ DLTV พ่อขุนรามคำแหง “ใครจักใคร่ค้าช้างค้า” (มีใบงาน)','d'],['dltv:69803','๑๒.๓ DLTV ภูมิปัญญาไทยสมัยสุโขทัย','d'],['https://altv.thaipbs.or.th/content/pr/61e15523652f3ccbe2c9a8a9','๑๒.๓ ALTV ศิลาจารึกพ่อขุนรามคำแหง มรดกความทรงจำแห่งโลก','v'],['https://www.trueplookpanya.com/learning/detail/31537','๑๒ บทเรียน อาณาจักรสุโขทัย (TruePlookpanya)','k'],['pl:PLIHsR1xaQUW0kVwRMz4cb2ZcPrtSpp6fD','๑๒ เพลย์ลิสต์ ประวัติศาสตร์ ป.๔ (ทุกบท)','v']]},
+];
+const BANK = {
+1:[
+ {q:'๑ ทศวรรษ เท่ากับกี่ปี',o:['๑๐ ปี','๑๐๐ ปี','๑,๐๐๐ ปี','๑๒ ปี'],a:0,e:'ทศ = สิบ, ทศวรรษ = ช่วงเวลา ๑๐ ปี'},
+ {q:'๑ ศตวรรษ เท่ากับกี่ปี',o:['๑๐๐ ปี','๑๐ ปี','๑,๐๐๐ ปี','๕๐ ปี'],a:0,e:'ศต = ร้อย'},
+ {q:'๑ สหัสวรรษ เท่ากับกี่ปี',o:['๑,๐๐๐ ปี','๑๐๐ ปี','๑๐ ปี','๑๐,๐๐๐ ปี'],a:0,e:'สหัส = พัน'},
+ {q:'พ.ศ. ๒๕๖๙ อยู่ในพุทธศตวรรษที่เท่าใด',o:['พุทธศตวรรษที่ ๒๖','พุทธศตวรรษที่ ๒๕','พุทธศตวรรษที่ ๒๗','พุทธศตวรรษที่ ๒๐'],a:0,e:'พุทธศตวรรษที่ ๒๖ คือ พ.ศ. ๒๕๐๑–๒๖๐๐'},
+ {q:'พ.ศ. ๒๕๖๙ อยู่ในทศวรรษใด',o:['ทศวรรษ ๒๕๖๐ (พ.ศ. ๒๕๖๐–๒๕๖๙)','ทศวรรษ ๒๕๗๐','ทศวรรษ ๒๕๕๐','ทศวรรษ ๒๖๐๐'],a:0,e:'ดูเลขหลักสิบ'},
+ {q:'พ.ศ. ๒๔๗๕ (เปลี่ยนแปลงการปกครอง) อยู่ในพุทธศตวรรษที่เท่าใด',o:['๒๕','๒๔','๒๖','๒๓'],a:0,e:'พุทธศตวรรษที่ ๒๕ คือ พ.ศ. ๒๔๐๑–๒๕๐๐'},
+ {q:'พุทธศักราช (พ.ศ.) เริ่มนับจากเหตุการณ์ใด',o:['ปีที่พระพุทธเจ้าปรินิพพาน','ปีที่พระพุทธเจ้าประสูติ','ปีที่พระเยซูประสูติ','ปีที่สร้างกรุงสุโขทัย'],a:0,e:'ไทยเริ่มนับ พ.ศ. ๑ หลังปรินิพพาน ๑ ปี'},
+ {q:'คริสต์ศักราช (ค.ศ.) เริ่มนับจากเหตุการณ์ใด',o:['ปีที่พระเยซูประสูติ','ปีที่พระพุทธเจ้าปรินิพพาน','ปีที่นบีมุฮัมมัดอพยพ','ปีสร้างกรุงโรม'],a:0,e:'ค.ศ. = พ.ศ. − ๕๔๓'},
+ {q:'พ.ศ. ๒๕๖๙ ตรงกับ ค.ศ. ใด',o:['ค.ศ. ๒๐๒๖','ค.ศ. ๒๐๒๕','ค.ศ. ๓๑๑๒','ค.ศ. ๑๙๘๓'],a:0,e:'๒๕๖๙ − ๕๔๓ = ๒๐๒๖'},
+ {q:'ค.ศ. ๒๐๐๐ ตรงกับ พ.ศ. ใด',o:['พ.ศ. ๒๕๔๓','พ.ศ. ๑๔๕๗','พ.ศ. ๒๕๐๐','พ.ศ. ๒๖๐๐'],a:0,e:'๒๐๐๐ + ๕๔๓ = ๒๕๔๓'},
+ {q:'รัตนโกสินทร์ศก (ร.ศ.) เริ่มนับจากเหตุการณ์ใด',o:['ปีที่สถาปนากรุงรัตนโกสินทร์ พ.ศ. ๒๓๒๕','ปีที่สร้างกรุงสุโขทัย','ปีที่เสียกรุงศรีอยุธยา','ปีที่พระพุทธเจ้าตรัสรู้'],a:0,e:'ร.ศ. ๑ = พ.ศ. ๒๓๒๕ (พ.ศ. = ร.ศ. + ๒๓๒๔)'},
+ {q:'นักประวัติศาสตร์ใช้เกณฑ์ใดแบ่งสมัยก่อนประวัติศาสตร์กับสมัยประวัติศาสตร์',o:['การมีตัวอักษรใช้บันทึกเรื่องราว','การรู้จักใช้ไฟ','การสร้างบ้านเรือน','การเลี้ยงสัตว์'],a:0,e:'เริ่มมีตัวอักษร = เริ่มสมัยประวัติศาสตร์'},
+ {q:'สมัยก่อนประวัติศาสตร์ แบ่งเป็นยุคใหญ่ ๆ ได้แก่ข้อใด',o:['ยุคหิน และยุคโลหะ','ยุคสุโขทัย และยุคอยุธยา','ยุคไม้ และยุคดิน','ยุคเก่า และยุคใหม่'],a:0,e:'ยุคหิน (เก่า กลาง ใหม่) และยุคโลหะ (สำริด เหล็ก)'},
+ {q:'ยุคหินเก่า มนุษย์ดำรงชีวิตอย่างไร',o:['ล่าสัตว์ เก็บของป่า อาศัยในถ้ำ ใช้เครื่องมือหินกะเทาะ','เพาะปลูก เลี้ยงสัตว์ ตั้งหมู่บ้าน','สร้างเมืองใหญ่ มีกษัตริย์','ใช้เครื่องมือเหล็ก'],a:0,e:'ยังเร่ร่อน ไม่ตั้งถิ่นฐานถาวร'},
+ {q:'ยุคหินใหม่ มนุษย์มีการเปลี่ยนแปลงสำคัญอย่างไร',o:['รู้จักเพาะปลูก เลี้ยงสัตว์ ตั้งถิ่นฐาน และขัดเครื่องมือหินให้เรียบ','ยังอยู่ในถ้ำและล่าสัตว์เท่านั้น','รู้จักหลอมเหล็ก','มีตัวอักษรใช้'],a:0,e:'เริ่มทำภาชนะดินเผาและทอผ้า'},
+ {q:'โลหะชนิดแรกที่มนุษย์รู้จักนำมาทำเครื่องมือเครื่องใช้คืออะไร',o:['สำริด (ทองแดงผสมดีบุก)','เหล็ก','ทองคำ','อะลูมิเนียม'],a:0,e:'ยุคสำริดมาก่อนยุคเหล็ก'},
+ {q:'สมัยประวัติศาสตร์ไทย เรียงลำดับตามเวลาได้ถูกต้องตามข้อใด',o:['สุโขทัย → อยุธยา → ธนบุรี → รัตนโกสินทร์','อยุธยา → สุโขทัย → ธนบุรี → รัตนโกสินทร์','สุโขทัย → ธนบุรี → อยุธยา → รัตนโกสินทร์','รัตนโกสินทร์ → ธนบุรี → อยุธยา → สุโขทัย'],a:0,e:'สุโขทัย พ.ศ. ๑๗๙๒ · อยุธยา ๑๘๙๓ · ธนบุรี ๒๓๑๐ · รัตนโกสินทร์ ๒๓๒๕'},
+ {q:'หลักฐานทางประวัติศาสตร์ หมายถึงอะไร',o:['ร่องรอยที่มนุษย์ในอดีตทิ้งไว้ ซึ่งใช้ศึกษาเรื่องราวในอดีตได้','เรื่องเล่าที่แต่งขึ้นใหม่','ภาพยนตร์ย้อนยุค','สิ่งที่ธรรมชาติสร้าง'],a:0,e:'ทั้งที่เป็นลายลักษณ์อักษรและไม่เป็นลายลักษณ์อักษร'},
+ {q:'ข้อใดเป็นหลักฐานที่เป็นลายลักษณ์อักษร',o:['ศิลาจารึก พงศาวดาร จดหมายเหตุ','โครงกระดูก เครื่องปั้นดินเผา','ภาพเขียนสีบนผนังถ้ำ','โบราณสถาน'],a:0,e:'หลักฐานที่มีตัวหนังสือ'},
+ {q:'ข้อใดเป็นหลักฐานที่ไม่เป็นลายลักษณ์อักษร',o:['เครื่องมือหิน โครงกระดูก ภาชนะดินเผา','ศิลาจารึก','พงศาวดาร','จดหมายเหตุ'],a:0,e:'โบราณวัตถุ โบราณสถาน ภาพเขียนสี คำบอกเล่า'},
+ {q:'หลักฐานชั้นต้น (ปฐมภูมิ) หมายถึงอะไร',o:['หลักฐานที่เกิดขึ้นในเหตุการณ์หรือบันทึกโดยผู้อยู่ในเหตุการณ์','หนังสือที่เขียนขึ้นภายหลังจากการค้นคว้า','นิทานพื้นบ้าน','หนังสือเรียนประวัติศาสตร์'],a:0,e:'เช่น ศิลาจารึก โบราณวัตถุ ภาพถ่ายเหตุการณ์จริง'},
+ {q:'ข้อใดเป็นหลักฐานชั้นรอง (ทุติยภูมิ)',o:['หนังสือเรียนประวัติศาสตร์ที่เขียนจากการค้นคว้า','ศิลาจารึกหลักที่ ๑','ภาชนะดินเผาบ้านเชียง','จดหมายของผู้อยู่ในเหตุการณ์'],a:0,e:'ผู้เขียนไม่ได้อยู่ในเหตุการณ์ แต่เรียบเรียงจากหลักฐานชั้นต้น'},
+ {q:'ศิลาจารึกพ่อขุนรามคำแหง จัดเป็นหลักฐานประเภทใด',o:['หลักฐานชั้นต้น ที่เป็นลายลักษณ์อักษร','หลักฐานชั้นรอง ที่เป็นลายลักษณ์อักษร','หลักฐานชั้นต้น ที่ไม่เป็นลายลักษณ์อักษร','ไม่ใช่หลักฐานทางประวัติศาสตร์'],a:0,e:'จารึกขึ้นในสมัยสุโขทัยเอง'},
+ {q:'ภาพเขียนสีที่ผาแต้ม จังหวัดอุบลราชธานี จัดเป็นหลักฐานประเภทใด',o:['หลักฐานชั้นต้น ที่ไม่เป็นลายลักษณ์อักษร','หลักฐานชั้นรอง','หลักฐานที่เป็นลายลักษณ์อักษร','หลักฐานปลอม'],a:0,e:'ภาพเขียนสียุคก่อนประวัติศาสตร์ อายุราว ๓,๐๐๐–๔,๐๐๐ ปี'},
+ {q:'ทำไมการศึกษาประวัติศาสตร์จึงต้องใช้หลักฐานหลายชิ้นประกอบกัน',o:['เพื่อตรวจสอบความน่าเชื่อถือและได้ข้อมูลที่ถูกต้องรอบด้าน','เพื่อให้หนังสือหนาขึ้น','เพราะหลักฐานชิ้นเดียวอ่านไม่ออก','ไม่จำเป็นต้องใช้หลายชิ้น'],a:0,e:'เป็นขั้นตอนประเมินหลักฐานในวิธีการทางประวัติศาสตร์'},
+],
+2:[
+ {q:'มนุษย์ยุคหินเก่าในดินแดนไทยอาศัยอยู่ที่ใดเป็นส่วนใหญ่',o:['ถ้ำและเพิงผาใกล้แหล่งน้ำ','เมืองใหญ่','บ้านไม้ยกพื้นสูง','ปราสาทหิน'],a:0,e:'เช่น ถ้ำในจังหวัดกาญจนบุรี แม่ฮ่องสอน กระบี่'},
+ {q:'แหล่งโบราณคดีบ้านเก่า อยู่ในจังหวัดใด และเป็นแหล่งยุคใด',o:['กาญจนบุรี ยุคหินใหม่','อุดรธานี ยุคสำริด','อุบลราชธานี ยุคหินเก่า','ลพบุรี ยุคเหล็ก'],a:0,e:'พบโครงกระดูก ขวานหินขัด และภาชนะดินเผาสามขา'},
+ {q:'แหล่งโบราณคดีบ้านเชียง อยู่ในจังหวัดใด',o:['อุดรธานี','ขอนแก่น','กาญจนบุรี','สุโขทัย'],a:0,e:'อำเภอหนองหาน จังหวัดอุดรธานี'},
+ {q:'บ้านเชียงมีชื่อเสียงจากสิ่งใด',o:['ภาชนะดินเผาเขียนสีแดงลายก้นหอย และเครื่องมือสำริด','ปราสาทหินขนาดใหญ่','พระพุทธรูปทองคำ','ศิลาจารึก'],a:0,e:'ได้รับการขึ้นทะเบียนเป็นมรดกโลก พ.ศ. ๒๕๓๕'},
+ {q:'ภาพเขียนสีก่อนประวัติศาสตร์ที่ผาแต้ม อยู่ในจังหวัดใด',o:['อุบลราชธานี','อุดรธานี','กาญจนบุรี','เชียงใหม่'],a:0,e:'ริมแม่น้ำโขง อำเภอโขงเจียม'},
+ {q:'ภาพเขียนสีที่ผาแต้มบอกเรื่องราวใดของคนในอดีต',o:['วิถีชีวิต เช่น การจับปลา สัตว์เลี้ยง เครื่องมือ','ชื่อกษัตริย์','กฎหมาย','ตัวอักษร'],a:0,e:'ภาพปลาบึก ช้าง มือ และเครื่องมือจับปลา'},
+ {q:'มนุษย์ยุคหินใหม่ในดินแดนไทยเริ่มตั้งถิ่นฐานถาวรเพราะเหตุใด',o:['รู้จักเพาะปลูกและเลี้ยงสัตว์ จึงไม่ต้องเร่ร่อน','ถูกบังคับให้อยู่ที่เดียว','มีถนนแล้ว','มีกฎหมายห้ามย้าย'],a:0,e:'เกิดชุมชนเกษตรกรรม'},
+ {q:'โลหะที่ชาวบ้านเชียงรู้จักใช้ทำเครื่องประดับและเครื่องมือ คือข้อใด',o:['สำริดและเหล็ก','ทองคำและเงิน','อะลูมิเนียม','ตะกั่ว'],a:0,e:'พบกำไลสำริดและใบหอกเหล็ก'},
+ {q:'สมัยประวัติศาสตร์ในดินแดนไทยเริ่มต้นเมื่อใด',o:['เมื่อพบหลักฐานตัวอักษรเก่าสุด ราวพุทธศตวรรษที่ ๑๒ (จารึกภาษาบาลี สันสกฤต มอญ เขมร)','เมื่อสร้างกรุงสุโขทัย','เมื่อสร้างกรุงรัตนโกสินทร์','เมื่อมีโรงเรียน'],a:0,e:'ก่อนสุโขทัยมีอาณาจักรโบราณที่ใช้ตัวอักษรแล้ว'},
+ {q:'อาณาจักรโบราณที่มีศูนย์กลางอยู่บริเวณจังหวัดนครปฐม คือข้อใด',o:['ทวารวดี','ศรีวิชัย','ล้านนา','โคตรบูร'],a:0,e:'หลักฐานสำคัญ ธรรมจักรกับกวางหมอบ และพระปฐมเจดีย์'},
+ {q:'โบราณวัตถุชิ้นสำคัญที่พบในอาณาจักรทวารวดีคือข้อใด',o:['ธรรมจักรกับกวางหมอบ','เครื่องสังคโลก','พระแก้วมรกต','ภาชนะลายก้นหอย'],a:0,e:'แสดงว่าทวารวดีนับถือพระพุทธศาสนา'},
+ {q:'อาณาจักรละโว้ มีศูนย์กลางอยู่ที่จังหวัดใด',o:['ลพบุรี','ลำพูน','สุราษฎร์ธานี','นครศรีธรรมราช'],a:0,e:'โบราณสถานสำคัญ พระปรางค์สามยอด'},
+ {q:'อาณาจักรหริภุญชัย อยู่ที่จังหวัดใด และมีกษัตริย์องค์แรกคือใคร',o:['ลำพูน พระนางจามเทวี','เชียงใหม่ พญามังราย','ลพบุรี พระนารายณ์','สุโขทัย พ่อขุนศรีอินทราทิตย์'],a:0,e:'พระนางจามเทวีเสด็จจากละโว้มาครองหริภุญชัย'},
+ {q:'อาณาจักรศรีวิชัย มีศูนย์กลางในภาคใด และมีโบราณสถานสำคัญคือข้อใด',o:['ภาคใต้ พระบรมธาตุไชยา จังหวัดสุราษฎร์ธานี','ภาคเหนือ วัดพระธาตุดอยสุเทพ','ภาคกลาง พระปฐมเจดีย์','ภาคอีสาน ปราสาทหินพิมาย'],a:0,e:'ศรีวิชัยเป็นอาณาจักรทางทะเล'},
+ {q:'อาณาจักรตามพรลิงค์ อยู่ที่จังหวัดใดในปัจจุบัน',o:['นครศรีธรรมราช','สงขลา','ภูเก็ต','ชุมพร'],a:0,e:'มีพระบรมธาตุเจดีย์นครศรีธรรมราช เป็นศูนย์กลางพุทธศาสนาลังกาวงศ์'},
+ {q:'อาณาจักรล้านนา สถาปนาโดยกษัตริย์พระองค์ใด และมีศูนย์กลางที่ใด',o:['พญามังราย เมืองเชียงใหม่','พ่อขุนรามคำแหง เมืองสุโขทัย','พระนางจามเทวี เมืองลำพูน','พระเจ้าอู่ทอง เมืองอยุธยา'],a:0,e:'สร้างเชียงใหม่ พ.ศ. ๑๘๓๙'},
+ {q:'อาณาจักรโคตรบูร ตั้งอยู่บริเวณใด',o:['ริมแม่น้ำโขง แถบจังหวัดนครพนม','ภาคใต้','ภาคกลาง','ภาคตะวันออก'],a:0,e:'มีพระธาตุพนมเป็นศูนย์กลาง'},
+ {q:'อาณาจักรโบราณในดินแดนไทยส่วนใหญ่รับวัฒนธรรมจากดินแดนใด',o:['อินเดีย','ยุโรป','ญี่ปุ่น','อเมริกา'],a:0,e:'ศาสนาพุทธ พราหมณ์ ตัวอักษร และศิลปะ'},
+ {q:'ปราสาทหินพิมาย และปราสาทหินพนมรุ้ง ได้รับอิทธิพลจากอาณาจักรใด',o:['ขอม (เขมรโบราณ)','ศรีวิชัย','ทวารวดี','ล้านนา'],a:0,e:'ศิลปะขอมในภาคอีสาน'},
+ {q:'ปัจจัยสำคัญที่ทำให้มนุษย์เลือกตั้งถิ่นฐานบริเวณใดบริเวณหนึ่ง คือข้อใด',o:['ใกล้แหล่งน้ำ ดินอุดมสมบูรณ์ ปลอดภัย','มีห้างสรรพสินค้า','มีถนนใหญ่','มีสนามบิน'],a:0,e:'ชุมชนโบราณมักอยู่ริมแม่น้ำ'},
+ {q:'นักโบราณคดีรู้อายุของโครงกระดูกและภาชนะในหลุมขุดค้นได้อย่างไร',o:['ใช้วิธีทางวิทยาศาสตร์ เช่น การตรวจคาร์บอน และเปรียบเทียบชั้นดิน','เดาจากสี','ถามคนในหมู่บ้าน','ดูจากขนาด'],a:0,e:'ชั้นดินที่ลึกกว่ามักเก่ากว่า'},
+ {q:'มรดกโลกทางวัฒนธรรมแห่งแรก ๆ ของไทยที่เป็นแหล่งก่อนประวัติศาสตร์ คือข้อใด',o:['แหล่งโบราณคดีบ้านเชียง','อุทยานประวัติศาสตร์สุโขทัย','นครประวัติศาสตร์พระนครศรีอยุธยา','เขาใหญ่'],a:0,e:'บ้านเชียงขึ้นทะเบียน พ.ศ. ๒๕๓๕ สุโขทัยและอยุธยา พ.ศ. ๒๕๓๔'},
+ {q:'นักเรียนควรปฏิบัติต่อโบราณสถานและโบราณวัตถุอย่างไร',o:['ไม่ขีดเขียน ไม่หยิบจับ ไม่ทำลาย และช่วยกันดูแล','เก็บกลับบ้านเป็นที่ระลึก','ปีนป่ายถ่ายรูป','ขีดชื่อตัวเองไว้'],a:0,e:'เป็นสมบัติของชาติ'},
+ {q:'การที่คนในดินแดนไทยสมัยก่อนประวัติศาสตร์ฝังศพพร้อมสิ่งของ แสดงถึงอะไร',o:['มีความเชื่อเรื่องชีวิตหลังความตาย','ไม่มีที่เก็บของ','ต้องการซ่อนสมบัติ','เป็นการลงโทษ'],a:0,e:'เช่น ฝังภาชนะและเครื่องประดับไว้กับศพที่บ้านเชียง'},
+ {q:'ข้อใดเรียงลำดับพัฒนาการของมนุษย์ในดินแดนไทยได้ถูกต้อง',o:['ยุคหินเก่า → ยุคหินใหม่ → ยุคโลหะ → อาณาจักรโบราณ → สุโขทัย','ยุคโลหะ → ยุคหินเก่า → สุโขทัย → อาณาจักรโบราณ','อาณาจักรโบราณ → ยุคหิน → สุโขทัย','สุโขทัย → ยุคหิน → ยุคโลหะ'],a:0,e:'จากล่าสัตว์ สู่เกษตรกรรม สู่โลหะ สู่บ้านเมือง'},
+],
+3:[
+ {q:'อาณาจักรสุโขทัยสถาปนาขึ้นเมื่อ พ.ศ. ใด',o:['พ.ศ. ๑๗๙๒','พ.ศ. ๑๘๙๓','พ.ศ. ๒๓๒๕','พ.ศ. ๑๒๐๐'],a:0,e:'ราวพุทธศตวรรษที่ ๑๘'},
+ {q:'ปฐมกษัตริย์ของอาณาจักรสุโขทัยคือใคร',o:['พ่อขุนศรีอินทราทิตย์ (พ่อขุนบางกลางหาว)','พ่อขุนรามคำแหง','พ่อขุนผาเมือง','พระมหาธรรมราชาที่ ๑'],a:0,e:'ต้นราชวงศ์พระร่วง'},
+ {q:'ผู้ที่ร่วมกับพ่อขุนบางกลางหาวขับไล่ขอมออกจากสุโขทัยคือใคร',o:['พ่อขุนผาเมือง เจ้าเมืองราด','พญามังราย','พระนางจามเทวี','พระเจ้าอู่ทอง'],a:0,e:'ขับไล่ขอมสบาดโขลญลำพง'},
+ {q:'ราชวงศ์ที่ปกครองอาณาจักรสุโขทัยคือราชวงศ์ใด',o:['ราชวงศ์พระร่วง','ราชวงศ์จักรี','ราชวงศ์อู่ทอง','ราชวงศ์มังราย'],a:0,e:'มีกษัตริย์ ๙ พระองค์'},
+ {q:'พ่อขุนรามคำแหงมหาราช เป็นพระราชโอรสของใคร',o:['พ่อขุนศรีอินทราทิตย์ และนางเสือง','พ่อขุนผาเมือง','พระยาลิไทย','พ่อขุนบานเมือง'],a:0,e:'เป็นพระราชโอรสองค์ที่ ๓ ขึ้นครองราชย์ต่อจากพ่อขุนบานเมือง'},
+ {q:'พ่อขุนรามคำแหงได้พระนาม “รามคำแหง” เพราะเหตุใด',o:['ทรงชนช้างชนะขุนสามชนเจ้าเมืองฉอดเมื่อพระชนมายุ ๑๙ พรรษา','ทรงแต่งวรรณคดีเรื่องรามเกียรติ์','ทรงเป็นพระราชาองค์แรก','ทรงมีช้างมาก'],a:0,e:'ราม = ชื่อเดิม, คำแหง = กล้าหาญ'},
+ {q:'พ่อขุนรามคำแหงทรงประดิษฐ์สิ่งใดใน พ.ศ. ๑๘๒๖',o:['ลายสือไทย (ตัวอักษรไทย)','เครื่องสังคโลก','เงินพดด้วง','ปฏิทิน'],a:0,e:'หลักฐานปรากฏในศิลาจารึกหลักที่ ๑'},
+ {q:'ศิลาจารึกหลักที่ ๑ มีความสำคัญอย่างไร',o:['เป็นหลักฐานตัวอักษรไทยเก่าแก่ที่สุด และบอกเรื่องราวสมัยสุโขทัย','เป็นกฎหมายฉบับแรกของอยุธยา','เป็นแผนที่โบราณ','เป็นตำรายา'],a:0,e:'ยูเนสโกขึ้นทะเบียนเป็นมรดกความทรงจำแห่งโลก พ.ศ. ๒๕๔๖'},
+ {q:'การปกครองสมัยพ่อขุนรามคำแหงเรียกว่าแบบใด',o:['พ่อปกครองลูก (ปิตุราชา)','เทวราชา','ประชาธิปไตย','สมบูรณาญาสิทธิราชย์แบบขอม'],a:0,e:'กษัตริย์ใกล้ชิดราษฎรเหมือนพ่อกับลูก'},
+ {q:'พ่อขุนรามคำแหงทรงให้แขวนสิ่งใดไว้ที่ประตูวัง เพื่อให้ราษฎรร้องทุกข์',o:['กระดิ่ง','กลอง','ระฆังใหญ่','ธง'],a:0,e:'ราษฎรสั่นกระดิ่ง พระองค์จะเสด็จออกมาตัดสินความ'},
+ {q:'ข้อความ “ในน้ำมีปลา ในนามีข้าว” จากศิลาจารึก สะท้อนสิ่งใด',o:['ความอุดมสมบูรณ์และความสุขของราษฎรสมัยสุโขทัย','ความแห้งแล้ง','การทำสงคราม','การเก็บภาษีหนัก'],a:0,e:'บ้านเมืองสงบ อาหารบริบูรณ์'},
+ {q:'ข้อความ “ใครจักใคร่ค้าช้างค้า ใครจักใคร่ค้าม้าค้า” หมายถึงอะไร',o:['ราษฎรมีเสรีภาพในการค้าขาย ไม่เก็บภาษีผ่านด่าน (จกอบ)','ห้ามค้าช้างและม้า','กษัตริย์ผูกขาดการค้า','ต้องเสียภาษีสูง'],a:0,e:'เศรษฐกิจสุโขทัยเป็นแบบการค้าเสรี'},
+ {q:'พ่อขุนรามคำแหงทรงรับพระพุทธศาสนานิกายใดจากเมืองนครศรีธรรมราช',o:['เถรวาทแบบลังกาวงศ์','มหายาน','วัชรยาน','นิกายเซน'],a:0,e:'นิมนต์พระสงฆ์จากนครศรีธรรมราชมาเผยแผ่'},
+ {q:'ในรัชกาลพ่อขุนรามคำแหง อาณาเขตของสุโขทัยเป็นอย่างไร',o:['กว้างขวางที่สุด ทิศใต้ถึงนครศรีธรรมราช ทิศเหนือถึงหลวงพระบาง','เล็กที่สุด','เท่าเดิม','เหลือเฉพาะเมืองสุโขทัย'],a:0,e:'ขยายด้วยการทำสงครามและการผูกมิตร'},
+ {q:'พระมหาธรรมราชาที่ ๑ มีอีกพระนามว่าอะไร',o:['พระยาลิไทย','พ่อขุนบานเมือง','พระยาเลอไทย','พระยางั่วนำถุม'],a:0,e:'พระราชนัดดาของพ่อขุนรามคำแหง'},
+ {q:'พระมหาธรรมราชาที่ ๑ (ลิไทย) ทรงพระราชนิพนธ์วรรณกรรมเรื่องใด',o:['ไตรภูมิพระร่วง (เตภูมิกถา)','รามเกียรติ์','สามก๊ก','ลิลิตพระลอ'],a:0,e:'วรรณกรรมทางพุทธศาสนาเล่มแรกของไทย ว่าด้วยนรก สวรรค์ และบาปบุญ'},
+ {q:'พระมหาธรรมราชาที่ ๑ ทรงปกครองโดยยึดหลักใด',o:['ธรรมราชา ปกครองโดยธรรมและทรงออกผนวช','พ่อปกครองลูก','เทวราชา','ใช้กำลังทหาร'],a:0,e:'ทรงเลื่อมใสพุทธศาสนาอย่างยิ่ง'},
+ {q:'ภูมิปัญญาสมัยสุโขทัยด้านภาษาคือข้อใด',o:['ลายสือไทย','อักษรขอม','อักษรมอญ','อักษรโรมัน'],a:0,e:'เป็นต้นแบบของอักษรไทยปัจจุบัน'},
+ {q:'เครื่องสังคโลก คืออะไร',o:['เครื่องปั้นดินเผาเคลือบของสุโขทัย ส่งขายต่างประเทศ','เครื่องประดับทองคำ','เครื่องมือเหล็ก','ผ้าไหมสุโขทัย'],a:0,e:'เผาจากเตาทุเรียง ที่สุโขทัยและศรีสัชนาลัย'},
+ {q:'สรีดภงส์ (ทำนบพระร่วง) คือภูมิปัญญาด้านใด',o:['การจัดการน้ำ เป็นเขื่อนดินกักเก็บน้ำไว้ใช้','การทำสงคราม','การทอผ้า','การเดินเรือ'],a:0,e:'กักน้ำจากเขาแล้วส่งเข้าเมืองตามคลองและตระพัง'},
+ {q:'“ตระพัง” ในเมืองสุโขทัยหมายถึงอะไร',o:['สระน้ำที่ขุดไว้เก็บน้ำใช้ในเมือง','กำแพงเมือง','เจดีย์','ตลาด'],a:0,e:'เช่น ตระพังเงิน ตระพังทอง'},
+ {q:'พระพุทธรูปปางใดเป็นเอกลักษณ์ของศิลปะสุโขทัย',o:['ปางลีลา','ปางมารวิชัยแบบเชียงแสน','ปางห้ามญาติแบบอยุธยา','ปางไสยาสน์แบบรัตนโกสินทร์'],a:0,e:'พระพุทธรูปสุโขทัยงดงาม อ่อนช้อย'},
+ {q:'เจดีย์ทรงใดเป็นแบบเฉพาะของสุโขทัย',o:['ทรงพุ่มข้าวบิณฑ์ (ดอกบัวตูม)','ทรงปรางค์','ทรงระฆังคว่ำ','ทรงเหลี่ยม'],a:0,e:'เช่น เจดีย์ประธานวัดมหาธาตุ สุโขทัย'},
+ {q:'อุทยานประวัติศาสตร์สุโขทัย ได้รับการยกย่องอย่างไร',o:['เป็นมรดกโลกทางวัฒนธรรม พ.ศ. ๒๕๓๔ ร่วมกับศรีสัชนาลัยและกำแพงเพชร','เป็นสนามกีฬาแห่งชาติ','เป็นเมืองหลวงปัจจุบัน','เป็นเขตอุตสาหกรรม'],a:0,e:'ขึ้นทะเบียนโดยยูเนสโก'},
+ {q:'อาณาจักรสุโขทัยสิ้นสุดลงอย่างไร',o:['ถูกรวมเข้ากับอาณาจักรอยุธยาใน พ.ศ. ๑๙๘๑','ถูกพม่าเผาเมือง','ย้ายเมืองหนีน้ำท่วม','ถูกขอมยึดคืน'],a:0,e:'อยุธยาเข้มแข็งขึ้นและผนวกสุโขทัยในสมัยสมเด็จพระบรมราชาธิราชที่ ๒'},
+]};
+
+const SET_NAMES = {1:'๑๐ ช่วงเวลา ยุคสมัย หลักฐาน',2:'๑๑ การตั้งถิ่นฐานในดินแดนไทย',3:'๑๒ อาณาจักรสุโขทัย',all:'รวมทุกหน่วย (๗๕ ข้อ)'};
+// ---------- storage ----------
+const KEY='history1-p4-best';
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'อ่าน',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label||TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    const hasV=!!el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(hasV?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  const want=$('count').value;let src=shuffle(pool());if(want!=='all')src=src.slice(0,Number(want));
+  qs=src.map(q=>{const order=shuffle([0,1,2,3]);return {q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>
