@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คลิปการงานอาชีพ ป.๔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#2B1A24; --muted:#7A5F6C; --line:#EADFCF;
+  --plum:#15803D; --plum-soft:#FCE4EC; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#6A1B9A; --red-soft:#F3E5F5;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(120,30,70,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#F48FB1; --plum-soft:#4A1A2E; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#F48FB1; --plum-soft:#4A1A2E; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:22px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">📘 ภาษาไทย</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a href="math.html">🔢 คณิตศาสตร์</a>
+    <a href="social-en.html">📗 Social (EN book · คลิปไทย)</a>
+    <a href="work.html">🛠 การงานอาชีพ</a>
+    <a href="social1.html">📗 สังคมศึกษา1</a>
+    <a href="history1.html">🏛 ประวัติศาสตร์1</a>
+    <a href="history-exam.html">📝 ข้อสอบประวัติศาสตร์</a>
+    <a href="history-prep.html">🎯 ข้อสอบประวัติศาสตร์เตรียมสอบ</a>
+    <a class="on" href="work-clips.html">🎬 คลิปการงานอาชีพ</a>
+  </nav>
+  <div class="eyebrow">การงานอาชีพ · ชั้นประถมศึกษาปีที่ ๔ · เฉพาะคลิปวิดีโอ ๑๐ คลิป · ทำข้อสอบที่ tab 🛠 การงานอาชีพ</div>
+  <h1>คลิป<span>การงานอาชีพ</span> ป.๔ — ๑๐ คลิปครบทุกหน่วย</h1>
+  <div class="books">
+    <span class="book b1"><i></i>หน่วย ๑ ดูแลจัดเก็บของใช้ · หน่วย ๒ มารยาทเด็กดี</span>
+    <span class="book b2"><i></i>หน่วย ๓ ไม้ดอกไม้ประดับ · หน่วย ๔ ซ่อมแซมอุปกรณ์ · งานประดิษฐ์</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📺 Videos by unit</a>
+    
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>๑๐ คลิปการงานอาชีพ</h2>
+    <p>กด <b>▶ ดูคลิป</b> เพื่อเปิดดูในหน้านี้ได้เลย · ด้านล่างแต่ละคลิปมี DLTV ใบงานประกอบ</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+  <div class="links" style="margin-top:12px">
+    <a href="https://www.youtube.com/playlist?list=PLlQjUbbekguc9HXn2Utr3ZtXGCF3OYeCf" target="_blank" rel="noopener"><span class="tag">เพลย์ลิสต์</span> การงานอาชีพ ป.๔ (ทุกเรื่อง)</a>
+    <a href="https://www.youtube.com/playlist?list=PLkgK-pvqUvzcDNbb3LZIuJfB5MDbc01YE" target="_blank" rel="noopener"><span class="tag">เพลย์ลิสต์</span> วิชาการงานอาชีพ ป.๔ (ชุดที่ ๒)</a>
+    <a href="work.html"><span class="tag k">ข้อสอบ</span> ไปทำข้อสอบการงานอาชีพ ๔๐๐ ข้อ</a>
+  </div>
+</section>
+
+
+
+
+
+<footer>
+  All videos belong to their creators on YouTube. This page only links to them, grouped by the units in your study guide.
+</footer>
+</div>
+
+<script>
+const TH = ['1','2','3','4','5','6','7','8','9'];
+const CHAPTERS = [
+  {n:1,title:'คลิป ๑ · การดูแลรักษาและจัดเก็บของใช้ส่วนตัวและส่วนรวม',focus:'หน่วยที่ ๑ · ของใช้ส่วนตัว ของใช้ส่วนรวม การจัดเก็บเป็นหมวดหมู่',video:'DfWaEvZnEAg',links:[['dltv:79331','DLTV การดูแลรักษาของใช้ส่วนตัว (มีใบงานและใบความรู้)','d']]},
+  {n:2,title:'คลิป ๒ · การดูแลรักษาของใช้ส่วนตัว (หน้าที่ ๗)',focus:'หน่วยที่ ๑ · เสื้อผ้า รองเท้า กระเป๋า อุปกรณ์การเรียน',video:'shmdGtI9Yjs',links:[['mlPwSr9-6CQ','DLTV ป.๔ ของใช้ส่วนตัว (เรียนย้อนหลัง)','v']]},
+  {n:3,title:'คลิป ๓ · ไอเดียการสอน การดูแลและจัดเก็บของใช้ให้เรียบร้อย',focus:'หน่วยที่ ๑ · ขั้นตอนการทำงาน วางแผน ลงมือทำ ตรวจสอบ',video:'mXEyYI0LN4E',links:[]},
+  {n:4,title:'คลิป ๔ · มารยาทในการรับประทานอาหาร',focus:'หน่วยที่ ๒ · ล้างมือ ช้อนกลาง ไม่พูดขณะอาหารเต็มปาก รอผู้ใหญ่',video:'6sYNLm-aXTM',links:[['7vhm-UIWots','มารยาทในการรับประทานอาหาร (อีกเวอร์ชัน)','v'],['6hkOE-T3_ig','DLTV ป.๔ มารยาทในการรับประทานอาหาร','v']]},
+  {n:5,title:'คลิป ๕ · มารยาทในการใช้ห้องน้ำและห้องส้วม (คลังสื่อ พว.)',focus:'หน่วยที่ ๒ · ราดน้ำ ทิ้งกระดาษลงถัง ล้างมือ ต่อคิว ปิดประตู',video:'UHkkCnJIhwM',links:[['ZJeZhu6pFXg','มารยาทในการใช้ห้องน้ำ (ครูเบญจพร)','v'],['dltv:62392','DLTV มารยาทในการใช้ห้องน้ำ ห้องส้วม (มีใบงาน)','d']]},
+  {n:6,title:'คลิป ๖ · หน่วยที่ ๓ ไม้ดอกไม้ประดับ',focus:'หน่วยที่ ๓ · ความหมาย ชนิด ประโยชน์ของไม้ดอกไม้ประดับ',video:'mTcs4cMciEM',links:[['mPXosvZrfT4','ประโยชน์ของไม้ดอกไม้ประดับ (Ep.๗)','v'],['dltv:84376','DLTV ไม้ดอกไม้ประดับ (มีใบงาน)','d']]},
+  {n:7,title:'คลิป ๗ · หลักและวิธีการปลูกไม้ดอกไม้ประดับ',focus:'หน่วยที่ ๓ · เตรียมดิน ภาชนะ การปลูก การรดน้ำ การดูแล',video:'GJnlG9FSIKg',links:[['dUgIARIKxcA','ไม้ดอก ไม้ประดับ วิชาการงานอาชีพ ป.๔','v'],['dltv:53137','DLTV การดูแลรักษาไม้ดอกไม้ประดับ (มีใบงาน)','d']]},
+  {n:8,title:'คลิป ๘ · วิธีการซ่อมแซมอุปกรณ์ เครื่องมือ และเครื่องใช้ (คลังสื่อ พว.)',focus:'หน่วยที่ ๔ · หลักการซ่อม เครื่องมือช่าง ความปลอดภัย',video:'edVsdbxXiEc',links:[['dltv:62396','DLTV การซ่อมแซมอุปกรณ์ เครื่องมือ และเครื่องใช้ (มีใบงาน)','d']]},
+  {n:9,title:'คลิป ๙ · งานช่าง หลักการและวิธีการซ่อมแซมอุปกรณ์',focus:'หน่วยที่ ๔ · ค้อน ไขควง คีม งานไม้ งานผ้า',video:'FTD_Hr76Zrw',links:[['FK4vgtG4MVQ','หลักการซ่อมแซมอุปกรณ์ เครื่องมือและเครื่องใช้ ป.๔','v'],['NnG-ILjln20','วิธีการซ่อมแซมอุปกรณ์ เครื่องมือและเครื่องใช้ ป.๔','v']]},
+  {n:10,title:'คลิป ๑๐ · งานประดิษฐ์จากของเหลือใช้ กระถางจากขวดพลาสติก',focus:'งานประดิษฐ์ · ใช้ทรัพยากรอย่างประหยัด ทำตามขั้นตอน',video:'ntMDfiBS7os',links:[['dltv:62399','DLTV ประดิษฐ์สิ่งของจากวัสดุเหลือใช้ (มีใบงาน)','d']]},
+];
+const SET_NAMES={};
+// ---------- storage ----------
+const KEY='social-p4-t1-best';
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')||id.endsWith('.html')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'คลิป',k:'อ่าน',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.set||c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label||TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">▶ ดูคลิป</button>
+        
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดคลิปหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    t.textContent=open?'▲ ซ่อน':'▶ ดูคลิป';
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='Lesson video';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+});
+
+</script>
+</body>
+</html>
