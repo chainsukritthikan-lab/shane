@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ข้อสอบภาษาไทย ๑๐๐ ข้อ ป.๔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#14213D; --muted:#5A6A85; --line:#EADFCF;
+  --plum:#C2410C; --plum-soft:#FFE7D6; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#D9480F; --red-soft:#FFE6D9;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(30,60,120,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">🏠 รวมข้อสอบ ๗ วิชา</a>
+    <a href="history.html">📜 ประวัติศาสตร์</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a href="work.html">🛠 การงานอาชีพ</a>
+    <a href="ict.html">💻 ICT วิทยาการคำนวณ</a>
+    <a class="on" href="thai.html">📘 ภาษาไทย</a>
+    <a href="pe.html">🏃 สุขศึกษาและพลศึกษา</a>
+    <a href="music.html">🎵 ดนตรี</a>
+    <a href="../index.html">↩ เว็บหลัก (คลิป+ข้อสอบ)</a>
+  </nav>
+  <div class="eyebrow">ภาษาไทย · ชั้นประถมศึกษาปีที่ ๔ · ข้อสอบ ๑๐๐ ข้อ · ทำครบ ๑๐๐ ข้อทุกครั้ง</div>
+  <h1>ข้อสอบ<span>ภาษาไทย</span> ป.๔ — ๑๐๐ ข้อ</h1>
+  <div class="books">
+    <span class="book b1"><i></i>มาตราตัวสะกด · ควบกล้ำ อักษรนำ · ไตรยางศ์ วรรณยุกต์ · ชนิดของคำ ประโยค · สำนวน · ราชาศัพท์ · การอ่านเขียน</span>
+    <span class="book b2"><i></i>กติกา: ทำครั้งละ ๑๐๐ ข้อเต็ม ไม่มีตัวเลือกจำนวนข้อ · สลับลำดับข้อและตัวเลือกใหม่ทุกครั้ง</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📚 ก่อนสอบดูอะไร</a>
+    <a href="#workbook">📚 สรุปที่ต้องจำ</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>ข้อสอบภาษาไทย ๑๐๐ ข้อ</h2>
+    <p>กด ✏️ ทำข้อสอบ แล้วทำให้ครบ ๑๐๐ ข้อ · ตอบแล้วเห็นเฉลยทันที · ตัวเลือกและลำดับข้อสลับใหม่ทุกครั้ง</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>กติกาชุดเตรียมสอบ 🎯</h2>
+    <p>อ่านก่อนเริ่ม</p>
+  </div>
+  <div class="wb">
+    <div class="card"><h3>๑๐๐ ข้อเต็มทุกครั้ง</h3><p>ชุดนี้ล็อกจำนวนไว้ที่ ๑๐๐ ข้อ ไม่สามารถเลือกทำน้อยกว่านี้ได้ เพื่อฝึกความอดทนเหมือนสอบจริง</p></div>
+    <div class="card"><h3>ข้อใหม่ทั้งหมด</h3><p>๑๐๐ ข้อนี้เขียนขึ้นใหม่ ไม่ซ้ำกับข้อสอบในเว็บหลัก</p></div>
+    <div class="card"><h3>ออกจากกลางคันได้</h3><p>กด “ออก” ได้ถ้าจำเป็น แต่คะแนนจะไม่ถูกบันทึก · คะแนนสูงสุดบันทึกเมื่อทำครบ ๑๐๐ ข้อเท่านั้น</p></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>ชุดเตรียมสอบ ๑๐๐ ข้อ ทำครบทุกครั้ง · ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดบันทึกไว้ในเครื่อง · ข้อสอบสุ่มใหม่ทุกครั้ง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="score-live">จำนวนข้อ <b>๑๐๐ ข้อ (ล็อก)</b></span><select id="count" class="hidden"><option value="all" selected>all</option></select>
+          <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามเนื้อหาวิชาภาษาไทย ป.๔ เพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,label:'📘',title:'ข้อสอบภาษาไทย ๑๐๐ ข้อ',focus:'มาตราตัวสะกด · ควบกล้ำ อักษรนำ · ไตรยางศ์ วรรณยุกต์ · ชนิดของคำ ประโยค · สำนวน · ราชาศัพท์ · การอ่านเขียน',video:null,
+   links:[["../index.html", "ทบทวนคลิป ภาษาพาที ป.๔", "k"]]},
+];
+const BANK = {
+1:[
+ {"q":"คำว่า “กลาง” สะกดด้วยแม่ใด","o":["แม่กง","แม่กน","แม่กม","แม่เกย"],"a":0,"e":"ตัวสะกด ง"},
+ {"q":"คำใดสะกดด้วยแม่กด","o":["พิษ","สวน","คุณ","เรียน"],"a":0,"e":"ษ ออกเสียง /ด/ เป็นแม่กด"},
+ {"q":"คำใดสะกดด้วยแม่กน","o":["การ","ลาภ","ภาพ","บาท"],"a":0,"e":"ร ออกเสียง /น/"},
+ {"q":"คำใดสะกดด้วยแม่กบ","o":["ลาภ","ลาน","ลาก","ลาย"],"a":0,"e":"ภ ออกเสียง /บ/"},
+ {"q":"คำใดสะกดด้วยแม่เกอว","o":["แมว","แมน","แมง","แม่"],"a":0,"e":"ตัวสะกด ว"},
+ {"q":"คำใดเป็นคำที่ “ไม่มีตัวสะกด” (แม่ ก กา)","o":["มะลิ","มาก","มีด","มุม"],"a":0,"e":"แม่ ก กา คือคำที่ไม่มีตัวสะกด"},
+ {"q":"คำใดเป็นคำควบกล้ำแท้","o":["กราบ","จริง","สร้าง","ทราย"],"a":0,"e":"กร ออกเสียงทั้งสองตัว ส่วน จริง สร้าง ทราย เป็นควบไม่แท้"},
+ {"q":"คำใดเป็นคำควบกล้ำไม่แท้","o":["ทรุดโทรม","ปลา","ขวาน","คลอง"],"a":0,"e":"ทร ออกเสียง ซ"},
+ {"q":"คำว่า “ทราบ” ออกเสียงอย่างไร","o":["ซาบ","ทะ-ราบ","ทราบ (ท ควบ ร)","ราบ"],"a":0,"e":"ควบไม่แท้ ทร → ซ"},
+ {"q":"คำใดเป็นอักษรนำที่ออกเสียง ห นำ","o":["หนู","หัน","หาม","หิน"],"a":0,"e":"หนู: ห ไม่ออกเสียง แต่ทำให้ น เป็นเสียงสูง"},
+ {"q":"คำว่า “อย่า อยู่ อย่าง อยาก” เป็นคำประเภทใด","o":["อักษรนำ อ นำ ย (มีเพียง ๔ คำ)","คำควบกล้ำ","คำพ้องเสียง","คำซ้อน"],"a":0,"e":"จำ ๔ คำนี้"},
+ {"q":"คำว่า “ขนม” อ่านว่าอย่างไร และเป็นคำประเภทใด","o":["ขะ-หนม อักษรนำ","ขะ-นม คำควบกล้ำ","ขนม คำพยางค์เดียว","ขน-ม คำซ้อน"],"a":0,"e":"ข นำ น ทำให้ น ออกเสียงสูงเหมือนมี ห นำ"},
+ {"q":"ไตรยางศ์ หมายถึงอะไร","o":["การแบ่งพยัญชนะไทยเป็น ๓ หมู่ คือ อักษรสูง กลาง ต่ำ","สระ ๓ ตัว","วรรณยุกต์ ๓ รูป","คำ ๓ พยางค์"],"a":0,"e":"ใช้ผันวรรณยุกต์"},
+ {"q":"อักษรกลางมีกี่ตัว ได้แก่อะไรบ้าง","o":["๙ ตัว: ก จ ฎ ฏ ด ต บ ป อ","๑๑ ตัว: ข ฃ ฉ ฐ ถ ผ ฝ ศ ษ ส ห","๒๔ ตัว","๔๔ ตัว"],"a":0,"e":"จำว่า “ไก่ จิก เด็ก ตาย บน ปาก โอ่ง”"},
+ {"q":"อักษรสูงมีกี่ตัว","o":["๑๑ ตัว","๙ ตัว","๒๔ ตัว","๕ ตัว"],"a":0,"e":"ข ฃ ฉ ฐ ถ ผ ฝ ศ ษ ส ห"},
+ {"q":"คำว่า “ปา ป่า ป้า ป๊า ป๋า” ผันได้ครบ ๕ เสียง เพราะ ป เป็นอักษรหมู่ใด","o":["อักษรกลาง คำเป็น","อักษรสูง","อักษรต่ำ","อักษรนำ"],"a":0,"e":"อักษรกลางคำเป็นผันได้ครบ ๕ เสียง"},
+ {"q":"คำว่า “คา” (อักษรต่ำ คำเป็น) ผันได้กี่เสียง","o":["๓ เสียง: คา ค่า ค้า (สามัญ โท ตรี)","๕ เสียง","๒ เสียง","๑ เสียง"],"a":0,"e":"อักษรต่ำผันได้ ๓ เสียง"},
+ {"q":"คำเป็น คือคำแบบใด","o":["คำที่ประสมสระเสียงยาวในแม่ ก กา หรือสะกดด้วยแม่กง กน กม เกย เกอว","คำที่สะกดด้วยแม่กก กด กบ","คำที่มีวรรณยุกต์","คำที่มีความหมายดี"],"a":0,"e":"รวมสระ อำ ใอ ไอ เอา"},
+ {"q":"คำใดเป็นคำตาย","o":["รัก","รัง","ราย","ราว"],"a":0,"e":"สะกดด้วยแม่กก"},
+ {"q":"คำว่า “จะ” เป็นคำเป็นหรือคำตาย เพราะเหตุใด","o":["คำตาย เพราะประสมสระเสียงสั้นในแม่ ก กา","คำเป็น เพราะไม่มีตัวสะกด","คำเป็น เพราะเป็นอักษรกลาง","คำตาย เพราะมีความหมายไม่ดี"],"a":0,"e":"สระเสียงสั้นไม่มีตัวสะกด = คำตาย"},
+ {"q":"คำว่า “น้ำ” มีรูปวรรณยุกต์ใด และเสียงวรรณยุกต์ใด","o":["รูปโท เสียงตรี","รูปโท เสียงโท","รูปตรี เสียงตรี","รูปเอก เสียงเอก"],"a":0,"e":"อักษรต่ำรูปโทออกเสียงตรี"},
+ {"q":"คำว่า “ข่าว” มีเสียงวรรณยุกต์ใด","o":["เสียงเอก","เสียงโท","เสียงสามัญ","เสียงจัตวา"],"a":0,"e":"อักษรสูงรูปเอกเสียงเอก"},
+ {"q":"คำว่า “ขา” (ไม่มีรูปวรรณยุกต์) มีเสียงวรรณยุกต์ใด","o":["เสียงจัตวา","เสียงสามัญ","เสียงเอก","เสียงโท"],"a":0,"e":"อักษรสูงคำเป็นพื้นเสียงจัตวา"},
+ {"q":"สระใดเป็นสระเสียงสั้น","o":["อิ","อี","อู","เอ"],"a":0,"e":"อิ คู่กับ อี"},
+ {"q":"สระ “อำ ใอ ไอ เอา” เรียกว่าอะไร","o":["สระเกิน (มีเสียงพยัญชนะท้ายรวมอยู่)","สระเดี่ยว","สระประสม","สระลดรูป"],"a":0,"e":"อำ = อะ + ม"},
+ {"q":"คำว่า “คน” มีสระใดซ่อนอยู่ (สระลดรูป)","o":["สระโอะ","สระอะ","สระเอะ","สระอือ"],"a":0,"e":"โอะ ลดรูปเมื่อมีตัวสะกด"},
+ {"q":"คำว่า “เป็น” ใช้สระใด และเปลี่ยนรูปอย่างไร","o":["สระเอะ เปลี่ยนรูปเป็นไม้ไต่คู้เมื่อมีตัวสะกด","สระเอ","สระแอะ","สระอิ"],"a":0,"e":"เอะ + น → เป็น"},
+ {"q":"คำใดเป็นคำนาม","o":["โรงเรียน","วิ่ง","สวย","และ"],"a":0,"e":"ชื่อคน สัตว์ สิ่งของ สถานที่"},
+ {"q":"คำใดเป็นคำสรรพนาม","o":["เขา","บ้าน","กิน","เร็ว"],"a":0,"e":"ใช้แทนคำนาม"},
+ {"q":"ในประโยค “น้องวิ่งเร็วมาก” คำใดเป็นคำกริยา","o":["วิ่ง","น้อง","เร็ว","มาก"],"a":0,"e":"แสดงอาการ"},
+ {"q":"ในประโยค “ดอกไม้สีแดงสวยงาม” คำว่า “สวยงาม” เป็นคำชนิดใด","o":["คำวิเศษณ์ (ขยายคำนาม)","คำนาม","คำกริยา","คำบุพบท"],"a":0,"e":"บอกลักษณะ"},
+ {"q":"คำว่า “ใน บน ใต้ ข้าง” เป็นคำชนิดใด","o":["คำบุพบท","คำสันธาน","คำอุทาน","คำกริยา"],"a":0,"e":"บอกตำแหน่งและความสัมพันธ์"},
+ {"q":"คำว่า “และ แต่ เพราะ จึง” เป็นคำชนิดใด","o":["คำสันธาน (เชื่อมประโยค)","คำบุพบท","คำวิเศษณ์","คำนาม"],"a":0,"e":"เชื่อมคำหรือประโยค"},
+ {"q":"คำว่า “โอ๊ย! ว้าว! อุ๊ย!” เป็นคำชนิดใด","o":["คำอุทาน","คำกริยา","คำนาม","คำสันธาน"],"a":0,"e":"แสดงอารมณ์"},
+ {"q":"คำลักษณนามของ “ช้าง” คือข้อใด","o":["เชือก (ช้างบ้าน) / ตัว (ช้างป่า)","ตัว เท่านั้น","ลำ","หลัง"],"a":0,"e":"ช้างบ้านใช้ “เชือก”"},
+ {"q":"คำลักษณนามของ “พระสงฆ์” คือข้อใด","o":["รูป","คน","องค์","ตัว"],"a":0,"e":"พระพุทธรูปใช้ “องค์”"},
+ {"q":"คำลักษณนามของ “เข็ม” และ “ดินสอ” คือข้อใด","o":["เล่ม และ แท่ง","อัน และ อัน","แท่ง และ เล่ม","ด้าม และ ด้าม"],"a":0,"e":"เข็ม ๑ เล่ม ดินสอ ๑ แท่ง"},
+ {"q":"ประโยคใดเป็นประโยคคำถาม","o":["เธอกินข้าวหรือยัง","ฉันกินข้าวแล้ว","กินข้าวเถอะ","ข้าวอร่อยจัง"],"a":0,"e":"ต้องการคำตอบ"},
+ {"q":"ประโยคใดเป็นประโยคคำสั่ง","o":["ปิดประตูด้วย","ประตูปิดแล้ว","ประตูปิดหรือยัง","ประตูสวยจัง"],"a":0,"e":"สั่งให้ทำ"},
+ {"q":"ประโยค “แม่ซื้อขนมให้น้อง” ส่วนใดเป็นภาคประธาน","o":["แม่","ซื้อขนม","ให้น้อง","ขนม"],"a":0,"e":"ผู้กระทำ"},
+ {"q":"ประโยค “นักเรียนอ่านหนังสือ” ส่วนใดเป็นกรรม","o":["หนังสือ","นักเรียน","อ่าน","อ่านหนังสือ"],"a":0,"e":"ผู้ถูกกระทำ"},
+ {"q":"ข้อใดเป็นประโยคความเดียว","o":["แมวนอนบนเก้าอี้","ฝนตกแต่ฉันไม่ได้เอาร่มมา","เขาขยันจึงสอบได้","พ่อทำงานและแม่ทำกับข้าว"],"a":0,"e":"มีประธานและกริยาชุดเดียว"},
+ {"q":"ประโยค “ฉันหิวเพราะยังไม่ได้กินข้าว” เป็นประโยคชนิดใด","o":["ประโยคความซ้อน (มีคำเชื่อม “เพราะ”)","ประโยคความเดียว","ประโยคคำถาม","ประโยคคำสั่ง"],"a":0,"e":"ประโยคหลัก + ประโยคย่อย"},
+ {"q":"คำว่า “ขัน” ในประโยค “ไก่ขันตอนเช้า” กับ “ตักน้ำด้วยขัน” เป็นคำประเภทใด","o":["คำพ้องรูปพ้องเสียง (เขียนและอ่านเหมือนกัน ความหมายต่าง)","คำพ้องเสียง","คำซ้ำ","คำซ้อน"],"a":0,"e":"ขัน = ร้อง / ภาชนะ"},
+ {"q":"คำว่า “การ กาล กานต์ กาฬ” เป็นคำประเภทใด","o":["คำพ้องเสียง (อ่านเหมือนกัน เขียนต่าง ความหมายต่าง)","คำพ้องรูป","คำซ้ำ","คำสมาส"],"a":0,"e":"กาล = เวลา กานต์ = ที่รัก กาฬ = ดำ"},
+ {"q":"คำว่า “เพลา” อ่านได้ ๒ แบบ คือข้อใด และเป็นคำประเภทใด","o":["เพ-ลา (เวลา) และ เพลา (แกนล้อ) คำพ้องรูป","เพลา และ พะ-เลา คำพ้องเสียง","เพ-ลา เท่านั้น","ไม่ใช่คำพ้อง"],"a":0,"e":"เขียนเหมือนกัน อ่านต่างกัน"},
+ {"q":"คำว่า “เด็ก ๆ” ใช้เครื่องหมายใด และหมายถึงอะไร","o":["ไม้ยมก หมายถึง เด็กหลายคน","ไปยาลน้อย หมายถึง เด็กและอื่น ๆ","อัศเจรีย์","ปรัศนี"],"a":0,"e":"ไม้ยมก (ๆ) ใช้ซ้ำคำ"},
+ {"q":"เครื่องหมาย “ฯ” (ไปยาลน้อย) ใช้เมื่อใด","o":["ย่อคำที่ยาวและรู้จักกันดี เช่น กรุงเทพฯ","จบประโยค","แสดงคำถาม","ซ้ำคำ"],"a":0,"e":"กรุงเทพฯ = กรุงเทพมหานคร"},
+ {"q":"เครื่องหมาย “ฯลฯ” (ไปยาลใหญ่) หมายความว่าอย่างไร","o":["และอื่น ๆ อีก (ละข้อความที่เหลือ)","จบเรื่อง","อ่านว่า “ละ”","คำถาม"],"a":0,"e":"อ่านว่า “และอื่น ๆ”"},
+ {"q":"เครื่องหมาย “?” เรียกว่าอะไร และใช้เมื่อใด","o":["ปรัศนี ใช้ท้ายประโยคคำถาม","อัศเจรีย์ ใช้แสดงอารมณ์","จุลภาค ใช้คั่นคำ","มหัพภาค ใช้จบประโยค"],"a":0,"e":"ภาษาไทยมักไม่ใช้บ่อย"},
+ {"q":"เครื่องหมาย “…” (อัญประกาศ) ใช้เมื่อใด","o":["คร่อมข้อความที่เป็นคำพูดหรือข้อความที่ยกมา","จบประโยค","คั่นตัวเลข","ซ้ำคำ"],"a":0,"e":"เครื่องหมายคำพูด"},
+ {"q":"สำนวน “น้ำขึ้นให้รีบตัก” หมายความว่าอย่างไร","o":["เมื่อมีโอกาสดีให้รีบทำ","ให้ประหยัดน้ำ","ตักน้ำตอนน้ำขึ้น","ให้รีบกินข้าว"],"a":0,"e":"โอกาสไม่ได้มีเสมอ"},
+ {"q":"สำนวน “ขี่ช้างจับตั๊กแตน” หมายความว่าอย่างไร","o":["ลงทุนมากแต่ได้ผลน้อย","ขี่ช้างไปจับแมลง","ทำงานใหญ่สำเร็จ","ใช้ของใหญ่"],"a":0,"e":"ไม่คุ้มค่า"},
+ {"q":"สำนวน “ปากว่าตาขยิบ” หมายความว่าอย่างไร","o":["พูดอย่างหนึ่งแต่ทำอีกอย่างหนึ่ง","พูดเก่ง","ตาเจ็บ","พูดมาก"],"a":0,"e":"ไม่จริงใจ"},
+ {"q":"คำพังเพย “กว่าถั่วจะสุกงาก็ไหม้” หมายความว่าอย่างไร","o":["มัวทำอย่างหนึ่งจนอีกอย่างเสียหาย ช้าเกินไป","ทำอาหารไม่เป็น","ถั่วกับงาสุกพร้อมกัน","รีบร้อนเกินไป"],"a":0,"e":"การไม่ทันการ"},
+ {"q":"สำนวน “หัวหมอ” หมายถึงคนแบบใด","o":["คนที่ชอบใช้เล่ห์เหลี่ยม อ้างเหตุผลแบบกฎหมายเพื่อเอาเปรียบ","หมอที่เก่ง","คนหัวโต","คนที่เรียนแพทย์"],"a":0,"e":"ความหมายไม่ดี"},
+ {"q":"สำนวน “มือไม่พายเอาเท้าราน้ำ” หมายความว่าอย่างไร","o":["ไม่ช่วยงานแล้วยังขัดขวางคนอื่น","พายเรือเก่ง","ว่ายน้ำไม่เป็น","ขี้เกียจแต่ไม่รบกวนใคร"],"a":0,"e":"ภาพเรือพาย"},
+ {"q":"สำนวน “กินปูนร้อนท้อง” หมายความว่าอย่างไร","o":["ทำผิดแล้วแสดงอาการพิรุธออกมาเอง","กินของร้อน","ปวดท้อง","กินมากเกินไป"],"a":0,"e":"จากนิทานตุ๊กแกกินปูน"},
+ {"q":"คำว่า “เสวย บรรทม ประชวร” เป็นคำประเภทใด","o":["คำราชาศัพท์ ใช้กับพระมหากษัตริย์และพระราชวงศ์","คำสุภาพทั่วไป","คำสำหรับพระสงฆ์","คำภาษาถิ่น"],"a":0,"e":"เสวย = กิน บรรทม = นอน ประชวร = ป่วย"},
+ {"q":"คำราชาศัพท์ของคำว่า “ไป/มา” สำหรับพระมหากษัตริย์คือ","o":["เสด็จพระราชดำเนิน","เสด็จ","ไป","ดำเนิน"],"a":0,"e":"พระราชวงศ์ชั้นรองใช้ “เสด็จ”"},
+ {"q":"คำที่ใช้กับพระสงฆ์ “ฉัน จำวัด อาพาธ” หมายถึงอะไรตามลำดับ","o":["กิน นอน ป่วย","นอน กิน ป่วย","ป่วย กิน นอน","กิน ป่วย นอน"],"a":0,"e":"คำสำหรับพระสงฆ์"},
+ {"q":"เมื่อพูดกับพระสงฆ์ ควรใช้สรรพนามแทนตัวเองว่าอะไร","o":["ผม/ดิฉัน และแทนพระว่า “พระคุณเจ้า” หรือ “หลวงพ่อ”","ฉัน/เธอ","กู/มึง","เรา/นาย"],"a":0,"e":"ลงท้ายว่า ครับ/เจ้าค่ะ"},
+ {"q":"คำว่า “เกรงใจ” ตรงกับคำสุภาพใดที่ใช้กับผู้ใหญ่","o":["ใช้ได้เลย เป็นคำสุภาพอยู่แล้ว","เกรงพระทัย (ใช้กับพระมหากษัตริย์)","เกรงกลัว","กลัว"],"a":0,"e":"เกรงพระทัยเป็นราชาศัพท์"},
+ {"q":"คำที่มาจากภาษาบาลี-สันสกฤต มักมีลักษณะใด","o":["หลายพยางค์ มีตัวสะกดไม่ตรงมาตรา มีตัวการันต์ เช่น ศาสนา กษัตริย์ วิทยา","พยางค์เดียว เช่น พ่อ แม่ กิน","มีเสียง ว ควบ","เป็นคำซ้ำ"],"a":0,"e":"คำไทยแท้มักพยางค์เดียว"},
+ {"q":"คำใดเป็นคำไทยแท้","o":["ตะวัน","กษัตริย์","โทรทัศน์","กุหลาบ"],"a":0,"e":"กุหลาบมาจากเปอร์เซีย โทรทัศน์สร้างจากบาลี–สันสกฤต"},
+ {"q":"คำว่า “พุทธศาสนา” เป็นคำประเภทใด","o":["คำสมาส (บาลี–สันสกฤตรวมกัน อ่านออกเสียงเชื่อม พุด-ทะ-สาด-สะ-หนา)","คำไทยแท้","คำซ้อน","คำซ้ำ"],"a":0,"e":"ป.๔ รู้จักเบื้องต้น"},
+ {"q":"คำว่า “บ้านเรือน” “ข้าวปลา” เป็นคำประเภทใด","o":["คำซ้อน (คำความหมายใกล้กันมาซ้อนกัน)","คำซ้ำ","คำสมาส","คำควบกล้ำ"],"a":0,"e":"คำซ้อนเพื่อความหมาย"},
+ {"q":"คำว่า “ดำ ๆ” “เล็ก ๆ” เป็นคำประเภทใด และความหมายเปลี่ยนอย่างไร","o":["คำซ้ำ ความหมายอ่อนลงหรือบอกความไม่เจาะจง","คำซ้อน ความหมายหนักขึ้น","คำสมาส","คำประสม"],"a":0,"e":"ดำ ๆ = ค่อนข้างดำ"},
+ {"q":"คำว่า “แม่น้ำ” “ลูกเสือ” “น้ำแข็ง” เป็นคำประเภทใด","o":["คำประสม (คำ ๒ คำรวมกันเกิดความหมายใหม่)","คำซ้ำ","คำพ้อง","คำควบกล้ำ"],"a":0,"e":"ลูกเสือ ไม่ใช่ลูกของเสือ"},
+ {"q":"การเรียงคำตามพจนานุกรม ข้อใดเรียงถูกต้อง","o":["กา ขา คา งา","ขา กา งา คา","คา งา กา ขา","งา คา ขา กา"],"a":0,"e":"เรียงตามลำดับพยัญชนะ ก ข ค ง"},
+ {"q":"คำว่า “กลม” กับ “กลาง” คำใดมาก่อนในพจนานุกรม เพราะเหตุใด","o":["กลม มาก่อน เพราะคำที่ไม่มีรูปสระ (โอะลดรูป) จัดก่อนคำที่มีสระอา","กลาง มาก่อน","เรียงอย่างไรก็ได้","ตามความยาวของคำ"],"a":0,"e":"หลักเรียงลำดับสระ"},
+ {"q":"พจนานุกรมให้ข้อมูลใดบ้างเกี่ยวกับคำ","o":["คำอ่าน ชนิดของคำ ความหมาย และที่มาของคำ","ราคา","ชื่อผู้คิดคำ","จำนวนคนที่ใช้"],"a":0,"e":"เครื่องมือค้นคว้าภาษา"},
+ {"q":"การอ่านจับใจความสำคัญ ควรทำอย่างไร","o":["อ่านทั้งเรื่อง หาว่าใคร ทำอะไร ที่ไหน เมื่อไร อย่างไร แล้วสรุปเป็นประโยคสั้น ๆ","อ่านเฉพาะบรรทัดแรก","จำทุกคำ","อ่านเฉพาะชื่อเรื่อง"],"a":0,"e":"ใจความสำคัญมักอยู่ต้นหรือท้ายย่อหน้า"},
+ {"q":"ข้อความ “วันนี้ฝนตกหนัก ถนนลื่น รถจึงชนกันหลายคัน” ใจความสำคัญคืออะไร","o":["ฝนตกหนักทำให้เกิดอุบัติเหตุ","วันนี้เป็นวันฝนตก","ถนนลื่น","รถหลายคัน"],"a":0,"e":"เหตุและผล"},
+ {"q":"การอ่านออกเสียงร้อยแก้วที่ดี ควรเป็นอย่างไร","o":["อ่านชัดถ้อยชัดคำ เว้นวรรคถูกต้อง ใช้น้ำเสียงเหมาะกับเนื้อเรื่อง","อ่านเร็วที่สุด","อ่านเสียงเดียวตลอด","อ่านข้ามคำยาก"],"a":0,"e":"ผู้ฟังเข้าใจ"},
+ {"q":"การเว้นวรรคผิด เช่น “ยานี้ดีกินแล้วแข็งแรงไม่มีโรคภัยเบียดเบียน” ถ้าเว้นวรรคเป็น “ยานี้ดี กินแล้วแข็ง แรงไม่มี โรคภัยเบียดเบียน” ความหมายเป็นอย่างไร","o":["ความหมายเปลี่ยนเป็นตรงข้าม แสดงว่าการเว้นวรรคสำคัญมาก","ความหมายเหมือนเดิม","อ่านง่ายขึ้น","ไม่มีผล"],"a":0,"e":"ตัวอย่างคลาสสิก"},
+ {"q":"บทร้อยกรองประเภท “กลอนสี่” มีลักษณะอย่างไร","o":["วรรคละ ๔ คำ บทหนึ่งมี ๒ บาท ๔ วรรค","วรรคละ ๘ คำ","วรรคละ ๖ คำ","ไม่มีสัมผัส"],"a":0,"e":"เหมาะฝึกแต่งสำหรับ ป.๔"},
+ {"q":"กลอนสุภาพ (กลอนแปด) วรรคหนึ่งมีกี่คำ","o":["๗–๙ คำ (นิยม ๘ คำ)","๔ คำ","๕ คำ","๑๒ คำ"],"a":0,"e":"บทหนึ่งมี ๔ วรรค: สดับ รับ รอง ส่ง"},
+ {"q":"ชื่อวรรคทั้ง ๔ ของกลอนสุภาพ เรียงถูกต้องตามข้อใด","o":["สดับ รับ รอง ส่ง","รับ สดับ ส่ง รอง","ส่ง รอง รับ สดับ","สดับ ส่ง รับ รอง"],"a":0,"e":"คำท้ายวรรคส่งสัมผัสไปบทถัดไป"},
+ {"q":"“สัมผัสนอก” ในบทร้อยกรอง หมายถึงอะไร","o":["สัมผัสระหว่างวรรคหรือระหว่างบท ซึ่งบังคับตามฉันทลักษณ์","สัมผัสภายในวรรคเดียวกัน","คำที่อ่านเหมือนกัน","การเว้นวรรค"],"a":0,"e":"สัมผัสในทำให้ไพเราะแต่ไม่บังคับ"},
+ {"q":"คำใดสัมผัสสระกับคำว่า “ดาว”","o":["ขาว","ดิน","เดือน","ดี"],"a":0,"e":"สระอา + ว"},
+ {"q":"คำใดสัมผัสอักษร (สัมผัสพยัญชนะ) กับคำว่า “แสง”","o":["สวย","แดง","เพลง","ส้ม... (ไม่ใช่)"],"a":0,"e":"ขึ้นต้นด้วยเสียง ส เหมือนกัน"},
+ {"q":"นิทานพื้นบ้านเรื่อง “ปลาบู่ทอง” สอนคุณธรรมใด","o":["ความกตัญญูและผลของความดีความชั่ว","ความโลภ","การเลี้ยงปลา","ความขี้เกียจ"],"a":0,"e":"เอื้อยกับอ้าย"},
+ {"q":"นิทานอีสปเรื่อง “กระต่ายกับเต่า” สอนอะไร","o":["ความเพียรและความไม่ประมาท","วิ่งเร็วชนะเสมอ","เต่าเก่งกว่ากระต่าย","อย่าแข่งขัน"],"a":0,"e":"ช้าแต่สม่ำเสมอ"},
+ {"q":"องค์ประกอบของนิทานหรือเรื่องสั้น ได้แก่ข้อใด","o":["ตัวละคร ฉาก เหตุการณ์ (โครงเรื่อง) และข้อคิด","ชื่อผู้แต่งเท่านั้น","ราคาหนังสือ","จำนวนหน้า"],"a":0,"e":"ใช้วิเคราะห์เรื่องที่อ่าน"},
+ {"q":"การเขียนจดหมายถึงเพื่อน ส่วนใดควรอยู่มุมบนขวา","o":["ที่อยู่ผู้เขียนและวันที่","คำขึ้นต้น","คำลงท้าย","ชื่อผู้รับ"],"a":0,"e":"รูปแบบจดหมายส่วนตัว"},
+ {"q":"คำขึ้นต้นและคำลงท้ายจดหมายถึงครู ควรใช้ว่าอย่างไร","o":["เรียน คุณครู… / ด้วยความเคารพอย่างสูง","ถึง เพื่อน… / รักนะ","สวัสดี / บาย","กราบทูล / ควรมิควรแล้วแต่จะโปรด"],"a":0,"e":"สุภาพและเหมาะกับฐานะ"},
+ {"q":"การเขียนบันทึกประจำวัน ควรมีสิ่งใด","o":["วัน เดือน ปี เหตุการณ์ที่เกิดขึ้น และความรู้สึกหรือข้อคิด","เฉพาะรูปวาด","ชื่อเพื่อนทุกคน","ราคาของที่ซื้อเท่านั้น"],"a":0,"e":"ฝึกการเขียนและทบทวนตนเอง"},
+ {"q":"การเขียนเรียงความ มีส่วนประกอบใดบ้าง","o":["คำนำ เนื้อเรื่อง สรุป","หัวข้อเท่านั้น","ชื่อผู้แต่ง","บทกวี"],"a":0,"e":"เนื้อเรื่องควรมีหลายย่อหน้า"},
+ {"q":"การเขียนย่อความ ต้องทำอย่างไร","o":["เก็บใจความสำคัญ ตัดรายละเอียดและคำพูดออก เขียนด้วยสำนวนของตนเอง","คัดลอกทุกประโยค","เขียนให้ยาวกว่าเดิม","ใส่ความเห็นส่วนตัวมาก ๆ"],"a":0,"e":"ขึ้นต้นด้วย “ย่อเรื่อง…ของ…จาก…ความว่า”"},
+ {"q":"การพูดรายงานหน้าชั้น ควรปฏิบัติอย่างไร","o":["ทักทาย แนะนำหัวข้อ พูดชัดเจนตามลำดับ สบตาผู้ฟัง และกล่าวขอบคุณ","พูดเร็ว ๆ ให้จบ","อ่านจากกระดาษโดยไม่เงยหน้า","พูดเสียงเบามาก"],"a":0,"e":"มารยาทในการพูด"},
+ {"q":"มารยาทในการฟัง ข้อใดถูกต้อง","o":["ตั้งใจฟัง ไม่พูดแทรก ไม่ทำกิจกรรมอื่น และถามเมื่อผู้พูดเปิดโอกาส","คุยกับเพื่อนขณะฟัง","เล่นโทรศัพท์","เดินออกกลางคัน"],"a":0,"e":"ให้เกียรติผู้พูด"},
+ {"q":"การเขียนตัวอักษรไทยที่ถูกต้อง เริ่มเขียนจากส่วนใด","o":["เริ่มที่หัวของตัวอักษร (ยกเว้น ก ธ)","เริ่มที่หาง","เริ่มตรงกลาง","เริ่มจากล่างขึ้นบน"],"a":0,"e":"ลายมือสวยและถูกแบบ"},
+ {"q":"เครื่องหมายตกใจ “!” ที่วางหลังคำว่า “โอ๊ย” มีชื่อเรียกในภาษาไทยว่าอะไร","o":["อัศเจรีย์","ปรัศนี","ยัติภังค์","มหัพภาค"],"a":0,"e":"ใช้หลังคำอุทาน"},
+ {"q":"ข้อความในวงเล็บ เช่น “กรุงเทพฯ (เมืองหลวงของไทย)” เครื่องหมายวงเล็บมีชื่อเรียกว่าอะไร","o":["นขลิขิต","อัญประกาศ","ไปยาลน้อย","ไม้ยมก"],"a":0,"e":"ใช้ขยายความหรืออธิบายเพิ่ม"},
+ {"q":"พ่อแม่ที่ดุลูกเมื่อลูกทำผิดเพื่อให้เป็นคนดี ตรงกับสุภาษิตใด","o":["รักวัวให้ผูก รักลูกให้ตี","น้ำขึ้นให้รีบตัก","ขี่ช้างจับตั๊กแตน","ปากว่าตาขยิบ"],"a":0,"e":"การอบรมด้วยความรัก"},
+ {"q":"คำว่า “บันได บำเพ็ญ กำเนิด” มีลักษณะร่วมกันอย่างไร และน่าจะมาจากภาษาใด","o":["ขึ้นต้นด้วย บัน บำ กำ ซึ่งเป็นลักษณะคำยืมจากภาษาเขมร","เป็นคำไทยแท้พยางค์เดียว","มาจากภาษาอังกฤษ","มาจากภาษาจีน"],"a":0,"e":"คำแผลงแบบเขมร"},
+ {"q":"คำว่า “เกี๊ยว ตั๋ว เจ๊ง” น่าจะเป็นคำยืมจากภาษาใด สังเกตจากอะไร","o":["ภาษาจีน สังเกตจากวรรณยุกต์ตรีและจัตวา","ภาษาบาลี สังเกตจากตัวการันต์","ภาษาอังกฤษ สังเกตจากเสียง ฟ","ภาษาเขมร สังเกตจาก บัน บำ"],"a":0,"e":"คำจีนมักเกี่ยวกับอาหารและการค้า"},
+ {"q":"คำว่า “เค้ก ชีส แท็บเล็ต” เป็นคำทับศัพท์จากภาษาใด","o":["ภาษาอังกฤษ","ภาษาจีน","ภาษาเขมร","ภาษาบาลี"],"a":0,"e":"เขียนตามเสียงอ่าน"},
+ {"q":"คำว่า “เดิน” กับ “เดือน” คำใดมีเสียงพยัญชนะต้นเหมือนกัน และเรียกการสัมผัสแบบนี้ว่าอะไร","o":["ทั้งสองคำขึ้นต้นด้วย ด เรียกว่าสัมผัสอักษร","สัมผัสสระ","สัมผัสนอก","ไม่สัมผัสกัน"],"a":0,"e":"สัมผัสพยัญชนะต้น"},
+],
+};
+
+const SET_NAMES = {1:'📘 ภาษาไทย ๑๐๐ ข้อ'};
+// ---------- storage ----------
+const KEY='exam100-thai-best';
+const SEENKEY='exam100-thai-seen';
+function loadSeen(){try{return JSON.parse(localStorage.getItem(SEENKEY)||'{}')}catch(e){return {}}}
+function saveSeen(x){try{localStorage.setItem(SEENKEY,JSON.stringify(x))}catch(e){}}
+let seen=loadSeen();
+for(const k in BANK)BANK[k].forEach((q,i)=>q.id=k+'-'+i);
+function seenCount(set){const p=pool(),s=new Set(seen[set]||[]);return p.filter(q=>s.has(q.id)).length}
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')||id.endsWith('.html')||id.startsWith('../')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'อ่าน',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label||TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    const hasV=!!el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(hasV?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  const want=$('count').value;const all=pool();const sset=new Set(seen[currentSet]||[]);let unseen=shuffle(all.filter(q=>!sset.has(q.id)));let seenQ=shuffle(all.filter(q=>sset.has(q.id)));
+  const need=want==='all'?all.length:Math.min(Number(want),all.length);
+  let src;
+  if(unseen.length>=need){src=unseen.slice(0,need);}
+  else{ src=unseen.concat(seenQ.slice(0,need-unseen.length)); seen[currentSet]=[]; sset.clear(); }
+  qs=src.map(q=>{const order=shuffle([0,1,2,3]);return {id:q.id,q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  if(!seen[currentSet])seen[currentSet]=[];if(!seen[currentSet].includes(q.id)){seen[currentSet].push(q.id);saveSeen(seen);}
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>

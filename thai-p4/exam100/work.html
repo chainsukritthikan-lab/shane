@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ข้อสอบการงานอาชีพ ๑๐๐ ข้อ ป.๔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#14213D; --muted:#5A6A85; --line:#EADFCF;
+  --plum:#2E7D32; --plum-soft:#E3F2E7; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#D9480F; --red-soft:#FFE6D9;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(30,60,120,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">🏠 รวมข้อสอบ ๗ วิชา</a>
+    <a href="history.html">📜 ประวัติศาสตร์</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a class="on" href="work.html">🛠 การงานอาชีพ</a>
+    <a href="ict.html">💻 ICT วิทยาการคำนวณ</a>
+    <a href="thai.html">📘 ภาษาไทย</a>
+    <a href="pe.html">🏃 สุขศึกษาและพลศึกษา</a>
+    <a href="music.html">🎵 ดนตรี</a>
+    <a href="../index.html">↩ เว็บหลัก (คลิป+ข้อสอบ)</a>
+  </nav>
+  <div class="eyebrow">การงานอาชีพ · ชั้นประถมศึกษาปีที่ ๔ · ข้อสอบ ๑๐๐ ข้อ · ทำครบ ๑๐๐ ข้อทุกครั้ง</div>
+  <h1>ข้อสอบ<span>การงานอาชีพ</span> ป.๔ — ๑๐๐ ข้อ</h1>
+  <div class="books">
+    <span class="book b1"><i></i>อาหารและโภชนาการ · งานบ้าน · งานเกษตร · งานประดิษฐ์ · งานช่าง · อาชีพ · การใช้ทรัพยากร</span>
+    <span class="book b2"><i></i>กติกา: ทำครั้งละ ๑๐๐ ข้อเต็ม ไม่มีตัวเลือกจำนวนข้อ · สลับลำดับข้อและตัวเลือกใหม่ทุกครั้ง</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📚 ก่อนสอบดูอะไร</a>
+    <a href="#workbook">📚 สรุปที่ต้องจำ</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>ข้อสอบการงานอาชีพ ๑๐๐ ข้อ</h2>
+    <p>กด ✏️ ทำข้อสอบ แล้วทำให้ครบ ๑๐๐ ข้อ · ตอบแล้วเห็นเฉลยทันที · ตัวเลือกและลำดับข้อสลับใหม่ทุกครั้ง</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>กติกาชุดเตรียมสอบ 🎯</h2>
+    <p>อ่านก่อนเริ่ม</p>
+  </div>
+  <div class="wb">
+    <div class="card"><h3>๑๐๐ ข้อเต็มทุกครั้ง</h3><p>ชุดนี้ล็อกจำนวนไว้ที่ ๑๐๐ ข้อ ไม่สามารถเลือกทำน้อยกว่านี้ได้ เพื่อฝึกความอดทนเหมือนสอบจริง</p></div>
+    <div class="card"><h3>ข้อใหม่ทั้งหมด</h3><p>๑๐๐ ข้อนี้เขียนขึ้นใหม่ ไม่ซ้ำกับข้อสอบในเว็บหลัก</p></div>
+    <div class="card"><h3>ออกจากกลางคันได้</h3><p>กด “ออก” ได้ถ้าจำเป็น แต่คะแนนจะไม่ถูกบันทึก · คะแนนสูงสุดบันทึกเมื่อทำครบ ๑๐๐ ข้อเท่านั้น</p></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>ชุดเตรียมสอบ ๑๐๐ ข้อ ทำครบทุกครั้ง · ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดบันทึกไว้ในเครื่อง · ข้อสอบสุ่มใหม่ทุกครั้ง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="score-live">จำนวนข้อ <b>๑๐๐ ข้อ (ล็อก)</b></span><select id="count" class="hidden"><option value="all" selected>all</option></select>
+          <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามเนื้อหาวิชาการงานอาชีพ ป.๔ เพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,label:'🛠',title:'ข้อสอบการงานอาชีพ ๑๐๐ ข้อ',focus:'อาหารและโภชนาการ · งานบ้าน · งานเกษตร · งานประดิษฐ์ · งานช่าง · อาชีพ · การใช้ทรัพยากร',video:null,
+   links:[["../work-clips.html", "ดูคลิปการงานอาชีพ ๑๐ คลิป", "k"], ["../work.html", "ฝึกข้อสอบการงาน ๔๐๐ ข้อ", "k"]]},
+];
+const BANK = {
+1:[
+ {"q":"อาหารหลัก ๕ หมู่ หมู่ที่ ๑ คืออะไร และให้สารอาหารใด","o":["เนื้อสัตว์ ไข่ นม ถั่ว ให้โปรตีน","ข้าว แป้ง ให้คาร์โบไฮเดรต","ผัก ให้วิตามิน","ไขมัน ให้พลังงาน"],"a":0,"e":"โปรตีนช่วยเสริมสร้างและซ่อมแซมร่างกาย"},
+ {"q":"อาหารหมู่ที่ ๒ ข้าว แป้ง น้ำตาล เผือก มัน ให้สารอาหารใด","o":["คาร์โบไฮเดรต ให้พลังงาน","โปรตีน","วิตามิน","เกลือแร่"],"a":0,"e":"แหล่งพลังงานหลัก"},
+ {"q":"ผักและผลไม้ (หมู่ ๓ และ ๔) ให้สารอาหารใดเป็นหลัก","o":["วิตามินและเกลือแร่ รวมทั้งใยอาหาร","โปรตีน","ไขมัน","คาร์โบไฮเดรต"],"a":0,"e":"ช่วยระบบขับถ่ายและภูมิคุ้มกัน"},
+ {"q":"ทำไมอาหารหมู่ที่ ๕ (ไขมัน) จึงควรกินแต่พอดี","o":["ให้พลังงานสูง กินมากเกินทำให้อ้วนและเป็นโรค","เพราะไม่มีประโยชน์","เพราะราคาแพง","เพราะย่อยง่าย"],"a":0,"e":"ร่างกายยังต้องการไขมันบ้าง"},
+ {"q":"ธงโภชนาการ บอกอะไร","o":["สัดส่วนอาหารที่ควรกินในแต่ละวัน กินมากอยู่ฐานกว้าง กินน้อยอยู่ยอดแคบ","ชื่ออาหาร","ราคาอาหาร","วิธีทำอาหาร"],"a":0,"e":"ข้าว–แป้งอยู่ฐาน น้ำมัน–น้ำตาล–เกลืออยู่ยอด"},
+ {"q":"อาหารเช้าสำคัญอย่างไรต่อนักเรียน","o":["ให้พลังงานและทำให้มีสมาธิเรียน","ไม่สำคัญ","ทำให้ง่วง","ทำให้อ้วน"],"a":0,"e":"หลังอดอาหารมาทั้งคืน"},
+ {"q":"ข้อใดเป็นอาหารว่างที่มีประโยชน์","o":["ผลไม้สด นมจืด ถั่วต้ม","ขนมกรุบกรอบ","น้ำอัดลม","ลูกอม"],"a":0,"e":"หวาน มัน เค็ม น้อย"},
+ {"q":"ก่อนประกอบอาหาร ควรเตรียมตัวอย่างไร","o":["ล้างมือ ผูกผ้ากันเปื้อน รวบผม และเตรียมวัตถุดิบอุปกรณ์ให้พร้อม","เริ่มทำทันที","เปิดเตาแก๊สรอไว้","ไม่ต้องล้างมือ"],"a":0,"e":"สุขอนามัยและความปลอดภัย"},
+ {"q":"การล้างผักให้สะอาด ควรทำอย่างไร","o":["ล้างน้ำไหลผ่านหลายครั้ง หรือแช่น้ำผสมเกลือ/เบกกิ้งโซดา/น้ำส้มสายชู แล้วล้างน้ำสะอาด","ล้างน้ำครั้งเดียว","ไม่ต้องล้าง","ล้างด้วยน้ำยาล้างจาน"],"a":0,"e":"ลดสารเคมีตกค้าง"},
+ {"q":"เขียง สำหรับหั่นเนื้อสดกับหั่นผักผลไม้ ควรใช้อย่างไร","o":["แยกเขียงกัน เพื่อป้องกันเชื้อโรคจากเนื้อดิบปนเปื้อนอาหารที่กินสด","ใช้เขียงเดียวกันได้","ใช้เขียงเนื้อหั่นผลไม้ได้ถ้าเช็ดแล้ว","ไม่ต้องใช้เขียง"],"a":0,"e":"หลักสุขาภิบาลอาหาร"},
+ {"q":"การใช้มีดหั่นอาหารอย่างปลอดภัยคือข้อใด","o":["งอนิ้วมือข้างที่จับอาหาร หั่นบนเขียงที่มั่นคง หันคมมีดออกจากตัว","หั่นในอากาศ","ชี้ปลายมีดเข้าหาตัว","วิ่งถือมีด"],"a":0,"e":"นิ้วงอแบบกรงเล็บ"},
+ {"q":"อาหารที่เหมาะให้นักเรียน ป.๔ ฝึกทำ คือข้อใด","o":["ไข่ต้ม แซนด์วิช ข้าวผัดง่าย ๆ (มีผู้ใหญ่ดูแล)","อาหารทอดน้ำมันท่วม","อาหารที่ต้องใช้เตาอบความร้อนสูงคนเดียว","อาหารที่ใช้มีดใหญ่"],"a":0,"e":"เริ่มจากง่ายและปลอดภัย"},
+ {"q":"การต้มไข่ให้สุกแข็ง ใช้เวลาประมาณเท่าใดหลังน้ำเดือด","o":["ประมาณ ๑๐ นาที","๑ นาที","๓๐ นาที","๑ ชั่วโมง"],"a":0,"e":"ไข่ยางมะตูมประมาณ ๕–๖ นาที"},
+ {"q":"ขณะใช้เตาแก๊ส ต้องระวังสิ่งใด","o":["ไม่ทิ้งเตาไว้โดยไม่มีคนดู ปิดวาล์วแก๊สทุกครั้งหลังใช้ และไม่ให้ผ้าหรือกระดาษอยู่ใกล้ไฟ","เปิดแก๊สทิ้งไว้","จุดไฟแล้วเดินไปเล่น","วางผ้าเช็ดมือบนเตา"],"a":0,"e":"แก๊สรั่วอันตรายมาก"},
+ {"q":"ถ้าได้กลิ่นแก๊สในครัว ควรทำอย่างไร","o":["ไม่จุดไฟหรือเปิดสวิตช์ไฟ เปิดประตูหน้าต่างระบายอากาศ ปิดวาล์ว และบอกผู้ใหญ่","จุดไฟตรวจดู","เปิดพัดลมไฟฟ้าทันที","ปิดประตูให้มิดชิด"],"a":0,"e":"ประกายไฟอาจทำให้ระเบิด"},
+ {"q":"น้ำมันในกระทะติดไฟ ควรดับอย่างไร","o":["ปิดเตา ใช้ฝาปิดครอบ ห้ามใช้น้ำราด","ราดน้ำทันที","เป่า","ยกกระทะวิ่งออกไป"],"a":0,"e":"น้ำทำให้ไฟน้ำมันกระจาย"},
+ {"q":"การถนอมอาหาร หมายถึงอะไร","o":["วิธีเก็บรักษาอาหารให้อยู่ได้นานโดยไม่เน่าเสีย","การทำอาหารให้อร่อย","การแต่งจาน","การซื้ออาหาร"],"a":0,"e":"เช่น ตากแห้ง ดอง เชื่อม แช่เย็น"},
+ {"q":"กล้วยตาก ปลาเค็ม มะม่วงดอง ใช้วิธีถนอมอาหารแบบใดตามลำดับ","o":["ตากแห้ง หมักเกลือ ดอง","ดอง ตากแห้ง เชื่อม","แช่แข็ง ตากแห้ง ดอง","เชื่อม ตากแห้ง แช่แข็ง"],"a":0,"e":"ภูมิปัญญาไทย"},
+ {"q":"การเก็บอาหารในตู้เย็นที่ถูกต้อง คือข้อใด","o":["อาหารดิบไว้ชั้นล่าง อาหารปรุงสุกไว้ชั้นบน ปิดภาชนะมิดชิด","วางปนกันได้","ใส่ของร้อน ๆ ทันที","เปิดตู้เย็นค้างไว้"],"a":0,"e":"ป้องกันน้ำจากเนื้อดิบหยดใส่อาหารสุก"},
+ {"q":"การล้างจานที่ถูกวิธี เรียงลำดับอย่างไร","o":["กวาดเศษอาหาร → ล้างน้ำยา → ล้างน้ำสะอาด ๒ ครั้ง → คว่ำให้แห้ง","ล้างน้ำสะอาด → ล้างน้ำยา → เก็บทันที","เช็ดด้วยผ้าแล้วเก็บ","แช่น้ำทิ้งไว้ข้ามคืน"],"a":0,"e":"แยกล้างแก้วก่อนจานมัน"},
+ {"q":"การจัดโต๊ะอาหารแบบไทย สิ่งใดควรอยู่กลางโต๊ะ","o":["กับข้าวและช้อนกลาง","จานข้าวของแต่ละคน","แก้วน้ำ","ผ้าเช็ดปาก"],"a":0,"e":"กินร่วมกัน ตักแบ่ง"},
+ {"q":"การปลูกผักสวนครัว มีประโยชน์อย่างไร","o":["ได้ผักปลอดสารพิษ ประหยัดค่าใช้จ่าย และฝึกความรับผิดชอบ","เสียเวลา","ทำให้บ้านรก","ไม่มีประโยชน์"],"a":0,"e":"เช่น กะเพรา โหระพา พริก ผักบุ้ง"},
+ {"q":"ผักสวนครัวชนิดใดปลูกง่ายและเก็บกินได้เร็วที่สุด","o":["ผักบุ้งและต้นอ่อนทานตะวัน (ประมาณ ๗–๒๐ วัน)","ทุเรียน","มะพร้าว","มะม่วง"],"a":0,"e":"เหมาะกับการฝึกปลูกครั้งแรก"},
+ {"q":"การเตรียมแปลงปลูกผัก ควรทำอย่างไร","o":["พรวนดิน ตากดิน กำจัดวัชพืช ใส่ปุ๋ยคอก แล้วยกร่อง","เทเมล็ดลงดินแข็งทันที","รดน้ำท่วมแปลง","ปลูกบนพื้นปูน"],"a":0,"e":"ดินโปร่งรากจะเดินดี"},
+ {"q":"การเพาะเมล็ดผักก่อนย้ายปลูก มีข้อดีอย่างไร","o":["คัดต้นกล้าที่แข็งแรงได้ ดูแลง่าย และประหยัดเมล็ด","เสียเวลา","ต้นอ่อนแอกว่า","ไม่มีข้อดี"],"a":0,"e":"ย้ายปลูกเมื่อมีใบจริง ๒–๓ ใบ"},
+ {"q":"ผักกินใบ เช่น คะน้า กวางตุ้ง ต้องการสิ่งใดมากเป็นพิเศษ","o":["แสงแดดและน้ำสม่ำเสมอ","ความมืด","น้ำเค็ม","อากาศหนาวจัด"],"a":0,"e":"ขาดน้ำใบจะเหี่ยวและแข็ง"},
+ {"q":"ถ้าแมลงกินใบผักสวนครัว ควรใช้วิธีใดที่ปลอดภัยต่อการกิน","o":["จับออก ใช้น้ำหมักสะเดา น้ำส้มควันไม้ หรือปลูกดาวเรืองไล่แมลง","ฉีดยาฆ่าแมลงเคมีเข้มข้น","เผาแปลง","ปล่อยไว้"],"a":0,"e":"ผักปลอดสารพิษ"},
+ {"q":"การเลี้ยงสัตว์ในบ้าน เช่น ปลา สุนัข แมว นักเรียนต้องรับผิดชอบสิ่งใด","o":["ให้อาหาร น้ำสะอาด ทำความสะอาดที่อยู่ และพาไปฉีดวัคซีน","เล่นด้วยเท่านั้น","ให้พ่อแม่ดูแลทั้งหมด","ปล่อยทิ้ง"],"a":0,"e":"สัตว์เลี้ยงเป็นชีวิต"},
+ {"q":"การเลี้ยงปลาสวยงามในตู้ ควรเปลี่ยนน้ำอย่างไร","o":["เปลี่ยนบางส่วน (๒๐–๓๐%) ทุกสัปดาห์ ด้วยน้ำที่พักคลอรีนแล้ว","เปลี่ยนทั้งหมดทุกวัน","ไม่ต้องเปลี่ยน","ใช้น้ำประปาตรงจากก๊อกทันที"],"a":0,"e":"คลอรีนทำให้ปลาตาย"},
+ {"q":"การเลี้ยงไก่ไข่ในครัวเรือน ให้ประโยชน์อย่างไร","o":["ได้ไข่สด ลดรายจ่าย และมูลไก่ใช้ทำปุ๋ย","ไม่มีประโยชน์","ทำให้บ้านสกปรกอย่างเดียว","ไข่ขายไม่ได้"],"a":0,"e":"เกษตรผสมผสาน"},
+ {"q":"การทำปุ๋ยหมักจากเศษอาหารในบ้าน ต้องระวังสิ่งใด","o":["ไม่ใส่เนื้อสัตว์และของมัน เพราะเหม็นและเรียกแมลง กลับกองเป็นระยะ","ใส่พลาสติกได้","ใส่ทุกอย่าง","ไม่ต้องกลับกอง"],"a":0,"e":"ใช้เศษผัก เปลือกผลไม้ ใบไม้"},
+ {"q":"ไม้ไผ่ ถูกนำมาใช้ประโยชน์ในงานใดบ้างตามภูมิปัญญาไทย","o":["ทำบ้าน เครื่องจักสาน เครื่องมือ และอาหาร (หน่อไม้)","ทำโลหะ","ทำแก้ว","ทำพลาสติก"],"a":0,"e":"วัสดุธรรมชาติที่โตเร็ว"},
+ {"q":"งานประดิษฐ์ หมายถึงอะไร","o":["การนำวัสดุมาสร้างสรรค์เป็นชิ้นงานใหม่ที่ใช้ประโยชน์หรือตกแต่งได้","การซื้อของสำเร็จรูป","การซ่อมของ","การทำอาหาร"],"a":0,"e":"ฝึกความคิดสร้างสรรค์"},
+ {"q":"ขั้นตอนแรกของการทำงานประดิษฐ์คืออะไร","o":["ออกแบบหรือร่างแบบชิ้นงานและเลือกวัสดุ","ลงมือตัดวัสดุทันที","ทาสี","นำไปใช้"],"a":0,"e":"ออกแบบ → เตรียมวัสดุ → ลงมือทำ → ตกแต่ง → ประเมิน"},
+ {"q":"วัสดุเหลือใช้ข้อใดเหมาะทำกระปุกออมสิน","o":["ขวดพลาสติกหรือกล่องกระดาษแข็ง","ถุงพลาสติกบาง","กระดาษทิชชู","ใบไม้สด"],"a":0,"e":"แข็งแรงพอและเจาะช่องได้"},
+ {"q":"การใช้ปืนกาวร้อน นักเรียนควรปฏิบัติอย่างไร","o":["มีผู้ใหญ่ดูแล ไม่แตะปลายปืนและกาวที่ร้อน วางบนฐานเมื่อไม่ใช้","ใช้คนเดียวตอนไม่มีใครอยู่","แตะกาวทดสอบความร้อน","วางปืนกาวบนกระดาษ"],"a":0,"e":"กาวร้อนทำให้พองได้"},
+ {"q":"การใช้คัตเตอร์อย่างปลอดภัยคือข้อใด","o":["ตัดบนแผ่นรองตัด ดันใบมีดออกเท่าที่จำเป็น ตัดออกจากตัว เก็บใบมีดทุกครั้ง","ตัดบนตักตัวเอง","ดันใบมีดออกสุด","ส่งต่อโดยยื่นใบมีดให้"],"a":0,"e":"ใบมีดคมมาก"},
+ {"q":"การเย็บหมอนอิงใบเล็กจากเศษผ้า ควรใช้วิธีเย็บแบบใดให้แน่น","o":["ด้นถอยหลัง","ด้นตะลุยห่าง ๆ","ใช้กาวติด","ใช้เทปใส"],"a":0,"e":"ฝีเข็มถี่และแข็งแรง"},
+ {"q":"การประดิษฐ์ดอกไม้จากกระดาษ ฝึกทักษะใด","o":["ความประณีต สมาธิ และการใช้มือ","การวิ่ง","การคำนวณภาษี","การว่ายน้ำ"],"a":0,"e":"ใช้ตกแต่งหรือเป็นของขวัญ"},
+ {"q":"การประดิษฐ์ของใช้จากกล่องนม เช่น ที่ใส่ดินสอ ต้องทำสิ่งใดก่อน","o":["ล้างกล่องให้สะอาดและผึ่งให้แห้ง","ทาสีทันที","ตัดทันทีทั้งที่มีนมค้าง","ไม่ต้องล้าง"],"a":0,"e":"ป้องกันกลิ่นและเชื้อรา"},
+ {"q":"การตกแต่งชิ้นงานประดิษฐ์ให้สวย ควรคำนึงถึงสิ่งใด","o":["ความเหมาะสมกับประโยชน์ใช้สอย สีสันกลมกลืน และประหยัด","ใส่ทุกอย่างให้มากที่สุด","ใช้ของแพงเท่านั้น","ไม่ต้องตกแต่ง"],"a":0,"e":"สวยและใช้งานได้จริง"},
+ {"q":"ถ้าชิ้นงานประดิษฐ์ออกมาไม่เหมือนแบบที่วางไว้ ควรทำอย่างไร","o":["ประเมินว่าผิดตรงไหน แก้ไขหรือจดบันทึกไว้ปรับปรุงครั้งต่อไป","ทิ้งแล้วเลิกทำ","โทษวัสดุ","ซ่อนไม่ให้ใครเห็น"],"a":0,"e":"การเรียนรู้จากข้อผิดพลาด"},
+ {"q":"การนำเสนอผลงานประดิษฐ์หน้าชั้น ควรบอกอะไรบ้าง","o":["ชื่อชิ้นงาน วัสดุ ขั้นตอน ประโยชน์ และปัญหาที่พบ","ราคาขาย","ชื่อเพื่อน","ไม่ต้องบอกอะไร"],"a":0,"e":"ฝึกการสื่อสาร"},
+ {"q":"อาชีพ หมายถึงอะไร","o":["งานที่ทำเพื่อหารายได้เลี้ยงชีพโดยสุจริต","งานอดิเรก","การเล่น","การเรียน"],"a":0,"e":"ทุกอาชีพสุจริตมีเกียรติ"},
+ {"q":"อาชีพในชุมชนชนบทส่วนใหญ่คือข้อใด","o":["เกษตรกรรม เช่น ทำนา ทำสวน เลี้ยงสัตว์ ประมง","พนักงานบริษัท","นักบิน","โปรแกรมเมอร์"],"a":0,"e":"ขึ้นกับทรัพยากรในพื้นที่"},
+ {"q":"อาชีพใดเกี่ยวข้องกับ “งานช่าง”","o":["ช่างไม้ ช่างไฟฟ้า ช่างประปา ช่างยนต์","ครู","พยาบาล","นักบัญชี"],"a":0,"e":"ต้องมีทักษะและความชำนาญ"},
+ {"q":"อาชีพใดเกี่ยวข้องกับ “งานบ้านและอาหาร”","o":["พ่อครัว แม่บ้าน พนักงานโรงแรม ผู้ดูแลเด็ก","ชาวประมง","ช่างไฟ","นักกีฬา"],"a":0,"e":"ทักษะงานบ้านนำไปประกอบอาชีพได้"},
+ {"q":"อาชีพอิสระ ต่างจากอาชีพรับจ้างอย่างไร","o":["อาชีพอิสระเป็นเจ้าของกิจการเอง รับความเสี่ยงเอง อาชีพรับจ้างทำงานให้ผู้อื่นรับค่าจ้าง","เหมือนกัน","อาชีพอิสระไม่ต้องทำงาน","อาชีพรับจ้างรวยกว่าเสมอ"],"a":0,"e":"เช่น ขายของออนไลน์ vs พนักงานร้าน"},
+ {"q":"คุณธรรมที่ทุกอาชีพต้องมีคือข้อใด","o":["ความซื่อสัตย์ ขยัน อดทน รับผิดชอบ และตรงต่อเวลา","ความโลภ","ความเกียจคร้าน","การเอาเปรียบลูกค้า"],"a":0,"e":"จรรยาบรรณวิชาชีพ"},
+ {"q":"พ่อค้าที่โกงตาชั่ง ขาดคุณธรรมข้อใด","o":["ความซื่อสัตย์","ความขยัน","ความอดทน","ความกตัญญู"],"a":0,"e":"ลูกค้าจะไม่กลับมาซื้ออีก"},
+ {"q":"การเลือกอาชีพในอนาคต ควรพิจารณาสิ่งใด","o":["ความถนัด ความชอบ ความต้องการของสังคม และความสุจริต","รายได้สูงอย่างเดียว","ตามเพื่อน","ตามละคร"],"a":0,"e":"รู้จักตนเองก่อน"},
+ {"q":"ถ้านักเรียนชอบวาดรูปและคอมพิวเตอร์ อาชีพใดน่าสนใจ","o":["นักออกแบบกราฟิก แอนิเมเตอร์","ชาวประมง","พยาบาล","นักบัญชี"],"a":0,"e":"จับคู่ความถนัดกับอาชีพ"},
+ {"q":"ถ้านักเรียนชอบช่วยเหลือคนและเรียนวิทยาศาสตร์ อาชีพใดน่าสนใจ","o":["แพทย์ พยาบาล เภสัชกร","ช่างไม้","นักบัญชี","พ่อครัว"],"a":0,"e":"ต้องตั้งใจเรียน"},
+ {"q":"อาชีพใดเกิดขึ้นใหม่จากเทคโนโลยีดิจิทัล","o":["ยูทูบเบอร์ นักพัฒนาแอป ผู้ขายของออนไลน์","ชาวนา","ช่างตีเหล็ก","คนขับเกวียน"],"a":0,"e":"โลกเปลี่ยน อาชีพเปลี่ยน"},
+ {"q":"การขายของออนไลน์ให้ประสบความสำเร็จ ต้องมีคุณธรรมข้อใดสำคัญที่สุด","o":["ความซื่อสัตย์ ส่งของตรงตามที่โฆษณา","ความสวยของรูป","ราคาถูกที่สุด","โฆษณาเกินจริง"],"a":0,"e":"ความไว้วางใจคือทุนสำคัญ"},
+ {"q":"นักเรียนหารายได้พิเศษได้อย่างไรโดยไม่กระทบการเรียน","o":["ช่วยงานบ้านรับค่าขนม ขายของประดิษฐ์ในงานโรงเรียน (มีผู้ปกครองดูแล)","ทำงานกลางคืน","หยุดเรียนไปทำงาน","ขอเงินเพื่อน"],"a":0,"e":"เด็กต้องเรียนเป็นหลัก"},
+ {"q":"การใช้แรงงานเด็กอายุต่ำกว่า ๑๕ ปี ผิดกฎหมายหรือไม่","o":["ผิด กฎหมายห้ามจ้างเด็กอายุต่ำกว่า ๑๕ ปีทำงาน","ไม่ผิด ถ้าเด็กยินยอม","ไม่ผิด ถ้าค่าจ้างสูง","ไม่ผิด ในวันหยุด"],"a":0,"e":"คุ้มครองสิทธิเด็ก"},
+ {"q":"การวางแผนการใช้จ่ายของครอบครัว เรียกว่าอะไร","o":["การทำบัญชีรายรับ–รายจ่าย (งบประมาณครอบครัว)","การกู้เงิน","การเล่นหวย","การลงทุน"],"a":0,"e":"รู้ว่าเงินเข้าออกอย่างไร"},
+ {"q":"การจดบันทึกรายรับ–รายจ่ายของตนเอง มีประโยชน์อย่างไร","o":["รู้ว่าใช้เงินไปกับอะไร ลดการใช้จ่ายฟุ่มเฟือย และวางแผนออมได้","เสียเวลา","ไม่มีประโยชน์","ทำให้ใช้เงินมากขึ้น"],"a":0,"e":"เริ่มจากค่าขนมรายวัน"},
+ {"q":"ถ้าได้ค่าขนมวันละ ๒๐ บาท ใช้ ๑๕ บาท ออม ๕ บาท ใน ๒๐ วันเรียนจะออมได้เท่าใด","o":["๑๐๐ บาท","๕๐ บาท","๒๐๐ บาท","๓๐๐ บาท"],"a":0,"e":"๕ × ๒๐ = ๑๐๐"},
+ {"q":"ข้อใดเป็นการใช้ทรัพยากรในบ้านอย่างคุ้มค่า","o":["ปิดไฟเมื่อไม่ใช้ ใช้น้ำซ้ำรดต้นไม้ ซ่อมของก่อนซื้อใหม่","เปิดแอร์ทั้งวันทั้งที่ไม่อยู่","ทิ้งอาหารเหลือทุกวัน","ซื้อของใหม่ทุกครั้งที่เบื่อ"],"a":0,"e":"หลักเศรษฐกิจพอเพียง"},
+ {"q":"การกำจัดขยะในบ้านที่ถูกต้องเริ่มจากสิ่งใด","o":["แยกขยะเป็นประเภท: ขยะเปียก รีไซเคิล ทั่วไป อันตราย","ทิ้งรวมกัน","เผาหลังบ้าน","ทิ้งลงคลอง"],"a":0,"e":"ง่ายต่อการนำไปจัดการต่อ"},
+ {"q":"ขวดพลาสติก กระป๋อง กระดาษ ควรทิ้งในถังสีใด","o":["สีเหลือง (รีไซเคิล)","สีเขียว","สีแดง","สีน้ำเงิน"],"a":0,"e":"ขายได้ สร้างรายได้"},
+ {"q":"หลอดไฟเก่า กระป๋องสเปรย์ ถ่านไฟฉาย ควรทิ้งในถังสีใด","o":["สีแดง (ขยะอันตราย)","สีเขียว","สีเหลือง","สีน้ำเงิน"],"a":0,"e":"มีสารเคมีอันตราย"},
+ {"q":"การใช้น้ำอย่างประหยัดในบ้าน ทำได้อย่างไร","o":["ปิดก๊อกขณะแปรงฟัน ซ่อมก๊อกรั่ว ใช้ขันตักอาบแทนฝักบัวเปิดทิ้ง","อาบน้ำนาน ๆ","ล้างรถทุกวัน","เปิดน้ำทิ้งไว้"],"a":0,"e":"น้ำเป็นทรัพยากรที่มีค่า"},
+ {"q":"การใช้ไฟฟ้าอย่างปลอดภัยในบ้าน ข้อใดถูกต้อง","o":["ไม่เสียบปลั๊กหลายตัวในเต้ารับเดียว ไม่ใช้มือเปียกจับปลั๊ก ถอดปลั๊กเมื่อไม่ใช้","เสียบปลั๊กพ่วงซ้อนกันหลายชั้น","ใช้มือเปียกเสียบปลั๊ก","ดึงสายไฟแทนจับหัวปลั๊ก"],"a":0,"e":"ป้องกันไฟฟ้าลัดวงจรและไฟดูด"},
+ {"q":"เครื่องใช้ไฟฟ้าใดกินไฟมากที่สุดในบ้านทั่วไป","o":["เครื่องปรับอากาศ","หลอดไฟ LED","พัดลม","วิทยุ"],"a":0,"e":"ควรตั้ง ๒๕–๒๖ องศาและปิดเมื่อไม่ใช้"},
+ {"q":"ฉลากประหยัดไฟเบอร์ ๕ บอกอะไร","o":["เครื่องใช้ไฟฟ้านั้นประหยัดพลังงานมาก","ราคา ๕ บาท","มีอายุ ๕ ปี","ผลิตในประเทศที่ ๕"],"a":0,"e":"เบอร์ยิ่งสูงยิ่งประหยัด"},
+ {"q":"การซักผ้าด้วยเครื่องซักผ้าอย่างประหยัด ควรทำอย่างไร","o":["รวมผ้าให้เต็มเครื่องแล้วซักครั้งเดียว เลือกน้ำเย็น","ซักทีละชิ้น","ใช้น้ำร้อนทุกครั้ง","ซักซ้ำหลายรอบ"],"a":0,"e":"ประหยัดน้ำและไฟ"},
+ {"q":"การทำความสะอาดห้องน้ำ ควรใช้สิ่งใด","o":["แปรงขัด น้ำยาล้างห้องน้ำ ถุงมือ และระบายอากาศ","มือเปล่า","ผ้าเช็ดโต๊ะอาหาร","ฟองน้ำล้างจาน"],"a":0,"e":"แยกอุปกรณ์ห้องน้ำจากอุปกรณ์ครัว"},
+ {"q":"การกวาดใบไม้ในสนาม ควรใช้ไม้กวาดชนิดใด","o":["ไม้กวาดทางมะพร้าวหรือคราด","ไม้กวาดดอกหญ้า","ไม้กวาดขนไก่","ไม้ถูพื้น"],"a":0,"e":"แข็งแรงเหมาะกับพื้นหยาบ"},
+ {"q":"ไม้กวาดขนไก่ ใช้สำหรับงานใด","o":["ปัดฝุ่นบนเฟอร์นิเจอร์และของประดับ","กวาดพื้นดิน","ถูพื้น","ล้างจาน"],"a":0,"e":"ขนนุ่มไม่ทำให้เป็นรอย"},
+ {"q":"การเก็บกวาดห้องหลังงานเลี้ยงของครอบครัว ควรแบ่งงานอย่างไร","o":["แบ่งหน้าที่กัน เช่น เก็บจาน เช็ดโต๊ะ กวาดพื้น ทิ้งขยะ ให้เสร็จพร้อมกัน","ให้คนเดียวทำ","ทิ้งไว้ถึงพรุ่งนี้","ให้แขกทำ"],"a":0,"e":"ทำงานเป็นทีม"},
+ {"q":"การดูแลคนในครอบครัวที่ป่วย นักเรียนช่วยได้อย่างไร","o":["นำน้ำและยาไปให้ตามที่ผู้ใหญ่บอก ไม่ส่งเสียงดัง และช่วยงานบ้านแทน","หนีไปเล่น","ส่งเสียงดัง","ให้ยาเองโดยไม่ถาม"],"a":0,"e":"ความรับผิดชอบต่อครอบครัว"},
+ {"q":"การดูแลน้องเล็กขณะพ่อแม่ไม่อยู่ ต้องระวังสิ่งใด","o":["ของชิ้นเล็ก ของมีคม ปลั๊กไฟ น้ำ และบันได","ให้น้องเล่นคนเดียว","ให้น้องกินทุกอย่างที่หยิบได้","ปล่อยน้องไว้ใกล้สระน้ำ"],"a":0,"e":"เด็กเล็กเสี่ยงอุบัติเหตุสูง"},
+ {"q":"การเลือกซื้อเสื้อผ้า ควรพิจารณาสิ่งใด","o":["ความจำเป็น ขนาดพอดี เนื้อผ้าเหมาะกับอากาศ และราคาสมเหตุผล","ตามแฟชั่นเท่านั้น","ยี่ห้อดังเท่านั้น","ซื้อทุกครั้งที่ลดราคา"],"a":0,"e":"ผู้บริโภคที่ฉลาด"},
+ {"q":"สัญลักษณ์บนป้ายเสื้อรูป “อ่างน้ำมีมือ” หมายถึงอะไร","o":["ซักด้วยมือ","ห้ามซัก","ซักเครื่องได้","รีดได้"],"a":0,"e":"สัญลักษณ์การดูแลผ้า"},
+ {"q":"สัญลักษณ์บนป้ายเสื้อรูป “เตารีดมีกากบาท” หมายถึงอะไร","o":["ห้ามรีด","รีดไฟอ่อน","รีดไฟแรง","รีดได้ทุกอุณหภูมิ"],"a":0,"e":"ผ้าบางชนิดโดนความร้อนไม่ได้"},
+ {"q":"การซ่อมเสื้อที่ตะเข็บแขนขาด ควรเริ่มจากสิ่งใด","o":["กลับด้านในเสื้อออก กลัดเข็มหมุดจับตะเข็บให้ตรง แล้วเย็บด้นถอยหลัง","เย็บจากด้านนอกทันที","ใช้เทปกาวพัน","ตัดแขนเสื้อทิ้ง"],"a":0,"e":"รอยเย็บจะอยู่ด้านใน มองไม่เห็น"},
+ {"q":"การเลือกใช้เครื่องมือช่างให้ “เหมาะกับงาน” สำคัญอย่างไร","o":["งานเสร็จดี ปลอดภัย และเครื่องมือไม่เสียหาย","ไม่สำคัญ ใช้อะไรก็ได้","ทำให้งานช้าลง","เพื่อโชว์"],"a":0,"e":"เช่น ไม่ใช้ไขควงแทนสิ่ว"},
+ {"q":"ก่อนใช้สว่านไฟฟ้า (โดยผู้ใหญ่) ควรทำสิ่งใด","o":["ตรวจสายไฟ ใส่ดอกสว่านให้แน่น สวมแว่นนิรภัย และยึดชิ้นงานให้มั่น","เจาะทันที","ถือชิ้นงานด้วยมือลอย ๆ","ใช้ขณะมือเปียก"],"a":0,"e":"เครื่องมือไฟฟ้าอันตรายกว่าเครื่องมือมือ"},
+ {"q":"ระดับน้ำ (เครื่องมือช่าง) ใช้ทำอะไร","o":["ตรวจสอบว่าพื้นผิวหรือชิ้นงานอยู่ในแนวระดับหรือแนวดิ่ง","วัดความยาว","ตัดไม้","ตอกตะปู"],"a":0,"e":"ดูฟองอากาศอยู่กึ่งกลาง"},
+ {"q":"ฉากเหล็ก (ฉากช่างไม้) ใช้ทำอะไร","o":["วัดและขีดเส้นมุมฉาก ๙๐ องศา","ตอกตะปู","ขันสกรู","เลื่อยไม้"],"a":0,"e":"ชิ้นงานจะได้มุมที่ถูกต้อง"},
+ {"q":"สิ่ว ใช้สำหรับงานใด","o":["เซาะร่องหรือแต่งเนื้อไม้ โดยใช้ค้อนไม้เคาะ","ตัดเหล็ก","ขันน็อต","วัดระดับ"],"a":0,"e":"ต้องระวังมือที่จับไม้"},
+ {"q":"การเก็บน้ำมันหล่อลื่นหรือสีทาไม้ในบ้าน ควรทำอย่างไร","o":["ปิดฝาแน่น เก็บในที่ร่ม อากาศถ่ายเท ห่างจากเปลวไฟ และพ้นมือเด็ก","วางกลางแดด","เก็บใกล้เตาแก๊ส","เทรวมกัน"],"a":0,"e":"ไวไฟ"},
+ {"q":"การทาสีไม้ให้สวยและทน ควรทำอย่างไร","o":["ขัดผิวให้เรียบ เช็ดฝุ่น ทารองพื้น แล้วทาสีบาง ๆ ๒ รอบ","ทาสีหนา ๆ รอบเดียว","ทาบนผิวที่มีฝุ่น","ทาขณะไม้เปียก"],"a":0,"e":"รอให้แห้งระหว่างรอบ"},
+ {"q":"ประโยชน์ของการมีทักษะงานบ้านและงานช่างตั้งแต่เด็ก คืออะไร","o":["พึ่งพาตนเองได้ ประหยัด และต่อยอดเป็นอาชีพในอนาคต","ไม่มีประโยชน์","ทำให้เรียนแย่ลง","เสียเวลาเล่น"],"a":0,"e":"ทักษะชีวิต"},
+ {"q":"ทักษะกระบวนการทำงานขั้น “วิเคราะห์งาน” หมายถึงอะไร","o":["พิจารณาว่างานคืออะไร ต้องทำอะไรบ้าง ใช้อะไร และมีข้อควรระวังใด","ลงมือทำทันที","ประเมินผลงาน","เก็บอุปกรณ์"],"a":0,"e":"ขั้นแรกก่อนวางแผน"},
+ {"q":"ทักษะการจัดการ ในงานอาชีพ หมายถึงอะไร","o":["การวางแผน จัดสรรเวลา คน และทรัพยากรให้งานสำเร็จอย่างมีประสิทธิภาพ","การสั่งคนอื่น","การทำงานคนเดียว","การเลิกทำ"],"a":0,"e":"ใช้ในงานกลุ่ม"},
+ {"q":"ทักษะการแก้ปัญหาในการทำงาน เริ่มจากขั้นตอนใด","o":["ระบุปัญหาให้ชัดเจน","โทษผู้อื่น","เลิกทำ","ทำซ้ำแบบเดิม"],"a":0,"e":"ระบุ → หาสาเหตุ → หาทางแก้ → ลงมือ → ประเมิน"},
+ {"q":"การทำงานร่วมกับผู้อื่นให้สำเร็จ ต้องมีสิ่งใด","o":["การสื่อสารที่ดี การรับฟัง การแบ่งหน้าที่ และความรับผิดชอบ","การแข่งขันเอาชนะกัน","การทำคนเดียว","การสั่งอย่างเดียว"],"a":0,"e":"ทักษะการทำงานกลุ่ม"},
+ {"q":"ความปลอดภัยในการทำงานทุกประเภท มีหลักสำคัญคืออะไร","o":["ศึกษาวิธีใช้ก่อน แต่งกายเหมาะสม มีสมาธิ และเก็บเครื่องมือหลังใช้","ทำเร็วที่สุด","ไม่ต้องอ่านคู่มือ","ทำขณะเหนื่อยหรือง่วง"],"a":0,"e":"อุบัติเหตุป้องกันได้"},
+ {"q":"ถ้าเพื่อนบาดเจ็บขณะทำงานประดิษฐ์ (มีดบาดเลือดออก) ควรทำอย่างไรเป็นอันดับแรก","o":["กดห้ามเลือดด้วยผ้าสะอาดและเรียกครูทันที","ถ่ายรูป","วิ่งหนี","เอาน้ำราด"],"a":0,"e":"ปฐมพยาบาลเบื้องต้นแล้วแจ้งผู้ใหญ่"},
+ {"q":"การใช้เวลาว่างทำงานบ้านหรืองานประดิษฐ์ แทนการเล่นมือถือตลอดเวลา ส่งผลดีอย่างไร","o":["ได้ทักษะ สุขภาพตาและกายดีขึ้น และช่วยครอบครัว","ไม่มีผลดี","ทำให้เบื่อ","เสียเวลา"],"a":0,"e":"สมดุลชีวิต"},
+ {"q":"การประเมินผลงานของตนเองอย่างซื่อสัตย์ มีประโยชน์อย่างไร","o":["รู้จุดแข็งจุดอ่อนที่แท้จริงและพัฒนาต่อได้","ทำให้คะแนนสูง","ไม่มีประโยชน์","ทำให้เสียใจ"],"a":0,"e":"ขั้นตอนสุดท้ายของกระบวนการทำงาน"},
+ {"q":"การใช้วัสดุในท้องถิ่น เช่น ใบตอง กะลา ไม้ไผ่ ทำงานประดิษฐ์ สอดคล้องกับหลักใด","o":["เศรษฐกิจพอเพียงและการอนุรักษ์สิ่งแวดล้อม","ความฟุ่มเฟือย","การนำเข้า","การใช้พลาสติก"],"a":0,"e":"ภูมิปัญญาไทย"},
+ {"q":"กระทงใบตอง เป็นงานประดิษฐ์ที่สะท้อนภูมิปัญญาข้อใด","o":["ใช้วัสดุธรรมชาติที่ย่อยสลายได้ และฝีมือการพับที่ประณีต","ใช้โฟมที่ย่อยสลายยาก","ใช้พลาสติก","ไม่สะท้อนอะไร"],"a":0,"e":"กระทงโฟมทำลายแหล่งน้ำ"},
+ {"q":"การเลี้ยงดูต้นไม้ สัตว์เลี้ยง และดูแลบ้าน ล้วนฝึกคุณธรรมข้อใดมากที่สุด","o":["ความรับผิดชอบ","ความโลภ","ความกล้าหาญ","ความเร็ว"],"a":0,"e":"ต้องทำสม่ำเสมอทุกวัน"},
+ {"q":"การเลือกภาชนะใส่อาหารร้อน ควรหลีกเลี่ยงวัสดุใด","o":["โฟมและพลาสติกบางที่ไม่ทนความร้อน","แก้วทนความร้อน","เซรามิก","สแตนเลส"],"a":0,"e":"สารเคมีอาจละลายปนอาหาร"},
+ {"q":"การเก็บข้าวสารในบ้านให้ไม่มีมอด ควรทำอย่างไร","o":["ใส่ภาชนะปิดสนิท เก็บในที่แห้ง อาจใส่พริกแห้งหรือใบมะกรูด","วางถุงเปิดไว้ในครัว","ตากแดดทุกวัน","เก็บในตู้เย็นทั้งกระสอบ"],"a":0,"e":"ภูมิปัญญาไล่มอด"},
+],
+};
+
+const SET_NAMES = {1:'🛠 การงานอาชีพ ๑๐๐ ข้อ'};
+// ---------- storage ----------
+const KEY='exam100-work-best';
+const SEENKEY='exam100-work-seen';
+function loadSeen(){try{return JSON.parse(localStorage.getItem(SEENKEY)||'{}')}catch(e){return {}}}
+function saveSeen(x){try{localStorage.setItem(SEENKEY,JSON.stringify(x))}catch(e){}}
+let seen=loadSeen();
+for(const k in BANK)BANK[k].forEach((q,i)=>q.id=k+'-'+i);
+function seenCount(set){const p=pool(),s=new Set(seen[set]||[]);return p.filter(q=>s.has(q.id)).length}
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')||id.endsWith('.html')||id.startsWith('../')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'อ่าน',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label||TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    const hasV=!!el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(hasV?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  const want=$('count').value;const all=pool();const sset=new Set(seen[currentSet]||[]);let unseen=shuffle(all.filter(q=>!sset.has(q.id)));let seenQ=shuffle(all.filter(q=>sset.has(q.id)));
+  const need=want==='all'?all.length:Math.min(Number(want),all.length);
+  let src;
+  if(unseen.length>=need){src=unseen.slice(0,need);}
+  else{ src=unseen.concat(seenQ.slice(0,need-unseen.length)); seen[currentSet]=[]; sset.clear(); }
+  qs=src.map(q=>{const order=shuffle([0,1,2,3]);return {id:q.id,q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  if(!seen[currentSet])seen[currentSet]=[];if(!seen[currentSet].includes(q.id)){seen[currentSet].push(q.id);saveSeen(seen);}
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>

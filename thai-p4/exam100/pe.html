@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ข้อสอบสุขศึกษาและพลศึกษา ๑๐๐ ข้อ ป.๔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#14213D; --muted:#5A6A85; --line:#EADFCF;
+  --plum:#DC2626; --plum-soft:#FEE2E2; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#D9480F; --red-soft:#FFE6D9;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(30,60,120,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">🏠 รวมข้อสอบ ๗ วิชา</a>
+    <a href="history.html">📜 ประวัติศาสตร์</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a href="work.html">🛠 การงานอาชีพ</a>
+    <a href="ict.html">💻 ICT วิทยาการคำนวณ</a>
+    <a href="thai.html">📘 ภาษาไทย</a>
+    <a class="on" href="pe.html">🏃 สุขศึกษาและพลศึกษา</a>
+    <a href="music.html">🎵 ดนตรี</a>
+    <a href="../index.html">↩ เว็บหลัก (คลิป+ข้อสอบ)</a>
+  </nav>
+  <div class="eyebrow">สุขศึกษาและพลศึกษา · ชั้นประถมศึกษาปีที่ ๔ · ข้อสอบ ๑๐๐ ข้อ · ทำครบ ๑๐๐ ข้อทุกครั้ง</div>
+  <h1>ข้อสอบ<span>สุขศึกษาและพลศึกษา</span> ป.๔ — ๑๐๐ ข้อ</h1>
+  <div class="books">
+    <span class="book b1"><i></i>ร่างกายและการเจริญเติบโต · สุขบัญญัติ · โรคและยา · สารเสพติด · ความปลอดภัยและปฐมพยาบาล · กีฬาและกติกา</span>
+    <span class="book b2"><i></i>กติกา: ทำครั้งละ ๑๐๐ ข้อเต็ม ไม่มีตัวเลือกจำนวนข้อ · สลับลำดับข้อและตัวเลือกใหม่ทุกครั้ง</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📚 ก่อนสอบดูอะไร</a>
+    <a href="#workbook">📚 สรุปที่ต้องจำ</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>ข้อสอบสุขศึกษาและพลศึกษา ๑๐๐ ข้อ</h2>
+    <p>กด ✏️ ทำข้อสอบ แล้วทำให้ครบ ๑๐๐ ข้อ · ตอบแล้วเห็นเฉลยทันที · ตัวเลือกและลำดับข้อสลับใหม่ทุกครั้ง</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>กติกาชุดเตรียมสอบ 🎯</h2>
+    <p>อ่านก่อนเริ่ม</p>
+  </div>
+  <div class="wb">
+    <div class="card"><h3>๑๐๐ ข้อเต็มทุกครั้ง</h3><p>ชุดนี้ล็อกจำนวนไว้ที่ ๑๐๐ ข้อ ไม่สามารถเลือกทำน้อยกว่านี้ได้ เพื่อฝึกความอดทนเหมือนสอบจริง</p></div>
+    <div class="card"><h3>ข้อใหม่ทั้งหมด</h3><p>๑๐๐ ข้อนี้เขียนขึ้นใหม่ ไม่ซ้ำกับข้อสอบในเว็บหลัก</p></div>
+    <div class="card"><h3>ออกจากกลางคันได้</h3><p>กด “ออก” ได้ถ้าจำเป็น แต่คะแนนจะไม่ถูกบันทึก · คะแนนสูงสุดบันทึกเมื่อทำครบ ๑๐๐ ข้อเท่านั้น</p></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>ชุดเตรียมสอบ ๑๐๐ ข้อ ทำครบทุกครั้ง · ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดบันทึกไว้ในเครื่อง · ข้อสอบสุ่มใหม่ทุกครั้ง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="score-live">จำนวนข้อ <b>๑๐๐ ข้อ (ล็อก)</b></span><select id="count" class="hidden"><option value="all" selected>all</option></select>
+          <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามเนื้อหาวิชาสุขศึกษาและพลศึกษา ป.๔ เพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,label:'🏃',title:'ข้อสอบสุขศึกษาและพลศึกษา ๑๐๐ ข้อ',focus:'ร่างกายและการเจริญเติบโต · สุขบัญญัติ · โรคและยา · สารเสพติด · ความปลอดภัยและปฐมพยาบาล · กีฬาและกติกา',video:null,
+   links:[["https://dltv.ac.th/teachplan/lists/4/5000", "DLTV สุขศึกษาและพลศึกษา ป.๔", "d"]]},
+];
+const BANK = {
+1:[
+ {"q":"ระบบใดของร่างกายทำหน้าที่ค้ำจุนและให้ร่างกายเคลื่อนไหวได้","o":["ระบบกระดูกและกล้ามเนื้อ","ระบบหายใจ","ระบบย่อยอาหาร","ระบบประสาท"],"a":0,"e":"กระดูกเป็นโครง กล้ามเนื้อดึงให้เคลื่อนไหว"},
+ {"q":"ร่างกายมนุษย์ผู้ใหญ่มีกระดูกประมาณกี่ชิ้น","o":["๒๐๖ ชิ้น","๑๐๐ ชิ้น","๓๐๐ ชิ้น","๕๐ ชิ้น"],"a":0,"e":"เด็กแรกเกิดมีมากกว่าแล้วเชื่อมกัน"},
+ {"q":"ข้อต่อ ทำหน้าที่อะไร","o":["เป็นจุดที่กระดูกมาต่อกัน ทำให้งอและเคลื่อนไหวได้","สูบฉีดเลือด","ย่อยอาหาร","หายใจ"],"a":0,"e":"เช่น ข้อศอก ข้อเข่า"},
+ {"q":"กล้ามเนื้อจะแข็งแรงขึ้นได้ด้วยวิธีใด","o":["ออกกำลังกายสม่ำเสมอและกินอาหารโปรตีนเพียงพอ","นอนทั้งวัน","กินขนมหวานมาก ๆ","เล่นเกม"],"a":0,"e":"ใช้บ่อยยิ่งแข็งแรง"},
+ {"q":"อวัยวะใดทำหน้าที่สูบฉีดเลือดไปเลี้ยงร่างกาย","o":["หัวใจ","ปอด","ตับ","ไต"],"a":0,"e":"เต้นประมาณ ๗๐–๑๐๐ ครั้งต่อนาทีในเด็ก"},
+ {"q":"อวัยวะใดทำหน้าที่แลกเปลี่ยนก๊าซในการหายใจ","o":["ปอด","หัวใจ","กระเพาะอาหาร","สมอง"],"a":0,"e":"รับออกซิเจน ปล่อยคาร์บอนไดออกไซด์"},
+ {"q":"การเจริญเติบโตของเด็กวัย ๙–๑๐ ปี มีลักษณะอย่างไร","o":["ส่วนสูงและน้ำหนักเพิ่มขึ้นสม่ำเสมอ ฟันแท้ขึ้นแทนฟันน้ำนม","หยุดโต","โตเร็วที่สุดในชีวิต","เตี้ยลง"],"a":0,"e":"เตรียมเข้าสู่วัยรุ่น"},
+ {"q":"ปัจจัยใดส่งผลต่อการเจริญเติบโตของร่างกาย","o":["อาหาร การออกกำลังกาย การพักผ่อน และพันธุกรรม","สีเสื้อผ้า","จำนวนของเล่น","ยี่ห้อโทรศัพท์"],"a":0,"e":"ปัจจัยที่ควบคุมได้คืออาหาร ออกกำลัง พักผ่อน"},
+ {"q":"เด็กวัยเรียนควรนอนหลับวันละกี่ชั่วโมง","o":["๙–๑๑ ชั่วโมง","๔–๕ ชั่วโมง","๑๕ ชั่วโมง","๖ ชั่วโมง"],"a":0,"e":"โกรทฮอร์โมนหลั่งขณะหลับลึก"},
+ {"q":"ทำไมควรดื่มนมเป็นประจำ","o":["มีแคลเซียมช่วยให้กระดูกและฟันแข็งแรง","ทำให้ผิวขาว","ทำให้ตัวเบา","ไม่มีประโยชน์"],"a":0,"e":"วันละ ๒–๓ แก้ว"},
+ {"q":"สุขบัญญัติแห่งชาติ มีกี่ประการ","o":["๑๐ ประการ","๕ ประการ","๘ ประการ","๑๒ ประการ"],"a":0,"e":"แนวปฏิบัติเพื่อสุขภาพดี"},
+ {"q":"สุขบัญญัติข้อใดเกี่ยวกับการดูแลร่างกาย","o":["ดูแลรักษาร่างกายและของใช้ให้สะอาด","เล่นเกมวันละ ๕ ชั่วโมง","กินขนมแทนข้าว","นอนดึกทุกวัน"],"a":0,"e":"อาบน้ำ แปรงฟัน สระผม ตัดเล็บ"},
+ {"q":"ควรแปรงฟันอย่างน้อยวันละกี่ครั้ง และครั้งละนานเท่าใด","o":["๒ ครั้ง (เช้าและก่อนนอน) ครั้งละ ๒ นาที","๑ ครั้ง ๑๐ วินาที","๕ ครั้ง ๕ นาที","ไม่ต้องแปรง"],"a":0,"e":"ใช้ยาสีฟันผสมฟลูออไรด์"},
+ {"q":"ฟันแท้ของมนุษย์มีทั้งหมดกี่ซี่","o":["๓๒ ซี่","๒๐ ซี่","๒๘ ซี่","๔๐ ซี่"],"a":0,"e":"ฟันน้ำนมมี ๒๐ ซี่"},
+ {"q":"โรคฟันผุเกิดจากอะไร","o":["แบคทีเรียในปากย่อยน้ำตาลเป็นกรดกัดกร่อนฟัน","กินผักมาก","แปรงฟันบ่อย","ดื่มน้ำเปล่า"],"a":0,"e":"ลดของหวานและแปรงฟันให้สะอาด"},
+ {"q":"ควรล้างมือเมื่อใดบ้าง","o":["ก่อนกินอาหาร หลังเข้าห้องน้ำ หลังเล่น และหลังไอจาม","เฉพาะเช้า","เฉพาะเมื่อมือเปื้อนมองเห็น","ไม่ต้องล้าง"],"a":0,"e":"ป้องกันโรคติดต่อ"},
+ {"q":"การล้างมือ ๗ ขั้นตอน เริ่มจากขั้นตอนใด","o":["ฝ่ามือถูกัน","ถูหลังมือ","ถูซอกนิ้ว","ถูหัวแม่มือ"],"a":0,"e":"ฝ่ามือ หลังมือ ซอกนิ้ว หลังนิ้ว หัวแม่มือ ปลายนิ้ว ข้อมือ"},
+ {"q":"โรคติดต่อ หมายถึงอะไร","o":["โรคที่แพร่จากคนหนึ่งสู่อีกคนได้ เช่น ไข้หวัด ตาแดง อีสุกอีใส","โรคที่เป็นแต่กำเนิด","โรคที่เกิดจากอุบัติเหตุ","โรคที่ไม่มีทางรักษา"],"a":0,"e":"ป้องกันด้วยสุขอนามัย"},
+ {"q":"โรคไข้เลือดออก มีพาหะคืออะไร","o":["ยุงลาย","ยุงก้นปล่อง","แมลงวัน","หนู"],"a":0,"e":"กัดเวลากลางวัน เพาะพันธุ์ในน้ำนิ่งสะอาด"},
+ {"q":"การป้องกันไข้เลือดออกที่ดีที่สุดคือข้อใด","o":["กำจัดแหล่งน้ำขัง ปิดฝาภาชนะ เปลี่ยนน้ำแจกันทุกสัปดาห์","กินยาปฏิชีวนะ","อยู่แต่ในบ้าน","ดื่มน้ำมาก ๆ"],"a":0,"e":"มาตรการ ๓ เก็บ"},
+ {"q":"โรคมือ เท้า ปาก มักพบในเด็กเล็ก ป้องกันอย่างไร","o":["ล้างมือบ่อย ไม่ใช้ของร่วมกัน แยกเด็กป่วย","กินของหวาน","อาบน้ำเย็น","ไม่ต้องป้องกัน"],"a":0,"e":"ติดต่อผ่านน้ำลายและอุจจาระ"},
+ {"q":"เมื่อเป็นไข้หวัด ควรปฏิบัติอย่างไรไม่ให้แพร่เชื้อ","o":["สวมหน้ากาก ปิดปากเมื่อไอจาม ล้างมือ และพักที่บ้าน","ไปโรงเรียนตามปกติ","ใช้แก้วน้ำร่วมกับเพื่อน","จามใส่มือแล้วจับของ"],"a":0,"e":"ความรับผิดชอบต่อสังคม"},
+ {"q":"วัคซีน ช่วยอะไร","o":["กระตุ้นภูมิคุ้มกันให้ร่างกายป้องกันโรคได้","รักษาโรคที่เป็นอยู่","ทำให้สูงขึ้น","ทำให้หายหิว"],"a":0,"e":"เด็กไทยได้รับวัคซีนตามกำหนด"},
+ {"q":"โรคไม่ติดต่อเรื้อรัง (NCDs) เช่น เบาหวาน ความดัน มีสาเหตุหลักจากอะไร","o":["พฤติกรรม เช่น กินหวานมันเค็ม ไม่ออกกำลังกาย","เชื้อไวรัส","ยุง","อากาศ"],"a":0,"e":"เริ่มป้องกันตั้งแต่เด็ก"},
+ {"q":"การกินผักผลไม้ให้ได้วันละเท่าใดจึงเพียงพอ","o":["อย่างน้อย ๔๐๐ กรัม หรือ ๕ ทัพพี/ส่วน","๑ คำ","ไม่ต้องกิน","กินเฉพาะผลไม้หวาน"],"a":0,"e":"ครึ่งหนึ่งของจาน"},
+ {"q":"น้ำอัดลม ๑ กระป๋อง มีน้ำตาลประมาณกี่ช้อนชา","o":["ประมาณ ๘–๑๐ ช้อนชา","๑ ช้อนชา","๒ ช้อนชา","ไม่มีน้ำตาล"],"a":0,"e":"เกินปริมาณที่ควรได้ต่อวัน (๖ ช้อนชา)"},
+ {"q":"ยาที่หมดอายุ ควรทำอย่างไร","o":["ไม่กิน นำไปทิ้งในจุดรับยาหมดอายุหรือตามคำแนะนำ","กินได้ถ้ายังไม่เปลี่ยนสี","ให้คนอื่น","เก็บไว้ใช้ต่อ"],"a":0,"e":"ยาเสื่อมคุณภาพอาจเป็นอันตราย"},
+ {"q":"ก่อนกินยาทุกครั้ง ควรอ่านสิ่งใด","o":["ฉลากยา: ชื่อยา วิธีใช้ ขนาด เวลา และวันหมดอายุ","ราคายา","สีของเม็ดยา","ยี่ห้อขวด"],"a":0,"e":"ยาต้องให้ผู้ใหญ่ดูแล"},
+ {"q":"“ยาสามัญประจำบ้าน” หมายถึงอะไร","o":["ยาที่ใช้รักษาอาการเบื้องต้นได้เอง เช่น ยาแก้ไข้ ยาธาตุน้ำแดง ยาแดง","ยาที่ต้องให้แพทย์สั่ง","ยาเสพติด","วิตามินทุกชนิด"],"a":0,"e":"มีเครื่องหมายกำกับ"},
+ {"q":"สารเสพติดให้โทษต่อร่างกายอย่างไร","o":["ทำลายสมอง ระบบประสาท และอวัยวะต่าง ๆ ทำให้ติดและเลิกยาก","ทำให้แข็งแรง","ทำให้เรียนเก่ง","ไม่มีโทษ"],"a":0,"e":"ห้ามทดลองเด็ดขาด"},
+ {"q":"บุหรี่มีสารใดที่ทำให้เสพติด","o":["นิโคติน","น้ำตาล","วิตามินซี","แคลเซียม"],"a":0,"e":"และมีสารก่อมะเร็งอีกมาก"},
+ {"q":"ควันบุหรี่มือสอง หมายถึงอะไร","o":["ควันที่ผู้ไม่สูบได้รับจากคนสูบใกล้ ๆ ซึ่งเป็นอันตรายเช่นกัน","บุหรี่ที่สูบซ้ำ","บุหรี่ราคาถูก","บุหรี่ไฟฟ้า"],"a":0,"e":"เด็กได้รับผลกระทบมาก"},
+ {"q":"บุหรี่ไฟฟ้า ปลอดภัยกว่าบุหรี่ธรรมดาหรือไม่","o":["ไม่ปลอดภัย มีนิโคตินและสารเคมีอันตราย และผิดกฎหมายในไทย","ปลอดภัยเพราะเป็นไอน้ำ","ปลอดภัยเพราะมีกลิ่นผลไม้","ปลอดภัยถ้าสูบน้อย"],"a":0,"e":"ห้ามนำเข้าและจำหน่ายในไทย"},
+ {"q":"สุรา (เหล้า เบียร์) ส่งผลอย่างไรต่อร่างกายและสังคม","o":["ทำลายตับและสมอง ขาดสติ และเป็นสาเหตุของอุบัติเหตุและความรุนแรง","ทำให้แข็งแรง","ช่วยให้นอนหลับดี","ไม่มีผล"],"a":0,"e":"เด็กและเยาวชนไม่ควรดื่ม"},
+ {"q":"เมื่อถูกเพื่อนชักชวนให้ลองสูบบุหรี่ ควรทำอย่างไร","o":["ปฏิเสธอย่างหนักแน่น บอกเหตุผล และเดินออกจากสถานการณ์","ลองครั้งเดียวไม่เป็นไร","ทำตามเพื่อน","เงียบแล้วรับมา"],"a":0,"e":"ทักษะการปฏิเสธ"},
+ {"q":"ทักษะการปฏิเสธที่ดี ควรเป็นอย่างไร","o":["พูดว่า “ไม่” อย่างสุภาพแต่ชัดเจน ให้เหตุผลสั้น ๆ และเสนอทางเลือกอื่น","ด่าเพื่อน","เงียบ","หัวเราะแล้วทำตาม"],"a":0,"e":"ปกป้องตนเองโดยไม่เสียเพื่อน"},
+ {"q":"อารมณ์โกรธ ควรจัดการอย่างไร","o":["หายใจลึก ๆ นับ ๑–๑๐ เดินออกไปสงบสติ แล้วค่อยพูดคุย","ทำร้ายผู้อื่น","ทุบทำลายของ","เก็บกดไว้ตลอด"],"a":0,"e":"ทุกคนโกรธได้ แต่ต้องควบคุมการแสดงออก"},
+ {"q":"เมื่อรู้สึกเศร้าหรือเครียด ควรทำอย่างไร","o":["พูดคุยกับคนที่ไว้ใจ ออกกำลังกาย ทำกิจกรรมที่ชอบ","เก็บไว้คนเดียว","เล่นเกมทั้งคืน","โทษตัวเอง"],"a":0,"e":"สุขภาพจิตสำคัญเท่าสุขภาพกาย"},
+ {"q":"ครอบครัวที่อบอุ่น มีลักษณะอย่างไร","o":["สมาชิกรักใคร่ รับฟัง ช่วยเหลือ และใช้เวลาร่วมกัน","ทะเลาะกันทุกวัน","ต่างคนต่างอยู่","ใช้ความรุนแรง"],"a":0,"e":"พื้นฐานของสุขภาพจิตเด็ก"},
+ {"q":"การเปลี่ยนแปลงทางร่างกายเมื่อเข้าสู่วัยรุ่น เป็นเรื่องปกติหรือไม่","o":["ปกติ เป็นพัฒนาการตามธรรมชาติ ควรเรียนรู้และดูแลตนเอง","ผิดปกติ ต้องรักษา","เกิดเฉพาะบางคน","ควรอาย"],"a":0,"e":"ถามพ่อแม่หรือครูได้"},
+ {"q":"ส่วนใดของร่างกายที่ผู้อื่นไม่มีสิทธิ์สัมผัสโดยไม่ยินยอม","o":["ทุกส่วนของร่างกาย โดยเฉพาะส่วนที่ชุดว่ายน้ำปกปิด","เฉพาะมือ","เฉพาะศีรษะ","ไม่มีส่วนใด"],"a":0,"e":"ถ้าถูกสัมผัสไม่เหมาะสม ให้ปฏิเสธ หนี และบอกผู้ใหญ่"},
+ {"q":"ถ้ามีคนแปลกหน้าให้ขนมแล้วชวนขึ้นรถ ควรทำอย่างไร","o":["ปฏิเสธ ไม่ไปด้วย รีบไปหาผู้ใหญ่ที่ไว้ใจหรือตะโกนขอความช่วยเหลือ","ขึ้นรถเพราะได้ขนม","ไปเงียบ ๆ","ตามไปดูก่อน"],"a":0,"e":"ความปลอดภัยจากคนแปลกหน้า"},
+ {"q":"หมายเลขโทรศัพท์ฉุกเฉินเมื่อมีผู้บาดเจ็บหรือป่วยหนักคือ","o":["๑๖๖๙","๑๙๑","๑๓๐๐","๑๑๑๑"],"a":0,"e":"สถาบันการแพทย์ฉุกเฉิน"},
+ {"q":"หมายเลขแจ้งเหตุด่วนเหตุร้าย (ตำรวจ) คือ","o":["๑๙๑","๑๖๖๙","๑๑๙๙","๑๑๑๑"],"a":0,"e":"จำให้ได้ทั้ง ๑๙๑ และ ๑๖๖๙"},
+ {"q":"เมื่อพบเพื่อนเลือดกำเดาไหล ควรทำอย่างไร","o":["ให้นั่งก้มหน้าเล็กน้อย บีบปีกจมูกประมาณ ๑๐ นาที ประคบเย็น","ให้เงยหน้าขึ้น","ให้นอนราบ","เอาสำลียัดลึก ๆ"],"a":0,"e":"เงยหน้าทำให้เลือดไหลลงคอ"},
+ {"q":"เมื่อถูกน้ำร้อนลวก ควรปฐมพยาบาลอย่างไร","o":["ล้างด้วยน้ำสะอาดอุณหภูมิปกติ ๑๐–๒๐ นาที ไม่ใส่ยาสีฟันหรือน้ำปลา","ทายาสีฟัน","ใส่น้ำแข็งโดยตรง","เจาะตุ่มพอง"],"a":0,"e":"ยาสีฟันทำให้ติดเชื้อ"},
+ {"q":"เมื่อหกล้มถลอกเป็นแผล ควรทำอย่างไร","o":["ล้างแผลด้วยน้ำสะอาดและสบู่ ซับแห้ง ใส่ยาฆ่าเชื้อ ปิดพลาสเตอร์","ปล่อยไว้ให้แห้งเอง","ทาน้ำลาย","เอาดินปิด"],"a":0,"e":"ป้องกันติดเชื้อ"},
+ {"q":"เมื่อข้อเท้าพลิก (แพลง) ควรปฐมพยาบาลด้วยหลักใด","o":["RICE: พัก ประคบเย็น พันผ้ายืด ยกสูง","นวดแรง ๆ ทันที","ประคบร้อน","เดินต่อไป"],"a":0,"e":"Rest Ice Compression Elevation"},
+ {"q":"เมื่อเพื่อนเป็นลมในแถว ควรทำอย่างไร","o":["พาไปที่ร่ม นอนราบ ยกขาสูง คลายเสื้อผ้า และแจ้งครู","ราดน้ำใส่หน้า","ให้ยืนต่อ","ให้ดื่มน้ำทันทีขณะหมดสติ"],"a":0,"e":"ห้ามให้ดื่มน้ำขณะไม่รู้สึกตัว"},
+ {"q":"เมื่อมีสิ่งแปลกปลอมเข้าตา ควรทำอย่างไร","o":["ไม่ขยี้ตา ล้างด้วยน้ำสะอาดหรือกะพริบตาในน้ำ","ขยี้ตาแรง ๆ","ใช้นิ้วควัก","เป่าแรง ๆ"],"a":0,"e":"ถ้าไม่ออกให้พบแพทย์"},
+ {"q":"ขณะว่ายน้ำ ข้อใดเป็นข้อปฏิบัติเพื่อความปลอดภัย","o":["อบอุ่นร่างกายก่อน ไม่ว่ายคนเดียว ไม่เล่นในที่ลึกเกินความสามารถ","กระโดดลงน้ำทันทีหลังกินข้าวอิ่ม","ว่ายคนเดียวตอนไม่มีคน","แกล้งกดเพื่อนลงน้ำ"],"a":0,"e":"จมน้ำเป็นสาเหตุการตายอันดับหนึ่งของเด็กไทย"},
+ {"q":"เมื่อเห็นเพื่อนตกน้ำ ควรช่วยอย่างไร","o":["ตะโกนขอความช่วยเหลือ โยนสิ่งของที่ลอยน้ำได้หรือยื่นไม้ให้ ไม่กระโดดลงไปเอง","กระโดดลงไปช่วยทันที","ยืนดูเฉย ๆ","ถ่ายคลิป"],"a":0,"e":"“ตะโกน โยน ยื่น”"},
+ {"q":"การข้ามถนนที่ปลอดภัยควรทำอย่างไร","o":["ข้ามทางม้าลายหรือสะพานลอย มองขวา–ซ้าย–ขวา ก่อนข้าม","วิ่งข้ามตรงไหนก็ได้","ข้ามขณะเล่นโทรศัพท์","ข้ามหลังรถเมล์ที่จอดอยู่"],"a":0,"e":"หยุด มอง ฟัง คิด"},
+ {"q":"การนั่งรถจักรยานยนต์ ต้องสวมสิ่งใด","o":["หมวกนิรภัยทุกครั้ง ทั้งคนขับและคนซ้อน","หมวกแก๊ป","ไม่ต้องสวมถ้าใกล้","ผ้าคลุม"],"a":0,"e":"กฎหมายบังคับ"},
+ {"q":"อุบัติเหตุในบ้านที่พบบ่อยในเด็ก ได้แก่อะไรบ้าง","o":["ตกจากที่สูง น้ำร้อนลวก ไฟฟ้าดูด กินสารพิษ จมน้ำ","ถูกสัตว์ป่าทำร้าย","แผ่นดินไหว","ฟ้าผ่า"],"a":0,"e":"ป้องกันได้ด้วยความระมัดระวัง"},
+ {"q":"เมื่อเกิดไฟไหม้ในอาคาร ควรปฏิบัติอย่างไร","o":["ก้มต่ำ ใช้ผ้าชุบน้ำปิดจมูก ออกทางหนีไฟ ไม่ใช้ลิฟต์","ใช้ลิฟต์ลง","ซ่อนในตู้","เก็บของมีค่าก่อน"],"a":0,"e":"ควันพิษลอยขึ้นสูง"},
+ {"q":"ถ้าเสื้อผ้าติดไฟ ควรทำอย่างไร","o":["หยุด ล้มตัวลง กลิ้งไปมาให้ไฟดับ","วิ่ง","เป่า","ถอดเสื้อขณะวิ่ง"],"a":0,"e":"Stop, Drop, Roll"},
+ {"q":"การอบอุ่นร่างกาย (warm up) ก่อนออกกำลังกาย มีประโยชน์อย่างไร","o":["เตรียมกล้ามเนื้อและหัวใจ ลดการบาดเจ็บ","เสียเวลา","ทำให้เหนื่อยก่อน","ไม่มีประโยชน์"],"a":0,"e":"๕–๑๐ นาที"},
+ {"q":"การผ่อนคลายร่างกาย (cool down) หลังออกกำลังกาย ทำเพื่ออะไร","o":["ให้หัวใจและกล้ามเนื้อค่อย ๆ กลับสู่ภาวะปกติ ลดอาการปวดเมื่อย","เพิ่มความเหนื่อย","ไม่จำเป็น","เพื่อให้หิว"],"a":0,"e":"เดินช้า ๆ และยืดเหยียด"},
+ {"q":"การยืดเหยียดกล้ามเนื้อที่ถูกต้อง ควรทำอย่างไร","o":["ยืดช้า ๆ ค้างไว้ ๑๐–๑๕ วินาที ไม่กระตุก ไม่ยืดจนเจ็บ","กระตุกแรง ๆ","ยืดจนเจ็บมาก","ทำเร็วที่สุด"],"a":0,"e":"หายใจปกติขณะยืด"},
+ {"q":"เด็กวัยเรียนควรออกกำลังกายวันละเท่าใด","o":["อย่างน้อย ๖๐ นาที","๕ นาที","๓ ชั่วโมงติดต่อกัน","ไม่ต้อง"],"a":0,"e":"สะสมได้ตลอดวัน"},
+ {"q":"การออกกำลังกายแบบใดช่วยให้หัวใจและปอดแข็งแรง","o":["วิ่ง ว่ายน้ำ ปั่นจักรยาน กระโดดเชือก (แอโรบิก)","ยกน้ำหนักหนัก ๆ","นั่งสมาธิ","เล่นเกม"],"a":0,"e":"ออกกำลังกายต่อเนื่องที่ทำให้หัวใจเต้นเร็ว"},
+ {"q":"ทักษะการเคลื่อนไหวพื้นฐาน “แบบเคลื่อนที่” ได้แก่ข้อใด","o":["เดิน วิ่ง กระโดด กระโดดเขย่ง สไลด์","ก้ม เงย บิดตัว","โยน รับ เตะ","นั่ง นอน"],"a":0,"e":"เปลี่ยนตำแหน่งของร่างกาย"},
+ {"q":"ทักษะการเคลื่อนไหว “แบบอยู่กับที่” ได้แก่ข้อใด","o":["ก้ม เงย เอียง บิดตัว ยืดหด","วิ่ง กระโดด","โยนบอล","ว่ายน้ำ"],"a":0,"e":"ไม่เปลี่ยนตำแหน่ง"},
+ {"q":"ทักษะการเคลื่อนไหว “ประกอบอุปกรณ์” ได้แก่ข้อใด","o":["โยน รับ เตะ ตี เลี้ยงลูกบอล","เดิน วิ่ง","ก้ม เงย","นั่ง ยืน"],"a":0,"e":"ใช้ร่วมกับลูกบอล ไม้ เชือก"},
+ {"q":"การรับลูกบอลที่ถูกวิธีควรทำอย่างไร","o":["มองลูก ยื่นมือรับ ใช้นิ้วและฝ่ามือ ดึงเข้าหาตัวเพื่อผ่อนแรง","หลับตา","รับด้วยหน้าอก","ตบลูกออก"],"a":0,"e":"ลดแรงกระแทก"},
+ {"q":"การโยนลูกบอลไปให้เพื่อนอย่างแม่นยำ ควรทำอย่างไร","o":["มองเป้าหมาย ก้าวเท้าตรงข้ามกับมือที่โยน เหวี่ยงแขนตามแนว","หลับตาโยน","โยนแรงที่สุด","โยนโดยไม่ก้าว"],"a":0,"e":"หลักการโยน"},
+ {"q":"ในการเล่นฟุตบอล ผู้เล่นตำแหน่งใดใช้มือจับลูกบอลได้","o":["ผู้รักษาประตู (ในเขตโทษของตน)","กองหน้า","กองกลาง","ทุกคน"],"a":0,"e":"ผู้เล่นอื่นใช้มือเป็นแฮนด์บอล"},
+ {"q":"ฟุตบอลทีมหนึ่งมีผู้เล่นในสนามกี่คน","o":["๑๑ คน","๕ คน","๗ คน","๙ คน"],"a":0,"e":"ฟุตซอลมี ๕ คน"},
+ {"q":"ลูกฟุตบอลออกทางเส้นข้าง จะเริ่มเล่นใหม่อย่างไร","o":["ทุ่ม (throw-in) ด้วยสองมือเหนือศีรษะ","เตะมุม","เตะจากประตู","เตะโทษ"],"a":0,"e":"เท้าทั้งสองต้องแตะพื้น"},
+ {"q":"วอลเลย์บอลทีมหนึ่งมีผู้เล่นในสนามกี่คน และห้ามทำสิ่งใด","o":["๖ คน ห้ามให้ลูกตกพื้นฝั่งตน และตีได้ไม่เกิน ๓ ครั้งก่อนข้ามตาข่าย","๕ คน เตะลูกไม่ได้","๑๑ คน ใช้มือไม่ได้","๒ คน ห้ามกระโดด"],"a":0,"e":"ทักษะพื้นฐาน: อันเดอร์ เซต ตบ เสิร์ฟ"},
+ {"q":"การเล่นลูกสองมือล่าง (อันเดอร์) ในวอลเลย์บอล ใช้ส่วนใดสัมผัสลูก","o":["ท่อนแขนด้านใน เหนือข้อมือ","ฝ่ามือ","นิ้วมือ","ศอก"],"a":0,"e":"ประสานมือ แขนตึง ย่อเข่า"},
+ {"q":"แชร์บอล เป็นกีฬาที่ดัดแปลงมาจากกีฬาใด และใช้สิ่งใดเป็นประตู","o":["บาสเกตบอล ใช้ตะกร้าที่ผู้เล่นถือ","ฟุตบอล ใช้ประตู","วอลเลย์บอล ใช้ตาข่าย","เทนนิส ใช้ไม้"],"a":0,"e":"นิยมในโรงเรียนประถม"},
+ {"q":"กติกาสำคัญของแชร์บอล คือข้อใด","o":["ห้ามถือลูกวิ่ง ต้องส่งต่อให้เพื่อน และห้ามถูกตัวคู่ต่อสู้","เตะลูกได้","ถือลูกวิ่งได้","ชนกันได้"],"a":0,"e":"เน้นการส่งและการเคลื่อนที่"},
+ {"q":"ในบาสเกตบอล การถือลูกแล้วเดินโดยไม่เลี้ยงลูก เรียกว่าผิดกติกาใด","o":["เดินถือลูก (traveling)","ฟาวล์","แฮนด์บอล","ล้ำหน้า"],"a":0,"e":"ต้องเลี้ยงลูกขณะเคลื่อนที่"},
+ {"q":"การวิ่งระยะสั้นในกรีฑา ควรเริ่มออกตัวอย่างไร","o":["ตั้งท่าที่จุดเริ่ม ก้มตัว ออกตัวเมื่อได้ยินสัญญาณ วิ่งเต็มที่ตรงลู่ของตน","ออกก่อนสัญญาณ","วิ่งข้ามลู่","เดินก่อนแล้วค่อยวิ่ง"],"a":0,"e":"การออกตัวก่อนสัญญาณเป็นฟาวล์"},
+ {"q":"ในการวิ่งผลัด สิ่งที่ส่งต่อให้เพื่อนร่วมทีมคืออะไร","o":["ไม้คทา (baton)","ลูกบอล","ธง","เชือก"],"a":0,"e":"ส่งในเขตรับส่งที่กำหนด"},
+ {"q":"การกระโดดไกล วัดระยะจากจุดใด","o":["จากกระดานกระโดดถึงรอยที่ใกล้กระดานที่สุดในหลุมทราย","จากจุดเริ่มวิ่ง","จากปลายเท้าตอนลง","จากกลางหลุมทราย"],"a":0,"e":"ถ้าล้มถอยหลังจะวัดจากมือ"},
+ {"q":"การกระโดดเชือก พัฒนาสมรรถภาพด้านใด","o":["ความอดทนของหัวใจ การประสานงานของร่างกาย และความแข็งแรงของขา","ความสูงอย่างเดียว","การมองเห็น","การฟัง"],"a":0,"e":"อุปกรณ์ง่าย ทำได้ทุกที่"},
+ {"q":"ท่าว่ายน้ำพื้นฐานที่เรียนในระดับประถม คือท่าใด","o":["ฟรีสไตล์ (ท่าวัดวา) และท่ากรรเชียง","ผีเสื้อ","ท่ายาก","ไม่มี"],"a":0,"e":"เริ่มจากการลอยตัวและเตะขา"},
+ {"q":"การลอยตัวในน้ำแบบ “ลูกหมาตกน้ำ” และ “แม่ชีลอยน้ำ” มีประโยชน์อย่างไร","o":["ช่วยเอาชีวิตรอดเมื่อตกน้ำ รอความช่วยเหลือได้นาน","ใช้แข่งขัน","ใช้ดำน้ำลึก","ไม่มีประโยชน์"],"a":0,"e":"ทักษะเอาตัวรอดจากการจมน้ำ"},
+ {"q":"การละเล่นพื้นบ้าน “วิ่งเปี้ยว” พัฒนาทักษะใด","o":["ความเร็ว ความคล่องตัว และการทำงานเป็นทีม","การนั่งนิ่ง","ความจำ","การวาดรูป"],"a":0,"e":"วิ่งรอบหลักแล้วส่งผ้า"},
+ {"q":"การละเล่น “มอญซ่อนผ้า” ผู้เล่นต้องทำอย่างไร","o":["นั่งเป็นวงกลม ผู้ซ่อนผ้าเดินรอบวงแล้วแอบวางผ้าหลังใครสักคน","วิ่งแข่งเป็นเส้นตรง","โยนลูกบอลใส่กัน","กระโดดเชือก"],"a":0,"e":"ร้องเพลง “มอญซ่อนผ้า ตุ๊กตาอยู่ข้างหลัง”"},
+ {"q":"การละเล่น “รีรีข้าวสาร” มีลักษณะอย่างไร","o":["ผู้เล่น ๒ คนประสานมือเป็นซุ้ม คนอื่นเดินลอดและร้องเพลง คนสุดท้ายถูกจับ","วิ่งแข่ง","ซ่อนหา","เตะลูกบอล"],"a":0,"e":"ฝึกจังหวะและความสามัคคี"},
+ {"q":"น้ำใจนักกีฬา หมายถึงอะไร","o":["รู้แพ้ รู้ชนะ รู้อภัย เคารพกติกาและคู่แข่ง","ชนะอย่างเดียว","โกรธเมื่อแพ้","โกงเพื่อชนะ"],"a":0,"e":"สำคัญกว่าผลแพ้ชนะ"},
+ {"q":"เมื่อทีมแพ้การแข่งขัน ควรปฏิบัติอย่างไร","o":["ยอมรับผล แสดงความยินดีกับผู้ชนะ และนำข้อบกพร่องไปฝึกซ้อม","โทษกรรมการ","ทะเลาะกับคู่แข่ง","เลิกเล่นกีฬา"],"a":0,"e":"น้ำใจนักกีฬา"},
+ {"q":"เมื่อทีมชนะ ควรปฏิบัติอย่างไร","o":["ดีใจอย่างพอดี ไม่เยาะเย้ยผู้แพ้ และขอบคุณคู่แข่ง","เยาะเย้ยคู่แข่ง","โอ้อวด","ดูถูกทีมแพ้"],"a":0,"e":"ผู้ชนะที่สง่างาม"},
+ {"q":"ทำไมต้องเคารพกติกาในการเล่นกีฬา","o":["เพื่อความยุติธรรม ความปลอดภัย และความสนุกของทุกคน","เพื่อให้ครูพอใจ","ไม่จำเป็น","เพื่อให้ชนะง่าย"],"a":0,"e":"กติกาคือข้อตกลงร่วม"},
+ {"q":"ขณะเล่นกีฬาเป็นทีม ข้อใดสำคัญที่สุด","o":["การสื่อสารและทำงานร่วมกัน ไม่เล่นคนเดียว","เอาลูกไว้คนเดียวเพื่อทำคะแนน","ตำหนิเพื่อนที่พลาด","เล่นเฉพาะกับเพื่อนสนิท"],"a":0,"e":"ทีมเวิร์ก"},
+ {"q":"ชุดและรองเท้าสำหรับออกกำลังกายควรเป็นอย่างไร","o":["สวมใส่สบาย ระบายอากาศ รองเท้าผ้าใบพื้นกันลื่น","รองเท้าแตะ","ชุดนักเรียนรัดรูป","เท้าเปล่าบนพื้นปูนร้อน"],"a":0,"e":"ป้องกันบาดเจ็บ"},
+ {"q":"ควรดื่มน้ำอย่างไรเมื่อออกกำลังกาย","o":["ดื่มก่อน ระหว่าง และหลังออกกำลังกายทีละน้อย","ไม่ดื่มเลยจนเสร็จ","ดื่มน้ำอัดลมแทน","ดื่มทีเดียวมาก ๆ หลังเสร็จ"],"a":0,"e":"ป้องกันภาวะขาดน้ำ"},
+ {"q":"อาการใดบ่งบอกว่าควรหยุดออกกำลังกายทันที","o":["เวียนศีรษะ หน้ามืด เจ็บหน้าอก หายใจไม่ทัน","เหงื่อออก","หัวใจเต้นเร็วขึ้นเล็กน้อย","รู้สึกร้อน"],"a":0,"e":"แจ้งครูทันที"},
+ {"q":"การออกกำลังกายกลางแดดจัดเวลาเที่ยง อาจทำให้เกิดอะไร","o":["โรคลมแดด (ฮีทสโตรก) ซึ่งอันตรายถึงชีวิต","ผิวขาวขึ้น","แข็งแรงขึ้นเร็ว","ไม่มีผล"],"a":0,"e":"ควรเล่นเช้าหรือเย็น"},
+ {"q":"สมรรถภาพทางกาย หมายถึงอะไร","o":["ความสามารถของร่างกายในการทำกิจกรรมได้อย่างมีประสิทธิภาพ เช่น ความแข็งแรง ความอดทน ความอ่อนตัว","น้ำหนักตัว","ส่วนสูง","ความสวย"],"a":0,"e":"ทดสอบได้ เช่น ลุกนั่ง ดันพื้น วิ่ง"},
+ {"q":"การทดสอบ “นั่งงอตัวไปข้างหน้า” วัดสมรรถภาพด้านใด","o":["ความอ่อนตัว","ความแข็งแรง","ความเร็ว","ความอดทน"],"a":0,"e":"ยืดกล้ามเนื้อหลังและขา"},
+ {"q":"การทดสอบ “ลุก–นั่ง ๓๐ วินาที” วัดสมรรถภาพด้านใด","o":["ความแข็งแรงและอดทนของกล้ามเนื้อหน้าท้อง","ความอ่อนตัว","ความเร็ว","การทรงตัว"],"a":0,"e":"ซิทอัพ"},
+ {"q":"ดัชนีมวลกาย (BMI) ใช้บอกอะไร","o":["ความเหมาะสมของน้ำหนักเทียบกับส่วนสูง ว่าผอม ปกติ หรืออ้วน","ความสูงอย่างเดียว","ความแข็งแรง","ความฉลาด"],"a":0,"e":"เด็กใช้กราฟเทียบตามอายุ"},
+ {"q":"ประโยชน์ของการเล่นกีฬาต่อจิตใจคืออะไร","o":["ลดความเครียด สร้างความมั่นใจ และฝึกวินัย","ทำให้เครียดมากขึ้น","ทำให้ก้าวร้าว","ไม่มีผลต่อจิตใจ"],"a":0,"e":"ร่างกายแข็งแรง จิตใจแจ่มใส"},
+ {"q":"การพักสายตาและยืดเส้นระหว่างเรียนหรือใช้คอมพิวเตอร์นาน ๆ ควรทำบ่อยเพียงใด","o":["ทุก ๒๐–๓๐ นาที พัก ๒๐ วินาที มองไกล ๒๐ ฟุต","วันละครั้ง","ไม่ต้องพัก","ทุก ๕ ชั่วโมง"],"a":0,"e":"กฎ ๒๐-๒๐-๒๐"},
+ {"q":"กีฬาประจำชาติไทยที่เป็นศิลปะการต่อสู้คืออะไร","o":["มวยไทย","ตะกร้อ","ฟุตบอล","แบดมินตัน"],"a":0,"e":"ใช้หมัด เท้า เข่า ศอก"},
+],
+};
+
+const SET_NAMES = {1:'🏃 สุขศึกษาและพลศึกษา ๑๐๐ ข้อ'};
+// ---------- storage ----------
+const KEY='exam100-pe-best';
+const SEENKEY='exam100-pe-seen';
+function loadSeen(){try{return JSON.parse(localStorage.getItem(SEENKEY)||'{}')}catch(e){return {}}}
+function saveSeen(x){try{localStorage.setItem(SEENKEY,JSON.stringify(x))}catch(e){}}
+let seen=loadSeen();
+for(const k in BANK)BANK[k].forEach((q,i)=>q.id=k+'-'+i);
+function seenCount(set){const p=pool(),s=new Set(seen[set]||[]);return p.filter(q=>s.has(q.id)).length}
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')||id.endsWith('.html')||id.startsWith('../')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'อ่าน',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label||TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    const hasV=!!el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(hasV?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  const want=$('count').value;const all=pool();const sset=new Set(seen[currentSet]||[]);let unseen=shuffle(all.filter(q=>!sset.has(q.id)));let seenQ=shuffle(all.filter(q=>sset.has(q.id)));
+  const need=want==='all'?all.length:Math.min(Number(want),all.length);
+  let src;
+  if(unseen.length>=need){src=unseen.slice(0,need);}
+  else{ src=unseen.concat(seenQ.slice(0,need-unseen.length)); seen[currentSet]=[]; sset.clear(); }
+  qs=src.map(q=>{const order=shuffle([0,1,2,3]);return {id:q.id,q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  if(!seen[currentSet])seen[currentSet]=[];if(!seen[currentSet].includes(q.id)){seen[currentSet].push(q.id);saveSeen(seen);}
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>

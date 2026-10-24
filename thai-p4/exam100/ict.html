@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ข้อสอบICT วิทยาการคำนวณ ๑๐๐ ข้อ ป.๔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#14213D; --muted:#5A6A85; --line:#EADFCF;
+  --plum:#1D4ED8; --plum-soft:#DBEAFE; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#D9480F; --red-soft:#FFE6D9;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(30,60,120,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">🏠 รวมข้อสอบ ๗ วิชา</a>
+    <a href="history.html">📜 ประวัติศาสตร์</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a href="work.html">🛠 การงานอาชีพ</a>
+    <a class="on" href="ict.html">💻 ICT วิทยาการคำนวณ</a>
+    <a href="thai.html">📘 ภาษาไทย</a>
+    <a href="pe.html">🏃 สุขศึกษาและพลศึกษา</a>
+    <a href="music.html">🎵 ดนตรี</a>
+    <a href="../index.html">↩ เว็บหลัก (คลิป+ข้อสอบ)</a>
+  </nav>
+  <div class="eyebrow">ICT วิทยาการคำนวณ · ชั้นประถมศึกษาปีที่ ๔ · ข้อสอบ ๑๐๐ ข้อ · ทำครบ ๑๐๐ ข้อทุกครั้ง</div>
+  <h1>ข้อสอบ<span>ICT วิทยาการคำนวณ</span> ป.๔ — ๑๐๐ ข้อ</h1>
+  <div class="books">
+    <span class="book b1"><i></i>อัลกอริทึม · Scratch · ข้อมูลและแผนภูมิ · อินเทอร์เน็ตปลอดภัย · ฮาร์ดแวร์ ซอฟต์แวร์ · มารยาทออนไลน์</span>
+    <span class="book b2"><i></i>กติกา: ทำครั้งละ ๑๐๐ ข้อเต็ม ไม่มีตัวเลือกจำนวนข้อ · สลับลำดับข้อและตัวเลือกใหม่ทุกครั้ง</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📚 ก่อนสอบดูอะไร</a>
+    <a href="#workbook">📚 สรุปที่ต้องจำ</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>ข้อสอบICT วิทยาการคำนวณ ๑๐๐ ข้อ</h2>
+    <p>กด ✏️ ทำข้อสอบ แล้วทำให้ครบ ๑๐๐ ข้อ · ตอบแล้วเห็นเฉลยทันที · ตัวเลือกและลำดับข้อสลับใหม่ทุกครั้ง</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>กติกาชุดเตรียมสอบ 🎯</h2>
+    <p>อ่านก่อนเริ่ม</p>
+  </div>
+  <div class="wb">
+    <div class="card"><h3>๑๐๐ ข้อเต็มทุกครั้ง</h3><p>ชุดนี้ล็อกจำนวนไว้ที่ ๑๐๐ ข้อ ไม่สามารถเลือกทำน้อยกว่านี้ได้ เพื่อฝึกความอดทนเหมือนสอบจริง</p></div>
+    <div class="card"><h3>ข้อใหม่ทั้งหมด</h3><p>๑๐๐ ข้อนี้เขียนขึ้นใหม่ ไม่ซ้ำกับข้อสอบในเว็บหลัก</p></div>
+    <div class="card"><h3>ออกจากกลางคันได้</h3><p>กด “ออก” ได้ถ้าจำเป็น แต่คะแนนจะไม่ถูกบันทึก · คะแนนสูงสุดบันทึกเมื่อทำครบ ๑๐๐ ข้อเท่านั้น</p></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>ชุดเตรียมสอบ ๑๐๐ ข้อ ทำครบทุกครั้ง · ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดบันทึกไว้ในเครื่อง · ข้อสอบสุ่มใหม่ทุกครั้ง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="score-live">จำนวนข้อ <b>๑๐๐ ข้อ (ล็อก)</b></span><select id="count" class="hidden"><option value="all" selected>all</option></select>
+          <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามเนื้อหาวิชาICT วิทยาการคำนวณ ป.๔ เพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,label:'💻',title:'ข้อสอบICT วิทยาการคำนวณ ๑๐๐ ข้อ',focus:'อัลกอริทึม · Scratch · ข้อมูลและแผนภูมิ · อินเทอร์เน็ตปลอดภัย · ฮาร์ดแวร์ ซอฟต์แวร์ · มารยาทออนไลน์',video:null,
+   links:[["https://scratch.mit.edu/", "ฝึก Scratch ออนไลน์", "k"], ["https://dltv.ac.th/teachplan/lists/4/3000", "DLTV วิทยาการคำนวณ ป.๔", "d"]]},
+];
+const BANK = {
+1:[
+ {"q":"อัลกอริทึม (Algorithm) หมายถึงอะไร","o":["ลำดับขั้นตอนการแก้ปัญหาหรือทำงานอย่างชัดเจน","ชื่อโปรแกรมเกม","ภาษาต่างประเทศ","อุปกรณ์คอมพิวเตอร์"],"a":0,"e":"เช่น ขั้นตอนการต้มไข่"},
+ {"q":"ข้อใดเป็นอัลกอริทึมการแปรงฟันที่เรียงถูกต้อง","o":["บีบยาสีฟัน → แปรงฟัน → บ้วนปาก → ล้างแปรง","บ้วนปาก → แปรงฟัน → บีบยาสีฟัน","ล้างแปรง → บ้วนปาก → บีบยาสีฟัน","แปรงฟัน → บีบยาสีฟัน → บ้วนปาก"],"a":0,"e":"ลำดับขั้นตอนต้องถูกต้อง"},
+ {"q":"การเขียนอัลกอริทึมด้วย “ผังงาน” (Flowchart) ใช้สัญลักษณ์รูปวงรีแทนอะไร","o":["จุดเริ่มต้นและจุดสิ้นสุด","การตัดสินใจ","การประมวลผล","การรับข้อมูล"],"a":0,"e":"สี่เหลี่ยมข้าวหลามตัด = ตัดสินใจ"},
+ {"q":"สัญลักษณ์รูปสี่เหลี่ยมข้าวหลามตัดในผังงาน หมายถึงอะไร","o":["การตัดสินใจ (ใช่/ไม่ใช่)","จุดเริ่มต้น","การแสดงผล","การประมวลผล"],"a":0,"e":"มีทางออก ๒ ทาง"},
+ {"q":"การใช้เหตุผลเชิงตรรกะ หมายถึงอะไร","o":["การคิดอย่างเป็นเหตุเป็นผล มีขั้นตอน เพื่อหาคำตอบหรือแก้ปัญหา","การเดาสุ่ม","การใช้อารมณ์","การคัดลอกคำตอบ"],"a":0,"e":"พื้นฐานของการเขียนโปรแกรม"},
+ {"q":"“ถ้าฝนตก ให้พกร่ม” เป็นการใช้คำสั่งแบบใดในการเขียนโปรแกรม","o":["เงื่อนไข (if)","วนซ้ำ (loop)","ตัวแปร","ฟังก์ชัน"],"a":0,"e":"ทำเมื่อเงื่อนไขเป็นจริง"},
+ {"q":"“กระโดดตบ ๑๐ ครั้ง” เป็นการใช้คำสั่งแบบใด","o":["วนซ้ำ (loop) ๑๐ รอบ","เงื่อนไข","ตัวแปร","การแสดงผล"],"a":0,"e":"ทำซ้ำตามจำนวนที่กำหนด"},
+ {"q":"โปรแกรม Scratch เหมาะกับการเรียนรู้สิ่งใด","o":["การเขียนโปรแกรมแบบลากวางบล็อกคำสั่ง","การพิมพ์เอกสาร","การคำนวณภาษี","การตัดต่อวิดีโอระดับมืออาชีพ"],"a":0,"e":"พัฒนาโดย MIT"},
+ {"q":"ใน Scratch ตัวละครที่เคลื่อนไหวเรียกว่าอะไร","o":["สไปรต์ (Sprite)","บล็อก","เวที (Stage)","สคริปต์"],"a":0,"e":"แมวส้มคือสไปรต์เริ่มต้น"},
+ {"q":"ใน Scratch พื้นหลังที่ตัวละครแสดงอยู่เรียกว่าอะไร","o":["เวที (Stage)","สไปรต์","บล็อก","ตัวแปร"],"a":0,"e":"เปลี่ยนฉากหลังได้"},
+ {"q":"บล็อก “เมื่อคลิกธงเขียว” ใน Scratch ทำหน้าที่อะไร","o":["เป็นจุดเริ่มต้นของสคริปต์เมื่อกดธงเขียว","หยุดโปรแกรม","เปลี่ยนสี","เคลื่อนที่"],"a":0,"e":"บล็อกเหตุการณ์ (Events)"},
+ {"q":"บล็อก “เคลื่อนที่ ๑๐ ก้าว” อยู่ในหมวดใดของ Scratch","o":["การเคลื่อนที่ (Motion)","รูปลักษณ์ (Looks)","เสียง (Sound)","ควบคุม (Control)"],"a":0,"e":"หมวดสีน้ำเงิน"},
+ {"q":"บล็อก “วนซ้ำตลอดไป” (forever) อยู่ในหมวดใด","o":["ควบคุม (Control)","การเคลื่อนที่","เสียง","ตัวดำเนินการ"],"a":0,"e":"หมวดสีส้ม"},
+ {"q":"ถ้าต้องการให้แมวพูดว่า “สวัสดี” ใน Scratch ควรใช้บล็อกใด","o":["พูด “สวัสดี” (say) ในหมวดรูปลักษณ์","เคลื่อนที่ ๑๐ ก้าว","หมุน ๑๕ องศา","รอ ๑ วินาที"],"a":0,"e":"แสดงข้อความในกรอบคำพูด"},
+ {"q":"ถ้าโปรแกรม Scratch ทำงานไม่ตรงที่ต้องการ สิ่งแรกที่ควรทำคือ","o":["ตรวจสอบลำดับและค่าในบล็อกทีละขั้น (debug)","ลบทั้งหมดแล้วเริ่มใหม่","ปิดคอมพิวเตอร์","โทษโปรแกรม"],"a":0,"e":"การหาและแก้ข้อผิดพลาด"},
+ {"q":"“บั๊ก” (bug) ในการเขียนโปรแกรม หมายถึงอะไร","o":["ข้อผิดพลาดที่ทำให้โปรแกรมทำงานไม่ถูกต้อง","แมลงในคอมพิวเตอร์","ไวรัส","เกม"],"a":0,"e":"การแก้บั๊กเรียกว่า debug"},
+ {"q":"การแบ่งปัญหาใหญ่เป็นปัญหาย่อย ๆ เพื่อแก้ทีละส่วน เรียกว่าอะไร","o":["การแยกย่อยปัญหา (Decomposition)","การวนซ้ำ","การสุ่ม","การคัดลอก"],"a":0,"e":"แนวคิดเชิงคำนวณ"},
+ {"q":"การสังเกตว่าปัญหาหลายข้อมีรูปแบบคล้ายกัน แล้วใช้วิธีเดียวกันแก้ เรียกว่าอะไร","o":["การหารูปแบบ (Pattern recognition)","การเดา","การท่องจำ","การสุ่ม"],"a":0,"e":"แนวคิดเชิงคำนวณ"},
+ {"q":"ข้อมูล หมายถึงอะไร","o":["ข้อเท็จจริงหรือสิ่งที่เก็บรวบรวมได้ เช่น ตัวเลข ข้อความ รูปภาพ","ความคิดเห็นเท่านั้น","โปรแกรม","เครื่องคอมพิวเตอร์"],"a":0,"e":"ข้อมูลที่ผ่านการประมวลผลจะเป็นสารสนเทศ"},
+ {"q":"สารสนเทศ ต่างจากข้อมูลอย่างไร","o":["สารสนเทศคือข้อมูลที่ผ่านการประมวลผลจนมีความหมายและนำไปใช้ได้","เหมือนกัน","สารสนเทศคือข้อมูลดิบ","ข้อมูลมีค่ามากกว่าเสมอ"],"a":0,"e":"เช่น คะแนนสอบ (ข้อมูล) → คะแนนเฉลี่ยของห้อง (สารสนเทศ)"},
+ {"q":"การเก็บรวบรวมข้อมูลว่าเพื่อนในห้องชอบผลไม้อะไร ควรใช้วิธีใด","o":["สอบถามหรือทำแบบสำรวจ แล้วบันทึกเป็นตาราง","เดาเอา","ดูจากหน้าตา","ถามคนเดียวแล้วสรุป"],"a":0,"e":"การเก็บข้อมูลที่เป็นระบบ"},
+ {"q":"การนำเสนอข้อมูลจำนวนผลไม้ที่เพื่อนชอบ ควรใช้แผนภูมิแบบใด","o":["แผนภูมิแท่ง","แผนที่","ผังงาน","ภาพถ่าย"],"a":0,"e":"เปรียบเทียบจำนวนได้ชัด"},
+ {"q":"แผนภูมิวงกลม เหมาะกับการนำเสนอข้อมูลแบบใด","o":["สัดส่วนของส่วนย่อยต่อทั้งหมด เช่น ร้อยละ","การเปลี่ยนแปลงตามเวลา","ลำดับขั้นตอน","แผนที่"],"a":0,"e":"ทั้งวงเท่ากับ ๑๐๐%"},
+ {"q":"กราฟเส้น เหมาะกับการนำเสนอข้อมูลแบบใด","o":["การเปลี่ยนแปลงตามเวลา เช่น อุณหภูมิแต่ละวัน","สัดส่วน","ขั้นตอน","ตำแหน่งสถานที่"],"a":0,"e":"เห็นแนวโน้มขึ้นลง"},
+ {"q":"โปรแกรมใดเหมาะกับการสร้างตารางและแผนภูมิจากข้อมูล","o":["โปรแกรมตารางคำนวณ เช่น Excel หรือ Google Sheets","โปรแกรมวาดรูป","โปรแกรมเล่นเพลง","เกม"],"a":0,"e":"คำนวณผลรวมและค่าเฉลี่ยได้"},
+ {"q":"โปรแกรมใดเหมาะกับการพิมพ์รายงาน","o":["โปรแกรมประมวลผลคำ เช่น Word หรือ Google Docs","โปรแกรมตารางคำนวณ","โปรแกรมเล่นวิดีโอ","โปรแกรมถ่ายรูป"],"a":0,"e":"จัดรูปแบบตัวอักษรและย่อหน้าได้"},
+ {"q":"โปรแกรมใดเหมาะกับการนำเสนอหน้าชั้นเรียนเป็นสไลด์","o":["PowerPoint หรือ Google Slides","เครื่องคิดเลข","โปรแกรมแปลภาษา","นาฬิกา"],"a":0,"e":"ใส่ข้อความ รูป และภาพเคลื่อนไหวได้"},
+ {"q":"การค้นหาข้อมูลในอินเทอร์เน็ตให้ตรงเรื่อง ควรทำอย่างไร","o":["ใช้คำค้นที่เฉพาะเจาะจง และตรวจสอบจากหลายเว็บไซต์","พิมพ์ประโยคยาว ๆ ทั้งประโยค","เชื่อเว็บแรกที่เจอ","ใช้คำเดียวทั่วไป เช่น “สัตว์”"],"a":0,"e":"เช่น “ช้างไทย อาหาร ที่อยู่อาศัย”"},
+ {"q":"เว็บไซต์ที่ลงท้ายด้วย .go.th เป็นเว็บไซต์ของหน่วยงานใด","o":["หน่วยงานราชการไทย","บริษัทเอกชน","โรงเรียน","องค์กรไม่แสวงกำไร"],"a":0,"e":".ac.th = สถานศึกษา, .co.th = บริษัท, .or.th = องค์กร"},
+ {"q":"ข้อมูลจากเว็บไซต์ใดน่าเชื่อถือมากที่สุดสำหรับทำรายงาน","o":["เว็บไซต์หน่วยงานราชการ มหาวิทยาลัย หรือพิพิธภัณฑ์","เว็บไซต์ที่ไม่ระบุผู้เขียน","โพสต์ในโซเชียลที่แชร์ต่อ ๆ กัน","เว็บโฆษณาสินค้า"],"a":0,"e":"ตรวจสอบแหล่งที่มาเสมอ"},
+ {"q":"การคัดลอกข้อความจากอินเทอร์เน็ตมาใส่รายงานทั้งหมดโดยไม่อ้างอิง เรียกว่าอะไร","o":["การลอกเลียนผลงาน (plagiarism) ซึ่งไม่ควรทำ","การค้นคว้าที่ดี","การอ้างอิง","การสรุป"],"a":0,"e":"ควรเรียบเรียงด้วยคำของตนเองและบอกแหล่งที่มา"},
+ {"q":"การอ้างอิงแหล่งที่มาของรูปภาพหรือข้อความที่นำมาใช้ มีความสำคัญอย่างไร","o":["ให้เกียรติเจ้าของผลงานและเคารพลิขสิทธิ์","ทำให้รายงานยาว","ไม่สำคัญ","ทำให้ดูฉลาด"],"a":0,"e":"จริยธรรมในการใช้ข้อมูล"},
+ {"q":"ลิขสิทธิ์ หมายถึงอะไร","o":["สิทธิของผู้สร้างสรรค์ผลงาน เช่น เพลง หนัง หนังสือ โปรแกรม ที่ผู้อื่นจะนำไปใช้ต้องได้รับอนุญาต","สิทธิในการเลือกตั้ง","สิทธิในการเรียน","ของฟรีในอินเทอร์เน็ต"],"a":0,"e":"การดาวน์โหลดหนังเถื่อนผิดกฎหมาย"},
+ {"q":"ข้อใดเป็นการใช้งานที่ไม่ละเมิดลิขสิทธิ์","o":["ใช้รูปภาพที่เจ้าของอนุญาตให้ใช้ฟรี (เช่น Creative Commons) และระบุที่มา","ดาวน์โหลดเพลงจากเว็บเถื่อน","คัดลอกเกมแจกเพื่อน","นำรูปคนอื่นมาอ้างว่าเป็นของตน"],"a":0,"e":"ตรวจสอบสิทธิ์การใช้งานก่อน"},
+ {"q":"ข้อมูลส่วนตัวที่ไม่ควรเปิดเผยในอินเทอร์เน็ต ได้แก่อะไรบ้าง","o":["ชื่อ-นามสกุลจริง ที่อยู่ เบอร์โทร โรงเรียน รหัสผ่าน รูปบัตรประชาชน","ชื่อสัตว์เลี้ยงในการ์ตูน","สีที่ชอบ","วิชาที่ชอบ"],"a":0,"e":"คนร้ายอาจนำไปใช้"},
+ {"q":"รหัสผ่านที่ดีควรมีลักษณะอย่างไร","o":["ยาวอย่างน้อย ๘ ตัว ผสมตัวอักษรใหญ่เล็ก ตัวเลข สัญลักษณ์ และไม่ใช้วันเกิด","ใช้ 123456","ใช้ชื่อตัวเอง","ใช้รหัสเดียวกันทุกเว็บ"],"a":0,"e":"และไม่บอกใครแม้แต่เพื่อนสนิท"},
+ {"q":"ถ้ามีคนแปลกหน้าในเกมออนไลน์ขอนัดเจอหรือขอรูป ควรทำอย่างไร","o":["ปฏิเสธ ไม่ให้ข้อมูล และบอกผู้ปกครองทันที","ไปเจอเพราะเป็นเพื่อนในเกม","ส่งรูปให้","เก็บเป็นความลับ"],"a":0,"e":"คนในอินเทอร์เน็ตอาจไม่ใช่อย่างที่บอก"},
+ {"q":"การกลั่นแกล้งทางออนไลน์ (Cyberbullying) คืออะไร","o":["การใช้สื่อออนไลน์ด่าทอ ล้อเลียน ข่มขู่ หรือประจานผู้อื่น","การเล่นเกมด้วยกัน","การแชทกับเพื่อน","การส่งการบ้าน"],"a":0,"e":"ผิดทั้งศีลธรรมและกฎหมาย"},
+ {"q":"ถ้าถูกกลั่นแกล้งทางออนไลน์ ควรทำอย่างไร","o":["ไม่ตอบโต้ บันทึกหลักฐาน (แคปหน้าจอ) บล็อก และบอกผู้ปกครองหรือครู","ด่ากลับ","ลบทุกอย่างแล้วเงียบ","ส่งต่อให้เพื่อนดู"],"a":0,"e":"ขอความช่วยเหลือจากผู้ใหญ่"},
+ {"q":"ข่าวปลอม (Fake news) มีลักษณะอย่างไร","o":["พาดหัวเกินจริง ไม่ระบุแหล่งที่มา เร่งให้แชร์ด่วน","มีแหล่งอ้างอิงชัดเจน","มาจากสำนักข่าวที่น่าเชื่อถือ","มีวันที่และผู้เขียน"],"a":0,"e":"หยุดคิดก่อนแชร์"},
+ {"q":"ก่อนแชร์ข้อมูลในโซเชียล ควรทำสิ่งใด","o":["ตรวจสอบความจริงจากหลายแหล่ง และคิดว่าจะมีใครเสียหายหรือไม่","แชร์ทันทีถ้าน่าสนใจ","แชร์เพราะเพื่อนแชร์","แชร์เพื่อให้คนกดไลก์"],"a":0,"e":"การแชร์ข่าวปลอมอาจผิดกฎหมาย"},
+ {"q":"มารยาทในการใช้สื่อออนไลน์ (Netiquette) ข้อใดถูกต้อง","o":["ใช้ภาษาสุภาพ ไม่โพสต์ข้อมูลของผู้อื่นโดยไม่ได้รับอนุญาต ไม่สแปม","พิมพ์ตัวพิมพ์ใหญ่ทั้งหมดเพื่อให้เด่น","โพสต์รูปเพื่อนตลก ๆ โดยไม่ขอ","ส่งข้อความซ้ำ ๆ รัว ๆ"],"a":0,"e":"ปฏิบัติต่อผู้อื่นเหมือนในชีวิตจริง"},
+ {"q":"การใช้เวลาหน้าจอ (screen time) ที่เหมาะสมสำหรับเด็ก ควรเป็นอย่างไร","o":["จำกัดเวลา พักสายตาทุก ๒๐–๓๐ นาที และไม่ใช้ก่อนนอน","ใช้ได้ไม่จำกัด","ใช้ทั้งคืน","ใช้แทนการออกกำลังกาย"],"a":0,"e":"ปกป้องสายตาและการนอน"},
+ {"q":"ท่านั่งใช้คอมพิวเตอร์ที่ถูกต้องคือข้อใด","o":["หลังตรง จอระดับสายตา ห่างจอประมาณ ๕๐–๗๐ ซม. เท้าวางพื้น","นอนดู","ก้มหน้าใกล้จอ","นั่งไขว่ห้างบนเก้าอี้สูง"],"a":0,"e":"ป้องกันปวดคอและสายตา"},
+ {"q":"ฮาร์ดแวร์ (Hardware) หมายถึงอะไร","o":["ส่วนประกอบของคอมพิวเตอร์ที่จับต้องได้ เช่น จอ คีย์บอร์ด เมาส์ ซีพียู","โปรแกรม","ข้อมูล","อินเทอร์เน็ต"],"a":0,"e":"ซอฟต์แวร์คือโปรแกรม"},
+ {"q":"ซอฟต์แวร์ (Software) หมายถึงอะไร","o":["โปรแกรมหรือชุดคำสั่งที่สั่งให้คอมพิวเตอร์ทำงาน","จอภาพ","เมาส์","สายไฟ"],"a":0,"e":"เช่น ระบบปฏิบัติการ เกม โปรแกรมพิมพ์งาน"},
+ {"q":"อุปกรณ์ใดเป็น “หน่วยรับข้อมูล” (Input)","o":["คีย์บอร์ด เมาส์ ไมโครโฟน กล้อง","จอภาพ","ลำโพง","เครื่องพิมพ์"],"a":0,"e":"นำข้อมูลเข้าเครื่อง"},
+ {"q":"อุปกรณ์ใดเป็น “หน่วยแสดงผล” (Output)","o":["จอภาพ ลำโพง เครื่องพิมพ์","คีย์บอร์ด","เมาส์","สแกนเนอร์"],"a":0,"e":"แสดงผลออกมาให้เห็นหรือได้ยิน"},
+ {"q":"ซีพียู (CPU) ทำหน้าที่อะไร","o":["ประมวลผลคำสั่งและข้อมูล เปรียบเหมือนสมองของคอมพิวเตอร์","เก็บข้อมูลถาวร","แสดงภาพ","รับเสียง"],"a":0,"e":"Central Processing Unit"},
+ {"q":"อุปกรณ์ใดใช้เก็บข้อมูลแบบพกพา","o":["แฟลชไดรฟ์ (USB) และฮาร์ดดิสก์พกพา","จอภาพ","เมาส์","ลำโพง"],"a":0,"e":"ควรสแกนไวรัสก่อนใช้"},
+ {"q":"ระบบปฏิบัติการ (Operating System) คืออะไร","o":["ซอฟต์แวร์หลักที่ควบคุมการทำงานของเครื่อง เช่น Windows, Android, iOS","เกม","โปรแกรมพิมพ์งาน","เว็บไซต์"],"a":0,"e":"โปรแกรมอื่นทำงานบนระบบปฏิบัติการ"},
+ {"q":"ไวรัสคอมพิวเตอร์ คืออะไร","o":["โปรแกรมที่สร้างขึ้นเพื่อทำลายหรือขโมยข้อมูล แพร่กระจายได้","เชื้อโรคที่ทำให้คนป่วย","ฝุ่นในเครื่อง","เกมที่เล่นนาน"],"a":0,"e":"ป้องกันด้วยโปรแกรมแอนติไวรัสและไม่เปิดไฟล์แปลก"},
+ {"q":"ข้อใดเป็นวิธีป้องกันไวรัสคอมพิวเตอร์","o":["ไม่เปิดไฟล์หรือลิงก์จากคนที่ไม่รู้จัก และอัปเดตโปรแกรมสม่ำเสมอ","ดาวน์โหลดโปรแกรมจากเว็บเถื่อน","เปิดทุกอีเมลที่ได้รับ","ปิดโปรแกรมป้องกันไวรัส"],"a":0,"e":"ระวังไฟล์แนบ"},
+ {"q":"ฟิชชิง (Phishing) คืออะไร","o":["การหลอกให้กรอกรหัสผ่านหรือข้อมูลส่วนตัวผ่านเว็บหรือข้อความปลอม","การตกปลา","การเล่นเกม","การส่งอีเมลงาน"],"a":0,"e":"เช่น ข้อความอ้างว่าเป็นธนาคารให้กดลิงก์"},
+ {"q":"ถ้าได้รับข้อความว่า “คุณถูกรางวัล กดลิงก์เพื่อรับเงิน” ควรทำอย่างไร","o":["ไม่กด ไม่กรอกข้อมูล และบอกผู้ปกครอง","กดทันที","กรอกเลขบัญชี","ส่งต่อให้เพื่อน"],"a":0,"e":"กลโกงออนไลน์"},
+ {"q":"การสำรองข้อมูล (Backup) หมายถึงอะไร และสำคัญอย่างไร","o":["การคัดลอกข้อมูลเก็บไว้อีกที่ เผื่อเครื่องเสียหรือข้อมูลหาย","การลบข้อมูล","การแชร์ข้อมูล","การพิมพ์ข้อมูล"],"a":0,"e":"เช่น เก็บไว้ในคลาวด์หรือแฟลชไดรฟ์"},
+ {"q":"คลาวด์ (Cloud) ในทางคอมพิวเตอร์ หมายถึงอะไร","o":["การเก็บข้อมูลหรือใช้บริการผ่านอินเทอร์เน็ตบนเครื่องแม่ข่ายของผู้ให้บริการ","ก้อนเมฆบนฟ้า","โปรแกรมพยากรณ์อากาศ","เกม"],"a":0,"e":"เช่น Google Drive"},
+ {"q":"อินเทอร์เน็ต คืออะไร","o":["เครือข่ายคอมพิวเตอร์ขนาดใหญ่ที่เชื่อมต่อกันทั่วโลก","โปรแกรมหนึ่ง","เว็บไซต์เดียว","เกมออนไลน์"],"a":0,"e":"เว็บเป็นบริการหนึ่งบนอินเทอร์เน็ต"},
+ {"q":"เว็บเบราว์เซอร์ (Web browser) คืออะไร","o":["โปรแกรมสำหรับเปิดดูเว็บไซต์ เช่น Chrome, Safari, Edge","เว็บไซต์ค้นหา","อีเมล","เกม"],"a":0,"e":"Google เป็นเว็บค้นหา ไม่ใช่เบราว์เซอร์"},
+ {"q":"URL หรือที่อยู่เว็บไซต์ เช่น https://www.dltv.ac.th ส่วน “https” บอกอะไร","o":["การเชื่อมต่อแบบเข้ารหัส ปลอดภัยกว่า http","ชื่อประเทศ","ชื่อบริษัท","ประเภทไฟล์"],"a":0,"e":"ดูสัญลักษณ์แม่กุญแจ"},
+ {"q":"อีเมล (E-mail) ใช้ทำอะไร","o":["ส่งข้อความและไฟล์ถึงผู้อื่นผ่านอินเทอร์เน็ต","เล่นเกม","ดูหนัง","วาดรูป"],"a":0,"e":"ควรตั้งหัวข้อให้ชัดเจนและใช้ภาษาสุภาพ"},
+ {"q":"การตั้งชื่อไฟล์งานที่ดีควรเป็นอย่างไร","o":["สื่อความหมาย เช่น รายงานประวัติศาสตร์_ด.ช.เอ_ป4","ตั้งว่า “ไฟล์ใหม่ (๑)” “ไฟล์ใหม่ (๒)”","ใช้ตัวเลขสุ่ม","ไม่ต้องตั้งชื่อ"],"a":0,"e":"หาเจอง่ายภายหลัง"},
+ {"q":"การจัดเก็บไฟล์ในคอมพิวเตอร์ให้เป็นระเบียบ ควรทำอย่างไร","o":["สร้างโฟลเดอร์แยกตามวิชาหรือประเภทงาน","วางทุกไฟล์บนหน้าจอเดสก์ท็อป","ไม่ต้องจัด","ลบทุกอย่างทุกวัน"],"a":0,"e":"เหมือนการจัดตู้หนังสือ"},
+ {"q":"นามสกุลไฟล์ .jpg และ .png เป็นไฟล์ประเภทใด","o":["รูปภาพ","เอกสาร","เสียง","วิดีโอ"],"a":0,"e":".mp3 = เสียง, .mp4 = วิดีโอ, .docx = เอกสาร"},
+ {"q":"นามสกุลไฟล์ .mp4 เป็นไฟล์ประเภทใด","o":["วิดีโอ","รูปภาพ","เอกสาร","ตารางคำนวณ"],"a":0,"e":"เปิดด้วยโปรแกรมเล่นวิดีโอ"},
+ {"q":"การใช้คีย์ลัด Ctrl+C และ Ctrl+V ทำอะไร","o":["คัดลอก (Copy) และวาง (Paste)","บันทึกและปิด","ตัดและลบ","เปิดและปิด"],"a":0,"e":"Ctrl+X = ตัด, Ctrl+Z = ย้อนกลับ"},
+ {"q":"คีย์ลัด Ctrl+S ทำหน้าที่อะไร","o":["บันทึกไฟล์ (Save)","ค้นหา","พิมพ์","ปิดโปรแกรม"],"a":0,"e":"ควรบันทึกบ่อย ๆ กันงานหาย"},
+ {"q":"คีย์ลัด Ctrl+Z ทำหน้าที่อะไร","o":["ย้อนกลับการกระทำล่าสุด (Undo)","บันทึก","ขยายหน้าจอ","ปิดเครื่อง"],"a":0,"e":"ช่วยแก้ไขเมื่อทำผิด"},
+ {"q":"การพิมพ์สัมผัส (วางนิ้วบนแป้นเหย้า) มีประโยชน์อย่างไร","o":["พิมพ์ได้เร็วและถูกต้องโดยไม่ต้องมองแป้น","ทำให้พิมพ์ช้า","ไม่มีประโยชน์","ทำให้นิ้วเจ็บ"],"a":0,"e":"แป้นเหย้าภาษาอังกฤษคือ ASDF JKL;"},
+ {"q":"การใช้เมาส์ “ดับเบิลคลิก” ใช้เมื่อใด","o":["เปิดไฟล์หรือโปรแกรม","เลือกข้อความ","ลากย้าย","เปิดเมนูคลิกขวา"],"a":0,"e":"คลิกซ้าย ๒ ครั้งเร็ว ๆ"},
+ {"q":"การ “คลิกขวา” ที่ไฟล์ จะเกิดอะไรขึ้น","o":["แสดงเมนูคำสั่ง เช่น คัดลอก ลบ เปลี่ยนชื่อ","เปิดไฟล์ทันที","ลบไฟล์ทันที","ปิดเครื่อง"],"a":0,"e":"เมนูบริบท"},
+ {"q":"การปิดคอมพิวเตอร์ที่ถูกวิธี คือข้อใด","o":["บันทึกงาน ปิดโปรแกรม แล้วเลือกคำสั่ง Shut down","ถอดปลั๊กทันที","กดปุ่มเปิดปิดค้างไว้ทุกครั้ง","ปิดจอแล้วเดินไป"],"a":0,"e":"ถอดปลั๊กทันทีอาจทำให้ไฟล์เสีย"},
+ {"q":"การดูแลรักษาคอมพิวเตอร์และแท็บเล็ต ควรทำอย่างไร","o":["ไม่กินดื่มใกล้เครื่อง เช็ดฝุ่นด้วยผ้าแห้ง เก็บในที่ไม่ร้อนชื้น","วางใกล้แก้วน้ำ","ใช้น้ำยาเช็ดกระจกฉีดจอโดยตรง","วางกลางแดด"],"a":0,"e":"อุปกรณ์ราคาแพง"},
+ {"q":"เทคโนโลยีสารสนเทศ ช่วยชีวิตประจำวันในด้านใดบ้าง","o":["การเรียน การสื่อสาร การค้นหาข้อมูล การซื้อขาย และความบันเทิง","ไม่ช่วยอะไร","ทำให้ชีวิตยากขึ้น","ใช้ได้เฉพาะเล่นเกม"],"a":0,"e":"ใช้ให้เกิดประโยชน์และปลอดภัย"},
+ {"q":"ข้อเสียของการใช้เทคโนโลยีมากเกินไป คืออะไร","o":["สายตาเสีย ขาดการออกกำลังกาย เสพติด และห่างเหินครอบครัว","ไม่มีข้อเสีย","ทำให้ฉลาดขึ้นอย่างเดียว","ทำให้นอนหลับดี"],"a":0,"e":"ใช้อย่างสมดุล"},
+ {"q":"การเรียนออนไลน์ให้ได้ผล ควรทำอย่างไร","o":["เตรียมอุปกรณ์ เข้าเรียนตรงเวลา ตั้งใจฟัง และไม่เปิดเกมหรือแชทระหว่างเรียน","เปิดกล้องแล้วไปเล่น","ไม่เข้าเรียน","เปิดเกมไปด้วย"],"a":0,"e":"วินัยในตนเอง"},
+ {"q":"QR Code ใช้ทำอะไร","o":["เก็บข้อมูล เช่น ลิงก์เว็บไซต์หรือข้อมูลการชำระเงิน ให้สแกนด้วยกล้องได้","ตกแต่งสินค้า","เป็นเกม","เป็นภาพศิลปะ"],"a":0,"e":"ควรสแกนเฉพาะจากแหล่งที่เชื่อถือได้"},
+ {"q":"ปัญญาประดิษฐ์ (AI) คืออะไร","o":["โปรแกรมคอมพิวเตอร์ที่เรียนรู้และทำงานบางอย่างคล้ายมนุษย์ เช่น จดจำเสียง แปลภาษา","หุ่นยนต์ของเล่น","มนุษย์ที่ฉลาดมาก","เกมใหม่"],"a":0,"e":"ควรใช้อย่างมีวิจารณญาณ ตรวจสอบคำตอบเสมอ"},
+ {"q":"การใช้ AI ช่วยทำการบ้าน ควรทำอย่างไรจึงเหมาะสม","o":["ใช้ช่วยอธิบายหรือตรวจสอบ แล้วทำด้วยตนเอง ไม่คัดลอกคำตอบทั้งหมด","ให้ AI ทำทั้งหมดแล้วส่ง","ไม่ต้องเรียนเพราะมี AI","เชื่อ AI ทุกอย่าง"],"a":0,"e":"AI อาจตอบผิดได้"},
+ {"q":"หุ่นยนต์ดูดฝุ่นทำงานได้เอง เพราะมีสิ่งใด","o":["โปรแกรมคำสั่งและเซนเซอร์ตรวจจับสิ่งกีดขวาง","คนบังคับอยู่ข้างใน","เวทมนตร์","โชค"],"a":0,"e":"ตัวอย่างอัลกอริทึมในชีวิตจริง"},
+ {"q":"เซนเซอร์ (Sensor) คืออะไร","o":["อุปกรณ์ตรวจจับสิ่งต่าง ๆ เช่น แสง เสียง อุณหภูมิ แล้วส่งข้อมูลให้คอมพิวเตอร์","ลำโพง","จอภาพ","แป้นพิมพ์"],"a":0,"e":"เช่น ประตูอัตโนมัติใช้เซนเซอร์ตรวจคน"},
+ {"q":"ไฟจราจรเปลี่ยนสีตามเวลาที่กำหนด เป็นตัวอย่างของอะไร","o":["อัลกอริทึมแบบวนซ้ำ (เขียว → เหลือง → แดง → เขียว)","เงื่อนไขอย่างเดียว","การสุ่ม","ไม่ใช่โปรแกรม"],"a":0,"e":"เทคโนโลยีรอบตัว"},
+ {"q":"ตู้กดน้ำอัตโนมัติ “ถ้าใส่เหรียญครบ ให้จ่ายน้ำ” เป็นตัวอย่างคำสั่งแบบใด","o":["เงื่อนไข (if)","วนซ้ำ","ตัวแปร","การแสดงผล"],"a":0,"e":"ทำเมื่อเงื่อนไขจริง"},
+ {"q":"ตัวแปร (Variable) ในการเขียนโปรแกรม คืออะไร","o":["ที่เก็บค่าที่เปลี่ยนแปลงได้ เช่น คะแนน จำนวนชีวิต","บล็อกเคลื่อนที่","เสียง","พื้นหลัง"],"a":0,"e":"ใน Scratch สร้างได้ในหมวดตัวแปร"},
+ {"q":"ในเกม Scratch ถ้าต้องการนับคะแนนเมื่อแมวแตะแอปเปิล ควรใช้อะไร","o":["ตัวแปร “คะแนน” และบล็อก “เปลี่ยนคะแนนทีละ ๑” เมื่อสัมผัส","เปลี่ยนพื้นหลัง","เล่นเสียง","หมุนตัวละคร"],"a":0,"e":"รวมเงื่อนไขกับตัวแปร"},
+ {"q":"การเขียนโปรแกรมช่วยพัฒนาทักษะใด","o":["การคิดเป็นระบบ การแก้ปัญหา ความอดทน และความคิดสร้างสรรค์","การวิ่ง","การร้องเพลง","การทำอาหาร"],"a":0,"e":"ทักษะศตวรรษที่ ๒๑"},
+ {"q":"ลำดับขั้นตอนในการแก้ปัญหาด้วยคอมพิวเตอร์ ข้อใดถูกต้อง","o":["วิเคราะห์ปัญหา → ออกแบบวิธีแก้ (อัลกอริทึม) → เขียนโปรแกรม → ทดสอบและแก้ไข","เขียนโปรแกรม → วิเคราะห์ → ทดสอบ","ทดสอบ → เขียน → วิเคราะห์","ออกแบบ → ทดสอบ → วิเคราะห์"],"a":0,"e":"คิดก่อนทำ"},
+ {"q":"การทดสอบโปรแกรมด้วยข้อมูลหลาย ๆ แบบ ทำเพื่ออะไร","o":["หาข้อผิดพลาดในกรณีต่าง ๆ ให้ครบก่อนใช้งานจริง","เสียเวลา","ไม่จำเป็น","ทำให้โปรแกรมช้า"],"a":0,"e":"เช่น ทดสอบทั้งเลขบวกและเลขลบ"},
+ {"q":"การเก็บข้อมูลเป็น “ตาราง” มีข้อดีอย่างไร","o":["อ่านง่าย เปรียบเทียบได้ และนำไปทำแผนภูมิได้สะดวก","อ่านยาก","ใช้พื้นที่มาก","ไม่มีข้อดี"],"a":0,"e":"แถว = รายการ, คอลัมน์ = คุณสมบัติ"},
+ {"q":"ถ้าต้องการหาผลรวมคะแนนในตารางคำนวณ ควรใช้ฟังก์ชันใด","o":["SUM","AVERAGE","MAX","COUNT"],"a":0,"e":"AVERAGE = ค่าเฉลี่ย, MAX = ค่าสูงสุด"},
+ {"q":"ถ้าต้องการหาคะแนนเฉลี่ยในตารางคำนวณ ควรใช้ฟังก์ชันใด","o":["AVERAGE","SUM","MIN","IF"],"a":0,"e":"ผลรวมหารด้วยจำนวน"},
+ {"q":"การเรียงลำดับข้อมูลในตาราง (Sort) จากมากไปน้อย มีประโยชน์อย่างไร","o":["เห็นได้ทันทีว่าค่าใดมากที่สุดหรือน้อยที่สุด","ทำให้ข้อมูลหาย","ไม่มีประโยชน์","ทำให้ตารางสวย"],"a":0,"e":"เช่น เรียงคะแนนสอบ"},
+ {"q":"การกรองข้อมูล (Filter) ในตาราง ใช้ทำอะไร","o":["แสดงเฉพาะแถวที่ตรงเงื่อนไข เช่น เฉพาะนักเรียนที่ชอบมะม่วง","ลบข้อมูล","เปลี่ยนสี","พิมพ์"],"a":0,"e":"ค้นหาข้อมูลเฉพาะได้เร็ว"},
+ {"q":"การนำเสนองานด้วยสไลด์ที่ดี ควรเป็นอย่างไร","o":["ข้อความสั้นกระชับ ตัวอักษรใหญ่อ่านง่าย มีรูปประกอบ ไม่เกิน ๖ บรรทัดต่อสไลด์","ใส่ข้อความเต็มหน้าตัวเล็ก ๆ","ใช้สีฉูดฉาดทุกสี","ไม่มีรูปเลย"],"a":0,"e":"ผู้ฟังเข้าใจง่าย"},
+ {"q":"ขณะนำเสนองานหน้าชั้น ควรปฏิบัติอย่างไร","o":["ยืนตรง สบตาผู้ฟัง พูดชัดเจน ไม่อ่านจากสไลด์ทั้งหมด","ก้มหน้าอ่านจอตลอด","พูดเร็วมาก","หันหลังให้ผู้ฟัง"],"a":0,"e":"ทักษะการสื่อสาร"},
+ {"q":"การใช้คอมพิวเตอร์ของโรงเรียนร่วมกับผู้อื่น ควรปฏิบัติอย่างไร","o":["ออกจากระบบ (log out) ทุกครั้ง ไม่เปลี่ยนการตั้งค่า และไม่ลบไฟล์ของผู้อื่น","ทิ้งบัญชีไว้ให้คนอื่นใช้ต่อ","ลบไฟล์ที่ไม่ใช่ของตน","ติดตั้งเกม"],"a":0,"e":"เคารพสิทธิผู้ใช้คนอื่น"},
+ {"q":"ข้อใดเป็นการใช้เทคโนโลยีอย่างสร้างสรรค์","o":["ทำวิดีโอสอนเพื่อน สร้างเกมความรู้ด้วย Scratch หรือทำแผนภูมิข้อมูลโรงเรียน","เล่นเกมทั้งวัน","แกล้งเพื่อนออนไลน์","ดาวน์โหลดหนังเถื่อน"],"a":0,"e":"เป็นผู้สร้าง ไม่ใช่แค่ผู้เสพ"},
+ {"q":"บลูทูธ (Bluetooth) ใช้ทำอะไร","o":["เชื่อมต่ออุปกรณ์ระยะใกล้แบบไร้สาย เช่น หูฟัง ลำโพง","เชื่อมต่ออินเทอร์เน็ตระยะไกล","ชาร์จแบตเตอรี่","พิมพ์เอกสาร"],"a":0,"e":"ระยะประมาณ ๑๐ เมตร"},
+ {"q":"Wi-Fi คืออะไร","o":["เครือข่ายไร้สายที่ใช้เชื่อมต่ออินเทอร์เน็ตภายในบ้านหรือโรงเรียน","สายไฟ","โปรแกรมเกม","ยี่ห้อโทรศัพท์"],"a":0,"e":"ควรตั้งรหัสผ่าน Wi-Fi บ้าน"},
+ {"q":"การใช้ Wi-Fi สาธารณะ (เช่น ในห้าง) ควรระวังสิ่งใด","o":["ไม่ทำธุรกรรมการเงินหรือกรอกรหัสผ่านสำคัญ เพราะอาจถูกดักข้อมูล","ไม่ต้องระวัง","ใช้โอนเงินได้ปลอดภัยกว่าที่บ้าน","ควรแชร์รหัสให้ทุกคน"],"a":0,"e":"ความปลอดภัยของข้อมูล"},
+],
+};
+
+const SET_NAMES = {1:'💻 ICT วิทยาการคำนวณ ๑๐๐ ข้อ'};
+// ---------- storage ----------
+const KEY='exam100-ict-best';
+const SEENKEY='exam100-ict-seen';
+function loadSeen(){try{return JSON.parse(localStorage.getItem(SEENKEY)||'{}')}catch(e){return {}}}
+function saveSeen(x){try{localStorage.setItem(SEENKEY,JSON.stringify(x))}catch(e){}}
+let seen=loadSeen();
+for(const k in BANK)BANK[k].forEach((q,i)=>q.id=k+'-'+i);
+function seenCount(set){const p=pool(),s=new Set(seen[set]||[]);return p.filter(q=>s.has(q.id)).length}
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')||id.endsWith('.html')||id.startsWith('../')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'อ่าน',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label||TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    const hasV=!!el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(hasV?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  const want=$('count').value;const all=pool();const sset=new Set(seen[currentSet]||[]);let unseen=shuffle(all.filter(q=>!sset.has(q.id)));let seenQ=shuffle(all.filter(q=>sset.has(q.id)));
+  const need=want==='all'?all.length:Math.min(Number(want),all.length);
+  let src;
+  if(unseen.length>=need){src=unseen.slice(0,need);}
+  else{ src=unseen.concat(seenQ.slice(0,need-unseen.length)); seen[currentSet]=[]; sset.clear(); }
+  qs=src.map(q=>{const order=shuffle([0,1,2,3]);return {id:q.id,q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  if(!seen[currentSet])seen[currentSet]=[];if(!seen[currentSet].includes(q.id)){seen[currentSet].push(q.id);saveSeen(seen);}
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>

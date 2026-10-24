@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ข้อสอบดนตรี ๑๐๐ ข้อ ป.๔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#14213D; --muted:#5A6A85; --line:#EADFCF;
+  --plum:#DB2777; --plum-soft:#FCE7F3; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#D9480F; --red-soft:#FFE6D9;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(30,60,120,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">🏠 รวมข้อสอบ ๗ วิชา</a>
+    <a href="history.html">📜 ประวัติศาสตร์</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a href="work.html">🛠 การงานอาชีพ</a>
+    <a href="ict.html">💻 ICT วิทยาการคำนวณ</a>
+    <a href="thai.html">📘 ภาษาไทย</a>
+    <a href="pe.html">🏃 สุขศึกษาและพลศึกษา</a>
+    <a class="on" href="music.html">🎵 ดนตรี</a>
+    <a href="../index.html">↩ เว็บหลัก (คลิป+ข้อสอบ)</a>
+  </nav>
+  <div class="eyebrow">ดนตรี · ชั้นประถมศึกษาปีที่ ๔ · ข้อสอบ ๑๐๐ ข้อ · ทำครบ ๑๐๐ ข้อทุกครั้ง</div>
+  <h1>ข้อสอบ<span>ดนตรี</span> ป.๔ — ๑๐๐ ข้อ</h1>
+  <div class="books">
+    <span class="book b1"><i></i>องค์ประกอบดนตรี · โน้ตไทยและสากล · เครื่องดนตรีไทย ๔ ประเภท · วงดนตรีไทย · เครื่องดนตรีสากล · เพลงไทย บุคคลสำคัญ · มารยาทการชม</span>
+    <span class="book b2"><i></i>กติกา: ทำครั้งละ ๑๐๐ ข้อเต็ม ไม่มีตัวเลือกจำนวนข้อ · สลับลำดับข้อและตัวเลือกใหม่ทุกครั้ง</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📚 ก่อนสอบดูอะไร</a>
+    <a href="#workbook">📚 สรุปที่ต้องจำ</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>ข้อสอบดนตรี ๑๐๐ ข้อ</h2>
+    <p>กด ✏️ ทำข้อสอบ แล้วทำให้ครบ ๑๐๐ ข้อ · ตอบแล้วเห็นเฉลยทันที · ตัวเลือกและลำดับข้อสลับใหม่ทุกครั้ง</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>กติกาชุดเตรียมสอบ 🎯</h2>
+    <p>อ่านก่อนเริ่ม</p>
+  </div>
+  <div class="wb">
+    <div class="card"><h3>๑๐๐ ข้อเต็มทุกครั้ง</h3><p>ชุดนี้ล็อกจำนวนไว้ที่ ๑๐๐ ข้อ ไม่สามารถเลือกทำน้อยกว่านี้ได้ เพื่อฝึกความอดทนเหมือนสอบจริง</p></div>
+    <div class="card"><h3>ข้อใหม่ทั้งหมด</h3><p>๑๐๐ ข้อนี้เขียนขึ้นใหม่ ไม่ซ้ำกับข้อสอบในเว็บหลัก</p></div>
+    <div class="card"><h3>ออกจากกลางคันได้</h3><p>กด “ออก” ได้ถ้าจำเป็น แต่คะแนนจะไม่ถูกบันทึก · คะแนนสูงสุดบันทึกเมื่อทำครบ ๑๐๐ ข้อเท่านั้น</p></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>ชุดเตรียมสอบ ๑๐๐ ข้อ ทำครบทุกครั้ง · ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดบันทึกไว้ในเครื่อง · ข้อสอบสุ่มใหม่ทุกครั้ง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="score-live">จำนวนข้อ <b>๑๐๐ ข้อ (ล็อก)</b></span><select id="count" class="hidden"><option value="all" selected>all</option></select>
+          <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามเนื้อหาวิชาดนตรี ป.๔ เพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,label:'🎵',title:'ข้อสอบดนตรี ๑๐๐ ข้อ',focus:'องค์ประกอบดนตรี · โน้ตไทยและสากล · เครื่องดนตรีไทย ๔ ประเภท · วงดนตรีไทย · เครื่องดนตรีสากล · เพลงไทย บุคคลสำคัญ · มารยาทการชม',video:null,
+   links:[["https://dltv.ac.th/teachplan/lists/4/6000", "DLTV ศิลปะ (ดนตรี) ป.๔", "d"]]},
+];
+const BANK = {
+1:[
+ {"q":"เสียงดนตรีเกิดจากอะไร","o":["การสั่นสะเทือนของวัตถุ เช่น สาย แผ่นหนัง ลม","แสง","ความร้อน","สี"],"a":0,"e":"สั่นเร็วเสียงสูง สั่นช้าเสียงต่ำ"},
+ {"q":"ระดับเสียง (pitch) หมายถึงอะไร","o":["ความสูง–ต่ำของเสียง","ความดัง–เบา","ความเร็ว–ช้า","ความยาว–สั้น"],"a":0,"e":"โน้ตแต่ละตัวมีระดับเสียงต่างกัน"},
+ {"q":"ความดัง–เบาของเสียงในดนตรี เรียกว่าอะไร","o":["ไดนามิก (dynamics)","จังหวะ","ทำนอง","ระดับเสียง"],"a":0,"e":"เครื่องหมาย p = เบา f = ดัง"},
+ {"q":"เครื่องหมาย “f” (forte) ในโน้ตสากล หมายความว่าอย่างไร","o":["เล่นดัง","เล่นเบา","เล่นเร็ว","เล่นช้า"],"a":0,"e":"p (piano) = เบา"},
+ {"q":"จังหวะ (rhythm) ในดนตรี หมายถึงอะไร","o":["การจัดเสียงสั้นยาวเป็นลวดลายตามเวลา","ความสูงต่ำของเสียง","ความดังเบา","สีสันของเสียง"],"a":0,"e":"ปรบมือตามเพลงคือการรับรู้จังหวะ"},
+ {"q":"อัตราจังหวะ (tempo) หมายถึงอะไร","o":["ความเร็ว–ช้าของเพลง","ความดัง","ระดับเสียง","เนื้อร้อง"],"a":0,"e":"เพลงเร็วให้ความรู้สึกสนุก"},
+ {"q":"ทำนอง (melody) คืออะไร","o":["แนวเสียงสูงต่ำที่เรียงต่อกันเป็นเพลงที่ร้องตามได้","จังหวะกลอง","เนื้อร้อง","ความดังเบา"],"a":0,"e":"ส่วนที่เราฮัมตาม"},
+ {"q":"โน้ตดนตรีไทย ๗ เสียง เรียงตามลำดับได้ถูกต้องตามข้อใด","o":["โด เร มี ฟา ซอล ลา ที","ด ม ร ฟ ซ ท ล","ซอล ลา ที โด เร มี ฟา","โด มี ซอล โด"],"a":0,"e":"เขียนย่อ ด ร ม ฟ ซ ล ท"},
+ {"q":"ในโน้ตดนตรีไทย เครื่องหมาย “–” (ขีด) หมายถึงอะไร","o":["การยืดเสียงหรือหยุดตามจังหวะ (ไม่มีเสียงใหม่)","เสียงโด","เสียงดัง","จบเพลง"],"a":0,"e":"ห้องหนึ่งมี ๔ ช่อง"},
+ {"q":"บรรทัด ๕ เส้น (staff) ใช้สำหรับอะไร","o":["บันทึกโน้ตสากล ตำแหน่งบนเส้นหรือช่องบอกระดับเสียง","เขียนเนื้อเพลง","วาดรูป","บันทึกจังหวะกลองเท่านั้น"],"a":0,"e":"นับเส้นจากล่างขึ้นบน"},
+ {"q":"กุญแจซอล (G clef) วางอยู่ที่เส้นใดของบรรทัด ๕ เส้น","o":["เส้นที่ ๒ (นับจากล่าง) กำหนดให้เป็นเสียงซอล","เส้นที่ ๑","เส้นที่ ๕","เส้นที่ ๓"],"a":0,"e":"ใช้กับเสียงสูง เช่น ขลุ่ย ไวโอลิน"},
+ {"q":"ตัวโน้ต “ตัวกลม” (whole note) มีค่ากี่จังหวะ (ในอัตรา ๔/๔)","o":["๔ จังหวะ","๒ จังหวะ","๑ จังหวะ","ครึ่งจังหวะ"],"a":0,"e":"ตัวขาว ๒ ตัวดำ ๑ เขบ็ต ๑ ชั้น ครึ่ง"},
+ {"q":"ตัวโน้ต “ตัวดำ” (quarter note) มีค่ากี่จังหวะ","o":["๑ จังหวะ","๔ จังหวะ","๒ จังหวะ","ครึ่งจังหวะ"],"a":0,"e":"เท่ากับการเคาะ ๑ ครั้ง"},
+ {"q":"ตัวโน้ตเขบ็ต ๑ ชั้น (eighth note) ๒ ตัว มีค่ารวมเท่ากับโน้ตใด","o":["ตัวดำ ๑ ตัว","ตัวกลม ๑ ตัว","ตัวขาว ๑ ตัว","เขบ็ต ๒ ชั้น ๑ ตัว"],"a":0,"e":"ครึ่ง + ครึ่ง = ๑ จังหวะ"},
+ {"q":"ตัวหยุด (rest) ในโน้ตสากล หมายถึงอะไร","o":["ช่วงเงียบตามค่าจังหวะที่กำหนด","เล่นดังขึ้น","เล่นซ้ำ","จบเพลง"],"a":0,"e":"มีค่าเท่ากับตัวโน้ตแต่ละชนิด"},
+ {"q":"เครื่องหมายกำหนดจังหวะ ๔/๔ หมายความว่าอย่างไร","o":["ห้องหนึ่งมี ๔ จังหวะ และตัวดำเท่ากับ ๑ จังหวะ","ห้องหนึ่งมี ๔ ตัวโน้ตเสมอ","เล่น ๔ รอบ","มี ๔ เครื่องดนตรี"],"a":0,"e":"เส้นกั้นห้องแบ่งแต่ละห้อง"},
+ {"q":"เครื่องดนตรีไทยแบ่งตามวิธีบรรเลงได้กี่ประเภท อะไรบ้าง","o":["๔ ประเภท: ดีด สี ตี เป่า","๒ ประเภท: ไทย สากล","๓ ประเภท: สาย ลม กระทบ","๕ ประเภท"],"a":0,"e":"จำง่าย ดีด–สี–ตี–เป่า"},
+ {"q":"ข้อใดเป็นเครื่องดนตรีไทยประเภท “ดีด”","o":["จะเข้ กระจับปี่ พิณ","ซอด้วง ซออู้","ระนาด ฆ้องวง","ปี่ ขลุ่ย"],"a":0,"e":"ใช้นิ้วหรือไม้ดีดสาย"},
+ {"q":"ข้อใดเป็นเครื่องดนตรีไทยประเภท “สี”","o":["ซอด้วง ซออู้ ซอสามสาย สะล้อ","จะเข้","ระนาดเอก","แคน"],"a":0,"e":"ใช้คันชักสี"},
+ {"q":"ข้อใดเป็นเครื่องดนตรีไทยประเภท “ตี”","o":["ระนาดเอก ฆ้องวงใหญ่ กลองแขก ฉิ่ง","ขลุ่ยเพียงออ","ซออู้","จะเข้"],"a":0,"e":"ใช้ไม้ตีหรือมือตี"},
+ {"q":"ข้อใดเป็นเครื่องดนตรีไทยประเภท “เป่า”","o":["ปี่ใน ขลุ่ยเพียงออ แคน","ฉาบ","จะเข้","ซอด้วง"],"a":0,"e":"ใช้ลมเป่า"},
+ {"q":"ซอด้วงกับซออู้ ต่างกันอย่างไร","o":["ซอด้วงเสียงแหลม กะโหลกทำจากไม้ ซออู้เสียงทุ้ม กะโหลกทำจากกะลามะพร้าว","เหมือนกันทุกอย่าง","ซอด้วงใหญ่กว่า","ซออู้มี ๓ สาย"],"a":0,"e":"ทั้งสองมี ๒ สาย"},
+ {"q":"ระนาดเอก มีลักษณะอย่างไร","o":["ลูกระนาดไม้เรียงบนรางโค้ง เสียงแหลมใส ใช้ไม้ตี ๒ อัน","มีสายให้ดีด","ใช้ปากเป่า","ทำจากโลหะทั้งหมด"],"a":0,"e":"ผู้นำวงปี่พาทย์"},
+ {"q":"ฉิ่ง ทำหน้าที่อะไรในวงดนตรีไทย","o":["กำกับจังหวะหลักของเพลง (ฉิ่ง–ฉับ)","บรรเลงทำนองหลัก","เป่าให้เสียงสูง","ร้องเพลง"],"a":0,"e":"ฉิ่ง = เสียงกังวาน ฉับ = เสียงสั้น"},
+ {"q":"ขลุ่ยเพียงออ ทำจากวัสดุใดเป็นหลัก","o":["ไม้ไผ่","โลหะ","พลาสติกเท่านั้น","หนังสัตว์"],"a":0,"e":"ปัจจุบันมีขลุ่ยพลาสติกสำหรับฝึก"},
+ {"q":"วงปี่พาทย์ มีเครื่องดนตรีหลักคืออะไร","o":["ระนาด ฆ้องวง ปี่ ตะโพน กลองทัด ฉิ่ง","ซอด้วง ซออู้ จะเข้","กีตาร์ กลองชุด","ไวโอลิน เปียโน"],"a":0,"e":"ใช้ในพิธีและประกอบโขน ละคร"},
+ {"q":"วงเครื่องสาย มีเครื่องดนตรีหลักคืออะไร","o":["ซอด้วง ซออู้ จะเข้ ขลุ่ย โทน รำมะนา ฉิ่ง","ระนาด ฆ้องวง","ปี่ กลองทัด","แตรวง"],"a":0,"e":"เสียงนุ่มนวล ใช้ในงานมงคล"},
+ {"q":"วงมโหรี ต่างจากวงเครื่องสายอย่างไร","o":["วงมโหรีรวมเครื่องดีด สี ตี เป่า มีระนาดและฆ้องวงด้วย","เหมือนกัน","วงมโหรีมีแต่เครื่องตี","วงมโหรีไม่มีซอ"],"a":0,"e":"วงไทยที่ครบเครื่องที่สุด"},
+ {"q":"วงปี่พาทย์ใช้บรรเลงในโอกาสใด","o":["งานพิธี งานมงคล และประกอบการแสดงโขน ละคร","เฉพาะงานศพ","ในโรงภาพยนตร์","เฉพาะกีฬา"],"a":0,"e":"ปี่พาทย์นางหงส์ใช้ในงานศพ"},
+ {"q":"เครื่องดนตรีสากลแบ่งเป็นกี่ประเภทหลัก","o":["๕ ประเภท: เครื่องสาย เครื่องลมไม้ เครื่องลมทองเหลือง เครื่องกระทบ เครื่องลิ่มนิ้ว","๒ ประเภท","๓ ประเภท","๑๐ ประเภท"],"a":0,"e":"ตามวงออร์เคสตรา"},
+ {"q":"ข้อใดเป็นเครื่องสายสากล","o":["ไวโอลิน กีตาร์ เชลโล","ทรัมเป็ต","ฟลูต","กลองชุด"],"a":0,"e":"มีสาย ใช้สีหรือดีด"},
+ {"q":"ข้อใดเป็นเครื่องลมไม้ (woodwind)","o":["ฟลูต คลาริเน็ต แซกโซโฟน รีคอร์เดอร์","ทรัมเป็ต ทรอมโบน","กลองใหญ่","เปียโน"],"a":0,"e":"แซกโซโฟนทำจากโลหะแต่จัดเป็นลมไม้เพราะใช้ลิ้น"},
+ {"q":"ข้อใดเป็นเครื่องลมทองเหลือง (brass)","o":["ทรัมเป็ต ทรอมโบน ทูบา","ฟลูต","ไวโอลิน","กีตาร์"],"a":0,"e":"ใช้ริมฝีปากสั่นที่กำพวด"},
+ {"q":"ข้อใดเป็นเครื่องกระทบ (percussion)","o":["กลองชุด ฉาบ กลองใหญ่ ไซโลโฟน","ไวโอลิน","ทรัมเป็ต","ฟลูต"],"a":0,"e":"ให้จังหวะ"},
+ {"q":"เปียโนจัดเป็นเครื่องดนตรีประเภทใด","o":["เครื่องลิ่มนิ้ว (keyboard)","เครื่องสายโดยตรง","เครื่องลม","เครื่องเป่า"],"a":0,"e":"กดคีย์ให้ค้อนตีสายภายใน"},
+ {"q":"รีคอร์เดอร์ (ขลุ่ยฝรั่ง) ที่นักเรียนฝึกเล่น เสียงโด (C) ต่ำ ปิดรูอย่างไร","o":["ปิดรูทั้งหมด รวมรูหลัง (นิ้วหัวแม่มือ)","เปิดทุกรู","ปิดเฉพาะรูหลัง","ปิด ๓ รูบน"],"a":0,"e":"เป่าเบา ๆ สม่ำเสมอ"},
+ {"q":"การเป่ารีคอร์เดอร์ให้เสียงไพเราะ ควรเป่าอย่างไร","o":["เป่าลมเบาและสม่ำเสมอ ใช้ลิ้นแตะ “ทู” ทุกเสียง","เป่าแรงที่สุด","เป่าเป็นช่วง ๆ ไม่สม่ำเสมอ","กัดปากเป่า"],"a":0,"e":"เป่าแรงจะเสียงเพี้ยนแหลม"},
+ {"q":"เพลงชาติไทย ประพันธ์ทำนองโดยใคร","o":["พระเจนดุริยางค์ (ปิติ วาทยะกร)","สุนทรภู่","ครูมนตรี ตราโมท","หลวงประดิษฐไพเราะ"],"a":0,"e":"คำร้องโดยหลวงสารานุประพันธ์"},
+ {"q":"เพลงชาติไทยเปิดเวลาใดในแต่ละวัน","o":["๐๘.๐๐ น. และ ๑๘.๐๐ น.","๐๖.๐๐ น. และ ๑๒.๐๐ น.","๐๗.๐๐ น. เท่านั้น","๒๐.๐๐ น."],"a":0,"e":"ควรยืนตรงแสดงความเคารพ"},
+ {"q":"เพลงสรรเสริญพระบารมี ใช้ในโอกาสใด","o":["ถวายพระเกียรติพระมหากษัตริย์ เช่น ก่อนฉายภาพยนตร์ หรือเมื่อเสด็จฯ","เปิดตอนเช้าทุกวัน","ใช้ในงานกีฬา","ใช้ปลุกให้ตื่น"],"a":0,"e":"ทำนองโดยปโยตร์ ชูรอฟสกี คำร้องโดยสมเด็จฯ เจ้าฟ้ากรมพระยานริศรานุวัดติวงศ์"},
+ {"q":"เมื่อได้ยินเพลงชาติหรือเพลงสรรเสริญพระบารมี ควรปฏิบัติอย่างไร","o":["หยุดกิจกรรม ยืนตรง สงบนิ่ง","เดินต่อไป","นั่งลง","พูดคุยต่อ"],"a":0,"e":"แสดงความเคารพ"},
+ {"q":"เพลง “ลาวดวงเดือน” เป็นเพลงไทยเดิมประเภทใด และใครแต่ง","o":["เพลงไทยเดิมสำเนียงลาว พระนิพนธ์ในกรมหมื่นพิไชยมหินทโรดม","เพลงพื้นบ้านอีสาน ไม่ทราบผู้แต่ง","เพลงลูกทุ่ง","เพลงสากล"],"a":0,"e":"เพลงไทยเดิมที่ไพเราะที่สุดเพลงหนึ่ง"},
+ {"q":"เพลง “เขมรไทรโยค” เป็นผลงานของใคร","o":["สมเด็จฯ เจ้าฟ้ากรมพระยานริศรานุวัดติวงศ์","ครูมนตรี ตราโมท","สุนทรภู่","พระเจนดุริยางค์"],"a":0,"e":"แต่งเมื่อตามเสด็จไปน้ำตกไทรโยค"},
+ {"q":"หลวงประดิษฐไพเราะ (ศร ศิลปบรรเลง) เป็นบุคคลสำคัญด้านใด","o":["ดนตรีไทย เป็นนักระนาดเอกและครูเพลงผู้ยิ่งใหญ่","ดนตรีสากล","นาฏศิลป์","จิตรกรรม"],"a":0,"e":"ภาพยนตร์เรื่องโหมโรงสร้างจากชีวิตท่าน"},
+ {"q":"ครูมนตรี ตราโมท ได้รับยกย่องว่าเป็นอะไร","o":["ศิลปินแห่งชาติสาขาดนตรีไทย ผู้แต่งเพลงไทยไว้จำนวนมาก","นักร้องลูกทุ่ง","นักแต่งเพลงสากล","จิตรกร"],"a":0,"e":"ผู้เชี่ยวชาญดนตรีไทยของกรมศิลปากร"},
+ {"q":"ศิลปินแห่งชาติ หมายถึงใคร","o":["ศิลปินที่ได้รับการยกย่องจากรัฐว่ามีผลงานดีเด่นและสร้างคุณประโยชน์ด้านศิลปะ","ศิลปินที่รวยที่สุด","ศิลปินที่อายุมากที่สุด","นักร้องยอดนิยม"],"a":0,"e":"ประกาศทุกปีในวันศิลปินแห่งชาติ ๒๔ กุมภาพันธ์"},
+ {"q":"เพลงพื้นบ้านภาคกลาง ได้แก่ข้อใด","o":["เพลงเรือ เพลงฉ่อย เพลงอีแซว ลำตัด","หมอลำ","เพลงซอ","เพลงบอก"],"a":0,"e":"ร้องโต้ตอบกันแบบปฏิภาณ"},
+ {"q":"เพลงพื้นบ้านภาคเหนือ ได้แก่ข้อใด","o":["เพลงซอ จ๊อย","ลำตัด","หมอลำ","เพลงบอก"],"a":0,"e":"ใช้สะล้อ ซอ ซึง"},
+ {"q":"เครื่องดนตรีพื้นบ้านภาคเหนือ “สะล้อ ซอ ซึง” เป็นเครื่องดนตรีประเภทใด","o":["สะล้อและซอเป็นเครื่องสี ซึงเป็นเครื่องดีด","เครื่องเป่าทั้งหมด","เครื่องตีทั้งหมด","เครื่องดีดทั้งหมด"],"a":0,"e":"วงสะล้อซอซึง"},
+ {"q":"เพลงพื้นบ้านภาคอีสานที่มีชื่อเสียงที่สุดคืออะไร","o":["หมอลำ","ลำตัด","เพลงเรือ","โนรา"],"a":0,"e":"ขับร้องประกอบแคน"},
+ {"q":"โปงลาง เป็นเครื่องดนตรีภาคใด และประเภทใด","o":["ภาคอีสาน เครื่องตี (ทำจากไม้แขวนเรียง)","ภาคใต้ เครื่องเป่า","ภาคเหนือ เครื่องสี","ภาคกลาง เครื่องดีด"],"a":0,"e":"จังหวัดกาฬสินธุ์มีชื่อเสียง"},
+ {"q":"เพลงพื้นบ้านภาคใต้ ได้แก่ข้อใด","o":["เพลงบอก เพลงนา และดนตรีประกอบโนรา หนังตะลุง","หมอลำ","เพลงซอ","ลำตัด"],"a":0,"e":"เครื่องดนตรี ทับ โหม่ง ปี่ กลอง"},
+ {"q":"เครื่องดนตรี “ทับ โหม่ง ฉิ่ง ปี่” ใช้ประกอบการแสดงใดของภาคใต้","o":["โนราและหนังตะลุง","ฟ้อนเล็บ","ลิเก","หมอลำ"],"a":0,"e":"จังหวะเร้าใจ"},
+ {"q":"เพลงกล่อมเด็ก เช่น “นกกาเหว่า” “จันทร์เจ้าขา” จัดเป็นเพลงประเภทใด","o":["เพลงพื้นบ้านที่ร้องกล่อมให้เด็กหลับ สืบทอดด้วยปากต่อปาก","เพลงชาติ","เพลงสากล","เพลงลูกทุ่ง"],"a":0,"e":"แต่ละภาคมีเพลงกล่อมเด็กของตน"},
+ {"q":"เพลงลูกทุ่ง มีลักษณะอย่างไร","o":["เนื้อหาสะท้อนชีวิตชนบท ทำนองเรียบง่าย ร้องชัดถ้อยชัดคำ","ร้องเป็นภาษาอังกฤษ","ไม่มีเนื้อร้อง","ใช้เฉพาะเครื่องดนตรีไทย"],"a":0,"e":"ราชินีลูกทุ่งคือพุ่มพวง ดวงจันทร์"},
+ {"q":"เพลงไทยสากล (ลูกกรุง) ต่างจากเพลงลูกทุ่งอย่างไร","o":["ใช้ภาษาสละสลวย ทำนองแบบสากล เนื้อหามักเกี่ยวกับความรักในเมือง","เหมือนกันทุกอย่าง","ลูกกรุงร้องเป็นภาษาจีน","ลูกกรุงไม่มีดนตรี"],"a":0,"e":"เช่น เพลงของสุนทราภรณ์"},
+ {"q":"วงสุนทราภรณ์ มีความสำคัญอย่างไรต่อวงการเพลงไทย","o":["บุกเบิกเพลงไทยสากลและเพลงรำวงมาตรฐาน","เป็นวงปี่พาทย์","เป็นวงลูกทุ่งวงแรก","เป็นวงร็อก"],"a":0,"e":"ก่อตั้งโดยครูเอื้อ สุนทรสนาน"},
+ {"q":"เพลงรำวงมาตรฐาน ใช้ประกอบกิจกรรมใด","o":["การรำวงที่มีท่ารำกำหนดไว้ ๑๐ เพลง เช่น งามแสงเดือน","การเดินสวนสนาม","การแข่งกีฬา","การสวดมนต์"],"a":0,"e":"เพลงแรกคือ “งามแสงเดือน”"},
+ {"q":"การร้องเพลงให้ถูกต้อง ควรหายใจอย่างไร","o":["หายใจเข้าทางจมูกให้ท้องขยาย (ใช้กะบังลม) แล้วปล่อยลมสม่ำเสมอ","หายใจตื้น ๆ ที่อก","กลั้นหายใจ","หายใจทางปากอย่างเดียว"],"a":0,"e":"เสียงจะยาวและมั่นคง"},
+ {"q":"ท่าทางที่ถูกต้องในการร้องเพลง คือข้อใด","o":["ยืนตรง ไหล่ผ่อนคลาย เท้าห่างเล็กน้อย หน้ามองตรง","ก้มหน้า","นั่งงอหลัง","เอามือล้วงกระเป๋า"],"a":0,"e":"ช่องทางลมเปิดโล่ง"},
+ {"q":"การร้องเพลงประสานเสียง (chorus) ต้องมีสิ่งใด","o":["ฟังเสียงเพื่อนและปรับเสียงตนให้กลมกลืน ไม่ร้องดังกลบคนอื่น","ร้องให้ดังที่สุด","ร้องคนละจังหวะ","ร้องตามใจ"],"a":0,"e":"ความสามัคคีทางเสียง"},
+ {"q":"การขับร้องเพลงไทยเดิม มีลักษณะเฉพาะคืออะไร","o":["มีการเอื้อน (ร้องเสียงยาวโดยไม่มีเนื้อร้อง)","ร้องเร็วมาก","ไม่มีทำนอง","ร้องเป็นภาษาอังกฤษ"],"a":0,"e":"เอื้อนคือเสน่ห์ของเพลงไทย"},
+ {"q":"ขณะชมการแสดงดนตรี ควรปฏิบัติอย่างไร","o":["นั่งสงบ ไม่พูดคุย ปิดเสียงโทรศัพท์ ปรบมือเมื่อจบเพลง","คุยโทรศัพท์","ร้องตามเสียงดัง","เดินเข้าออกตลอดเวลา"],"a":0,"e":"มารยาทผู้ชม"},
+ {"q":"ควรปรบมือเมื่อใดในการชมคอนเสิร์ตดนตรีคลาสสิก","o":["เมื่อเพลงจบทั้งบท ไม่ปรบระหว่างท่อน","ทุกครั้งที่นักดนตรีหยุด","ตลอดเวลา","ไม่ต้องปรบ"],"a":0,"e":"รอจนวาทยกรหันมา"},
+ {"q":"วาทยกร (conductor) ทำหน้าที่อะไร","o":["ควบคุมจังหวะ ความดังเบา และการประสานของวงดนตรี","เล่นกลอง","ร้องนำ","ขายบัตร"],"a":0,"e":"ใช้ไม้บาตองกำกับ"},
+ {"q":"การดูแลรักษาเครื่องดนตรีไทยที่ทำจากไม้ ควรทำอย่างไร","o":["เช็ดฝุ่น เก็บในที่แห้ง ไม่โดนแดดฝน ไม่วางของทับ","แช่น้ำล้าง","ตากแดดจัด","วางบนพื้นทางเดิน"],"a":0,"e":"ไม้บวมหรือแตกได้"},
+ {"q":"หลังเป่าขลุ่ยหรือรีคอร์เดอร์เสร็จ ควรทำอย่างไร","o":["เช็ดน้ำลายให้แห้ง ทำความสะอาด และเก็บในซอง","เก็บทันทีทั้งเปียก","วางตากแดด","ให้เพื่อนเป่าต่อโดยไม่เช็ด"],"a":0,"e":"สุขอนามัยและอายุการใช้งาน"},
+ {"q":"ทำไมไม่ควรใช้ปากเป่าเครื่องเป่าร่วมกับผู้อื่นโดยไม่ทำความสะอาด","o":["อาจติดเชื้อโรคจากน้ำลาย","เสียงจะเพี้ยน","เครื่องจะพัง","ไม่มีเหตุผล"],"a":0,"e":"ใช้เครื่องของตนเอง"},
+ {"q":"ดนตรีมีประโยชน์ต่อชีวิตประจำวันอย่างไร","o":["ผ่อนคลายอารมณ์ สร้างความสุข ใช้ในพิธีกรรม และสื่อสารวัฒนธรรม","ไม่มีประโยชน์","ทำให้เสียเวลา","ใช้ได้เฉพาะนักดนตรี"],"a":0,"e":"ดนตรีเป็นภาษาสากล"},
+ {"q":"เพลงจังหวะช้า นุ่มนวล ให้ความรู้สึกอย่างไร","o":["สงบ ผ่อนคลาย หรือเศร้า","ตื่นเต้น","โกรธ","สนุกสนานคึกคัก"],"a":0,"e":"อารมณ์เพลงสัมพันธ์กับจังหวะ"},
+ {"q":"เพลงจังหวะเร็ว เสียงดัง ให้ความรู้สึกอย่างไร","o":["สนุกสนาน ตื่นเต้น มีพลัง","ง่วงนอน","เศร้า","สงบ"],"a":0,"e":"เช่น เพลงเชียร์กีฬา"},
+ {"q":"ดนตรีประกอบภาพยนตร์ มีหน้าที่อะไร","o":["สร้างอารมณ์และบรรยากาศให้ฉาก เช่น น่ากลัว ตื่นเต้น ซึ้ง","ทำให้หนังยาวขึ้น","ขายเพลง","ไม่มีหน้าที่"],"a":0,"e":"ลองปิดเสียงดูหนังสยองขวัญ"},
+ {"q":"การใช้ดนตรีในพิธีกรรมไทย เช่น งานบวช งานแต่ง สะท้อนอะไร","o":["ดนตรีเป็นส่วนหนึ่งของวิถีชีวิตและความเชื่อของคนไทย","ดนตรีใช้เฉพาะความบันเทิง","คนไทยไม่ชอบดนตรี","ไม่สะท้อนอะไร"],"a":0,"e":"แต่ละพิธีมีเพลงเฉพาะ"},
+ {"q":"เพลง “โหมโรง” ในดนตรีไทย คืออะไร","o":["เพลงที่บรรเลงเปิดงานหรือเปิดการแสดง เพื่อเป็นสิริมงคลและบอกว่าการแสดงจะเริ่ม","เพลงจบงาน","เพลงกล่อมเด็ก","เพลงเชียร์"],"a":0,"e":"โหมโรงเช้า โหมโรงเย็น"},
+ {"q":"เพลง “สาธุการ” ใช้ในโอกาสใด","o":["บรรเลงเพื่อบูชาพระรัตนตรัยและครูบาอาจารย์ในพิธีไหว้ครู","งานรื่นเริง","แข่งกีฬา","เปิดร้านค้า"],"a":0,"e":"เพลงหน้าพาทย์ชั้นสูง"},
+ {"q":"พิธีไหว้ครูดนตรีไทย มีความสำคัญอย่างไร","o":["แสดงความกตัญญูต่อครูและเทพแห่งดนตรี ก่อนเริ่มเรียนหรือแสดง","เป็นวันหยุด","เป็นการแข่งขัน","ไม่มีความสำคัญ"],"a":0,"e":"มีพิธีครอบครู"},
+ {"q":"“พระวิษณุกรรม” และ “พระปรคนธรรพ” เกี่ยวข้องกับดนตรีไทยอย่างไร","o":["เป็นครูเทพที่นักดนตรีไทยเคารพบูชาในพิธีไหว้ครู","เป็นผู้ประดิษฐ์ระนาด","เป็นกษัตริย์","เป็นชื่อเพลง"],"a":0,"e":"พระปรคนธรรพเป็นครูปี่พาทย์"},
+ {"q":"การสร้างสรรค์จังหวะง่าย ๆ ด้วยการปรบมือและเคาะโต๊ะ เรียกว่าอะไร","o":["Body percussion (การใช้ร่างกายสร้างจังหวะ)","การร้องเพลง","การเต้น","การวาดรูป"],"a":0,"e":"ไม่ต้องใช้เครื่องดนตรี"},
+ {"q":"การแต่งเพลงสั้น ๆ ในชั้นเรียน ควรเริ่มจากอะไร","o":["เลือกหัวข้อ แต่งเนื้อร้องสั้น ๆ แล้วใส่ทำนองง่าย ๆ ๒–๓ เสียง","ซื้อเครื่องดนตรีแพง ๆ","เรียนทฤษฎีทั้งหมดก่อน","ลอกเพลงดัง"],"a":0,"e":"ความคิดสร้างสรรค์สำคัญกว่าความสมบูรณ์แบบ"},
+ {"q":"โน้ตเพลง “เพลงช้าง” (ช้าง ช้าง ช้าง น้องเคยเห็นช้างหรือเปล่า) ใช้เสียงใดเป็นหลักในตอนต้น","o":["ซอล ซอล ซอล","โด โด โด","ลา ลา ลา","ฟา ฟา ฟา"],"a":0,"e":"เพลงเด็กไทยคลาสสิก"},
+ {"q":"เพลง “ช้าง” แต่งโดยใคร","o":["คุณหญิงชิ้น ศิลปบรรเลง","สุนทรภู่","ครูเอื้อ สุนทรสนาน","พระเจนดุริยางค์"],"a":0,"e":"ธิดาของหลวงประดิษฐไพเราะ"},
+ {"q":"การฟังเพลงแล้วบอกได้ว่ามีเครื่องดนตรีใดบรรเลง เป็นการฝึกทักษะใด","o":["การฟังแยกแยะสีสันของเสียง (timbre)","การร้อง","การเต้น","การอ่านโน้ต"],"a":0,"e":"แต่ละเครื่องมีเสียงเฉพาะ"},
+ {"q":"“สีสันของเสียง” (timbre) หมายถึงอะไร","o":["ลักษณะเฉพาะของเสียงที่ทำให้แยกได้ว่ามาจากเครื่องดนตรีหรือคนใด","ความดัง","ความสูงต่ำ","ความเร็ว"],"a":0,"e":"โน้ตเดียวกันบนขลุ่ยกับไวโอลินฟังต่างกัน"},
+ {"q":"เสียงร้องของมนุษย์แบ่งตามระดับเสียงได้อย่างไร (พื้นฐาน)","o":["เสียงสูง (โซปราโน/เทเนอร์) และเสียงต่ำ (อัลโต/เบส)","เสียงดังและเสียงเบา","เสียงเร็วและเสียงช้า","เสียงไทยและเสียงสากล"],"a":0,"e":"หญิง: โซปราโน อัลโต ชาย: เทเนอร์ เบส"},
+ {"q":"การร้องเพลงเสียงดังตะโกนเป็นเวลานาน ส่งผลอย่างไร","o":["เส้นเสียงอักเสบ เสียงแหบ","เสียงดีขึ้น","ไม่มีผล","ทำให้สูง"],"a":0,"e":"ดูแลเส้นเสียงด้วยการดื่มน้ำและพักเสียง"},
+ {"q":"ดนตรีบำบัด (music therapy) คืออะไร","o":["การใช้ดนตรีช่วยฟื้นฟูสุขภาพกายและใจ","การซ่อมเครื่องดนตรี","การสอนดนตรี","การแข่งดนตรี"],"a":0,"e":"ใช้ในโรงพยาบาลและผู้สูงอายุ"},
+ {"q":"คาราโอเกะ คืออะไร","o":["การร้องเพลงตามดนตรีบรรเลงที่บันทึกไว้โดยมีเนื้อร้องขึ้นจอ","เครื่องดนตรีญี่ปุ่น","วงดนตรี","เพลงประเภทหนึ่ง"],"a":0,"e":"คำมาจากภาษาญี่ปุ่น"},
+ {"q":"การเลือกฟังเพลงที่เหมาะสมกับวัย ควรคำนึงถึงสิ่งใด","o":["เนื้อหาไม่หยาบคาย ไม่ส่งเสริมความรุนแรงหรือสิ่งเสพติด","ความดังของเพลง","ความยาวของเพลง","ยี่ห้อหูฟัง"],"a":0,"e":"เพลงมีอิทธิพลต่อความคิด"},
+ {"q":"การฟังเพลงด้วยหูฟังเสียงดังเป็นเวลานาน ส่งผลอย่างไร","o":["ประสาทหูเสื่อม หูตึงก่อนวัย","หูดีขึ้น","ไม่มีผล","ทำให้ฉลาด"],"a":0,"e":"ไม่เกิน ๖๐% ของความดัง ไม่เกิน ๖๐ นาที"},
+ {"q":"ระดับเสียงที่ดังเกินกี่เดซิเบลเป็นอันตรายต่อหูเมื่อฟังนาน","o":["เกิน ๘๕ เดซิเบล","๒๐ เดซิเบล","๔๐ เดซิเบล","๖๐ เดซิเบล"],"a":0,"e":"เสียงพูดปกติประมาณ ๖๐ เดซิเบล"},
+ {"q":"การดาวน์โหลดเพลงจากเว็บไซต์เถื่อน ส่งผลเสียต่อใคร","o":["ศิลปินและผู้สร้างสรรค์ที่ไม่ได้รับค่าตอบแทน และผิดกฎหมายลิขสิทธิ์","ไม่มีใครเสียหาย","เฉพาะผู้ดาวน์โหลด","เฉพาะบริษัทต่างชาติ"],"a":0,"e":"ฟังผ่านบริการถูกลิขสิทธิ์"},
+ {"q":"ข้อใดเป็นการแสดงความชื่นชมนักดนตรีอย่างเหมาะสม","o":["ปรบมือ กล่าวชม และสนับสนุนผลงานถูกลิขสิทธิ์","โห่ไล่","ขว้างปาสิ่งของ","ถ่ายคลิปแล้วล้อเลียน"],"a":0,"e":"ให้กำลังใจผู้แสดง"},
+ {"q":"ดนตรีกับนาฏศิลป์ไทยสัมพันธ์กันอย่างไร","o":["ดนตรีกำหนดจังหวะและอารมณ์ให้การร่ายรำ เช่น เพลงหน้าพาทย์ประกอบท่ารำ","ไม่เกี่ยวข้องกัน","นาฏศิลป์ไม่ใช้ดนตรี","ดนตรีใช้เฉพาะโขน"],"a":0,"e":"แยกกันไม่ได้"},
+ {"q":"เพลง “ค้างคาวกินกล้วย” เป็นเพลงไทยเดิมที่นิยมใช้ประกอบอะไร","o":["การรำและการแสดงสนุกสนาน จังหวะเร็ว","พิธีศพ","การสวดมนต์","การเดินสวนสนาม"],"a":0,"e":"เพลงสำเนียงลาวจังหวะคึกคัก"},
+ {"q":"เครื่องดนตรีใดเป็นสัญลักษณ์ของภาคอีสานและใช้ในหมอลำ","o":["แคน","ซึง","ระนาด","ทับ"],"a":0,"e":"เครื่องเป่าทำจากไม้ไผ่หลายลำ"},
+ {"q":"การนับจังหวะ “หนึ่ง สอง สาม สี่” แล้วปรบมือที่จังหวะหนึ่ง เป็นการฝึกอะไร","o":["การรับรู้จังหวะหนัก (จังหวะตก) ของห้องเพลง","การร้องเพลง","การอ่านโน้ต","การเต้น"],"a":0,"e":"จังหวะที่ ๑ มักหนักที่สุด"},
+ {"q":"การบรรเลงดนตรีเป็นวง ต้องมีสิ่งใดสำคัญที่สุด","o":["การฟังกันและเล่นให้พร้อมเพรียงตามจังหวะเดียวกัน","เล่นดังกว่าคนอื่น","เล่นเร็วที่สุด","เล่นคนละเพลง"],"a":0,"e":"ความสามัคคีในวง"},
+ {"q":"ทำไมควรอนุรักษ์ดนตรีไทย","o":["เป็นมรดกทางวัฒนธรรม แสดงเอกลักษณ์ของชาติ และเป็นรากของดนตรีไทยร่วมสมัย","ไม่จำเป็นเพราะล้าสมัย","เพื่อขายนักท่องเที่ยวเท่านั้น","เพราะกฎหมายบังคับ"],"a":0,"e":"เยาวชนช่วยได้ด้วยการเรียนรู้และชื่นชม"},
+ {"q":"นักเรียนช่วยอนุรักษ์ดนตรีไทยได้อย่างไร","o":["เรียนเล่นเครื่องดนตรีไทย ชมการแสดง และเผยแพร่ให้เพื่อนรู้จัก","ล้อเลียนว่าล้าสมัย","ฟังแต่เพลงต่างประเทศ","ไม่สนใจ"],"a":0,"e":"เริ่มจากขลุ่ยหรือฉิ่ง"},
+ {"q":"ฆ้องวงใหญ่ ในวงปี่พาทย์ ทำหน้าที่อะไร","o":["บรรเลงทำนองหลักของเพลง (เนื้อเพลงแท้)","ให้จังหวะอย่างเดียว","ร้องนำ","เป่าเสียงสูง"],"a":0,"e":"ผู้เรียนปี่พาทย์เริ่มจากฆ้องวงใหญ่"},
+],
+};
+
+const SET_NAMES = {1:'🎵 ดนตรี ๑๐๐ ข้อ'};
+// ---------- storage ----------
+const KEY='exam100-music-best';
+const SEENKEY='exam100-music-seen';
+function loadSeen(){try{return JSON.parse(localStorage.getItem(SEENKEY)||'{}')}catch(e){return {}}}
+function saveSeen(x){try{localStorage.setItem(SEENKEY,JSON.stringify(x))}catch(e){}}
+let seen=loadSeen();
+for(const k in BANK)BANK[k].forEach((q,i)=>q.id=k+'-'+i);
+function seenCount(set){const p=pool(),s=new Set(seen[set]||[]);return p.filter(q=>s.has(q.id)).length}
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')||id.endsWith('.html')||id.startsWith('../')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'อ่าน',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label||TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    const hasV=!!el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(hasV?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  const want=$('count').value;const all=pool();const sset=new Set(seen[currentSet]||[]);let unseen=shuffle(all.filter(q=>!sset.has(q.id)));let seenQ=shuffle(all.filter(q=>sset.has(q.id)));
+  const need=want==='all'?all.length:Math.min(Number(want),all.length);
+  let src;
+  if(unseen.length>=need){src=unseen.slice(0,need);}
+  else{ src=unseen.concat(seenQ.slice(0,need-unseen.length)); seen[currentSet]=[]; sset.clear(); }
+  qs=src.map(q=>{const order=shuffle([0,1,2,3]);return {id:q.id,q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  if(!seen[currentSet])seen[currentSet]=[];if(!seen[currentSet].includes(q.id)){seen[currentSet].push(q.id);saveSeen(seen);}
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>
