@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ข้อสอบวรรณคดีลำนำ ๑๐๐ ข้อ ป.๔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#14213D; --muted:#5A6A85; --line:#EADFCF;
+  --plum:#0369A1; --plum-soft:#E0F2FE; --gold:#F2B705; --gold-soft:#FFF1C2;
+  --teal:#1F9C8A; --teal-soft:#DDF4EF; --red:#D9480F; --red-soft:#FFE6D9;
+  --ok:#1F8F4E; --ok-soft:#DFF5E6; --bad:#C8402F; --bad-soft:#FBE3DF;
+  --shadow:0 6px 24px rgba(30,60,120,.10);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+    --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+    --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+    --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1226; --card:#26193A; --ink:#F6EEFF; --muted:#B9A8CC; --line:#3D2C55;
+  --plum:#8AB4F8; --plum-soft:#1B2D4F; --gold:#F7C948; --gold-soft:#4A3A0E;
+  --teal:#4FD1BC; --teal-soft:#183A36; --red:#FFA45C; --red-soft:#4A2A12;
+  --ok:#5FD48C; --ok-soft:#173A26; --bad:#FF8A73; --bad-soft:#4A1F18;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:"Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Mitr","Sarabun",sans-serif;font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.subjects{display:flex;gap:8px;flex-wrap:wrap}
+.subjects a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+.subjects a.on{background:var(--plum);border-color:var(--plum);color:#fff}
+/* header */
+.hero{padding-block:28px 12px;display:grid;gap:14px}
+.eyebrow{font-family:"Mitr",sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(30px,6vw,46px);color:var(--plum)}
+.hero h1 span{color:var(--red)}
+.books{display:flex;flex-wrap:wrap;gap:10px}
+.book{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500}
+.book.b1{background:var(--plum-soft);color:var(--plum)}
+.book.b2{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .book.b2{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .book.b2{color:var(--gold)}}
+.book i{width:10px;height:14px;border-radius:2px;background:currentColor;opacity:.8;display:inline-block}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.nav a{text-decoration:none;font-family:"Mitr",sans-serif;font-size:15px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{border-color:var(--plum)}
+
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:26px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* chapter list */
+.chapters{display:grid;gap:12px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ch-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-family:"Mitr",sans-serif;font-size:26px;font-weight:600;background:var(--plum-soft);color:var(--plum)}
+.ch-title{display:grid;gap:2px;min-width:0}
+.ch-title h3{font-size:19px}
+.ch-title small{color:var(--muted);font-size:14px}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-family:"Mitr",sans-serif;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:#3A2A00}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-red{background:var(--red);color:#fff}
+.ch-body{display:none;border-top:1px dashed var(--line);padding:14px 16px 18px;gap:14px}
+.ch.open .ch-body{display:grid}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.links{display:grid;gap:6px;font-size:15px}
+.links a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:8px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.links a:hover{border-color:var(--plum)}
+.tag{font-family:"Mitr",sans-serif;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.k{background:var(--gold-soft);color:#7A5A00}
+:root[data-theme="dark"] .tag.k{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.k{color:var(--gold)}}
+.tag.d{background:var(--plum-soft);color:var(--plum)}
+.best{font-family:"Mitr",sans-serif;font-size:13px;color:var(--muted)}
+.best b{color:var(--ok)}
+@media (max-width:560px){
+  .ch-row{grid-template-columns:48px 1fr}
+  .num{width:48px;height:48px;font-size:22px}
+  .ch-actions{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* workbook */
+.wb{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.wb .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.wb h3{font-size:17px}
+.wb p{margin:0;color:var(--muted);font-size:15px}
+
+/* quiz */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.sets{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;font-family:"Mitr",sans-serif;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:"Mitr",sans-serif;font-size:14px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .3s ease}
+.q-text{font-family:"Mitr",sans-serif;font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--plum)}
+.opt b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum-soft);color:var(--plum);font-family:"Mitr",sans-serif}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.explain{border-radius:14px;padding:12px 14px;font-size:16px;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--ok-soft);color:var(--ink)}
+.explain.no{background:var(--bad-soft);color:var(--ink)}
+.explain strong{font-family:"Mitr",sans-serif}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score-live{font-family:"Mitr",sans-serif;color:var(--muted);font-size:15px}
+.score-live b{color:var(--ok);font-size:20px}
+.result{display:grid;gap:12px;text-align:center;padding-block:10px}
+.result .big{font-family:"Mitr",sans-serif;font-size:clamp(44px,10vw,72px);font-weight:600;color:var(--plum);line-height:1;font-variant-numeric:tabular-nums}
+.result .msg{font-family:"Mitr",sans-serif;font-size:22px}
+.stars{font-size:34px;letter-spacing:6px}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{display:grid;gap:8px;text-align:left;font-size:15px}
+.review div{padding:10px 12px;border-radius:12px;background:var(--paper);border-left:4px solid var(--ok)}
+.review div.miss{border-left-color:var(--bad)}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <nav class="subjects">
+    <a href="index.html">🏠 รวมข้อสอบ ๙ วิชา</a>
+    <a href="history.html">📜 ประวัติศาสตร์</a>
+    <a href="social.html">🌏 สังคมศึกษา</a>
+    <a href="work.html">🛠 การงานอาชีพ</a>
+    <a href="ict.html">💻 ICT วิทยาการคำนวณ</a>
+    <a href="thai.html">📘 ภาษาไทย</a>
+    <a href="patee.html">📖 ภาษาพาที</a>
+    <a class="on" href="literature.html">🐉 วรรณคดีลำนำ</a>
+    <a href="pe.html">🏃 สุขศึกษาและพลศึกษา</a>
+    <a href="music.html">🎵 ดนตรี</a>
+    <a href="../index.html">↩ เว็บหลัก (คลิป+ข้อสอบ)</a>
+  </nav>
+  <div class="eyebrow">วรรณคดีลำนำ · ชั้นประถมศึกษาปีที่ ๔ · ข้อสอบ ๑๐๐ ข้อ · ทำครบ ๑๐๐ ข้อทุกครั้ง</div>
+  <h1>ข้อสอบ<span>วรรณคดีลำนำ</span> ป.๔ — ๑๐๐ ข้อ</h1>
+  <div class="books">
+    <span class="book b1"><i></i>๖ บท + บทอาขยาน: การผจญภัยของสุดสาคร · น้ำผึ้งหยดเดียว · ระบำสายฟ้า · เรื่องเล่าจากพัทลุง · ดวงจันทร์ของลำเจียก · ห้องสมุดป่า · สยามานุสสติ · ปากเป็นเอกเลขเป็นโท · ฉันทลักษณ์ ภาพพจน์ คำศัพท์</span>
+    <span class="book b2"><i></i>กติกา: ทำครั้งละ ๑๐๐ ข้อเต็ม ไม่มีตัวเลือกจำนวนข้อ · สลับลำดับข้อและตัวเลือกใหม่ทุกครั้ง</span>
+  </div>
+  <nav class="nav">
+    <a href="#lessons">📚 ก่อนสอบดูอะไร</a>
+    <a href="#workbook">📚 สรุปที่ต้องจำ</a>
+    <a href="#quiz">🏆 ทำแบบทดสอบ</a>
+  </nav>
+</header>
+
+<section id="lessons">
+  <div class="sec-head">
+    <h2>ข้อสอบวรรณคดีลำนำ ๑๐๐ ข้อ</h2>
+    <p>กด ✏️ ทำข้อสอบ แล้วทำให้ครบ ๑๐๐ ข้อ · ตอบแล้วเห็นเฉลยทันที · ตัวเลือกและลำดับข้อสลับใหม่ทุกครั้ง</p>
+  </div>
+  <div class="chapters" id="chapters"></div>
+</section>
+
+<section id="workbook">
+  <div class="sec-head">
+    <h2>กติกาชุดเตรียมสอบ 🎯</h2>
+    <p>อ่านก่อนเริ่ม</p>
+  </div>
+  <div class="wb">
+    <div class="card"><h3>๑๐๐ ข้อเต็มทุกครั้ง</h3><p>ชุดนี้ล็อกจำนวนไว้ที่ ๑๐๐ ข้อ ไม่สามารถเลือกทำน้อยกว่านี้ได้ เพื่อฝึกความอดทนเหมือนสอบจริง</p></div>
+    <div class="card"><h3>ข้อใหม่ทั้งหมด</h3><p>๑๐๐ ข้อนี้เขียนขึ้นใหม่ ไม่ซ้ำกับข้อสอบในเว็บหลัก</p></div>
+    <div class="card"><h3>ออกจากกลางคันได้</h3><p>กด “ออก” ได้ถ้าจำเป็น แต่คะแนนจะไม่ถูกบันทึก · คะแนนสูงสุดบันทึกเมื่อทำครบ ๑๐๐ ข้อเท่านั้น</p></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sec-head">
+    <h2>แบบทดสอบ 🏆</h2>
+    <p>ชุดเตรียมสอบ ๑๐๐ ข้อ ทำครบทุกครั้ง · ตอบแล้วเห็นเฉลยทันที · คะแนนสูงสุดบันทึกไว้ในเครื่อง · ข้อสอบสุ่มใหม่ทุกครั้ง</p>
+  </div>
+  <div class="quiz">
+    <div id="picker">
+      <div class="sets" id="sets"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live" id="pick-info">เลือกชุดข้อสอบด้านบน</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="score-live">จำนวนข้อ <b>๑๐๐ ข้อ (ล็อก)</b></span><select id="count" class="hidden"><option value="all" selected>all</option></select>
+          <button class="btn btn-primary" id="start">เริ่มทำข้อสอบ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play" class="hidden">
+      <div class="q-top"><span id="q-count">ข้อ 1 / 5</span><span id="q-set"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q-text" id="q-text" style="margin-top:14px"></div>
+      <div class="opts" id="opts" style="margin-top:14px"></div>
+      <div class="explain" id="explain" style="margin-top:12px"></div>
+      <div class="q-foot" style="margin-top:14px">
+        <div class="score-live">คะแนน <b id="score-live">0</b></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="quit">ออก</button>
+          <button class="btn btn-primary hidden" id="next">ข้อต่อไป →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="result hidden">
+      <div class="stars" id="stars"></div>
+      <div class="big" id="final"></div>
+      <div class="msg" id="msg"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="again">ทำอีกครั้ง</button>
+        <button class="btn btn-ghost" id="back">เลือกชุดอื่น</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  วิดีโอทั้งหมดเป็นของครูและช่องผู้จัดทำบน YouTube และ DLTV · ข้อสอบในหน้านี้จัดทำขึ้นตามเนื้อหาวิชาวรรณคดีลำนำ ป.๔ เพื่อใช้ทบทวน ไม่ใช่ข้อสอบทางการของโรงเรียน
+</footer>
+</div>
+
+<script>
+const TH = ['๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+const CHAPTERS = [
+  {n:1,label:'🐉',title:'ข้อสอบวรรณคดีลำนำ ๑๐๐ ข้อ',focus:'๖ บท + บทอาขยาน: การผจญภัยของสุดสาคร · น้ำผึ้งหยดเดียว · ระบำสายฟ้า · เรื่องเล่าจากพัทลุง · ดวงจันทร์ของลำเจียก · ห้องสมุดป่า · สยามานุสสติ · ปากเป็นเอกเลขเป็นโท · ฉันทลักษณ์ ภาพพจน์ คำศัพท์',video:null,
+   links:[["Hq8oKlz9Q9Q", "คลิป น้ำผึ้งหยดเดียว (ครูเป็ดขี้เหร่)", "k"], ["dltv:55613", "DLTV ดวงจันทร์ของลำเจียก", "d"], ["https://dltv.ac.th/teachplan/lists/4/1000", "DLTV ภาษาไทย ป.๔ (วรรณคดีลำนำ)", "d"]]},
+];
+const BANK = {
+1:[
+ {"q":"“การผจญภัยของสุดสาคร” ตัดตอนมาจากวรรณคดีเรื่องใด","o":["พระอภัยมณี","ขุนช้างขุนแผน","รามเกียรติ์","สังข์ทอง"],"a":0,"e":"บทที่ ๑ วรรณคดีลำนำ ป.๔"},
+ {"q":"ผู้แต่งเรื่องพระอภัยมณีคือใคร","o":["สุนทรภู่","รัชกาลที่ ๒","เจ้าฟ้ากุ้ง","ศรีปราชญ์"],"a":0,"e":"กวีเอกสมัยรัตนโกสินทร์ตอนต้น"},
+ {"q":"พระอภัยมณีแต่งด้วยคำประพันธ์ชนิดใด","o":["กลอนสุภาพ (กลอนแปด)","โคลงสี่สุภาพ","ฉันท์","ร่าย"],"a":0,"e":"สุนทรภู่เป็นกวีกลอนที่ไพเราะที่สุด"},
+ {"q":"สุดสาครเป็นบุตรของใคร","o":["พระอภัยมณีกับนางเงือก","พระอภัยมณีกับนางสุวรรณมาลี","ศรีสุวรรณกับนางเกษรา","พระอภัยมณีกับนางผีเสื้อสมุทร"],"a":0,"e":"สินสมุทรเป็นบุตรกับนางผีเสื้อสมุทร"},
+ {"q":"สุดสาครเกิดและเติบโตที่ใด","o":["เกาะแก้วพิสดาร","เมืองรัตนา","เมืองการะเวก","เมืองผลึก"],"a":0,"e":"พระฤๅษีเป็นผู้เลี้ยงดู"},
+ {"q":"ใครเป็นผู้เลี้ยงดูและสั่งสอนสุดสาครตั้งแต่เล็ก","o":["พระฤๅษีแห่งเกาะแก้วพิสดาร","นางเงือก","พระอภัยมณี","ท้าวสุริโยทัย"],"a":0,"e":"เพราะพระอภัยมณีจากไปก่อนสุดสาครเกิด"},
+ {"q":"ม้านิลมังกร มีลักษณะพิเศษอย่างไร","o":["ตัวเป็นม้า หัวเป็นมังกร หางเหมือนนาค กินสัตว์ร้ายได้ เดินทางได้ทั้งบกและน้ำ","เป็นม้าสีขาวมีปีก","เป็นม้าธรรมดา","เป็นมังกรพ่นไฟ"],"a":0,"e":"สุดสาครจับได้และปราบจนเชื่อง"},
+ {"q":"สุดสาครปราบม้านิลมังกรได้ด้วยสิ่งใด","o":["ไม้เท้าวิเศษของพระฤๅษี","ดาบ","พิณ","ปี่"],"a":0,"e":"ไม้เท้าที่พระฤๅษีมอบให้"},
+ {"q":"ทำไมสุดสาครจึงออกเดินทางจากเกาะแก้วพิสดาร","o":["เพื่อตามหาพระอภัยมณี พระบิดา","เพื่อหาสมบัติ","เพื่อหนีศัตรู","เพื่อไปเรียนหนังสือ"],"a":0,"e":"พระฤๅษีบอกเรื่องพระบิดา"},
+ {"q":"ระหว่างทาง สุดสาครพบใครที่หลอกลวงตน","o":["ชีเปลือย","โจรสลัด","ยักษ์","นางเงือก"],"a":0,"e":"ชีเปลือยแสร้งทำเป็นนักบวช"},
+ {"q":"ชีเปลือยทำร้ายสุดสาครอย่างไร","o":["ผลักตกเหว แล้วขโมยม้านิลมังกรและไม้เท้าไป","วางยาพิษ","จับขังคุก","ขายให้โจร"],"a":0,"e":"ความไว้ใจคนแปลกหน้า"},
+ {"q":"ใครมาช่วยสุดสาครขึ้นจากเหว","o":["พระฤๅษี","นางเงือก","พระอภัยมณี","ม้านิลมังกร"],"a":0,"e":"พระฤๅษีเหาะมาช่วย"},
+ {"q":"พระฤๅษีสอนสุดสาครหลังถูกชีเปลือยหลอกว่าอย่างไร","o":["“อย่าไว้ใจมนุษย์ มันแสนสุดลึกล้ำเหลือกำหนด”","“จงรักษาศีลห้า”","“จงเรียนให้เก่ง”","“จงกลับเกาะ”"],"a":0,"e":"บทอาขยานที่มีชื่อเสียง"},
+ {"q":"“ถึงเถาวัลย์พันเกี่ยวที่เลี้ยวลด ก็ไม่คดเหมือนหนึ่งในน้ำใจคน” กลอนนี้สื่อความหมายใด","o":["จิตใจคนคดเคี้ยวซับซ้อนยิ่งกว่าเถาวัลย์","เถาวัลย์เป็นพืชมีพิษ","คนตรงเหมือนเถาวัลย์","ควรปลูกเถาวัลย์"],"a":0,"e":"เปรียบเทียบใจคนกับธรรมชาติ"},
+ {"q":"“แม้นใครรักรักมั่งชังชังตอบ ให้รอบคอบคิดอ่านนะหลานหนา” เป็นคำสอนเรื่องใด","o":["ให้รู้จักคน ปฏิบัติต่อผู้อื่นอย่างเหมาะสม และคิดให้รอบคอบ","ให้แก้แค้นทุกคน","ให้รักทุกคนเท่ากัน","ให้ไม่คบใครเลย"],"a":0,"e":"พระฤๅษีสอนสุดสาคร"},
+ {"q":"หลังจากได้ม้านิลมังกรคืน สุดสาครเดินทางไปถึงเมืองใด","o":["เมืองการะเวก","เมืองผลึก","เมืองลังกา","เมืองรมจักร"],"a":0,"e":"บทอาขยาน “สุดสาครเข้าเมืองการะเวก”"},
+ {"q":"กษัตริย์เมืองการะเวกคือใคร และทรงปฏิบัติต่อสุดสาครอย่างไร","o":["ท้าวสุริโยทัย ทรงรับสุดสาครเป็นพระราชบุตรบุญธรรม","ท้าวสิลราช ทรงจับขัง","พระเจ้าลังกา ทรงไล่","ท้าวทศรถ ทรงให้บวช"],"a":0,"e":"สุดสาครได้เรียนวิชาที่เมืองการะเวก"},
+ {"q":"ลักษณะเด่นของสุดสาครที่ชาวเมืองการะเวกเห็นเมื่อแรกพบคืออะไร","o":["เด็กชายผมจุก นุ่งหนังเสือ ถือไม้เท้า ขี่ม้านิลมังกร","เจ้าชายแต่งกายหรูหรา","พระภิกษุ","ชาวประมง"],"a":0,"e":"ภาพปกหนังสือวรรณคดีลำนำ ป.๔"},
+ {"q":"ข้อคิดสำคัญจากการผจญภัยของสุดสาคร คืออะไร","o":["ไม่ไว้ใจคนแปลกหน้าง่าย ๆ มีความกล้าหาญ อดทน และกตัญญู","ควรเดินทางคนเดียวเสมอ","ควรเชื่อนักบวชทุกคน","ม้าสำคัญกว่าคน"],"a":0,"e":"ใช้ได้ในชีวิตจริง"},
+ {"q":"นางเงือก มารดาของสุดสาคร มีลักษณะอย่างไร","o":["ครึ่งคนครึ่งปลา","ยักษ์","นก","มนุษย์ธรรมดา"],"a":0,"e":"สุดสาครจึงว่ายน้ำเก่ง"},
+ {"q":"พระอภัยมณีมีความสามารถพิเศษด้านใด","o":["เป่าปี่ให้ผู้ฟังหลับหรือตายได้","ยิงธนู","ขี่ม้า","เหาะเหิน"],"a":0,"e":"เรียนวิชาปี่จากครูทิศาปาโมกข์"},
+ {"q":"พี่ชายต่างมารดาของสุดสาคร ที่เป็นบุตรของนางผีเสื้อสมุทร คือใคร","o":["สินสมุทร","ศรีสุวรรณ","หัสไชย","อุศเรน"],"a":0,"e":"สินสมุทรมีกำลังมหาศาล"},
+ {"q":"สุนทรภู่ได้รับยกย่องจากยูเนสโกอย่างไร","o":["เป็นบุคคลสำคัญของโลกด้านวรรณกรรม พ.ศ. ๒๕๒๙","เป็นมรดกโลก","เป็นศิลปินแห่งชาติ","ไม่ได้รับยกย่อง"],"a":0,"e":"วันสุนทรภู่ ๒๖ มิถุนายน"},
+ {"q":"วันสุนทรภู่ตรงกับวันใด","o":["๒๖ มิถุนายน","๒๙ กรกฎาคม","๑๗ มกราคม","๒๓ ตุลาคม"],"a":0,"e":"วันเกิดของสุนทรภู่ พ.ศ. ๒๓๒๙"},
+ {"q":"นอกจากพระอภัยมณี สุนทรภู่ยังมีผลงานเรื่องใดอีก","o":["นิราศภูเขาทอง สุภาษิตสอนหญิง สวัสดิรักษา","รามเกียรติ์","ลิลิตพระลอ","สามก๊ก"],"a":0,"e":"นิราศหลายเรื่อง"},
+ {"q":"นิทาน “น้ำผึ้งหยดเดียว” เริ่มต้นจากเหตุการณ์ใด","o":["น้ำผึ้งหยดลงพื้น แมลงวันมาตอม จิ้งจกกินแมลงวัน แมวตะครุบจิ้งจก หมากัดแมว","ฝนตกหนัก","เด็กทะเลาะกัน","ไฟไหม้"],"a":0,"e":"ห่วงโซ่เหตุการณ์"},
+ {"q":"ความขัดแย้งใน “น้ำผึ้งหยดเดียว” ลุกลามจนถึงระดับใด","o":["เจ้าของสัตว์ทะเลาะกัน ชาวบ้านสองฝ่ายวิวาท จนเกิดเรื่องใหญ่ถึงบ้านเมือง","จบที่แมวกับหมา","ไม่มีใครรู้","จบที่เด็กขอโทษ"],"a":0,"e":"เรื่องเล็กกลายเป็นเรื่องใหญ่"},
+ {"q":"ข้อคิดจากเรื่อง “น้ำผึ้งหยดเดียว” คืออะไร","o":["เรื่องเล็กน้อยถ้าไม่ระงับด้วยสติอาจลุกลามเป็นเรื่องใหญ่","น้ำผึ้งเป็นของอันตราย","ไม่ควรเลี้ยงสัตว์","แมลงวันเป็นตัวการ"],"a":0,"e":"สำนวน “น้ำผึ้งหยดเดียว”"},
+ {"q":"สำนวน “น้ำผึ้งหยดเดียว” ปัจจุบันใช้ในความหมายใด","o":["สาเหตุเล็ก ๆ ที่ทำให้เกิดเรื่องใหญ่โต","ของหวานอร่อย","ความรักที่หวานชื่น","การประหยัด"],"a":0,"e":"จากนิทานเรื่องนี้"},
+ {"q":"ถ้าเจ้าของจิ้งจกและเจ้าของแมวใน “น้ำผึ้งหยดเดียว” มีสติ ควรทำอย่างไร","o":["พูดคุยกันด้วยเหตุผล ให้อภัย ไม่โต้ตอบด้วยอารมณ์","ทำร้ายสัตว์ของอีกฝ่าย","เรียกพวกมาช่วยทะเลาะ","ฟ้องศาลทันที"],"a":0,"e":"การแก้ปัญหาด้วยสันติ"},
+ {"q":"นิทาน “น้ำผึ้งหยดเดียว” จัดเป็นนิทานประเภทใด","o":["นิทานคติสอนใจ","นิทานตลก","นิทานผี","ตำนานสถานที่"],"a":0,"e":"มีข้อคิดชัดเจน"},
+ {"q":"เหตุการณ์ใน “น้ำผึ้งหยดเดียว” ที่เกิดต่อเนื่องกันเป็นลูกโซ่ เรียกการเล่าเรื่องแบบนี้ว่าอะไร","o":["การเล่าเรื่องแบบเหตุนำไปสู่ผลต่อเนื่อง (ลูกโซ่)","การเล่าย้อนหลัง","การเล่าสลับฉาก","บทสนทนา"],"a":0,"e":"เหตุ → ผล → เหตุ → ผล"},
+ {"q":"“ระบำสายฟ้า” เป็นบทประพันธ์ประเภทใด","o":["บทร้อยกรองบรรยายธรรมชาติขณะฝนฟ้าคะนอง","นิทาน","บทความ","จดหมาย"],"a":0,"e":"บทที่ ๓"},
+ {"q":"ชื่อ “ระบำสายฟ้า” ใช้ภาพพจน์แบบใด","o":["บุคคลวัต: ให้สายฟ้าเต้นระบำเหมือนคน","อุปมา","อติพจน์","สัทพจน์"],"a":0,"e":"ธรรมชาติทำกิริยาอย่างมนุษย์"},
+ {"q":"คำที่เลียนเสียงธรรมชาติ เช่น “เปรี้ยง” “ครืน” “ซู่” เรียกว่าภาพพจน์แบบใด","o":["สัทพจน์ (คำเลียนเสียง)","บุคคลวัต","อุปมา","อุปลักษณ์"],"a":0,"e":"พบมากในระบำสายฟ้า"},
+ {"q":"การอ่านบท “ระบำสายฟ้า” ให้ไพเราะ ควรใช้น้ำเสียงอย่างไร","o":["เน้นจังหวะหนักเบา เลียนเสียงฟ้าร้องและฝนตกให้เห็นภาพ","อ่านเรียบ ๆ เสียงเดียว","อ่านเร็วที่สุด","อ่านกระซิบ"],"a":0,"e":"ทำนองเสนาะ"},
+ {"q":"ปรากฏการณ์ฟ้าแลบและฟ้าร้องเกิดจากอะไร","o":["ประจุไฟฟ้าในเมฆ เห็นแสงก่อนได้ยินเสียงเพราะแสงเร็วกว่าเสียง","ดวงอาทิตย์","ลมพัด","ภูเขาไฟ"],"a":0,"e":"ความรู้วิทยาศาสตร์ประกอบบทอ่าน"},
+ {"q":"เมื่อฟ้าคะนอง ควรหลบอยู่ที่ใดจึงปลอดภัย","o":["ในอาคาร ไม่อยู่ใต้ต้นไม้ใหญ่หรือกลางที่โล่ง","ใต้ต้นไม้สูง","กลางสนาม","ในน้ำ"],"a":0,"e":"ฟ้าผ่าลงที่สูง"},
+ {"q":"ภาพพจน์ “ฝนตกเหมือนฟ้ารั่ว” เป็นภาพพจน์แบบใด","o":["อุปมา (เปรียบเทียบด้วยคำว่า เหมือน)","บุคคลวัต","สัทพจน์","อุปลักษณ์"],"a":0,"e":"เหมือน ดุจ ราว ประหนึ่ง"},
+ {"q":"ภาพพจน์ “ท้องฟ้าร้องไห้” เป็นภาพพจน์แบบใด","o":["บุคคลวัต (ท้องฟ้าทำกิริยาคน)","อุปมา","สัทพจน์","อติพจน์"],"a":0,"e":"ฝนตก = ฟ้าร้องไห้"},
+ {"q":"“เรื่องเล่าจากพัทลุง” เป็นวรรณกรรมประเภทใด","o":["นิทานพื้นบ้านภาคใต้ที่อธิบายที่มาของสถานที่","ข่าว","บทความวิทยาศาสตร์","จดหมาย"],"a":0,"e":"บทที่ ๔"},
+ {"q":"จังหวัดพัทลุงอยู่ภาคใด และมีลักษณะภูมิประเทศเด่นอย่างไร","o":["ภาคใต้ มีทะเลสาบสงขลาและภูเขา เช่น เขาอกทะลุ","ภาคเหนือ มีดอยสูง","ภาคอีสาน มีที่ราบสูง","ภาคกลาง มีที่ราบลุ่ม"],"a":0,"e":"เขาอกทะลุเป็นสัญลักษณ์จังหวัด"},
+ {"q":"นิทานพื้นบ้านที่อธิบายที่มาของภูเขาหรือสถานที่ เรียกว่าอะไร","o":["ตำนานสถานที่ (ตำนานท้องถิ่น)","นิทานอีสป","ชาดก","เรื่องสั้น"],"a":0,"e":"เช่น ตำนานเขาอกทะลุ"},
+ {"q":"ภาษาถิ่นใต้ที่อาจพบในเรื่องเล่าจากพัทลุง มีลักษณะอย่างไร","o":["พูดเร็ว ห้วน ตัดคำ เช่น “ไม่” เป็น “ม่าย” “หรอย” = อร่อย","เหมือนภาษากลางทุกคำ","เหมือนภาษาเหนือ","ไม่มีลักษณะเฉพาะ"],"a":0,"e":"ความหลากหลายของภาษาไทย"},
+ {"q":"การอ่านนิทานพื้นบ้านของภาคอื่น มีประโยชน์อย่างไร","o":["เข้าใจวัฒนธรรม ความเชื่อ และวิถีชีวิตของคนต่างถิ่น","ไม่มีประโยชน์เพราะไม่ใช่ถิ่นเรา","ใช้สอบเท่านั้น","ทำให้สับสน"],"a":0,"e":"ความเข้าใจและเคารพความหลากหลาย"},
+ {"q":"ทะเลสาบสงขลา ที่อยู่ติดพัทลุง มีลักษณะพิเศษอย่างไร","o":["เป็นทะเลสาบน้ำสามรส (จืด กร่อย เค็ม) ใหญ่ที่สุดในไทย","เป็นทะเลสาบบนภูเขา","เป็นทะเลสาบน้ำเค็มล้วน","เป็นทะเลสาบที่สร้างขึ้น"],"a":0,"e":"มีโลมาอิรวดี"},
+ {"q":"นิทานพื้นบ้านมักสืบทอดกันมาอย่างไร","o":["เล่าปากต่อปากจากรุ่นสู่รุ่น ภายหลังจึงบันทึกเป็นตัวหนังสือ","เขียนเป็นหนังสือตั้งแต่แรก","ผ่านโทรทัศน์","ผ่านอินเทอร์เน็ต"],"a":0,"e":"มุขปาฐะ"},
+ {"q":"“ดวงจันทร์ของลำเจียก” เป็นวรรณกรรมประเภทใด","o":["เรื่องสั้นสำหรับเด็ก","นิทานพื้นบ้าน","บทร้อยกรอง","บทความ"],"a":0,"e":"บทที่ ๕"},
+ {"q":"ชื่อ “ลำเจียก” เป็นชื่อของสิ่งใดด้วย","o":["ดอกไม้ชนิดหนึ่ง (ดอกลำเจียก มีกลิ่นหอม)","ภูเขา","แม่น้ำ","ขนม"],"a":0,"e":"ชื่อตัวละครมักมีความหมาย"},
+ {"q":"“ดวงจันทร์” ในชื่อเรื่อง ดวงจันทร์ของลำเจียก น่าจะสื่อถึงอะไร","o":["สิ่งที่ลำเจียกรักและหวงแหน หรือความฝันความหวัง (ใช้เป็นสัญลักษณ์)","ดาวเทียม","อาหาร","ของเล่น"],"a":0,"e":"การใช้สัญลักษณ์ในวรรณกรรม"},
+ {"q":"องค์ประกอบใดที่เรื่องสั้นต้องมี","o":["ตัวละคร ฉาก โครงเรื่อง แก่นเรื่อง","ตัวเลขและสูตร","แผนที่","ตารางสถิติ"],"a":0,"e":"แก่นเรื่อง = ข้อคิดหลัก"},
+ {"q":"“แก่นเรื่อง” หมายถึงอะไร","o":["สาระสำคัญหรือข้อคิดหลักที่ผู้แต่งต้องการสื่อ","ชื่อตัวละครเอก","ฉากแรกของเรื่อง","จำนวนหน้า"],"a":0,"e":"ถามว่า “เรื่องนี้ต้องการบอกอะไร”"},
+ {"q":"ตัวละครที่มีบทบาทมากที่สุดและเรื่องราวดำเนินผ่านตัวละครนี้ เรียกว่าอะไร","o":["ตัวละครเอก","ตัวละครประกอบ","ตัวร้าย","ผู้เล่าเรื่อง"],"a":0,"e":"เช่น ลำเจียก สุดสาคร"},
+ {"q":"การวิเคราะห์ตัวละคร ควรพิจารณาจากสิ่งใด","o":["คำพูด การกระทำ ความคิด และสิ่งที่ตัวละครอื่นพูดถึง","รูปวาดเท่านั้น","ชื่อเท่านั้น","จำนวนครั้งที่ปรากฏ"],"a":0,"e":"ลักษณะนิสัยตัวละคร"},
+ {"q":"“ห้องสมุดป่า” ในบทที่ ๖ สื่อความหมายว่าอย่างไร","o":["ธรรมชาติและป่าเป็นแหล่งเรียนรู้เหมือนห้องสมุด","ห้องสมุดที่สร้างในป่า","ป่าที่มีหนังสือ","ร้านขายหนังสือ"],"a":0,"e":"เรียนรู้จากธรรมชาติ"},
+ {"q":"จาก “ห้องสมุดป่า” เราเรียนรู้สิ่งใดจากป่าได้บ้าง","o":["ชนิดพืชสัตว์ ความสัมพันธ์ของสิ่งมีชีวิต และการพึ่งพากัน","ไม่มีอะไรให้เรียนรู้","เฉพาะชื่อต้นไม้","เฉพาะเสียงนก"],"a":0,"e":"ระบบนิเวศ"},
+ {"q":"ข้อคิดจาก “ห้องสมุดป่า” คืออะไร","o":["ควรรักและเรียนรู้ธรรมชาติ และช่วยกันอนุรักษ์ป่า","ควรตัดป่าสร้างห้องสมุด","ป่าอันตราย ไม่ควรเข้า","หนังสือดีกว่าธรรมชาติ"],"a":0,"e":"การอนุรักษ์"},
+ {"q":"การใช้คำว่า “ห้องสมุด” เรียกป่า เป็นการใช้ภาพพจน์แบบใด","o":["อุปลักษณ์ (เปรียบป่าเป็นห้องสมุดโดยตรง)","อุปมา","สัทพจน์","บุคคลวัต"],"a":0,"e":"อุปลักษณ์ไม่ใช้คำว่า เหมือน"},
+ {"q":"มารยาทในการเข้าป่าหรือแหล่งธรรมชาติ ข้อใดถูกต้อง","o":["ไม่ส่งเสียงดัง ไม่เก็บพืชหรือจับสัตว์ ไม่ทิ้งขยะ","เด็ดดอกไม้กลับบ้าน","เปิดเพลงดัง","ให้อาหารสัตว์ป่า"],"a":0,"e":"“เก็บไว้แต่ภาพถ่าย ทิ้งไว้แต่รอยเท้า”"},
+ {"q":"บทอาขยาน “สยามานุสสติ” เป็นพระราชนิพนธ์ของใคร","o":["รัชกาลที่ ๖","รัชกาลที่ ๕","สุนทรภู่","รัชกาลที่ ๒"],"a":0,"e":"แต่งเมื่อ พ.ศ. ๒๔๖๑ ช่วงสงครามโลกครั้งที่ ๑"},
+ {"q":"“ใครรานใครรุกด้าว แดนไทย ไทยรบจนสุดใจ ขาดดิ้น” มาจากบทอาขยานใด และสอนอะไร","o":["สยามานุสสติ สอนให้รักชาติและปกป้องแผ่นดิน","พระอภัยมณี สอนไม่ไว้ใจคน","น้ำผึ้งหยดเดียว สอนให้มีสติ","ปากเป็นเอก สอนให้พูดดี"],"a":0,"e":"คำประพันธ์ประเภทโคลงสี่สุภาพ"},
+ {"q":"“สยามานุสสติ” แต่งด้วยคำประพันธ์ชนิดใด","o":["โคลงสี่สุภาพ","กลอนสุภาพ","กาพย์ยานี","ร่าย"],"a":0,"e":"บทละ ๔ บาท มีคำสร้อย"},
+ {"q":"“รานรุก” ในสยามานุสสติ หมายความว่าอย่างไร","o":["รุกราน บุกเข้ามาทำร้าย","เยี่ยมเยียน","ค้าขาย","ช่วยเหลือ"],"a":0,"e":"คำโบราณ"},
+ {"q":"“ปากเป็นเอก เลขเป็นโท หนังสือเป็นตรี ชั่วดีเป็นตรา” คำว่า เอก โท ตรี หมายถึงอะไร","o":["ลำดับที่ ๑ ๒ ๓","ชื่อวรรณยุกต์เท่านั้น","ชื่อคน","ชื่อวิชา"],"a":0,"e":"ปาก (การพูด) สำคัญเป็นอันดับหนึ่ง"},
+ {"q":"ทำไมบทอาขยานจึงจัด “ปาก” (การพูด) เป็นเอก","o":["การพูดดีสร้างมิตรและความสำเร็จ พูดไม่ดีสร้างศัตรู","เพราะปากใช้กินข้าว","เพราะพูดง่ายกว่าเขียน","เพราะคนโบราณไม่มีหนังสือ"],"a":0,"e":"สอดคล้องกับ “ปากเป็นเอก”"},
+ {"q":"“ชั่วดีเป็นตรา” หมายความว่าอย่างไร","o":["ความประพฤติดีหรือชั่วจะติดตัวเป็นเครื่องหมายให้คนจดจำ","ต้องมีตราประทับ","ความชั่วดีไม่สำคัญ","ควรทำตราประจำตัว"],"a":0,"e":"ชื่อเสียงมาจากการกระทำ"},
+ {"q":"บทอาขยาน หมายถึงอะไร","o":["บทร้อยกรองที่กำหนดให้ท่องจำเพราะมีความไพเราะและข้อคิด","บทความวิชาการ","นิทาน","เพลงป๊อป"],"a":0,"e":"อาขยาน = การท่องจำ"},
+ {"q":"การท่องบทอาขยานมีประโยชน์อย่างไร","o":["ฝึกความจำ ซึมซับภาษาไพเราะ และได้ข้อคิด","เสียเวลา","ใช้สอบอย่างเดียว","ไม่มีประโยชน์"],"a":0,"e":"ภาษาที่ดีติดตัวไปตลอด"},
+ {"q":"โคลงสี่สุภาพ ๑ บท มีกี่บาท และคำสร้อยอยู่ท้ายบาทใด","o":["๔ บาท คำสร้อยท้ายบาทที่ ๑ และ ๓","๒ บาท ไม่มีคำสร้อย","๘ บาท คำสร้อยทุกบาท","๔ บาท คำสร้อยท้ายบาทที่ ๔"],"a":0,"e":"เช่น “…แดนไทย” “…ขาดดิ้น” ไม่ใช่คำสร้อย"},
+ {"q":"กลอนสุภาพกับโคลงสี่สุภาพ ต่างกันที่ข้อใด","o":["กลอนบังคับสัมผัสเป็นหลัก โคลงบังคับทั้งสัมผัสและเสียงเอก–โท","เหมือนกัน","โคลงไม่มีสัมผัส","กลอนมีคำสร้อย"],"a":0,"e":"โคลงยากกว่าเพราะมีคำเอก–โท"},
+ {"q":"กลอนสุภาพบทหนึ่งมีกี่วรรค และคำสุดท้ายของวรรคใดต้องสัมผัสกัน","o":["๔ วรรค คำท้ายวรรคสดับสัมผัสกับคำที่ ๓ หรือ ๕ ของวรรครับ และท้ายวรรครับสัมผัสท้ายวรรครอง","๒ วรรค ไม่มีสัมผัส","๖ วรรค สัมผัสทุกวรรค","๔ วรรค สัมผัสเฉพาะวรรคแรก"],"a":0,"e":"ท้ายวรรคส่งสัมผัสกับท้ายวรรครับของบทถัดไป"},
+ {"q":"ในพระอภัยมณี “แล้วสอนว่าอย่าไว้ใจมนุษย์ มันแสนสุดลึกล้ำเหลือกำหนด” คำใดสัมผัสกัน","o":["มนุษย์ กับ สุด","สอน กับ ว่า","อย่า กับ ไว้","ลึก กับ ล้ำ"],"a":0,"e":"สัมผัสสระ อุ + ด"},
+ {"q":"คำว่า “ลึกล้ำ” “เลี้ยวลด” เป็นการเล่นเสียงแบบใด","o":["สัมผัสอักษร (พยัญชนะต้นซ้ำกัน)","สัมผัสสระ","คำซ้ำ","คำพ้อง"],"a":0,"e":"ทำให้กลอนไพเราะ"},
+ {"q":"“วรรณคดี” หมายถึงอะไร","o":["งานเขียนที่ได้รับยกย่องว่าแต่งดี มีคุณค่าทางภาษาและความคิด","หนังสือทุกเล่ม","ข่าว","ตำราเรียน"],"a":0,"e":"เช่น พระอภัยมณี รามเกียรติ์"},
+ {"q":"“วรรณกรรม” ต่างจาก “วรรณคดี” อย่างไร","o":["วรรณกรรมคืองานเขียนทั่วไปทุกชนิด วรรณคดีคือวรรณกรรมที่ได้รับยกย่องว่าดีเด่น","เหมือนกัน","วรรณกรรมเก่ากว่าเสมอ","วรรณคดีคือเรื่องแต่งเท่านั้น"],"a":0,"e":"วรรณคดีเป็นส่วนหนึ่งของวรรณกรรม"},
+ {"q":"“ลำนำ” ในชื่อหนังสือ วรรณคดีลำนำ หมายความว่าอย่างไร","o":["บทเพลง บทกลอนที่ขับร้องหรืออ่านเป็นทำนอง","ลำน้ำ","ชื่อคน","เรื่องเศร้า"],"a":0,"e":"วรรณคดีที่อ่านเป็นทำนองได้"},
+ {"q":"ร้อยแก้วกับร้อยกรองต่างกันอย่างไร","o":["ร้อยแก้วเขียนเป็นความเรียงธรรมดา ร้อยกรองมีฉันทลักษณ์ สัมผัส จังหวะ","เหมือนกัน","ร้อยแก้วต้องสัมผัส","ร้อยกรองคือนิทาน"],"a":0,"e":"น้ำผึ้งหยดเดียว = ร้อยแก้ว, ระบำสายฟ้า = ร้อยกรอง"},
+ {"q":"เรื่องใดในวรรณคดีลำนำ ป.๔ เป็นร้อยกรอง","o":["การผจญภัยของสุดสาคร และระบำสายฟ้า","น้ำผึ้งหยดเดียว","ดวงจันทร์ของลำเจียก","เรื่องเล่าจากพัทลุง"],"a":0,"e":"ที่เหลือเป็นร้อยแก้ว"},
+ {"q":"การอ่านวรรณคดีให้ได้คุณค่า ควรทำอย่างไร","o":["อ่านเข้าใจเรื่อง ชื่นชมความงามของภาษา และนำข้อคิดไปใช้","อ่านให้จบเร็ว ๆ","ท่องจำทุกคำ","อ่านเฉพาะเฉลย"],"a":0,"e":"คุณค่าด้านเนื้อหา ภาษา และสังคม"},
+ {"q":"คุณค่าด้าน “วรรณศิลป์” ของวรรณคดี หมายถึงอะไร","o":["ความงามของภาษา เช่น การเลือกคำ สัมผัส ภาพพจน์","ราคาหนังสือ","ความยาวของเรื่อง","จำนวนตัวละคร"],"a":0,"e":"ศิลปะทางภาษา"},
+ {"q":"คุณค่าด้าน “สังคม” ของวรรณคดี หมายถึงอะไร","o":["สะท้อนวิถีชีวิต ความเชื่อ ค่านิยมของคนในยุคที่แต่ง","จำนวนคนอ่าน","ยอดขาย","ความดังของผู้แต่ง"],"a":0,"e":"เช่น พระอภัยมณีสะท้อนสังคมต้นรัตนโกสินทร์"},
+ {"q":"คำว่า “ฤๅษี” อ่านว่าอย่างไร","o":["รือ-สี","รึ-สี","ลือ-สี","รุ-สี"],"a":0,"e":"ฤๅ ออกเสียง รือ"},
+ {"q":"คำว่า “เหว” หมายถึงอะไร","o":["หุบลึกชันระหว่างภูเขา","ทะเล","ถ้ำ","แม่น้ำ"],"a":0,"e":"สุดสาครถูกผลักตกเหว"},
+ {"q":"คำว่า “ชีเปลือย” หมายถึงอะไร","o":["นักบวชที่ไม่นุ่งห่ม","นักรบ","พ่อค้า","ฤๅษีที่ดี"],"a":0,"e":"ในเรื่องเป็นตัวร้าย"},
+ {"q":"คำว่า “บุตรบุญธรรม” หมายถึงอะไร","o":["ลูกที่รับมาเลี้ยงเป็นลูกของตน","ลูกแท้ ๆ","หลาน","ศิษย์"],"a":0,"e":"ท้าวสุริโยทัยรับสุดสาครเป็นบุตรบุญธรรม"},
+ {"q":"คำว่า “ตอม” ในประโยค “แมลงวันมาตอมน้ำผึ้ง” หมายความว่าอย่างไร","o":["บินวนเวียนเกาะอยู่ใกล้ ๆ","กัด","บินหนี","นอน"],"a":0,"e":"คำกริยา"},
+ {"q":"คำว่า “ตะครุบ” หมายความว่าอย่างไร","o":["โผเข้าจับอย่างรวดเร็ว","ค่อย ๆ เดิน","มอง","ร้อง"],"a":0,"e":"แมวตะครุบจิ้งจก"},
+ {"q":"คำว่า “วิวาท” หมายความว่าอย่างไร","o":["ทะเลาะ ต่อสู้กัน","ช่วยเหลือ","พูดคุย","ร้องเพลง"],"a":0,"e":"ชาวบ้านวิวาทกัน"},
+ {"q":"คำว่า “คะนอง” ในคำว่า “ฟ้าคะนอง” หมายความว่าอย่างไร","o":["แสดงอาการรุนแรง ครึกโครม","เงียบสงบ","สว่าง","มืด"],"a":0,"e":"ฟ้าร้องครืนครั่น"},
+ {"q":"คำว่า “อนุรักษ์” หมายความว่าอย่างไร","o":["รักษาไว้ให้คงอยู่","ทำลาย","ขาย","ซื้อ"],"a":0,"e":"อนุรักษ์ป่า"},
+ {"q":"ประโยค “สุดสาครขี่ม้านิลมังกรเข้าเมือง” คำใดเป็นกริยา","o":["ขี่","สุดสาคร","ม้านิลมังกร","เมือง"],"a":0,"e":"แสดงอาการ"},
+ {"q":"ชื่อ “ม้านิลมังกร” คำว่า “นิล” หมายถึงสีใด","o":["สีดำ","สีขาว","สีแดง","สีทอง"],"a":0,"e":"นิล = พลอยสีดำ"},
+ {"q":"ประโยค “น้ำผึ้งหยดเดียวทำให้บ้านเมืองวุ่นวาย” ส่วนใดเป็นภาคประธาน","o":["น้ำผึ้งหยดเดียว","ทำให้","บ้านเมือง","วุ่นวาย"],"a":0,"e":"ผู้กระทำ"},
+ {"q":"การเขียนแสดงความคิดเห็นต่อตัวละคร “ชีเปลือย” ควรเขียนอย่างไร","o":["บอกความเห็นพร้อมเหตุผลจากพฤติกรรมในเรื่อง เช่น ไม่ซื่อสัตย์เพราะหลอกเด็ก","ด่าด้วยคำหยาบ","เขียนว่าไม่ชอบโดยไม่มีเหตุผล","ลอกจากเพื่อน"],"a":0,"e":"วิจารณ์อย่างมีเหตุผล"},
+ {"q":"ถ้าจะเล่าเรื่อง “น้ำผึ้งหยดเดียว” ให้น้องฟัง ควรเล่าอย่างไร","o":["เล่าตามลำดับเหตุการณ์ ใช้น้ำเสียงและท่าทางประกอบ จบด้วยข้อคิด","เล่าตอนจบก่อน","เล่าเฉพาะตอนทะเลาะ","อ่านจากหนังสือเสียงเดียว"],"a":0,"e":"ทักษะการเล่าเรื่อง"},
+ {"q":"การแสดงบทบาทสมมุติจากวรรณคดี (เช่น เป็นสุดสาคร) มีประโยชน์อย่างไร","o":["เข้าใจตัวละครและเรื่องราวลึกซึ้งขึ้น ฝึกการพูดและความมั่นใจ","เสียเวลา","ไม่มีประโยชน์","ใช้แค่ความสนุก"],"a":0,"e":"เรียนรู้ผ่านการแสดง"},
+ {"q":"ภาพประกอบในหนังสือวรรณคดีลำนำช่วยผู้อ่านอย่างไร","o":["ช่วยให้เห็นภาพตัวละครและฉาก เข้าใจเรื่องง่ายขึ้น","ทำให้หนังสือหนัก","ไม่ช่วยอะไร","ใช้แทนการอ่าน"],"a":0,"e":"เช่น ภาพสุดสาครขี่ม้านิลมังกรบนปก"},
+ {"q":"นักเรียนจะนำข้อคิดจากวรรณคดีลำนำ ป.๔ ทั้ง ๖ บท ไปใช้ในชีวิตได้อย่างไร","o":["ระมัดระวังคนแปลกหน้า มีสติไม่ใจร้อน รักธรรมชาติ และรักชาติ","ท่องจำไว้สอบเท่านั้น","ไม่สามารถนำไปใช้ได้","ใช้เล่าเป็นนิทานขำ ๆ"],"a":0,"e":"วรรณคดีสอนชีวิต"},
+ {"q":"ภาพปกหนังสือวรรณคดีลำนำ ป.๔ เป็นภาพตัวละครใดและกำลังทำอะไร","o":["สุดสาครขี่ม้านิลมังกรออกผจญภัย","พระอภัยมณีเป่าปี่","สินสมุทรสู้กับยักษ์","นางเงือกว่ายน้ำ"],"a":0,"e":"จากบทที่ ๑"},
+ {"q":"ลำดับเหตุการณ์ใดถูกต้องตาม “การผจญภัยของสุดสาคร”","o":["ปราบม้านิลมังกร → ออกตามหาพ่อ → ถูกชีเปลือยผลักตกเหว → ฤๅษีช่วย → ถึงเมืองการะเวก","ถึงเมืองการะเวก → ปราบม้า → ตกเหว","ตกเหว → เกิด → ปราบม้า","ฤๅษีช่วย → ตกเหว → ปราบม้า"],"a":0,"e":"ฝึกเรียงลำดับเรื่อง"},
+],
+};
+
+const SET_NAMES = {1:'🐉 วรรณคดีลำนำ ๑๐๐ ข้อ'};
+// ---------- storage ----------
+const KEY='exam100-literature-best';
+const SEENKEY='exam100-literature-seen';
+function loadSeen(){try{return JSON.parse(localStorage.getItem(SEENKEY)||'{}')}catch(e){return {}}}
+function saveSeen(x){try{localStorage.setItem(SEENKEY,JSON.stringify(x))}catch(e){}}
+let seen=loadSeen();
+for(const k in BANK)BANK[k].forEach((q,i)=>q.id=k+'-'+i);
+function seenCount(set){const p=pool(),s=new Set(seen[set]||[]);return p.filter(q=>s.has(q.id)).length}
+function loadBest(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function saveBest(b){try{localStorage.setItem(KEY,JSON.stringify(b))}catch(e){}}
+let best=loadBest();
+
+// ---------- render chapters ----------
+function linkHref(id){
+  if(id.startsWith('http')||id.endsWith('.html')||id.startsWith('../')) return id;
+  if(id.startsWith('dltv:')) return 'https://dltv.ac.th/teachplan/episode/'+id.slice(5);
+  if(id.startsWith('pl:')) return 'https://www.youtube.com/playlist?list='+id.slice(3);
+  return 'https://www.youtube.com/watch?v='+id;
+}
+const tagName={v:'วิดีโอ',k:'อ่าน',d:'DLTV'};
+const chWrap=document.getElementById('chapters');
+CHAPTERS.forEach(c=>{
+  const el=document.createElement('article');el.className='ch';el.id='ch'+c.n;
+  const b=best[c.n];
+  el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label||TH[c.n-1]}</div>
+      <div class="ch-title">
+        <h3>${c.title}</h3>
+        <small>${c.focus}</small>
+        <span class="best" data-best="${c.n}">${b?`คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'ยังไม่เคยทำแบบทดสอบ'}</span>
+      </div>
+      <div class="ch-actions">
+        <button class="btn btn-primary" data-toggle="${c.n}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button>
+        <button class="btn btn-gold" data-quiz="${c.n}">✏️ ทำข้อสอบ</button>
+      </div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+  chWrap.appendChild(el);
+});
+chWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]');
+  if(t){
+    const el=document.getElementById('ch'+t.dataset.toggle);
+    const open=el.classList.toggle('open');
+    const hasV=!!el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(hasV?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+    const v=el.querySelector('.video');
+    if(v&&open&&!v.firstChild){
+      const f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';
+      f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;
+      v.appendChild(f);
+    }
+    return;
+  }
+  const q=e.target.closest('[data-quiz]');
+  if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+
+// ---------- quiz ----------
+const setsEl=document.getElementById('sets');
+let currentSet='1';
+Object.keys(SET_NAMES).forEach(k=>{
+  const b=document.createElement('button');b.className='chip';b.dataset.set=k;b.textContent=SET_NAMES[k];
+  b.setAttribute('aria-pressed',k===currentSet);b.addEventListener('click',()=>selectSet(k));setsEl.appendChild(b);
+});
+function selectSet(k){
+  currentSet=String(k);
+  setsEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.set===currentSet));
+  const n=pool().length;const b=best[currentSet];
+  document.getElementById('pick-info').innerHTML=`${SET_NAMES[currentSet]} · ${n} ข้อ`+(b?` · คะแนนสูงสุด <b>${b.s}/${b.t}</b>`:'');
+  showView('picker');
+}
+function pool(){return currentSet==='all'?Object.values(BANK).flat():BANK[currentSet]}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let qs=[],idx=0,score=0,answers=[];
+const $=id=>document.getElementById(id);
+function showView(v){['picker','play','done'].forEach(x=>$(x).classList.toggle('hidden',x!==v))}
+function start(){
+  const want=$('count').value;const all=pool();const sset=new Set(seen[currentSet]||[]);let unseen=shuffle(all.filter(q=>!sset.has(q.id)));let seenQ=shuffle(all.filter(q=>sset.has(q.id)));
+  const need=want==='all'?all.length:Math.min(Number(want),all.length);
+  let src;
+  if(unseen.length>=need){src=unseen.slice(0,need);}
+  else{ src=unseen.concat(seenQ.slice(0,need-unseen.length)); seen[currentSet]=[]; sset.clear(); }
+  qs=src.map(q=>{const order=shuffle([0,1,2,3]);return {id:q.id,q:q.q,e:q.e,o:order.map(i=>q.o[i]),a:order.indexOf(q.a)}});
+  idx=0;score=0;answers=[];$('score-live').textContent='0';$('q-set').textContent=SET_NAMES[currentSet];
+  showView('play');render();
+}
+function render(){
+  const q=qs[idx];
+  $('q-count').textContent=`ข้อ ${idx+1} / ${qs.length}`;
+  $('bar').style.width=(idx/qs.length*100)+'%';
+  $('q-text').textContent=q.q;
+  const o=$('opts');o.innerHTML='';
+  q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<b>${['ก','ข','ค','ง'][i]}</b><span>${t}</span>`;b.addEventListener('click',()=>answer(i));o.appendChild(b)});
+  const ex=$('explain');ex.className='explain';ex.innerHTML='';
+  $('next').classList.add('hidden');
+}
+function answer(i){
+  const q=qs[idx];const ok=i===q.a;if(ok)score++;
+  if(!seen[currentSet])seen[currentSet]=[];if(!seen[currentSet].includes(q.id)){seen[currentSet].push(q.id);saveSeen(seen);}
+  answers.push({q:q.q,ok,correct:q.o[q.a],chosen:q.o[i]});
+  $('opts').querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  const ex=$('explain');ex.className='explain show '+(ok?'ok':'no');
+  ex.innerHTML=`<strong>${ok?'🎉 ถูกต้อง!':'❌ ยังไม่ถูก คำตอบคือ “'+q.o[q.a]+'”'}</strong><br>${q.e}`;
+  $('score-live').textContent=score;
+  const n=$('next');n.classList.remove('hidden');n.textContent=idx===qs.length-1?'ดูผลคะแนน 🏁':'ข้อต่อไป →';n.focus();
+}
+$('next').addEventListener('click',()=>{idx++;if(idx<qs.length)render();else finish()});
+$('quit').addEventListener('click',()=>showView('picker'));
+$('start').addEventListener('click',start);
+
+$('again').addEventListener('click',start);
+$('back').addEventListener('click',()=>selectSet(currentSet));
+function finish(){
+  $('bar').style.width='100%';
+  const t=qs.length,p=score/t;
+  const prev=best[currentSet];
+  if(!prev||score/prev.t>prev.s/prev.t||(score/t===prev.s/prev.t&&t>prev.t)){best[currentSet]={s:score,t};saveBest(best);
+    const bl=document.querySelector(`[data-best="${currentSet}"]`);if(bl)bl.innerHTML=`คะแนนสูงสุด <b>${score}/${t}</b>`;}
+  $('stars').textContent=p===1?'⭐⭐⭐':p>=.7?'⭐⭐':p>=.4?'⭐':'🌱';
+  $('final').textContent=`${score}/${t}`;
+  $('msg').textContent=p===1?'สุดยอด! เต็มคะแนน 🎉':p>=.8?'เก่งมาก ใกล้เต็มแล้ว!':p>=.6?'ดีมาก ทบทวนอีกนิดจะเยี่ยม':p>=.4?'พอใช้ ลองดูวิดีโอแล้วทำใหม่นะ':'ไม่เป็นไร ดูวิดีโอบทเรียนแล้วมาลองใหม่';
+  $('review').innerHTML=answers.map((a,i)=>`<div class="${a.ok?'':'miss'}"><b>${i+1}.</b> ${a.q}<br>${a.ok?'✅ '+a.correct:'❌ ตอบ “'+a.chosen+'” · คำตอบที่ถูก “'+a.correct+'”'}</div>`).join('');
+  showView('done');window.scrollTo({top:$('quiz').offsetTop-8,behavior:'smooth'});
+}
+selectSet('1');
+</script>
+</body>
+</html>
