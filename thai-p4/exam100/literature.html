@@ -144,6 +144,7 @@ section{padding-block:28px}
 .hidden{display:none!important}
 footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line);margin-top:12px}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.clip-group{font-family:Mitr,sans-serif;font-size:20px;margin:22px 0 10px;color:var(--plum)}
 </style>
 </head>
 <body>
@@ -172,6 +173,7 @@ footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid v
   </div>
   <nav class="nav">
     <a href="#lessons">📚 ก่อนสอบดูอะไร</a>
+    <a href="#clips">🎬 คลิปทีละบท</a>
     <a href="#workbook">📚 สรุปที่ต้องจำ</a>
     <a href="#quiz">🏆 ทำแบบทดสอบ</a>
   </nav>
@@ -183,6 +185,14 @@ footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid v
     <p>กด ✏️ ทำข้อสอบ แล้วทำให้ครบ ๑๐๐ ข้อ · ตอบแล้วเห็นเฉลยทันที · ตัวเลือกและลำดับข้อสลับใหม่ทุกครั้ง</p>
   </div>
   <div class="chapters" id="chapters"></div>
+</section>
+
+<section id="clips">
+  <div class="sec-head">
+    <h2>คลิปสอนทีละบท 🎬</h2>
+    <p>กด ▶ ดูวิดีโอ เพื่อดูคลิปในหน้านี้เลย · ดูจบแล้วเลื่อนขึ้นไปทำข้อสอบของเล่มนั้น</p>
+  </div>
+  <div id="clipwrap"></div>
 </section>
 
 <section id="workbook">
@@ -422,6 +432,48 @@ chWrap.addEventListener('click',e=>{
   }
   const q=e.target.closest('[data-quiz]');
   if(q){selectSet(q.dataset.quiz);document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+});
+const CLIPS=[
+ {group:'🐉 คลิปวรรณคดีลำนำ ป.๔ (๖ บท + บทอาขยาน)',items:[
+  {id:'w1',label:'๑',title:'การผจญภัยของสุดสาคร',video:"22dvK2PiFCM",links:[["IPCv97h-JSs", "คลิปสอนบทที่ ๑ (ครูปุ๊ก)", "v"], ["ZiCB-qwcVMg", "บทร้อยกรอง (ครูโอ๋)", "v"], ["yqY1Hu3T6h0", "การ์ตูน สุดสาครเจอชีเปลือย", "v"]]},
+  {id:'w2',label:'๒',title:'น้ำผึ้งหยดเดียว',video:"qPXarj07CMQ",links:[["Hq8oKlz9Q9Q", "คลิปสอน (ครูเป็ดขี้เหร่)", "v"]]},
+  {id:'w3',label:'๓',title:'ระบำสายฟ้า',video:"6qWg4vNhoAI",links:[["TiqP1rr2olE", "คลิปสอนบทที่ ๓", "v"], ["2-PsWVaaOR4", "สื่อการสอน (ครูโอ๋)", "v"], ["Z1-tpJ3Or38", "คำศัพท์จากบทเรียน", "v"]]},
+  {id:'w4',label:'๔',title:'เรื่องเล่าจากพัทลุง',video:"ozaTB48xfME",links:[["MiFKLxBczDI", "อ่านเสริมเติมความรู้ (ครูโอ๋)", "v"]]},
+  {id:'w5',label:'๕',title:'ดวงจันทร์ของลำเจียก',video:"jzv25nK0gOQ",links:[["dltv:55613", "DLTV ดวงจันทร์ของลำเจียก", "d"]]},
+  {id:'w6',label:'๖',title:'ห้องสมุดป่า',video:"TEMIsPA0SWA",links:[["EJvFRUsLRI4", "คลิปสอนบทที่ ๖ (อีกช่อง)", "v"], ["pl:PLP1Mm4trw_zLHMvYybBRoYTpNPigGAhEI", "เพลย์ลิสต์วรรณคดีลำนำ ป.๔ ทุกบท", "v"]]},
+  {id:'w7',label:'อา',title:'บทอาขยาน สยามานุสสติ',video:"qztG9dgzaio",links:[["7HIOguGeREk", "อ่านทำนองเสนาะ สยามานุสสติ", "v"], ["Bs9KqXMQLfU", "ท่องบทอาขยาน", "v"]]},
+  {id:'w8',label:'อา',title:'บทอาขยาน ปากเป็นเอก เลขเป็นโท',video:"Y7KOSMqRG0Y",links:[["IpuOR1iFTdQ", "บทอาขยานบทเลือก ป.๔", "v"]]},
+  {id:'w9',label:'อา',title:'บทอาขยาน สุดสาครเข้าเมืองการะเวก',video:"yH0RN9q2XjU",links:[["6N4gMACB8Oc", "“บัดเดี๋ยวดัง” อ่านทำนองเสนาะ", "v"], ["N0IwQf2NhXs", "บทอาขยานหลัก (ครูโอ๋)", "v"]]},
+ ]},
+];
+const clipWrap=document.getElementById('clipwrap');
+CLIPS.forEach(g=>{
+  const h=document.createElement('h3');h.className='clip-group';h.textContent=g.group;clipWrap.appendChild(h);
+  const grid=document.createElement('div');grid.className='chapters';clipWrap.appendChild(grid);
+  g.items.forEach(c=>{
+    const el=document.createElement('article');el.className='ch';el.id='clip-'+c.id;
+    el.innerHTML=`
+    <div class="ch-row">
+      <div class="num">${c.label}</div>
+      <div class="ch-title"><h3>${c.title}</h3><small>${c.video?'คลิปหลัก ๑ + สื่อเสริม '+c.links.length:'สื่อเสริม '+c.links.length}</small></div>
+      <div class="ch-actions"><button class="btn btn-primary" data-ctoggle="${c.id}">${c.video?"▶ ดูวิดีโอ":"📎 เปิดสื่อการสอน"}</button></div>
+    </div>
+    <div class="ch-body">
+      ${c.video?`<div class="video" data-video="${c.video}"></div>`:``}
+      <div class="links">
+        ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video}" target="_blank" rel="noopener"><span class="tag">YouTube</span> เปิดวิดีโอหลักในแอป YouTube</a>`:``}
+        ${c.links.map(l=>`<a href="${linkHref(l[0])}" target="_blank" rel="noopener"><span class="tag ${l[2]}">${tagName[l[2]]}</span> ${l[1]}</a>`).join('')}
+      </div>
+    </div>`;
+    grid.appendChild(el);
+  });
+});
+clipWrap.addEventListener('click',e=>{
+  const t=e.target.closest('[data-ctoggle]');if(!t)return;
+  const el=document.getElementById('clip-'+t.dataset.ctoggle);
+  const open=el.classList.toggle('open');
+  const v=el.querySelector('.video');t.textContent=open?'▲ ซ่อน':(v?'▶ ดูวิดีโอ':'📎 เปิดสื่อการสอน');
+  if(v&&open&&!v.firstChild){const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.video+'?rel=0';f.title='วิดีโอบทเรียน';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;v.appendChild(f);}
 });
 
 // ---------- quiz ----------
